@@ -1,17 +1,26 @@
-package com.uphill.web.controller;
+package com.uphill.web.common;
 
 public class ActionForward {
-	private String path = "";
-	
+	private String path = "";	
 	private boolean isRedirect = false;
+	
+	private final String prefix = "/WEB-INF/views";
+	private final String suffix = ".jsp";
 	
 	public ActionForward() {}
 	
+	/*
+	 * isRedirect는 false가 기본값
+	 */
 	public ActionForward(String path) {
 		super();
 		this.path = path;
 	}
 	
+	/*
+	 * isRedirect가 true면 redirect
+	 * isRedirect가 false면 forward
+	 */
 	public ActionForward(String path, boolean isRedirect) {
 		super();
 		this.path = path;
@@ -19,18 +28,10 @@ public class ActionForward {
 	}
 
 	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
+		return prefix + path + suffix;
 	}
 
 	public boolean isRedirect() {
 		return isRedirect;
-	}
-
-	public void setRedirect(boolean isRedirect) {
-		this.isRedirect = isRedirect;
 	}
 }

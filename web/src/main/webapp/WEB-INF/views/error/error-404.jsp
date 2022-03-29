@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:forward page="/WEB-INF/views/home/home.jsp"/>
+	<h1>error-404</h1>
 </body>
 </html>
