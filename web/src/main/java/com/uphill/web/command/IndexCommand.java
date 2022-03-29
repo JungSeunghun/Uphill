@@ -9,5 +9,5 @@ public class IndexCommand implements Command {
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		return "index/index";
 	}
-
+	
 }
