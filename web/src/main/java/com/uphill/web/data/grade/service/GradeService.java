@@ -9,4 +9,5 @@ public interface GradeService {
 	GradeVO getGrade(int gradeId);
 	boolean registGrade(GradeVO gradeVO);
 	boolean updateGrade(GradeVO gradeVO);
+	boolean deleteGrade(GradeVO gradeVO);
 }

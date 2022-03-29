@@ -30,4 +30,10 @@ public class GradeServiceImplement implements GradeService{
 		return false;
 	}
 
+	@Override
+	public boolean deleteGrade(GradeVO gradeVO) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
