@@ -1,48 +1,30 @@
-package com.uphill.web.data.ask.dto;
+package com.uphill.web.data.productpost.dto;
 
 import java.util.Date;
 
-public class AskVO {
-	private int askId;
-	private int askReplyId;
+public class ProductPostVO {
 	private int productPostId;
+	private int itemId;
 	private int userId;
-	private Date reviewDate;
+	private Date postDate;
 	private String title;
 	private String content;
-	private String file;
+	private String imageFile;
 	private int hits;
 	
-	public AskVO() {}
+	public ProductPostVO() {}
 	
-	public AskVO(int askId, int askReplyId, int productPostId, int userId, Date reviewDate, String title,
-			String content, String file, int hits) {
+	public ProductPostVO(int productPostId, int itemId, int userId, Date postDate, String title, String content,
+			String imageFile, int hits) {
 		super();
-		this.askId = askId;
-		this.askReplyId = askReplyId;
 		this.productPostId = productPostId;
+		this.itemId = itemId;
 		this.userId = userId;
-		this.reviewDate = reviewDate;
+		this.postDate = postDate;
 		this.title = title;
 		this.content = content;
-		this.file = file;
+		this.imageFile = imageFile;
 		this.hits = hits;
-	}
-
-	public int getAskId() {
-		return askId;
-	}
-
-	public void setAskId(int askId) {
-		this.askId = askId;
-	}
-
-	public int getAskReplyId() {
-		return askReplyId;
-	}
-
-	public void setAskReplyId(int askReplyId) {
-		this.askReplyId = askReplyId;
 	}
 
 	public int getProductPostId() {
@@ -53,6 +35,14 @@ public class AskVO {
 		this.productPostId = productPostId;
 	}
 
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
@@ -61,12 +51,12 @@ public class AskVO {
 		this.userId = userId;
 	}
 
-	public Date getReviewDate() {
-		return reviewDate;
+	public Date getPostDate() {
+		return postDate;
 	}
 
-	public void setReviewDate(Date reviewDate) {
-		this.reviewDate = reviewDate;
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
 	}
 
 	public String getTitle() {
@@ -85,12 +75,12 @@ public class AskVO {
 		this.content = content;
 	}
 
-	public String getFile() {
-		return file;
+	public String getImageFile() {
+		return imageFile;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setImageFile(String imageFile) {
+		this.imageFile = imageFile;
 	}
 
 	public int getHits() {

@@ -14,6 +14,8 @@ public class ReviewVO {
 	private int hits;
 	private int recommend;
 	
+	public ReviewVO() {}
+	
 	public ReviewVO(int reviewId, int productPostId, int userId, Date postDate, int starRating, String title,
 			String content, String imageFile, int hits, int recommend) {
 		super();

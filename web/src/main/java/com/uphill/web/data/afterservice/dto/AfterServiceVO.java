@@ -1,20 +1,21 @@
-package com.uphill.web.data.information.dto;
+package com.uphill.web.data.afterservice.dto;
 
 import java.util.Date;
 
-public class InformationVO {
-	private int informationId;
+public class AfterServiceVO {
+	private int afterServiceId;
 	private int userId;
 	private Date postDate;
 	private String title;
 	private String content;
 	private String imageFile;
 	
-	public InformationVO() {}
+	public AfterServiceVO() {}
 	
-	public InformationVO(int informationId, int userId, Date postDate, String title, String content, String imageFile) {
+	public AfterServiceVO(int afterServiceId, int userId, Date postDate, String title, String content,
+			String imageFile) {
 		super();
-		this.informationId = informationId;
+		this.afterServiceId = afterServiceId;
 		this.userId = userId;
 		this.postDate = postDate;
 		this.title = title;
@@ -23,13 +24,13 @@ public class InformationVO {
 	}
 
 
-	public int getInformationId() {
-		return informationId;
+	public int getAfterServiceId() {
+		return afterServiceId;
 	}
 
 
-	public void setInformationId(int informationId) {
-		this.informationId = informationId;
+	public void setAfterServiceId(int afterServiceId) {
+		this.afterServiceId = afterServiceId;
 	}
 
 
