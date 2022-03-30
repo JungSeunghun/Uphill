@@ -20,25 +20,19 @@ header {
 	padding: 0px 40px;
 	font-size: 0.75rem;
 	justify-content: flex-end;
+	align-items: center;
 }
 
-header div {
-	display: flex;
+header a {
 	width: 64px;
 	text-align: center;
 	margin-left: 16px;
-	align-items: center;
-	justify-content: center;
 }
 
 #gnb {
 	width: 100%;
 	height: 56px;
 	background-color: #111111;
-}
-
-#gnb a {
-	color: #ffffff;	
 }
 
 #gnb section {
@@ -48,23 +42,23 @@ header div {
 	margin: 0px auto;
 	padding: 0px 40px;
 	font-size: 1rem;
+	align-items: center;
 }
 
-
-#gnb section div {
-	display: flex;
+#gnb section a {
+	color: #ffffff;
 	width: 64px;
 	text-align: center;
 	margin-right: 16px;
-	align-items: center;
-	justify-content: center;
 }
 
-#gnb section div:nth-last-child(1) {
+#gnb section a:nth-last-child(1) {
 	margin-left: 16px;
 	margin-right: 0px;
 }
-#gnb section div:nth-last-child(2) {
+
+#gnb section a:nth-last-child(2) {
 	margin-left: auto;
 	margin-right: 0px;
 }
+
