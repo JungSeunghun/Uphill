@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="../common/header.jsp" %>
-	<%@ include file="../common/gnb.jsp" %>
+	<%@ include file="../../common/header.jsp" %>
+	<%@ include file="../../common/gnb.jsp" %>
 	
 	<section>
 	
 	</section>
 	
-	<%@ include file="../common/footer.jsp" %>
+	<%@ include file="../../common/footer.jsp" %>
 </body>
 </html>

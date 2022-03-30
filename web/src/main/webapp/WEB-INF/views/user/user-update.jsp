@@ -7,6 +7,14 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<h1>error-500</h1>
+	<%@ include file="../common/header.jsp" %>
+	<%@ include file="../common/gnb.jsp" %>
+	<%@ include file="../common/snb.jsp" %>
+	
+	<section>
+	
+	</section>
+	
+	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
