@@ -3,13 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <footer>
-	<div>
+	<div id="top">
 		<div><a href="">회사소개</a></div>
 		<div><a href="">이용약관</a></div>
 		<div><a href="">개인정보취급방침</a></div>
 		<div><a href="">이메일주소무단수집거부</a></div>
 	</div>
-	<div>
+	<div id=>
 		<div><img alt="uphill_logo_black" src="${contextPath }/images/logos/uphill_logo_black.svg"></div>
 		<div>
 		상호 : (주)업힐자전거 l 사업자등록번호 : 000-00-00000<br>
