@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.member.dto.MemberVO;
 
 public interface MemberService {
-	List<MemberVO> getAllMembers();
+	List<MemberVO> getMemberList();
 	MemberVO getMember(int userId);
 	MemberVO getMember(String userEnterId);
 	boolean registMember(MemberVO memberVO);

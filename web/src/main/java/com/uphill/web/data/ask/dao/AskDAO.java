@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.ask.dto.AskVO;
 
 public class AskDAO {
-	public List<AskVO> selectAllAsks(){
+	public List<AskVO> selectAskList(){
 		return null;
 		
 	}

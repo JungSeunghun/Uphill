@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.mainbanner.dto.MainBannerVO;
 
 public class MainBannerDAO {
-	public List<MainBannerVO> selectAllMainBanners() {
+	public List<MainBannerVO> selectMainBannerList() {
 		return null;
 	}
 	

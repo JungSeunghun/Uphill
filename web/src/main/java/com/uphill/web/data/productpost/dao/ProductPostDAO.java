@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.productpost.dto.ProductPostVO;
 
 public class ProductPostDAO {
-	public List<ProductPostVO> selectAllProductPosts(){
+	public List<ProductPostVO> selectProductPostList(){
 		return null;
 	}
 	public ProductPostVO selectProductPost(int productPost) {

@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.order.dto.OrderVO;
 
 public class OrderDAO {
-	public List<OrderVO> selectAllOrders(){
+	public List<OrderVO> selectOrderList(){
 		return null;
 	}
 	

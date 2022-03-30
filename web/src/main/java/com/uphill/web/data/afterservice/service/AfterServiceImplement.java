@@ -7,7 +7,7 @@ import com.uphill.web.data.afterservice.dto.AfterServiceVO;
 public class AfterServiceImplement implements AfterServiceService{
 
 	@Override
-	public List<AfterServiceVO> getAllAfterServices() {
+	public List<AfterServiceVO> getAfterServiceList() {
 		// TODO 자동 생성된 메소드 스텁
 		return null;
 	}

@@ -7,7 +7,7 @@ import com.uphill.web.data.member.dto.MemberVO;
 public class MemberServiceImplement implements MemberService{
 
 	@Override
-	public List<MemberVO> getAllMembers() {
+	public List<MemberVO> getMemberList() {
 		// TODO Auto-generated method stub
 		return null;
 	}

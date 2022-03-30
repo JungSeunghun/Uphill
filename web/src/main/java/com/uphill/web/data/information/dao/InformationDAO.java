@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.information.dto.InformationVO;
 
 public class InformationDAO {
-	public List<InformationVO> selectAllInformations(){
+	public List<InformationVO> selectInformationList(){
 		return null;
 		
 	}

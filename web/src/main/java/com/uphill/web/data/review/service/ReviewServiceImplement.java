@@ -7,7 +7,7 @@ import com.uphill.web.data.review.dto.ReviewVO;
 public class ReviewServiceImplement implements ReviewService{
 
 	@Override
-	public List<ReviewVO> getAllReviews() {
+	public List<ReviewVO> getReviewList() {
 		// TODO 자동 생성된 메소드 스텁
 		return null;
 	}

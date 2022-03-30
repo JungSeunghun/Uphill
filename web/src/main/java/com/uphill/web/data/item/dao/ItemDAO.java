@@ -5,23 +5,23 @@ import java.util.List;
 import com.uphill.web.data.item.dto.ItemVO;
 
 public class ItemDAO {
-	List<ItemVO> selectAllItems() {
+	List<ItemVO> selectItemList() {
 		return null;
 	}
 	
-	List<ItemVO> selectItemsByCategory(int itemCategoryId) {
+	List<ItemVO> selectItemList(String itemName) {
+		return null;
+	}
+	
+	List<ItemVO> selectItemListByCategory(int itemCategoryId) {
 		return null;
 	}
 
-	List<ItemVO> selectItemsByCategory(int itemCategoryId, int itemSubcategory) {
+	List<ItemVO> selectItemListByCategory(int itemCategoryId, int itemSubcategory) {
 		return null;
 	}
 	
-	List<ItemVO> selectBestSellers(int itemCategoryId) {
-		return null;
-	}
-	
-	List<ItemVO> selectItems(String itemName) {
+	List<ItemVO> selectBestSellerList(int itemCategoryId) {
 		return null;
 	}
 	

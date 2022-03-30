@@ -7,7 +7,7 @@ import com.uphill.web.data.productpost.dto.ProductPostVO;
 public class ProductPostServiceImplement implements ProductPostService{
 
 	@Override
-	public List<ProductPostVO> getAllProductPosts() {
+	public List<ProductPostVO> getProductPostList() {
 		// TODO 자동 생성된 메소드 스텁
 		return null;
 	}

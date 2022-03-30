@@ -5,11 +5,11 @@ import java.util.List;
 import com.uphill.web.data.basket.dto.BasketVO;
 
 public class BasketDAO {
-	public List<BasketVO> getAllBaskets() {
+	public List<BasketVO> selectBasketList() {
 		return null;
 	}
 	
-	public List<BasketVO> getUserBaskets(int userId) {
+	public List<BasketVO> selectUserBasketList(int userId) {
 		return null;
 	}
 	

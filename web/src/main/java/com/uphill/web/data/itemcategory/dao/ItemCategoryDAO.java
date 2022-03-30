@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.itemcategory.dto.ItemCategoryVO;
 
 public class ItemCategoryDAO {
-	List<ItemCategoryVO> selectAllItemCategories() {
+	List<ItemCategoryVO> selectItemCategoryList() {
 		return null;
 	}
 

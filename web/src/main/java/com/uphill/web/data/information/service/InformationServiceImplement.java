@@ -7,7 +7,7 @@ import com.uphill.web.data.information.dto.InformationVO;
 public class InformationServiceImplement implements InformationService{
 
 	@Override
-	public List<InformationVO> getAllInformations() {
+	public List<InformationVO> getInformationList() {
 		// TODO 자동 생성된 메소드 스텁
 		return null;
 	}

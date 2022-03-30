@@ -7,7 +7,7 @@ import com.uphill.web.data.notice.dto.NoticeVO;
 public class NoticeServiceimplement implements NoticeService{
 
 	@Override
-	public List<NoticeVO> getAllNotices() {
+	public List<NoticeVO> getNoticeList() {
 		// TODO 자동 생성된 메소드 스텁
 		return null;
 	}

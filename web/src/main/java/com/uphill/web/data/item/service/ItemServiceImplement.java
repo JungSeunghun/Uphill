@@ -7,31 +7,31 @@ import com.uphill.web.data.item.dto.ItemVO;
 public class ItemServiceImplement implements ItemService {
 
 	@Override
-	public List<ItemVO> getAllItems() {
+	public List<ItemVO> getItemList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<ItemVO> getItemList(String itemName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ItemVO> getItemsByCategory(int itemCategoryId) {
+	public List<ItemVO> getItemListByCategory(int itemCategoryId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ItemVO> getItemsByCategory(int itemCategory, int itemSubcategory) {
+	public List<ItemVO> getItemListByCategory(int itemCategory, int itemSubcategory) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ItemVO> getBestSellers(int itemCategoryId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ItemVO> searchItems(String itemName) {
+	public List<ItemVO> getBestSellerList(int itemCategoryId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

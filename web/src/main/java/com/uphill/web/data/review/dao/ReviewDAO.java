@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.review.dto.ReviewVO;
 
 public class ReviewDAO {
-	public List<ReviewVO> selectAllReviews() {
+	public List<ReviewVO> selectReviewList() {
 		return null;
 	}
 	public ReviewVO selectReview(int reviewId) {

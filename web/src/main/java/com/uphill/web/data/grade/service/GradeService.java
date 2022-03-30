@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.grade.dto.GradeVO;
 
 public interface GradeService {
-	List<GradeVO> getAllGrades();
+	List<GradeVO> getGradeList();
 	GradeVO getGrade(int gradeId);
 	boolean registGrade(GradeVO gradeVO);
 	boolean updateGrade(GradeVO gradeVO);

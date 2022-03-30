@@ -1,4 +1,4 @@
-package com.uphill.web.data.itemOption.dto;
+package com.uphill.web.data.itemoption.dto;
 
 public class ItemOptionVO {
 	private int itemOptionId;

@@ -1,13 +1,13 @@
-package com.uphill.web.data.itemOption.service;
+package com.uphill.web.data.itemoption.service;
 
 import java.util.List;
 
-import com.uphill.web.data.itemOption.dto.ItemOptionVO;
+import com.uphill.web.data.itemoption.dto.ItemOptionVO;
 
 public class ItemOptionServiceImplement implements ItemOptionService{
 
 	@Override
-	public List<ItemOptionVO> getAllItemOptions() {
+	public List<ItemOptionVO> getItemOptionList() {
 		// TODO Auto-generated method stub
 		return null;
 	}

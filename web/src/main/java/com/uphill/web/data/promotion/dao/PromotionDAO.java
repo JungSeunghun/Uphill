@@ -6,7 +6,7 @@ import com.uphill.web.data.promotion.dto.PromotionVO;
 
 
 public class PromotionDAO {
-	public List<PromotionVO> selectAllPromotions(){
+	public List<PromotionVO> selectPromotionList(){
 		return null;
 	}
 	public PromotionVO selectPromotion(int promitionId){

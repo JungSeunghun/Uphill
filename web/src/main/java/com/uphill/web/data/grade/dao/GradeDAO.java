@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.grade.dto.GradeVO;
 
 public class GradeDAO {
-	public List<GradeVO> selectAllGrades() {
+	public List<GradeVO> selectGradeList() {
 		return null;
 	}
 	

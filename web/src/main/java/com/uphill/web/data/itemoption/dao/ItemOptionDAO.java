@@ -1,11 +1,11 @@
-package com.uphill.web.data.itemOption.dao;
+package com.uphill.web.data.itemoption.dao;
 
 import java.util.List;
 
-import com.uphill.web.data.itemOption.dto.ItemOptionVO;
+import com.uphill.web.data.itemoption.dto.ItemOptionVO;
 
 public class ItemOptionDAO {
-	List<ItemOptionVO> selectAllItemOptions() {
+	List<ItemOptionVO> selectItemOptionList() {
 		return null;
 	}
 	

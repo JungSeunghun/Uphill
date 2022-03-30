@@ -7,7 +7,7 @@ import com.uphill.web.data.itemcategory.dto.ItemCategoryVO;
 public class ItemCategoryServiceImplement implements ItemCategoryService{
 
 	@Override
-	public List<ItemCategoryVO> getAllItemCategories() {
+	public List<ItemCategoryVO> getItemCategoryList() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -7,7 +7,7 @@ import com.uphill.web.data.mainbanner.dto.MainBannerVO;
 public class MainBannerServiceImplement implements MainBannerService {
 
 	@Override
-	public List<MainBannerVO> getAllMainBanners() {
+	public List<MainBannerVO> getMainBannerList() {
 		// TODO 자동 생성된 메소드 스텁
 		return null;
 	}

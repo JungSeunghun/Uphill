@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.review.dto.ReviewVO;
 
 public interface ReviewService {
-	List<ReviewVO> getAllReviews();
+	List<ReviewVO> getReviewList();
 	ReviewVO getReview(int reviewId);
 	boolean registReview(ReviewVO reviewVO);
 	boolean updateReview(ReviewVO reviewVO);

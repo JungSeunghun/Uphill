@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.member.dto.MemberVO;
 
 public class MemberDAO {
-	List<MemberVO> selectAllMembers() {
+	List<MemberVO> selectMemberList() {
 		return null;
 	}
 	

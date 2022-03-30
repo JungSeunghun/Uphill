@@ -1,11 +1,11 @@
-package com.uphill.web.data.itemOption.service;
+package com.uphill.web.data.itemoption.service;
 
 import java.util.List;
 
-import com.uphill.web.data.itemOption.dto.ItemOptionVO;
+import com.uphill.web.data.itemoption.dto.ItemOptionVO;
 
 public interface ItemOptionService {
-	List<ItemOptionVO> getAllItemOptions();
+	List<ItemOptionVO> getItemOptionList();
 	ItemOptionVO getItemOption(int ItemOptionId);
 	boolean registItemOption(ItemOptionVO itemOptionVO);
 	boolean updateItemOption(ItemOptionVO itemOptionVO);

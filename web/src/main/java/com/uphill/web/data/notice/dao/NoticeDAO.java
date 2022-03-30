@@ -6,7 +6,7 @@ import com.uphill.web.data.notice.dto.NoticeVO;
 
 public class NoticeDAO {
 
-	public List<NoticeVO> selectAllNotices(){
+	public List<NoticeVO> selectNoticeList(){
 		return null;
 	}
 	public NoticeVO selectNotice(int noticeId){

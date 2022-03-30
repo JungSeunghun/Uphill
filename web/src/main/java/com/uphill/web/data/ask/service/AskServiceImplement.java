@@ -7,7 +7,7 @@ import com.uphill.web.data.ask.dto.AskVO;
 public class AskServiceImplement implements AskService{
 
 	@Override
-	public List<AskVO> getAllAsks() {
+	public List<AskVO> getAskList() {
 		// TODO 자동 생성된 메소드 스텁
 		return null;
 	}

@@ -7,7 +7,7 @@ import com.uphill.web.data.grade.dto.GradeVO;
 public class GradeServiceImplement implements GradeService{
 
 	@Override
-	public List<GradeVO> getAllGrades() {
+	public List<GradeVO> getGradeList() {
 		// TODO Auto-generated method stub
 		return null;
 	}

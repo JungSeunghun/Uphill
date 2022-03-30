@@ -5,7 +5,7 @@ import java.util.List;
 import com.uphill.web.data.afterservice.dto.AfterServiceVO;
 
 public class AfterServiceDAO {
-	public List<AfterServiceVO> selectAllAfterServices(){
+	public List<AfterServiceVO> selectAfterServiceList(){
 		return null;
 		
 	}
