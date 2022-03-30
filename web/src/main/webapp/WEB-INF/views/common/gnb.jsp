@@ -23,10 +23,10 @@
 			<a href="">커뮤니티</a>
 		</div>
 		<div>
-			<a href=""><img id="white_icon" alt="search icon" src="${contextPath }/images/icons/search_icon_white.svg"></a>
+			<a href=""><img alt="search icon" src="${contextPath }/images/icons/search_icon_white.svg" width="16px"></a>
 		</div>
 		<div>
-			<a href=""><img id="white_icon" alt="basket icon" src="${contextPath }/images/icons/basket_icon_white.svg"></a>
+			<a href=""><img alt="basket icon" src="${contextPath }/images/icons/basket_icon_white.svg" width="16px"></a>
 		</div>
 	</section>
 </nav>
