@@ -59,3 +59,7 @@ header div {
 	justify-content: center;
 }
 
+#gnb #white_icon {
+	fill: #ffffff;
+}
+
