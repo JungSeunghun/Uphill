@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <nav>
 	<div>
-		<a href=""><img alt="uphill logo small" src=""></a>
+		<a href=""><img alt="uphill_logo_black" src="/images/logos/uphill_logo_black.svg"></a>
 	</div>
 	<div>
 		<a href="">소개</a>
