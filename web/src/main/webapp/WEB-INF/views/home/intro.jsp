@@ -11,7 +11,7 @@
 	<%@ include file="../common/gnb.jsp" %>
 	
 	<section>
-	
+		<div></div>
 	</section>
 	
 	<%@ include file="../common/footer.jsp" %>
