@@ -12,7 +12,15 @@
 	<%@ include file="../common/snb.jsp" %>
 	
 	<section>
-	
+		<div>
+			<h2>홍길동 회원님 반갑습니다!</h2>
+		</div>
+		<div>
+			<p>등급:실버</p>
+		</div>
+		<div>
+			<p>포인트:10,000</p>
+		</div>
 	</section>
 	
 	<%@ include file="../common/footer.jsp" %>
