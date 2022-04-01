@@ -13,11 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.action.connect.Join1Action;
+import com.uphill.web.action.connect.Join2Action;
+import com.uphill.web.action.connect.LoginAction;
+import com.uphill.web.action.connect.MoveFindIdPageAction;
+import com.uphill.web.action.connect.MoveFindPasswordPageAction;
+import com.uphill.web.action.connect.MoveJoinPageAction;
 import com.uphill.web.action.home.HomeAction;
 import com.uphill.web.common.ViewResolver;
 
-@WebServlet("*.up")
-public class LoginFrontController extends HttpServlet{
+@WebServlet("*.connect")
+public class ConnectFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -26,7 +32,12 @@ public class LoginFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		
+		actionMap.put("/login.connect", new LoginAction());
+		actionMap.put("/join1.connect", new Join1Action());
+		actionMap.put("/join2.connect", new Join2Action());
+		actionMap.put("/moveJoinPage.connect", new MoveJoinPageAction());
+		actionMap.put("/moveFindIdPage.connect", new MoveFindIdPageAction());
+		actionMap.put("/moveFindPasswordPage.connect", new MoveFindPasswordPageAction());
 	}
 	
 	@Override

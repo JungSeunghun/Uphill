@@ -31,16 +31,6 @@ public class FrontController extends HttpServlet{
 		
 	}
 	
-	// 태경씨
-	private void initLoginAction() {
-		
-	}
-	
-	// 동준씨
-	private void initUserAction() {
-		
-	}
-	
 	private void initCommunityAction() {
 		
 	}

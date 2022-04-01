@@ -11,18 +11,14 @@
 	<%@ include file="../common/gnb.jsp" %>
 	<%@ include file="../common/snb.jsp" %>	
 	<section>
-		<div>
-			<h2>홍길동 회원님 반갑습니다!</h2>
-		</div>
-		<div>
-			<p>등급:실버</p>
-		</div>
-		<div>
-			<p>포인트:10,000</p>
-		</div>
-		<div>
-			<input type="button" value="탈퇴하기">
-		</div>
+		<form action="leave.user" name="f" method="post">
+			<div>
+				<h2>홍길동 회원님 반갑습니다!</h2>
+				<p>등급:실버</p>
+				<p>포인트:10,000</p>
+				<input type="button" value="탈퇴하기">
+			</div>
+		</form>
 	</section>	
 	<%@ include file="../common/footer.jsp" %>
 </body>

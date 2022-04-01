@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.action.home.HomeAction;
+import com.uphill.web.action.user.MovePurchasePageAction;
+import com.uphill.web.action.user.PurchaseAction;
 import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.user")
@@ -25,6 +27,8 @@ public class UserFrontController extends HttpServlet{
 		
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		actionMap.put("/movePurchasePage.user", new MovePurchasePageAction());
+		actionMap.put("/purchase.user", new PurchaseAction());
 	}
 	
 	@Override

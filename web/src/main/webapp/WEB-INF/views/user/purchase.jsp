@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,70 +12,32 @@
 	<%@ include file="../common/gnb.jsp" %>
 	<%@ include file="../common/snb.jsp" %>
 		<section>
-		<form action="" name="" method="post">
-		<div>
-			<img src="">
-		</div>
-		<div>
-			<p>1,000,000원</p>
-		</div>
-		<div>
-			<p>★★★★☆(3)</p>
-		</div>
-		<div>
-			<p>자전거 이름/색상/프레임/구동계/휠</p>
-		</div>
-		<div>
-			<p>1</p>
-		</div>
-		<div>
-			<p>주문금액</p>
-		</div>
-		<div>
-			<p>1,000,000원</p>
-		</div>
-		<div>
-			<img src="">
-		</div>
-		<div>
-			<p>1,000,000원</p>
-		</div>
-		<div>
-			<p>★★★★☆(3)</p>
-		</div>
-		<div>
-			<p>자전거 이름/색상/프레임/구동계/휠</p>
-		</div>
-		<div>
-			<p>1</p>
-		</div>
-		<div>
-			<p>주문금액</p>
-		</div>
-		<div>
-			<p>1,000,000원</p>
-		</div>
-		<div>
-			<img src="">
-		</div>
-		<div>
-			<p>1,000,000원</p>
-		</div>
-		<div>
-			<p>★★★★☆(3)</p>
-		</div>
-		<div>
-			<p>자전거 이름/색상/프레임/구동계/휠</p>
-		</div>
-		<div>
-			<p>2</p>
-		</div>
-		<div>
-			<p>주문금액</p>
-		</div>
-		<div>
-			<p>2,000,000원</p>
-		</div>
+		<form action="purchase.user" name="f" method="post">
+			<c:forEach var="" items="${itemList }">			
+				<div>
+					<div>
+						<img src="">
+					</div>
+					<div>
+						<p>1,000,000원</p>
+					</div>
+					<div>
+						<p>★★★★☆(3)</p>
+					</div>
+					<div>
+						<p>자전거 이름/색상/프레임/구동계/휠</p>
+					</div>
+					<div>
+						<p>1</p>
+					</div>
+					<div>
+						<p>주문금액</p>
+					</div>
+					<div>
+						<p>1,000,000원</p>
+					</div>
+				</div>
+			</c:forEach>
 			<div>
 				<p>수령인</p>
 				<input type="text" name="" size="">
@@ -123,8 +86,8 @@
 			 	<label><input type="radio" name="" value="">&nbsp;휴대폰</label>			 	
 			</div>
 			<div>
-			<input type="button" name="" size="" value="결제하기" onclick="">
-		</div>
+				<input type="button" name="" size="" value="결제하기" onclick="">
+			</div>
 		</form>
 	</section>	
 	<%@ include file="../common/footer.jsp" %>

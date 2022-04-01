@@ -14,7 +14,7 @@
 		<h2>어서오세요</h2>
 	</div>
 	<section>
-		<form action="" name="" method="post">
+		<form action="login.connect" name="f" method="post">
 				<div>
 					<p>아이디</p>
 					<input type="text" name="" size="">
@@ -32,7 +32,9 @@
 	</section>
 	<section>
 		<div>
-			<input type="button" name="" size="" value="회원가입" onclick="">
+			<form action="moveJoinPage.connect" name="f2" method="post">
+				<input type="submit" value="회원가입">
+			</form>
 		</div>
 	</section>	
 </body>
