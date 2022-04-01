@@ -3,8 +3,8 @@ package com.uphill.web.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.uphill.web.common.ActionForward;
+import com.uphill.web.common.ViewResolver;
 
 public interface Action {
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response);
+	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response);
 }

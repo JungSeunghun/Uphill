@@ -4,16 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.common.ActionForward;
+import com.uphill.web.common.ViewResolver;
 
 public class HomeAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ActionForward forward = new ActionForward("/home/home");
+		ViewResolver viewResolver = new ViewResolver("/home/home", true);
 		
-		return forward;
+		return viewResolver;
 	}
 	
 }

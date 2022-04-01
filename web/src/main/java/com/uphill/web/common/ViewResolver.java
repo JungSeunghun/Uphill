@@ -1,18 +1,18 @@
 package com.uphill.web.common;
 
-public class ActionForward {
+public class ViewResolver {
 	private String path = "";	
 	private boolean isRedirect = false;
 	
 	private final String prefix = "/WEB-INF/views";
 	private final String suffix = ".jsp";
 	
-	public ActionForward() {}
+	public ViewResolver() {}
 	
 	/*
 	 * isRedirect는 false가 기본값
 	 */
-	public ActionForward(String path) {
+	public ViewResolver(String path) {
 		super();
 		this.path = path;
 	}
@@ -21,7 +21,7 @@ public class ActionForward {
 	 * isRedirect가 true면 redirect
 	 * isRedirect가 false면 forward
 	 */
-	public ActionForward(String path, boolean isRedirect) {
+	public ViewResolver(String path, boolean isRedirect) {
 		super();
 		this.path = path;
 		this.isRedirect = isRedirect;
@@ -31,7 +31,7 @@ public class ActionForward {
 		if(path.endsWith(".up")) {
 			return path;
 		}
-			
+		
 		return prefix + path + suffix;
 	}
 

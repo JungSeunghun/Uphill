@@ -17,37 +17,16 @@ import com.uphill.web.action.home.HomeAction;
 import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.up")
-public class FrontController extends HttpServlet{
+public class LoginFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
 	private Map<String, Action> actionMap = new HashMap<String, Action>();
-		
-	private void initHomeAction() {
-		
-	}
 	
-	private void initItemAction() {
-		
-	}
-	
-	// 태경씨
-	private void initLoginAction() {
-		
-	}
-	
-	// 동준씨
-	private void initUserAction() {
-		
-	}
-	
-	private void initCommunityAction() {
-		
-	}
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/home.up", new HomeAction());
+		
 	}
 	
 	@Override
