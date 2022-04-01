@@ -9,8 +9,7 @@
 <body>
 	<%@ include file="../common/header.jsp" %>
 	<%@ include file="../common/gnb.jsp" %>
-	<%@ include file="../common/snb.jsp" %>
-	
+	<%@ include file="../common/snb.jsp" %>	
 	<section>
 		<div>
 			<h2>홍길동 회원님 반갑습니다!</h2>
@@ -21,8 +20,10 @@
 		<div>
 			<p>포인트:10,000</p>
 		</div>
-	</section>
-	
+		<div>
+			<input type="button" value="탈퇴하기">
+		</div>
+	</section>	
 	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>

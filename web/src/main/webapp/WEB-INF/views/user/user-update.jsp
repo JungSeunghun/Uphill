@@ -11,9 +11,6 @@
 	<%@ include file="../common/gnb.jsp" %>
 	<%@ include file="../common/snb.jsp" %>
 	<section>
-	<div>
-		<img src="" alt="이미지를 표시할 수 없을때  출력할 내용" width="" height="" loading="이미지 로딩 방식">
-	</div>
 		<form action="" name="" method="post">
 			<div>
 				<p>비밀번호</p>

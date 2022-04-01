@@ -12,6 +12,69 @@
 	<%@ include file="../common/snb.jsp" %>
 		<section>
 		<form action="" name="" method="post">
+		<div>
+			<img src="">
+		</div>
+		<div>
+			<p>1,000,000원</p>
+		</div>
+		<div>
+			<p>★★★★☆(3)</p>
+		</div>
+		<div>
+			<p>자전거 이름/색상/프레임/구동계/휠</p>
+		</div>
+		<div>
+			<p>1</p>
+		</div>
+		<div>
+			<p>주문금액</p>
+		</div>
+		<div>
+			<p>1,000,000원</p>
+		</div>
+		<div>
+			<img src="">
+		</div>
+		<div>
+			<p>1,000,000원</p>
+		</div>
+		<div>
+			<p>★★★★☆(3)</p>
+		</div>
+		<div>
+			<p>자전거 이름/색상/프레임/구동계/휠</p>
+		</div>
+		<div>
+			<p>1</p>
+		</div>
+		<div>
+			<p>주문금액</p>
+		</div>
+		<div>
+			<p>1,000,000원</p>
+		</div>
+		<div>
+			<img src="">
+		</div>
+		<div>
+			<p>1,000,000원</p>
+		</div>
+		<div>
+			<p>★★★★☆(3)</p>
+		</div>
+		<div>
+			<p>자전거 이름/색상/프레임/구동계/휠</p>
+		</div>
+		<div>
+			<p>2</p>
+		</div>
+		<div>
+			<p>주문금액</p>
+		</div>
+		<div>
+			<p>2,000,000원</p>
+		</div>
 			<div>
 				<p>수령인</p>
 				<input type="text" name="" size="">
@@ -40,6 +103,18 @@
 			<div>
 				<p>배송요청</p>
 				<input type="text" name="" size="">
+			</div>
+			<div>
+				<p>총 주문금액</p>
+			</div>
+			<div>
+				<p>3,000,000원</p>
+			</div>
+			<div>
+				<p>포인트적립액</p>
+			</div>
+			<div>
+				<p>300000p(silver)</p>
 			</div>
 			<div>
 			 	<p>결제수단</p>
