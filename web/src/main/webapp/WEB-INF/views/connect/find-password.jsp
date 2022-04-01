@@ -11,7 +11,7 @@
 		<img src="" alt="이미지를 표시할 수 없을때  출력할 내용" width="" height="" loading="이미지 로딩 방식">
 	</div>
 	<section>
-		<form action="" name="" method="post">
+		<form action="findPassword.connect" name="" method="post">
 			<div>
 				<h2>비밀번호 찾기</h2>
 			</div>

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.action.connect.FindIdAction;
+import com.uphill.web.action.connect.FindPasswordAction;
 import com.uphill.web.action.connect.Join1Action;
 import com.uphill.web.action.connect.Join2Action;
 import com.uphill.web.action.connect.LoginAction;
@@ -38,6 +40,8 @@ public class ConnectFrontController extends HttpServlet{
 		actionMap.put("/moveJoinPage.connect", new MoveJoinPageAction());
 		actionMap.put("/moveFindIdPage.connect", new MoveFindIdPageAction());
 		actionMap.put("/moveFindPasswordPage.connect", new MoveFindPasswordPageAction());
+		actionMap.put("/findId.connect", new FindIdAction());
+		actionMap.put("findPassword.connect", new FindPasswordAction());
 	}
 	
 	@Override
