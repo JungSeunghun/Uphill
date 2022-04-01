@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 	<%@ include file="../common/gnb.jsp" %>
 	<%@ include file="../common/snb.jsp" %>
 	<section>
-		<form action="" name="" method="post">
+		<form action="update.user" name="f" method="post">
 			<div>
 				<p>비밀번호</p>
 				<input type="text" name="" size="">
