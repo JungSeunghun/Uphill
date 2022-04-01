@@ -28,6 +28,10 @@ public class ActionForward {
 	}
 
 	public String getPath() {
+		if(path.endsWith(".up")) {
+			return path;
+		}
+			
 		return prefix + path + suffix;
 	}
 

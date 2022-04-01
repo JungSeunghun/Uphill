@@ -20,7 +20,7 @@ public interface DataBaseUtil {
 			Context envContext = (Context)initialContext.lookup("java:comp/env");
 			
 			// name으로 커넥션 풀인 DataSource객체를 얻어와
-			DataSource dataSource = (DataSource)envContext.lookup("jdbc/dogTest");
+			DataSource dataSource = (DataSource)envContext.lookup("jdbc/MySQLDB");
 			
 			connection = dataSource.getConnection(); // Connection 객체를 얻어와
 			
@@ -68,7 +68,6 @@ public interface DataBaseUtil {
 	public static void commit(Connection connection) {
 		try {
 			connection.commit();
-			System.out.println("commit success");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -77,7 +76,6 @@ public interface DataBaseUtil {
 	public static void rollback(Connection connection) {
 		try {
 			connection.rollback();
-			System.out.println("rollback success");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
