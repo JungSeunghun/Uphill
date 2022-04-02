@@ -12,6 +12,10 @@ html {
 	font-size: 16px;
 }
 
+ul {
+	list-style: none;
+}
+
 header {
 	display: flex;
 	width: 1024px;
@@ -31,11 +35,11 @@ header a {
 
 #gnb {
 	width: 100%;
-	height: 56px;
+	height: 224px;
 	background-color: #111111;
 }
 
-#gnb section {
+#gnb #gnb-list {
 	display: flex;
 	width: 1024px;
 	height: 56px;
@@ -45,21 +49,70 @@ header a {
 	align-items: center;
 }
 
-#gnb section a {
-	color: #ffffff;
+#gnb #gnb-list li {
 	width: 64px;
 	text-align: center;
 	margin-right: 16px;
 }
 
-#gnb section a:nth-last-child(1) {
+#gnb #gnb-list li:nth-last-child(1) {
 	margin-left: 16px;
 	margin-right: 0px;
 }
 
-#gnb section a:nth-last-child(2) {
+#gnb #gnb-list li:nth-last-child(2) {
 	margin-left: auto;
 	margin-right: 0px;
+}
+
+#gnb #gnb-list a {
+	color: #ffffff;
+}
+
+#gnb #gnb-list a:hover {
+	color: #cfff94;
+}
+
+#gnb #category {
+	width: 100%;
+	height: 168px;
+	background-color: #111111;
+	z-index: 100;
+}
+
+#gnb #category div{
+	display: flex;
+	width: 1024px;
+	height: 168px;
+	margin: 0px auto;
+	padding: 0px 40px;
+	font-size: 1rem;
+	align-items: flex-start;
+}
+
+#gnb #category div ul{
+	width: 64px;
+	text-align: center;
+	margin-right: 16px;
+}
+
+#gnb #category div ul li{
+	display: flex;
+	height: 56px;
+	justify-content: center;
+	align-items: center;
+}
+
+#gnb #category div a{
+	color: #ffffff;
+}
+
+#gnb #category div a:hover {
+	color: #cfff94;
+}
+
+section{
+	z-index: 0;
 }
 
 footer {

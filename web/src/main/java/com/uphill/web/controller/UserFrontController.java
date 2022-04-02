@@ -16,6 +16,7 @@ import com.uphill.web.action.Action;
 import com.uphill.web.action.user.PurchasePageAction;
 import com.uphill.web.action.user.BasketPageAction;
 import com.uphill.web.action.user.LeaveAction;
+import com.uphill.web.action.user.MyPageAction;
 import com.uphill.web.action.user.PurchaseAction;
 import com.uphill.web.action.user.UpdateAction;
 import com.uphill.web.common.ViewResolver;
@@ -29,6 +30,7 @@ public class UserFrontController extends HttpServlet{
 		
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		actionMap.put("/myPage.user", new MyPageAction());
 		actionMap.put("/basketPage.user", new BasketPageAction());
 		actionMap.put("/purchasePage.user", new PurchasePageAction());
 		actionMap.put("/purchase.user", new PurchaseAction());
@@ -50,8 +52,10 @@ public class UserFrontController extends HttpServlet{
 		ViewResolver viewResolver = null;
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);
-		} else {
+			viewResolver = action.execute(request, response);	
+		}
+		
+		if(viewResolver == null) {
 			viewResolver = new ViewResolver(command, true);
 		}
 		

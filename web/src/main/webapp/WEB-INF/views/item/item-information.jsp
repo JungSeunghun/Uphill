@@ -32,14 +32,14 @@
 				<div>제품 후기</div>
 				<c:forEach var="" items="">
 				</c:forEach>
-				<button>후기남기기</button>
+				<a href="reviewPage.item">후기남기기</a>
 			</div>
 			
 			<div>
 				<div>제품 문의</div>
 				<c:forEach var="" items="">
 				</c:forEach>
-				<button>문의하기</button>
+				<a href="askPage.item">문의하기</a>
 			</div>
 			
 			<div>
@@ -63,8 +63,8 @@
 				<div></div>
 				<button></button>
 			</c:forEach>
-			<button>구매하기</button>
-			<button>장바구니</button>
+			<a href="buy">구매하기</a>
+			<a href="">장바구니</a>
 		</div>
 	</section>
 	

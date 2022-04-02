@@ -1,4 +1,4 @@
-package com.uphill.web.action.home;
+package com.uphill.web.action.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.common.ViewResolver;
 
-public class LogoutAction implements Action {
+public class MyPageAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {

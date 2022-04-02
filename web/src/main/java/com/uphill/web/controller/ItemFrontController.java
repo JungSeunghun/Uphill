@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.action.item.ItemInformationPageAction;
+import com.uphill.web.action.item.ItemListPageAction;
+import com.uphill.web.action.item.AskPageAction;
+import com.uphill.web.action.item.ReviewPageAction;
 import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.item")
@@ -24,6 +28,10 @@ public class ItemFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		actionMap.put("itemListPage.item", new ItemListPageAction());
+		actionMap.put("itemInformationPage.item", new ItemInformationPageAction());
+		actionMap.put("reviewPage.item", new ReviewPageAction());
+		actionMap.put("askPage.item", new AskPageAction());
 	}
 	
 	@Override
@@ -40,8 +48,10 @@ public class ItemFrontController extends HttpServlet{
 		ViewResolver viewResolver = null;
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);
-		} else {
+			viewResolver = action.execute(request, response);	
+		}
+		
+		if(viewResolver == null) {
 			viewResolver = new ViewResolver(command, true);
 		}
 		

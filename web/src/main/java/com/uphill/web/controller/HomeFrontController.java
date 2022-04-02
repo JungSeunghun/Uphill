@@ -16,10 +16,6 @@ import com.uphill.web.action.Action;
 import com.uphill.web.action.home.CustomerPageAction;
 import com.uphill.web.action.home.HomeAction;
 import com.uphill.web.action.home.IntroPageAction;
-import com.uphill.web.action.home.JoinPageAction;
-import com.uphill.web.action.home.LoginPageAction;
-import com.uphill.web.action.home.LogoutAction;
-import com.uphill.web.action.home.MyPageAction;
 import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.home")
@@ -34,10 +30,6 @@ public class HomeFrontController extends HttpServlet{
 		actionMap.put("/home.home", new HomeAction());
 		actionMap.put("/introPage.home", new IntroPageAction());
 		actionMap.put("/customerPage.home", new CustomerPageAction());
-		actionMap.put("/loginPage.home", new LoginPageAction());
-		actionMap.put("/joinPage.home", new JoinPageAction());
-		actionMap.put("/myPage.home", new MyPageAction());
-		actionMap.put("/logout.home", new LogoutAction());
 	}
 	
 	@Override
@@ -54,8 +46,10 @@ public class HomeFrontController extends HttpServlet{
 		ViewResolver viewResolver = null;
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);
-		} else {
+			viewResolver = action.execute(request, response);	
+		}
+		
+		if(viewResolver == null) {
 			viewResolver = new ViewResolver(command, true);
 		}
 		

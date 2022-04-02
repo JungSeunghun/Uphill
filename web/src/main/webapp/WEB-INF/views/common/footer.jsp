@@ -3,13 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <footer>
-	<section id="up">
+	<div id="up">
 		<a href="#">회사소개</a>
 		<a href="#">이용약관</a>
 		<a href="#">개인정보취급방침</a>
 		<a href="#">이메일주소무단수집거부</a>
-	</section>
-	<section id="down">
+	</div>
+	<div id="down">
 		<img alt="uphill_logo_black" src="${contextPath }/images/logos/uphill_logo_black.svg">
 		<p>
 			상호 : (주)업힐자전거 l 사업자등록번호 : 000-00-00000<br>
@@ -17,5 +17,5 @@
 			개인정보 관리자 : 정승훈 l E-MAIL : uphill@uphill.com<br>
 			Copyrightⓒ 2022. UpHill Corporation. All rights reserved.
 		</p>
-	</section>
+	</div>
 </footer>

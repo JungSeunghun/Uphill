@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.action.community.NoticePageAction;
 import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.community")
@@ -24,6 +25,7 @@ public class CommunityController extends HttpServlet{
 		
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		actionMap.put("noticePage.community", new NoticePageAction());
 	}
 	
 	@Override
@@ -40,8 +42,10 @@ public class CommunityController extends HttpServlet{
 		ViewResolver viewResolver = null;
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);
-		} else {
+			viewResolver = action.execute(request, response);	
+		}
+		
+		if(viewResolver == null) {
 			viewResolver = new ViewResolver(command, true);
 		}
 		

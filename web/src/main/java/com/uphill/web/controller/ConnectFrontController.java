@@ -21,6 +21,8 @@ import com.uphill.web.action.connect.Join1Action;
 import com.uphill.web.action.connect.Join2Action;
 import com.uphill.web.action.connect.JoinPageAction;
 import com.uphill.web.action.connect.LoginAction;
+import com.uphill.web.action.connect.LoginPageAction;
+import com.uphill.web.action.connect.LogoutAction;
 import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.connect")
@@ -33,8 +35,10 @@ public class ConnectFrontController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		actionMap.put("/login.connect", new LoginAction());
+		actionMap.put("/logout.connect", new LogoutAction());
 		actionMap.put("/join1.connect", new Join1Action());
 		actionMap.put("/join2.connect", new Join2Action());
+		actionMap.put("/loginPage.home", new LoginPageAction());
 		actionMap.put("/joinPage.connect", new JoinPageAction());
 		actionMap.put("/findIdPage.connect", new FindIdPageAction());
 		actionMap.put("/findPasswordPage.connect", new FindPasswordPageAction());
@@ -56,8 +60,10 @@ public class ConnectFrontController extends HttpServlet{
 		ViewResolver viewResolver = null;
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);
-		} else {
+			viewResolver = action.execute(request, response);	
+		}
+		
+		if(viewResolver == null) {
 			viewResolver = new ViewResolver(command, true);
 		}
 		
