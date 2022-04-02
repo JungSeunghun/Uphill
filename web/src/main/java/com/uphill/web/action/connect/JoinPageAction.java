@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.common.ViewResolver;
 
-public class MoveFindIdPageAction implements Action {
+public class JoinPageAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<img src="" alt="이미지를 표시할 수 없을때  출력할 내용" width="" height="" loading="이미지 로딩 방식">
+		<img src="" alt="이미지를 표시할 수 없을때  출력할 내용">
 	</div>
 	<div>
 		<h2>어서오세요</h2>
@@ -32,7 +32,7 @@
 	</section>
 	<section>
 		<div>
-			<form action="moveJoinPage.connect" name="f2" method="post">
+			<form action="joinPage.connect" name="f2" method="post">
 				<input type="submit" value="회원가입">
 			</form>
 		</div>

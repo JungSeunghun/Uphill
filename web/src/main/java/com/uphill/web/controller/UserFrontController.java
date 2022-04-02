@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.home.HomeAction;
-import com.uphill.web.action.user.MovePurchasePageAction;
+import com.uphill.web.action.user.PurchasePageAction;
+import com.uphill.web.action.user.BasketPageAction;
+import com.uphill.web.action.user.LeaveAction;
 import com.uphill.web.action.user.PurchaseAction;
 import com.uphill.web.action.user.UpdateAction;
 import com.uphill.web.common.ViewResolver;
@@ -28,9 +29,11 @@ public class UserFrontController extends HttpServlet{
 		
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/movePurchasePage.user", new MovePurchasePageAction());
+		actionMap.put("/basketPage.user", new BasketPageAction());
+		actionMap.put("/purchasePage.user", new PurchasePageAction());
 		actionMap.put("/purchase.user", new PurchaseAction());
 		actionMap.put("/update.user", new UpdateAction());
+		actionMap.put("/leave.user", new LeaveAction());
 	}
 	
 	@Override
@@ -49,16 +52,11 @@ public class UserFrontController extends HttpServlet{
 		if(action != null) {
 			viewResolver = action.execute(request, response);
 		} else {
-			// action이 없으면 command를 리다이렉트시킴
 			viewResolver = new ViewResolver(command, true);
 		}
 		
-		if(viewResolver.isRedirect()) { // 리다이렉트 방식 : 새요청, 기존 request 공유못함
-			response.sendRedirect(viewResolver.getPath());
-		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
-			dispatcher.forward(request, response);
-		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
+		dispatcher.forward(request, response);
 	}
 
 }

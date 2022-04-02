@@ -13,18 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.connect.FindIdAction;
-import com.uphill.web.action.connect.FindIdPageAction;
-import com.uphill.web.action.connect.FindPasswordAction;
-import com.uphill.web.action.connect.FindPasswordPageAction;
-import com.uphill.web.action.connect.Join1Action;
-import com.uphill.web.action.connect.Join2Action;
-import com.uphill.web.action.connect.JoinPageAction;
-import com.uphill.web.action.connect.LoginAction;
 import com.uphill.web.common.ViewResolver;
 
-@WebServlet("*.connect")
-public class ConnectFrontController extends HttpServlet{
+@WebServlet("*.item")
+public class ItemFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -32,14 +24,6 @@ public class ConnectFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/login.connect", new LoginAction());
-		actionMap.put("/join1.connect", new Join1Action());
-		actionMap.put("/join2.connect", new Join2Action());
-		actionMap.put("/joinPage.connect", new JoinPageAction());
-		actionMap.put("/findIdPage.connect", new FindIdPageAction());
-		actionMap.put("/findPasswordPage.connect", new FindPasswordPageAction());
-		actionMap.put("/findId.connect", new FindIdAction());
-		actionMap.put("/findPassword.connect", new FindPasswordAction());
 	}
 	
 	@Override

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:forward page="home.up"/>
+	<a href="home.home">홈으로 이동</a>
 </body>
 </html>

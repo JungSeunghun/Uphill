@@ -4,10 +4,10 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <footer>
 	<section id="up">
-		<a href="">회사소개</a>
-		<a href="">이용약관</a>
-		<a href="">개인정보취급방침</a>
-		<a href="">이메일주소무단수집거부</a>
+		<a href="#">회사소개</a>
+		<a href="#">이용약관</a>
+		<a href="#">개인정보취급방침</a>
+		<a href="#">이메일주소무단수집거부</a>
 	</section>
 	<section id="down">
 		<img alt="uphill_logo_black" src="${contextPath }/images/logos/uphill_logo_black.svg">

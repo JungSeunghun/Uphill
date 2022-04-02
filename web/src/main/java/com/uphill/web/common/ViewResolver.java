@@ -2,9 +2,9 @@ package com.uphill.web.common;
 
 public class ViewResolver {
 	private String path = "";	
-	private boolean isRedirect = false;
+	private boolean isCommand = false;
 	
-	private final String prefix = "/WEB-INF/views";
+	private final String prefix = "/WEB-INF/views/";
 	private final String suffix = ".jsp";
 	
 	public ViewResolver() {}
@@ -21,21 +21,20 @@ public class ViewResolver {
 	 * isRedirect가 true면 redirect
 	 * isRedirect가 false면 forward
 	 */
-	public ViewResolver(String path, boolean isRedirect) {
+	public ViewResolver(String path, boolean isCommand) {
 		super();
 		this.path = path;
-		this.isRedirect = isRedirect;
+		this.isCommand = isCommand;
 	}
 
 	public String getPath() {
-		if(path.endsWith(".up")) {
+		if(isCommand) {
 			return path;
 		}
-		
 		return prefix + path + suffix;
 	}
 
-	public boolean isRedirect() {
-		return isRedirect;
+	public boolean isCommand() {
+		return isCommand;
 	}
 }

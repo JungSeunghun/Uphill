@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.common.ViewResolver;
 
-public class MoveFindPasswordPageAction implements Action {
+public class FindPasswordPageAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {

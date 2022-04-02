@@ -4,30 +4,50 @@
 <nav>
 	<c:if test="${param.page=='bicycle' }">
 		<div>
-			<a href="">전체</a>
+			<div>
+				<a href="allBicycles.item">전체</a>
+			</div>
+			<div>
+				<a href="mtb.item">MTB</a>
+			</div>
+			<div>
+				<a href="raod.item">Road</a>
+			</div>
+			<div>
+				<a href="minivelo.item">MiniVelo</a>
+			</div>
 		</div>
+	</c:if>
+	<c:if test="${param.page=='item' }">
 		<div>
-			<a href="">MTB</a>
-		</div>
-		<div>
-			<a href="">Road</a>
-		</div>
-		<div>
-			<a href="">MiniVelo</a>
+			<div>
+				<a href="allItems.item">전체</a>
+			</div>
+			<div>
+				<a href="helmet.item">헬멧</a>
+			</div>
+			<div>
+				<a href="light.item">라이트</a>
+			</div>
+			<div>
+				<a href="lock.item">자물쇠</a>
+			</div>
 		</div>
 	</c:if>
 	<c:if test="${param.page=='user' }">
 		<div>
-			<a href="">장바구니</a>
-		</div>
-		<div>
-			<a href="">주문내역</a>
-		</div>
-		<div>
-			<a href="">회원정보</a>
-		</div>
-		<div>
-			<a href="">회원정보수정</a>
+			<div>
+				<a href="basket.user">장바구니</a>
+			</div>
+			<div>
+				<a href="">주문내역</a>
+			</div>
+			<div>
+				<a href="">회원정보</a>
+			</div>
+			<div>
+				<a href="">회원정보수정</a>
+			</div>
 		</div>
 	</c:if>
 	<c:if test="${param.page=='community' }">
