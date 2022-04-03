@@ -17,7 +17,6 @@ import com.uphill.web.action.item.ItemInformationPageAction;
 import com.uphill.web.action.item.ItemListPageAction;
 import com.uphill.web.action.item.AskPageAction;
 import com.uphill.web.action.item.ReviewPageAction;
-import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.item")
 public class ItemFrontController extends HttpServlet{
@@ -38,24 +37,20 @@ public class ItemFrontController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 이 부분은 나중에 필터로 빼는게 좋은지 알아보기 - 220324(정승훈)
 		request.setCharacterEncoding("UTF-8");
-				
+		
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = uri.substring(contextPath.length());
 		
 		Action action = actionMap.get(command);
 		
-		ViewResolver viewResolver = null;
+		String path = "";
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);	
+			path = action.execute(request, response);	
 		}
-		
-		if(viewResolver == null) {
-			viewResolver = new ViewResolver(command, true);
-		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
+				
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 

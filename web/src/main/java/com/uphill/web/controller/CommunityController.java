@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.action.community.NoticePageAction;
-import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.community")
 public class CommunityController extends HttpServlet{
@@ -39,17 +38,13 @@ public class CommunityController extends HttpServlet{
 		
 		Action action = actionMap.get(command);
 		
-		ViewResolver viewResolver = null;
+		String path = "";
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);	
+			path = action.execute(request, response);	
 		}
-		
-		if(viewResolver == null) {
-			viewResolver = new ViewResolver(command, true);
-		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
+				
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 

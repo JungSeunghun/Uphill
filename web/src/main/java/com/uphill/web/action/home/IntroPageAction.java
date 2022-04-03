@@ -4,16 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.common.ViewResolver;
 
 public class IntroPageAction implements Action {
 
 	@Override
-	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ViewResolver viewResolver = new ViewResolver("intro.tiles");
-		
-		return viewResolver;
+		return "intro.tiles";
 	}
 
 }

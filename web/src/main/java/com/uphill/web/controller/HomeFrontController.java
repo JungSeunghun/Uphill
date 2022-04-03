@@ -16,7 +16,6 @@ import com.uphill.web.action.Action;
 import com.uphill.web.action.home.CustomerPageAction;
 import com.uphill.web.action.home.HomeAction;
 import com.uphill.web.action.home.IntroPageAction;
-import com.uphill.web.common.ViewResolver;
 
 @WebServlet("*.home")
 public class HomeFrontController extends HttpServlet{
@@ -43,17 +42,13 @@ public class HomeFrontController extends HttpServlet{
 		
 		Action action = actionMap.get(command);
 		
-		ViewResolver viewResolver = null;
+		String path = "";
 		
 		if(action != null) {
-			viewResolver = action.execute(request, response);	
+			path = action.execute(request, response);	
 		}
-		
-		if(viewResolver == null) {
-			viewResolver = new ViewResolver(command, true);
-		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
+				
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 
