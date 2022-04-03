@@ -11,7 +11,7 @@ public class IntroPageAction implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ViewResolver viewResolver = new ViewResolver("home/intro");
+		ViewResolver viewResolver = new ViewResolver("intro.tiles");
 		
 		return viewResolver;
 	}

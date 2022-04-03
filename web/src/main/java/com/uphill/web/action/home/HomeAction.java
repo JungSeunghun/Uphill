@@ -11,7 +11,7 @@ public class HomeAction implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ViewResolver viewResolver = new ViewResolver("home/home");
+		ViewResolver viewResolver = new ViewResolver("home.tiles", true);
 		
 		return viewResolver;
 	}

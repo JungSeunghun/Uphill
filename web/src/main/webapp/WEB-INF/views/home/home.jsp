@@ -1,19 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Up-Hill</title>
-	<c:set var="contextPath" value="${pageContext.request.contextPath }" />
-	<link rel="stylesheet" type="text/css" href="${contextPath }/css/common.css">
-</head>
-<body>
-	<%@ include file="../common/header.jsp" %>
-	<%@ include file="../common/gnb.jsp" %>
-	<section>
+
+<section>
+		
+		<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 		
 		<div id="main-banner">
 			<c:if test="${mainBannerList != null }">
@@ -102,7 +95,3 @@
 			</c:if>
 		</div>
 	</section>
-	
-	<%@ include file="../common/footer.jsp" %>
-</body>
-</html>

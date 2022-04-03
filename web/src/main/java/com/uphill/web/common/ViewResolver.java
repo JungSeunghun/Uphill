@@ -9,18 +9,11 @@ public class ViewResolver {
 	
 	public ViewResolver() {}
 	
-	/*
-	 * isRedirect는 false가 기본값
-	 */
 	public ViewResolver(String path) {
 		super();
 		this.path = path;
 	}
 	
-	/*
-	 * isRedirect가 true면 redirect
-	 * isRedirect가 false면 forward
-	 */
 	public ViewResolver(String path, boolean isCommand) {
 		super();
 		this.path = path;
