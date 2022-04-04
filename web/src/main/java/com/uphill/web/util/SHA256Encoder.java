@@ -43,7 +43,7 @@ public class SHA256Encoder {
 				 * 꼭 16진수로 변환하지 않고 Base64 같은 64진수로도 표현되기도 한다.
 				 */
 				//1.saltSourceDigest의 하나하나의 byte를 16진수로 변경 ->2."16진수" -> 3.StringBuffer에 추가
-				sb.append(Integer.toString((saltSourceDigest[i]&0xFF)+256, 16).substring(1));
+				sb.append(Integer.toString((saltSourceDigest[i]&0xFF)+0x100, 16).substring(1));
 			}
 			result = sb.toString(); // StringBuffer안의 값을 String객체 생성
 		

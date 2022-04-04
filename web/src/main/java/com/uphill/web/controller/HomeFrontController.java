@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.home.CustomerPageAction;
-import com.uphill.web.action.home.HomeAction;
-import com.uphill.web.action.home.IntroPageAction;
+import com.uphill.web.action.home.CustomerCenter;
+import com.uphill.web.action.home.Home;
+import com.uphill.web.action.home.Intro;
 
-@WebServlet("*.home")
+@WebServlet("/home/*")
 public class HomeFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -26,9 +26,9 @@ public class HomeFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/homePage.home", new HomeAction());
-		actionMap.put("/introPage.home", new IntroPageAction());
-		actionMap.put("/customerPage.home", new CustomerPageAction());
+		actionMap.put("/home/home", new Home());
+		actionMap.put("/home/intro", new Intro());
+		actionMap.put("/home/customer-center", new CustomerCenter());
 	}
 	
 	@Override
@@ -42,16 +42,15 @@ public class HomeFrontController extends HttpServlet{
 		
 		Action action = actionMap.get(command);
 		
-		String path = "";
-		
 		if(action != null) {
-			path = action.execute(request, response);	
+			String path = action.execute(request, response);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect(command);
 		}
 		
-		path = path + ".tiles";
-				
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
 	}
 
 }

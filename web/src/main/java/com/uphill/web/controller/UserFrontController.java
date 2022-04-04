@@ -13,18 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.user.PurchasePageAction;
-import com.uphill.web.action.user.UserInfoPageAction;
+import com.uphill.web.action.user.PurchaseList;
+import com.uphill.web.action.user.UserInfo;
 import com.uphill.web.action.user.BasketCancelAction;
 import com.uphill.web.action.user.BasketCancelAllAction;
-import com.uphill.web.action.user.BasketPageAction;
+import com.uphill.web.action.user.Basket;
 import com.uphill.web.action.user.UserLeaveAction;
 import com.uphill.web.action.user.OrderAction;
-import com.uphill.web.action.user.OrderPageAction;
+import com.uphill.web.action.user.Order;
 import com.uphill.web.action.user.UserUpdateAction;
-import com.uphill.web.action.user.UserUpdatePageAction;
+import com.uphill.web.action.user.UserUpdate;
 
-@WebServlet("*.user")
+@WebServlet("/user/*")
 public class UserFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -33,20 +33,20 @@ public class UserFrontController extends HttpServlet{
 		
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/basketPage.user", new BasketPageAction());
-		actionMap.put("/basketCancel.user", new BasketCancelAction());
-		actionMap.put("/basketCancelAll.user", new BasketCancelAllAction());
+		actionMap.put("/user/basket", new Basket());
+		actionMap.put("/user/basket-cancel-action", new BasketCancelAction());
+		actionMap.put("/user/basket-cancel-all-action", new BasketCancelAllAction());
 		
-		actionMap.put("/orderPage.user", new OrderPageAction());
-		actionMap.put("/order.user", new OrderAction());
+		actionMap.put("/user/order", new Order());
+		actionMap.put("/user/order-action", new OrderAction());
 		
-		actionMap.put("/purchasePage.user", new PurchasePageAction());
+		actionMap.put("/user/purchase-list", new PurchaseList());
 		
-		actionMap.put("/userInfoPage.user", new UserInfoPageAction());
-		actionMap.put("/userLeave.user", new UserLeaveAction());
+		actionMap.put("/user/user-info", new UserInfo());
+		actionMap.put("/user/user-leave-action", new UserLeaveAction());
 		
-		actionMap.put("/userUpdatePage.user", new UserUpdatePageAction());
-		actionMap.put("/userUpdate.user", new UserUpdateAction());
+		actionMap.put("/user/user-update", new UserUpdate());
+		actionMap.put("/user/user-update-action", new UserUpdateAction());
 	}
 	
 	@Override
@@ -60,16 +60,14 @@ public class UserFrontController extends HttpServlet{
 		
 		Action action = actionMap.get(command);
 		
-		String path = "";
-		
 		if(action != null) {
-			path = action.execute(request, response);	
+			String path = action.execute(request, response);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect(command);
 		}
-		
-		path = path + ".tiles";
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
 	}
 
 }

@@ -5,7 +5,7 @@
 	version="3.1">
 
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/views/home/home.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<listener>
@@ -25,12 +25,12 @@
 
 	<error-page>
 		<error-code>404</error-code>
-		<location>/WEB-INF/views/error/error-404.jsp</location>
+		<location>/WEB-INF/views/error/error_404.jsp</location>
 	</error-page>
 
 	<error-page>
 		<error-code>500</error-code>
-		<location>/WEB-INF/views/error/error-500.jsp</location>
+		<location>/WEB-INF/views/error/error_500.jsp</location>
 	</error-page>
 
 </web-app>

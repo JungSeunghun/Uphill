@@ -13,18 +13,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.community.Notice;
+import com.uphill.web.action.account.FindIdAction;
+import com.uphill.web.action.account.FindId;
+import com.uphill.web.action.account.FindPasswordAction;
+import com.uphill.web.action.account.FindPassword;
+import com.uphill.web.action.account.FindSelect;
+import com.uphill.web.action.account.Join1;
+import com.uphill.web.action.account.Join2;
+import com.uphill.web.action.account.JoinAction;
+import com.uphill.web.action.account.LoginAction;
+import com.uphill.web.action.account.Login;
+import com.uphill.web.action.account.LogoutAction;
 
-@WebServlet("/community/*")
-public class CommunityController extends HttpServlet{
+@WebServlet("/account/*")
+public class AccountFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
 	private Map<String, Action> actionMap = new HashMap<String, Action>();
-		
+	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/community/notice", new Notice());
+		actionMap.put("/account/login", new Login());
+		actionMap.put("/account/login-action", new LoginAction());
+		actionMap.put("/account/logout-action", new LogoutAction());
+		
+		actionMap.put("/account/join1", new Join1());
+		actionMap.put("/account/join2", new Join2());
+		actionMap.put("/account/join-action", new JoinAction());
+		
+		actionMap.put("/account/find-select", new FindSelect());
+		
+		actionMap.put("/account/find-Id", new FindId());
+		actionMap.put("/account/find-Id-action", new FindIdAction());
+		
+		actionMap.put("/account/find-password", new FindPassword());
+		actionMap.put("/account/find-password-action", new FindPasswordAction());
 	}
 	
 	@Override

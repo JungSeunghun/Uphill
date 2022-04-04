@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <section>
-	<c:forEach var="itemList" items="${orderList }" varStatus="status">		
-		<c:forEach var="item" items="${itemList[status.index] }">		
+	<form action="/user/order-action" name="f" method="post">
+		<c:forEach var="" items="${itemList }">			
 			<div>
 				<div>
 					<img src="">
@@ -28,28 +28,57 @@
 				<div>
 					<p>1,000,000원</p>
 				</div>
-			</div>	
-		</c:forEach>	
+			</div>
+		</c:forEach>
 		<div>
 			<p>수령인</p>
+			<input type="text" name="" size="">
 		</div>
 		<div>
-			<p>이순신</p>
+			<p>주소</p>
+			<input type="text" name="" size="">
 		</div>
 		<div>
-			<p>배송주소</p>
+		 	<p>이동통신사</p>
+		 	<label><input type="radio" name="" value="">&nbsp;skt</label>
+		 	<label><input type="radio" name="" value="">&nbsp;kt</label>
+		 	<label><input type="radio" name="" value="">&nbsp;LGU+</label>
+		 	<label><input type="radio" name="" value="">&nbsp;알뜰폰</label>
 		</div>
 		<div>
-			<p>대구광역시 달서구 달구벌대로 251 안길 15</p>
+			<p>전화번호</p>
+			<input type="text" name="" size="">
+			<input type="text" name="" size="">
+			<input type="text" name="" size="">
+		</div>
+		<div>
+			<p>사용가능한포인트</p>
+			<input type="text" name="" size="">
 		</div>
 		<div>
 			<p>배송요청</p>
+			<input type="text" name="" size="">
 		</div>
 		<div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			 Potenti quam lorem faucibus at consectetur id consequat vel amet.
-			 Varius nibh cursus ante in pretium. Volutpat, ultricies posuere consequat interdum etiam amet.
-			 Odio id rhoncus risus aliquet amet cursus volutpat nunc.</p>
+			<p>총 주문금액</p>
 		</div>
-	</c:forEach>
-</section>	
+		<div>
+			<p>3,000,000원</p>
+		</div>
+		<div>
+			<p>포인트적립액</p>
+		</div>
+		<div>
+			<p>300000p(silver)</p>
+		</div>
+		<div>
+		 	<p>결제수단</p>
+		 	<label><input type="radio" name="" value="">&nbsp;신용카드</label>
+		 	<label><input type="radio" name="" value="">&nbsp;계좌이체</label>
+		 	<label><input type="radio" name="" value="">&nbsp;휴대폰</label>			 	
+		</div>
+		<div>
+			<input type="button" name="" size="" value="결제하기" onclick="">
+		</div>
+	</form>
+</section>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <nav>
-	<c:if test="${param.page=='bicycle' }">
+	<c:if test="${snb=='bicycle' }">
 		<div>
 			<div>
 				<a href="allBicycles.item">전체</a>
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	</c:if>
-	<c:if test="${param.page=='item' }">
+	<c:if test="${snb=='item' }">
 		<div>
 			<div>
 				<a href="allItems.item">전체</a>
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	</c:if>
-	<c:if test="${param.page=='user' }">
+	<c:if test="${snb=='user' }">
 		<div>
 			<div>
 				<a href="basketPage.user">장바구니</a>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 	</c:if>
-	<c:if test="${param.page=='community' }">
+	<c:if test="${snb=='community' }">
 		<div>
 			<a href="noticePage.community">공지사항</a>
 		</div>

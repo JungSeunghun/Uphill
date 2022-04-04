@@ -13,12 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.item.ItemInformationPageAction;
-import com.uphill.web.action.item.ItemListPageAction;
-import com.uphill.web.action.item.AskPageAction;
-import com.uphill.web.action.item.ReviewPageAction;
+import com.uphill.web.action.item.Ask;
+import com.uphill.web.action.item.ItemList;
+import com.uphill.web.action.item.Review;
 
-@WebServlet("*.item")
+@WebServlet(urlPatterns = {"/bicycle/*","/item/*"})
 public class ItemFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -27,10 +26,20 @@ public class ItemFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("itemListPage.item", new ItemListPageAction());
-		actionMap.put("itemInformationPage.item", new ItemInformationPageAction());
-		actionMap.put("reviewPage.item", new ReviewPageAction());
-		actionMap.put("askPage.item", new AskPageAction());
+		actionMap.put("/bicycle/bicycle", new ItemList());
+		actionMap.put("/bicycle/mtb", new ItemList());
+		actionMap.put("/bicycle/road", new ItemList());
+		actionMap.put("/bicycle/minivelo", new ItemList());
+		
+		actionMap.put("/item/item", new ItemList());
+		actionMap.put("/item/helmet", new ItemList());
+		actionMap.put("/item/light", new ItemList());
+		actionMap.put("/item/lock", new ItemList());
+
+		actionMap.put("/bicycle/review", new Review());
+		actionMap.put("/item/review", new Review());
+		actionMap.put("/bicycle/ask", new Ask());
+		actionMap.put("/item/ask", new Ask());
 	}
 	
 	@Override
@@ -44,16 +53,14 @@ public class ItemFrontController extends HttpServlet{
 		
 		Action action = actionMap.get(command);
 		
-		String path = "";
-		
 		if(action != null) {
-			path = action.execute(request, response);	
+			String path = action.execute(request, response);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect(command);
 		}
-		
-		path = path + ".tiles";
-				
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
 	}
 
 }

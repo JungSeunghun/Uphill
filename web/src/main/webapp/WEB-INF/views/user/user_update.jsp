@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
      
 <section>
-	<form action="update.user" name="f" method="post">
+	<form action="/user/update-action" name="f" method="post">
 		<div>
 			<p>비밀번호</p>
 			<input type="text" name="" size="">
