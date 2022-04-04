@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 
-public class MyPageAction implements Action {
+public class UserUpdateAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {

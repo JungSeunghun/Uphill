@@ -4,8 +4,8 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-
-	<definition name="home" template="/WEB-INF/tiles/layouts/main-layout.jsp">
+	<!-- 홈 -->
+	<definition name="home/home" template="/WEB-INF/tiles/layouts/main-layout.jsp">
 		<put-attribute name="title" value="Up-Hill" />
 		<put-attribute name="header" value="/WEB-INF/tiles/commons/header.jsp" />
 		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
@@ -13,20 +13,116 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
 	</definition>
 
-	<definition name="intro" template="/WEB-INF/tiles/layouts/main-layout.jsp">
-		<put-attribute name="title" value="Up-Hill" />
+	<definition name="home/intro" template="/WEB-INF/tiles/layouts/main-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Intro" />
 		<put-attribute name="header" value="/WEB-INF/tiles/commons/header.jsp" />
 		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/home/intro.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
 	</definition>
 
-	<definition name="myapp.homepage" template="/WEB-INF/tiles/layouts/page-layout.jsp">
+	<definition name="home/customer" template="/WEB-INF/tiles/layouts/main-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Customer" />
+		<put-attribute name="header" value="/WEB-INF/tiles/commons/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/home/customer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+
+	<!-- connect -->
+	<definition name="connect/login" template="/WEB-INF/tiles/layouts/login-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Login" />
+		<put-attribute name="body" value="/WEB-INF/views/connect/login.jsp" />
+	</definition>
+	
+	<definition name="connect/join1" template="/WEB-INF/tiles/layouts/login-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Join1" />
+		<put-attribute name="body" value="/WEB-INF/views/connect/join1.jsp" />
+	</definition>
+	
+	<definition name="connect/join2" template="/WEB-INF/tiles/layouts/login-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Join2" />
+		<put-attribute name="body" value="/WEB-INF/views/connect/join2.jsp" />
+	</definition>
+	
+	<definition name="connect/find_select" template="/WEB-INF/tiles/layouts/login-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Find Select" />
+		<put-attribute name="body" value="/WEB-INF/views/connect/find_select.jsp" />
+	</definition>
+	
+	<definition name="connect/find_id" template="/WEB-INF/tiles/layouts/login-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Find Id" />
+		<put-attribute name="body" value="/WEB-INF/views/connect/find_id.jsp" />
+	</definition>
+	
+	<definition name="connect/find_password" template="/WEB-INF/tiles/layouts/login-layout.jsp">
+		<put-attribute name="title" value="Up-Hill Find Password" />
+		<put-attribute name="body" value="/WEB-INF/views/connect/find_password.jsp" />
+	</definition>
+
+	<!-- item -->
+	<definition name="item/item_list" template="/WEB-INF/tiles/layouts/page-layout.jsp">
 		<put-attribute name="title" value="Up-Hill" />
 		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
 		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
 		<put-attribute name="snb" value="/WEB-INF/tiles/commons/snb.jsp" />
-		<put-attribute name="body" value="" />
+		<put-attribute name="body" value="/WEB-INF/views/item/item_list.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+	
+	<!-- user -->
+	<definition name="user/basket" template="/WEB-INF/tiles/layouts/page-layout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/snb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/user/basket.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+	
+	<definition name="user/order" template="/WEB-INF/tiles/layouts/page-layout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/snb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/user/order.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+
+	<definition name="user/purchase" template="/WEB-INF/tiles/layouts/page-layout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/snb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/user/purchase.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+
+	<definition name="user/user_info" template="/WEB-INF/tiles/layouts/page-layout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/snb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/user/user_info.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+
+	<definition name="user/user_update" template="/WEB-INF/tiles/layouts/page-layout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/snb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/user/user_update.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+
+	<!-- 커뮤니티 -->
+	<definition name="community/notice" template="/WEB-INF/tiles/layouts/page-layout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/snb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/community/notice.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
 	</definition>
 	

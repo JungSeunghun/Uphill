@@ -5,12 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 
-public class Join2Action implements Action {
+public class Join2PageAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		return "connect/join2";
 	}
 
 }

@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 
-public class PurchaseAction implements Action {
+public class UserInfoPageAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return null;
+		return "user/user_info";
 	}
 
 }

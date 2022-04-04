@@ -14,11 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.action.user.PurchasePageAction;
+import com.uphill.web.action.user.UserInfoPageAction;
+import com.uphill.web.action.user.BasketCancelAction;
+import com.uphill.web.action.user.BasketCancelAllAction;
 import com.uphill.web.action.user.BasketPageAction;
-import com.uphill.web.action.user.LeaveAction;
-import com.uphill.web.action.user.MyPageAction;
-import com.uphill.web.action.user.PurchaseAction;
-import com.uphill.web.action.user.UpdateAction;
+import com.uphill.web.action.user.UserLeaveAction;
+import com.uphill.web.action.user.OrderAction;
+import com.uphill.web.action.user.OrderPageAction;
+import com.uphill.web.action.user.UserUpdateAction;
+import com.uphill.web.action.user.UserUpdatePageAction;
 
 @WebServlet("*.user")
 public class UserFrontController extends HttpServlet{
@@ -29,12 +33,20 @@ public class UserFrontController extends HttpServlet{
 		
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/myPage.user", new MyPageAction());
 		actionMap.put("/basketPage.user", new BasketPageAction());
+		actionMap.put("/basketCancel.user", new BasketCancelAction());
+		actionMap.put("/basketCancelAll.user", new BasketCancelAllAction());
+		
+		actionMap.put("/orderPage.user", new OrderPageAction());
+		actionMap.put("/order.user", new OrderAction());
+		
 		actionMap.put("/purchasePage.user", new PurchasePageAction());
-		actionMap.put("/purchase.user", new PurchaseAction());
-		actionMap.put("/update.user", new UpdateAction());
-		actionMap.put("/leave.user", new LeaveAction());
+		
+		actionMap.put("/userInfoPage.user", new UserInfoPageAction());
+		actionMap.put("/userLeave.user", new UserLeaveAction());
+		
+		actionMap.put("/userUpdatePage.user", new UserUpdatePageAction());
+		actionMap.put("/userUpdate.user", new UserUpdateAction());
 	}
 	
 	@Override
@@ -53,7 +65,9 @@ public class UserFrontController extends HttpServlet{
 		if(action != null) {
 			path = action.execute(request, response);	
 		}
-				
+		
+		path = path + ".tiles";
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

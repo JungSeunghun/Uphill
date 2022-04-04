@@ -49,6 +49,8 @@ public class ItemFrontController extends HttpServlet{
 		if(action != null) {
 			path = action.execute(request, response);	
 		}
+		
+		path = path + ".tiles";
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);

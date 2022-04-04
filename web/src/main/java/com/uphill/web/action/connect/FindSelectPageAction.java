@@ -1,16 +1,15 @@
-package com.uphill.web.action.user;
+package com.uphill.web.action.connect;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 
-public class LeaveAction implements Action {
+public class FindSelectPageAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		return "connect/find_select";
 	}
 
 }

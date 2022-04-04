@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 
-public class FindIdPageAction implements Action {
+public class JoinAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "connect/find_id";
+		return null;
 	}
 
 }

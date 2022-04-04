@@ -44,6 +44,8 @@ public class CommunityController extends HttpServlet{
 			path = action.execute(request, response);	
 		}
 				
+		path = path + ".tiles";
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

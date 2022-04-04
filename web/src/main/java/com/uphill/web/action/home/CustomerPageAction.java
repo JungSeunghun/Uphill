@@ -10,7 +10,7 @@ public class CustomerPageAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		return null;
+		return "home/customer.tiles";
 	}
 
 }

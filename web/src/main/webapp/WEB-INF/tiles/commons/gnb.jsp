@@ -7,7 +7,7 @@
 <nav id="gnb">
 	<ul id="gnb-list">
 		<li>
-			<a href="home.home">
+			<a href="homePage.home">
 				<img alt="uphill_logo_black" src="${contextPath }/images/logos/uphill_logo_black.svg" width="64px">
 			</a>
 		</li>
@@ -15,10 +15,10 @@
 			<a href="introPage.home">소개</a>
 		</li>
 		<li>
-			<a href="bicyclePage.item">자전거</a>
+			<a href="itemListPage.item?item=bicycle">자전거</a>
 		</li>
 		<li>
-			<a href="itemPage.item">용품</a>
+			<a href="itemListPage.item?item=item">용품</a>
 			
 		</li>
 		<li>
@@ -36,17 +36,17 @@
 			<ul></ul>
 			<ul></ul>
 			<ul>
-				<li><a href="mtbPage.item">MTB</a></li>
-				<li><a href="roadPage.item">Road</a></li>
-				<li><a href="miniveloPage.item">Minivelo</a></li>
+				<li><a href="itemListPage.item?item=MTB">MTB</a></li>
+				<li><a href="itemListPage.item?item=Road">Road</a></li>
+				<li><a href="itemListPage.item?item=Minivelo">Minivelo</a></li>
 			</ul>
 			<ul>
-				<li><a href="helment.item">헬멧</a></li>
-				<li><a href="light.item">라이트</a></li>
-				<li><a href="lock.item">자물쇠</a></li>
+				<li><a href="itemListPage.item?item=helmet">헬멧</a></li>
+				<li><a href="itemListPage.item?item=light">라이트</a></li>
+				<li><a href="itemListPage.item?item=lock">자물쇠</a></li>
 			</ul>
 			<ul>
-				<li><a href="notice.community">공지사항</a></li>
+				<li><a href="noticePage.community">공지사항</a></li>
 			</ul>
 		</div>
 	</div>

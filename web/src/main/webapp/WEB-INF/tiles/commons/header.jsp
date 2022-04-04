@@ -9,7 +9,7 @@
 	</c:if>
 	<c:if test="${sessionScope.userId!=null }">
 		<a href="customerPage.home">고객센터</a>
-		<a href="myPage.user">마이페이지</a>
+		<a href="userInfoPage.user">마이페이지</a>
 		<a href="logout.connect">로그아웃</a>
 	</c:if>
 </header>

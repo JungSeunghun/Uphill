@@ -26,7 +26,7 @@ public class HomeFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/home.home", new HomeAction());
+		actionMap.put("/homePage.home", new HomeAction());
 		actionMap.put("/introPage.home", new IntroPageAction());
 		actionMap.put("/customerPage.home", new CustomerPageAction());
 	}
@@ -47,6 +47,8 @@ public class HomeFrontController extends HttpServlet{
 		if(action != null) {
 			path = action.execute(request, response);	
 		}
+		
+		path = path + ".tiles";
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);

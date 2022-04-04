@@ -37,22 +37,22 @@
 	<c:if test="${param.page=='user' }">
 		<div>
 			<div>
-				<a href="basket.user">장바구니</a>
+				<a href="basketPage.user">장바구니</a>
 			</div>
 			<div>
-				<a href="">주문내역</a>
+				<a href="purchasePage.user">주문내역</a>
 			</div>
 			<div>
-				<a href="">회원정보</a>
+				<a href="userInfoPage.user">회원정보</a>
 			</div>
 			<div>
-				<a href="">회원정보수정</a>
+				<a href="userUpdatePage.user">회원정보수정</a>
 			</div>
 		</div>
 	</c:if>
 	<c:if test="${param.page=='community' }">
 		<div>
-			<a href="">공지사항</a>
+			<a href="noticePage.community">공지사항</a>
 		</div>
 	</c:if>
 </nav>

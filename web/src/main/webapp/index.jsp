@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="home.home">홈으로 이동</a>
+	<a href="homePage.home">홈으로 이동</a>
 </body>
 </html>

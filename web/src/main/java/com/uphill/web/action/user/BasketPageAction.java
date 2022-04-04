@@ -10,7 +10,7 @@ public class BasketPageAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return null;
+		return "user/basket";
 	}
 
 }

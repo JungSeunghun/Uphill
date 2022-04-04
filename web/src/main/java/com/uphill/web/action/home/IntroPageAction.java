@@ -10,7 +10,7 @@ public class IntroPageAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "intro.tiles";
+		return "home/intro.tiles";
 	}
 
 }

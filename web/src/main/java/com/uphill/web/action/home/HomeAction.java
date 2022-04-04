@@ -10,7 +10,7 @@ public class HomeAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "home.tiles";
+		return "home/home";
 	}
 	
 }

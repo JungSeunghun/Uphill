@@ -1,11 +1,11 @@
-package com.uphill.web.action.connect;
+package com.uphill.web.action.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 
-public class JoinPageAction implements Action {
+public class BasketCancelAllAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {

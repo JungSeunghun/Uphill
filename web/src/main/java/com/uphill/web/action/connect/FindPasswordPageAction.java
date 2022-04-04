@@ -10,7 +10,7 @@ public class FindPasswordPageAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return null;
+		return "connect/find_password";
 	}
 
 }
