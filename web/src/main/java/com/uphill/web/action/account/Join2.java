@@ -11,9 +11,7 @@ public class Join2 implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		
-		session.setAttribute("", arg1);
-		
+			
 		
 		return "/views/account/join2.tiles";
 	}

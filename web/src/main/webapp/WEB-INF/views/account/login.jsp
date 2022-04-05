@@ -12,13 +12,13 @@
 		<form action="/account/login-action" name="f" method="post">
 			<div>
 				<p>아이디</p>
-				<input type="text" name="" size=""> <label><input
-					type="checkbox" name="" value="">&nbsp;아이디 저장</label><br />
+				<input type="text" name="user_enter_id"> 
+				<label><input type="checkbox" name="save_id_check">&nbsp;아이디 저장</label>
 			</div>
 			<div>
 				<p>비밀번호</p>
-				<input type="text" name="" size=""> <a href="">아이디 또는
-					비밀번호 찾기</a>
+				<input type="password" name="user_password"> 
+				<a href="">아이디 또는 비밀번호 찾기</a>
 			</div>
 			<div>
 				<input type="submit" value="로그인">
