@@ -9,7 +9,7 @@ public class Join1 implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
+				
 		return "/views/account/join1.tiles";
 	}
 

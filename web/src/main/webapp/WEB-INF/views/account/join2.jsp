@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <section>
-	<form action="join2.connect" name="f" method="post">
+	<form action="/account/join-action" name="f" method="post">
 		<div>
 			<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
 		</div>

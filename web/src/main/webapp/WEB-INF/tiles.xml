@@ -61,6 +61,11 @@
 		<put-attribute name="title" value="Up-Hill Join2" />
 		<put-attribute name="body" value="/WEB-INF/views/account/join2.jsp" />
 	</definition>
+
+	<definition name="views/account/join_finish" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+		<put-attribute name="title" value="Up-Hill Join2" />
+		<put-attribute name="body" value="/WEB-INF/views/account/join_finish.jsp" />
+	</definition>
 	
 	<definition name="views/account/find_select" template="/WEB-INF/tiles/layouts/login_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Select" />
