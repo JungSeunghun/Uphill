@@ -17,34 +17,40 @@
 			</div>
 			<div>
 				<p>아이디</p>
-				<input type="text" name="" size="">
+				<input type="text" name="user_id">
 			</div>
 			<div>
 				<p>이름</p>
-				<input type="text" name="" size="">
+				<input type="text" name="user_name">
 			</div>
 			<div>
 				<p>생년월일</p>
-				<input type="text" name="" size="">
-				<input type="text" name="" size="">
-				<input type="text" name="" size="">
+				<input type="date" name="birth">				
 			</div>
 			<div>
 			 	<p>이동통신사</p>
-			 	<label><input type="radio" name="" value="">&nbsp;skt</label>
-			 	<label><input type="radio" name="" value="">&nbsp;kt</label>
-			 	<label><input type="radio" name="" value="">&nbsp;LGU+</label>
-			 	<label><input type="radio" name="" value="">&nbsp;알뜰폰</label>
+			 	<label><input type="radio" name="mobile_carrier" value="skt">SKT</label>
+			 	<label><input type="radio" name="mobile_carrier" value="kt">KT</label>
+			 	<label><input type="radio" name="mobile_carrier" value="lgu+">LGU+</label>
+			 	<label><input type="radio" name="mobile_carrier" value="알뜰폰">알뜰폰</label>
 			</div>
 			<div>
 				<p>전화번호</p>
-				<input type="text" name="" size="">
-				<input type="text" name="" size="">
-				<input type="text" name="" size="">
+				<select name="phone_number1">
+				<option>010</option>
+				<option>011</option>
+			</select>
+			<input type="text" name="phone_number2" maxlength="4">
+			<input type="text" name="phone_number3" maxlength="4">
 			</div>
-			<div>
+			<div>				
 				<p>이메일</p>
-				<input type="text" name="" size="">
+				<input type="text" name="email" size="">@
+				<select name="email">
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="gmail.com">gmail.com</option>
+				</select>
 			</div>
 			<div>
 				<input type="submit" value="비밀번호 찾기">

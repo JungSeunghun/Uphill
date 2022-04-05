@@ -62,7 +62,7 @@
 		 	<label>
 		 		<input type="checkbox" name="" value="">&nbsp;모두 동의하기
 		 	</label><br/>
-		 	<label>
+		 	<label>`
 		 		<input type="checkbox" name="agree1" value="agree1">
 		 		<a href="">개인 정보 수집 및 이용에 동의합니다</a>
 		 	</label><br/>

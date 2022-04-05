@@ -11,27 +11,36 @@
 		</div>
 		<div>
 			<p>아이디</p>
-			<input type="text" name="" size="">
-			<input type="button" name="" size="" value="중복확인" onclick="idDuplicationCheck();">
+			<input type="text" name="user_id" size="">
+			<input type="button" value="중복확인" onclick="idDuplicationCheck();">
 		</div>
 		<div>
 			<p>비밀번호</p>
-			<input type="text" name="" size="">
+			<input type="password" name="user_password" size="20">
 		</div>
 		<div>
 			<p>비밀번호 확인</p>
-			<input type="text" name="" size="">
+			<input type="password" name="user_password" size="20">
 		</div>
 		<div>
 			<p>주소</p>
-			<input type="text" name="" size=""><br/>
-			<input type="text" name="" size="">
+			<input type="text" name="address1" size="40"><br/>
+			<input type="text" name="address2" size="40">
+		</div>
+		<div>
+			<p>이메일</p>
+				<input type="text" name="email" size="">@
+				<select name="email">
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="gmail.com">gmail.com</option>
+				</select>
 		</div>
 		<div>
 			<input type="submit" value="회원가입">
 		</div>
 		<div>
-			<input type="button" value="이전으로" onclick="">
+			<a href="/account/join1">이전으로</a>
 		</div>
 	</form>
 </section>
