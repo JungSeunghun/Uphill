@@ -4,6 +4,9 @@
 <section>
 	<form action="join2.connect" name="f" method="post">
 		<div>
+			<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
+		</div>
+		<div>
 			<h2>회원가입</h2>
 		</div>
 		<div>

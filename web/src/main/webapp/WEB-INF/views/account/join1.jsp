@@ -4,6 +4,9 @@
 <section>
 	<form action="/account/join2" name="f" method="post">
 		<div>
+			<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
+		</div>
+		<div>
 			<h2>본인인증</h2>
 		</div>
 		<div>

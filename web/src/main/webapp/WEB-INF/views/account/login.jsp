@@ -3,7 +3,7 @@
 	
 <section>
 	<div>
-		<img src="" alt="이미지를 표시할 수 없을때  출력할 내용">
+		<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
 	</div>
 	<div>
 		<h2>어서오세요</h2>
