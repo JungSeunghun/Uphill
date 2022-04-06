@@ -8,11 +8,12 @@ import javax.servlet.http.HttpSession;
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.user.UserVO;
 import com.uphill.web.service.account.LoginService;
+import com.uphill.web.viewresolver.ViewResolver;
 
 public class LoginAction implements Action {
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		LoginService loginService = new LoginService();
 		
 		UserVO userVO = new UserVO();
@@ -41,7 +42,7 @@ public class LoginAction implements Action {
 			session.setAttribute("user_enter_id", request.getParameter("user_enter_id"));
 			session.removeAttribute("login_fail");;
 			
-			return "/home/home";			
+			return new ViewResolver("/home/home", true);			
 		} else {
 			Cookie userEnterIdCookie = new Cookie("user_enter_id_cookie", request.getParameter("user_enter_id"));
 			Cookie rememberIdCookie = new Cookie("remember_id_cookie", "checked");
@@ -60,7 +61,7 @@ public class LoginAction implements Action {
 			HttpSession session = request.getSession();
 			session.setAttribute("login_fail", "fail");
 			
-			return "/account/login";			
+			return new ViewResolver("/account/login", true);			
 		}
 		
 	}

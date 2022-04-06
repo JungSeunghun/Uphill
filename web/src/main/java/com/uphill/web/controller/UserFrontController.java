@@ -22,6 +22,7 @@ import com.uphill.web.action.user.UserLeaveAction;
 import com.uphill.web.action.user.OrderAction;
 import com.uphill.web.action.user.Order;
 import com.uphill.web.action.user.UserUpdateAction;
+import com.uphill.web.viewresolver.ViewResolver;
 import com.uphill.web.action.user.UserUpdate;
 
 @WebServlet("/user/*")
@@ -54,19 +55,25 @@ public class UserFrontController extends HttpServlet{
 		// 이 부분은 나중에 필터로 빼는게 좋은지 알아보기 - 220324(정승훈)
 		request.setCharacterEncoding("UTF-8");
 		
+		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = uri.substring(contextPath.length());
 		
 		Action action = actionMap.get(command);
-		
+
 		if(action != null) {
-			String path = action.execute(request, response);
+			ViewResolver viewResolver = action.execute(request, response);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-			dispatcher.forward(request, response);
+			if(!viewResolver.getIsRedirect()) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
+				dispatcher.forward(request, response);
+			} else {
+				response.sendRedirect(url.substring(0, url.indexOf(uri)) + viewResolver.getPath());
+			}
+			
 		} else {
-			response.sendRedirect(command);
+			response.sendRedirect(url.substring(0, url.indexOf(uri)) + command);
 		}
 	}
 

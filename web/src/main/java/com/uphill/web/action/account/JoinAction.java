@@ -8,11 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.user.UserVO;
 import com.uphill.web.service.account.JoinService;
+import com.uphill.web.viewresolver.ViewResolver;
 
 public class JoinAction implements Action {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		JoinService joinService = new JoinService();
 		
@@ -28,7 +29,7 @@ public class JoinAction implements Action {
 		
 		joinService.join(userVO);
 		
-		return "/views/account/join_finish.tiles";
+		return new ViewResolver("/views/account/join_finish.tiles");
 	}
 
 }

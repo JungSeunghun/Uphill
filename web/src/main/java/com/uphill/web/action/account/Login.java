@@ -5,11 +5,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.viewresolver.ViewResolver;
 
 public class Login implements Action {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		Cookie[] cookies = request.getCookies();
 		
 		for(int i = 0; i < cookies.length; i++){
@@ -24,7 +25,7 @@ public class Login implements Action {
 			}
 		}
 		
-		return "/views/account/login.tiles";
+		return new ViewResolver("/views/account/login.tiles");
 	}
 
 }
