@@ -12,7 +12,7 @@ public class LogoutAction implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		session.removeAttribute("user_enter_id");		
+		session.removeAttribute("userEnterId");		
 		return new ViewResolver("/home/home");
 	}
 

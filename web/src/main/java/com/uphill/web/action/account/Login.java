@@ -16,12 +16,12 @@ public class Login implements Action {
 		for(int i = 0; i < cookies.length; i++){
 			String cookieName = cookies[i].getName();
 			
-			if(cookieName.equals("user_enter_id_cookie")){
-				request.setAttribute("user_enter_id_cookie", cookies[i].getValue());
+			if(cookieName.equals("userEnterIdCookie")){
+				request.setAttribute("userEnterIdCookie", cookies[i].getValue());
 			}
 			
-			if(cookieName.equals("remember_id_cookie")){
-				request.setAttribute("remember_id_cookie", cookies[i].getValue());
+			if(cookieName.equals("rememberIdCookie")){
+				request.setAttribute("rememberIdCookie", cookies[i].getValue());
 			}
 		}
 		

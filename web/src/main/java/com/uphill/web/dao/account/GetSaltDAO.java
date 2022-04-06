@@ -7,29 +7,30 @@ import java.sql.SQLException;
 
 import com.uphill.web.database.DataBaseUtil;
 import com.uphill.web.dto.user.UserVO;
-import com.uphill.web.util.SHA256Encoder;
 
-public class LoginDAO {
-	public boolean selectUser(UserVO userVO) {
+public class GetSaltDAO {
+	
+	public String selectUserSalt(UserVO userVO) {
+		String salt = "";
+		
 		Connection connection = DataBaseUtil.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
 		if(connection == null) {
-			return false;
+			return null;
 		}
 		
 		try {
-			String sql = "select user_id, salt from user_table where user_enter_id = ? and user_password = ?";
+			String sql = "select salt from user_table where user_enter_id = ?";
 			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, userVO.getUserEnterId());
-			preparedStatement.setString(2, SHA256Encoder.encode(userVO.getUserPassword(), userVO.getSalt()));
 			
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-				return true;
+				salt = resultSet.getString("salt");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -49,6 +50,7 @@ public class LoginDAO {
 			}
 		}
 		
-		return false;
+		return salt;
 	}
+	
 }

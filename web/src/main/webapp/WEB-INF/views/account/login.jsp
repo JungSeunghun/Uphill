@@ -3,17 +3,17 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 
-<script type="text/javascript" src="/javascript/login_check.js"></script>
+<script type="text/javascript" src="/javascript/account/login.js"></script>
 
 <section>
 	<div>
 		<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
 	</div>
 	<div>
-		<c:if test="${login_fail == null}">
+		<c:if test="${loginFail == null}">
 			<h2>어서오세요</h2>
 		</c:if>
-		<c:if test="${login_fail != null}">
+		<c:if test="${loginFail != null}">
 			<h2>아이디 또는 비밀번호를 틀렸습니다.</h2>
 		</c:if>
 	</div>
@@ -21,16 +21,16 @@
 		<form action="/account/login-action" name="f" method="post">
 			<div>
 				<p>아이디</p>
-				<input type="text" name="user_enter_id" value="${user_enter_id_cookie }" maxlength="20"> 
-				<label><input type="checkbox" name="remember_id" ${remember_id_cookie }>아이디 저장</label>
+				<input type="text" name="userEnterId" value="${userEnterIdCookie }" maxlength="20"> 
+				<label><input type="checkbox" name="rememberId" ${rememberIdCookie }>아이디 저장</label>
 			</div>
 			<div>
 				<p>비밀번호</p>
-				<input type="password" name="user_password" maxlength="20"> 
+				<input type="password" name="userPassword" maxlength="20"> 
 				<a href="/account/find-select">아이디 또는 비밀번호 찾기</a>
 			</div>
 			<div>
-				<input type="submit" value="로그인" onclick="login_check(); return false;">
+				<input type="submit" value="로그인" onclick="loginCheck(); return false;">
 			</div>
 		</form>
 	</div>

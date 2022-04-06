@@ -18,16 +18,19 @@ public class LoginAction implements Action {
 		
 		UserVO userVO = new UserVO();
 		
-		userVO.setUserEnterId(request.getParameter("user_enter_id"));
-		userVO.setUserPassword(request.getParameter("user_password"));
+		userVO.setUserEnterId(request.getParameter("userEnterId"));
+		userVO.setUserPassword(request.getParameter("userPassword"));
+		
+		String salt = loginService.getSalt(userVO);
+		userVO.setSalt(salt);
 		
 		boolean result = loginService.login(userVO);
 				
 		if(result) {
-			Cookie userEnterIdCookie = new Cookie("user_enter_id_cookie", request.getParameter("user_enter_id"));
-			Cookie rememberIdCookie = new Cookie("remember_id_cookie", "checked");
+			Cookie userEnterIdCookie = new Cookie("userEnterIdCookie", request.getParameter("userEnterId"));
+			Cookie rememberIdCookie = new Cookie("rememberIdCookie", "checked");
 
-			if(request.getParameter("remember_id") != null) {
+			if(request.getParameter("rememberId") != null) {
 				userEnterIdCookie.setMaxAge(1*60*60*24);
 				rememberIdCookie.setMaxAge(1*60*60*24);		
 			} else {
@@ -39,15 +42,15 @@ public class LoginAction implements Action {
 			response.addCookie(rememberIdCookie);
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("user_enter_id", request.getParameter("user_enter_id"));
-			session.removeAttribute("login_fail");;
+			session.setAttribute("userEnterId", request.getParameter("userEnterId"));
+			session.removeAttribute("loginFail");;
 			
 			return new ViewResolver("/home/home", true);			
 		} else {
-			Cookie userEnterIdCookie = new Cookie("user_enter_id_cookie", request.getParameter("user_enter_id"));
-			Cookie rememberIdCookie = new Cookie("remember_id_cookie", "checked");
+			Cookie userEnterIdCookie = new Cookie("userEnterIdCookie", request.getParameter("userEnterId"));
+			Cookie rememberIdCookie = new Cookie("rememberIdCookie", "checked");
 
-			if(request.getParameter("remember_id") != null) {
+			if(request.getParameter("rememberId") != null) {
 				userEnterIdCookie.setMaxAge(1*60*60*24);
 				rememberIdCookie.setMaxAge(1*60*60*24);		
 			} else {
@@ -59,7 +62,7 @@ public class LoginAction implements Action {
 			response.addCookie(rememberIdCookie);
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("login_fail", "fail");
+			session.setAttribute("loginFail", "fail");
 			
 			return new ViewResolver("/account/login", true);			
 		}

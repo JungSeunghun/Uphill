@@ -13,7 +13,12 @@ public class UserVO {
 	private String mobileCarrier;
 	private String phoneNumber;
 	private String address;
+	private String addressDetail;
 	private String email;
+	private boolean personalAgree;
+	private boolean uniqueAgree;
+	private boolean mobileAgree;
+	private boolean useAgree;
 	private int purchase;
 	private int point;
 	private Date joinDate;
@@ -104,12 +109,52 @@ public class UserVO {
 		this.address = address;
 	}
 
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public boolean isPersonalAgree() {
+		return personalAgree;
+	}
+
+	public void setPersonalAgree(boolean personalAgree) {
+		this.personalAgree = personalAgree;
+	}
+
+	public boolean isUniqueAgree() {
+		return uniqueAgree;
+	}
+
+	public void setUniqueAgree(boolean uniqueAgree) {
+		this.uniqueAgree = uniqueAgree;
+	}
+
+	public boolean isMobileAgree() {
+		return mobileAgree;
+	}
+
+	public void setMobileAgree(boolean mobileAgree) {
+		this.mobileAgree = mobileAgree;
+	}
+
+	public boolean isUseAgree() {
+		return useAgree;
+	}
+
+	public void setUseAgree(boolean useAgree) {
+		this.useAgree = useAgree;
 	}
 
 	public int getPurchase() {
@@ -151,5 +196,5 @@ public class UserVO {
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
-	
+
 }

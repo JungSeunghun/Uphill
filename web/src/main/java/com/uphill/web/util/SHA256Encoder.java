@@ -50,7 +50,6 @@ public class SHA256Encoder {
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}
-		System.out.println("encodeSHA256 : "+result);
 		
 		return result;
 	}

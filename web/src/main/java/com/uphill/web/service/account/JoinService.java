@@ -8,8 +8,7 @@ public class JoinService {
 		
 		JoinDAO joinDAO = new JoinDAO();
 		
-		joinDAO.insertUser(userVO);
+		return joinDAO.insertUser(userVO);
 		
-		return false;
 	}
 }
