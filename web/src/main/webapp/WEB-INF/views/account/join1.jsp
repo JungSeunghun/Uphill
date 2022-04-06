@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <script type="text/javascript" src="/javascript/check.js"></script>
-<script type="text/javaccript" src="/javascript/checkall.js"></script>
+<script type="text/javaccript" src="/javascript/check.js"></script>
 <section>
 	<form action="/account/join2" name="f" method="post">
 		<div>
@@ -60,7 +60,7 @@
 		</div>
 		<div>
 		 	<label>
-		 		<input type="checkbox" name="selectall" value="모두 동의하기" onclick="">&nbsp;모두 동의하기
+		 		<input type="checkbox" name="selectall" value="모두 동의하기" onclick="allselect">&nbsp;모두 동의하기
 		 	</label><br/>
 		 	<label>`
 		 		<input type="checkbox" name="agree1" value="agree1">
