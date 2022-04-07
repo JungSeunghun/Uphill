@@ -1,6 +1,6 @@
 package com.uphill.web.dto.user;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class UserVO {
 	private int userId;

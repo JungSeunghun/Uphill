@@ -123,7 +123,7 @@ public class UserDAO {
 			preparedStatement.setString(2, userVO.getUserPassword());
 			preparedStatement.setString(3, userVO.getUserName());
 			preparedStatement.setString(4, Character.toString(userVO.getGender()));
-			preparedStatement.setDate(5, (Date)userVO.getBirth());
+			preparedStatement.setDate(5, userVO.getBirth());
 			preparedStatement.setString(6, userVO.getMobileCarrier());
 			preparedStatement.setString(7, userVO.getPhoneNumber());
 			preparedStatement.setString(8, userVO.getAddress());

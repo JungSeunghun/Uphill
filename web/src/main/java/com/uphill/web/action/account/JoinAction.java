@@ -36,6 +36,8 @@ public class JoinAction implements Action {
 		
 		JoinService joinService = new JoinService();
 		
+		session.removeAttribute("userVO");
+		
 		if(joinService.join(userVO)) {
 			return new ViewResolver("/views/account/join_finish.tiles");
 		} else {
