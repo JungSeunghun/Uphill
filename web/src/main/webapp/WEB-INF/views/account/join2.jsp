@@ -6,7 +6,7 @@
 <section>
 	<form action="/account/join-action" name="f" method="post">
 		<div>
-			<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
+			<a href="/home/home"><img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 		</div>
 		<div>
 			<h2>회원가입</h2>

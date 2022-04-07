@@ -1,28 +1,33 @@
 package com.uphill.web.util;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Date;
 
 public class SHA256Encoder {
-		
+	
+	private static String staticSalt = "uphill00";
+	
 	public static String encode(String source, String salt){ // soure: 암호화되기 전 비번
 		String result = "";
 		
 		try {
+			byte[] staticSaltByte = staticSalt.getBytes();
 			byte[] saltByte = salt.getBytes(); //salt를 바이트로 변경
 			byte[] sourceByte = source.getBytes("utf-8");//암호화되기 전 비번(source)도 바이트로 변경			
 			
 			/*
 			 * 기본값으로 채워진 byte객체에 바이트로 변경된 소금값과 비번으로 채움
 			 */
-			byte[] saltSource = new byte[saltByte.length + sourceByte.length]; 
+			byte[] saltSource = new byte[staticSaltByte.length + saltByte.length + sourceByte.length]; 
 			
 			//소금값을 암호 앞, 뒤 어느쪽에 붙여도 상관 없다. 비밀번호 앞에 사용하는게 좀 더 일반적이긴 하다.
 			//void arraycopy(원본, 원본의 시작 index, 도착지, 도착지의 시작index, 복사할 개수)
-			System.arraycopy(saltByte, 0, saltSource, 0, saltByte.length);//saltSource [앞] : 바이트로 변경된 "salt값"			
-			System.arraycopy(sourceByte, 0, saltSource, saltByte.length, sourceByte.length);//saltSource [뒤] : 바이트로 변경된 암호화되기 전 "비번"
-			//즉, saltSource [앞] : 바이트로 변경된 "salt값" + [뒤] : 바이트로 변경된 암호화되기 전 "비번"
+			System.arraycopy(staticSaltByte, 0, saltSource, 0, staticSaltByte.length);//staticSaltSource [앞] : 바이트로 변경된 "staticSalt값"			
+			System.arraycopy(saltByte, 0, saltSource, staticSaltByte.length, saltByte.length);//saltSource [중간] : 바이트로 변경된 "salt값"			
+			System.arraycopy(sourceByte, 0, saltSource, staticSaltByte.length + saltByte.length, sourceByte.length);//saltSource [뒤] : 바이트로 변경된 암호화되기 전 "비번"
 			
 			/* 'SHA-256알고리즘'을 사용하기 위해 먼저,import java.security.MessageDigest;
 			 * new 생성자를 따로 쓸 필요 없이 아래와 같이 하면 자동으로 객체 생성됨
@@ -46,8 +51,9 @@ public class SHA256Encoder {
 				sb.append(Integer.toString((saltSourceDigest[i]&0xFF)+0x100, 16).substring(1));
 			}
 			result = sb.toString(); // StringBuffer안의 값을 String객체 생성
-		
-		} catch (Exception e) {			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
 		

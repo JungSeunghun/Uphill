@@ -8,7 +8,7 @@
 <section>
 	<form action="/account/join2" name="f" method="post">
 		<div>
-			<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
+			<a href="/home/home"><img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 		</div>
 		<div>
 			<h2>본인인증</h2>
