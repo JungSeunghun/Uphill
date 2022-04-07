@@ -17,10 +17,11 @@ public class LoginAction implements Action {
 		LoginService loginService = new LoginService();
 		
 		UserVO userVO = new UserVO();
-		String salt = loginService.getSalt(userVO).getSalt();
 		
 		userVO.setUserEnterId(request.getParameter("userEnterId"));
 		userVO.setUserPassword(request.getParameter("userPassword"));		
+
+		String salt = loginService.getSalt(userVO).getSalt();
 		userVO.setSalt(salt);
 		
 		userVO = loginService.login(userVO);

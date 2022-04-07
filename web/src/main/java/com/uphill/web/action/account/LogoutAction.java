@@ -13,7 +13,7 @@ public class LogoutAction implements Action {
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("userVO");		
-		return new ViewResolver("/home/home");
+		return new ViewResolver("/home/home", true);
 	}
 
 }
