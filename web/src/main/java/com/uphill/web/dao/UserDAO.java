@@ -1,6 +1,7 @@
 package com.uphill.web.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -115,23 +116,24 @@ public class UserDAO {
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "insert into user_table(user_enter_id, user_password, user_name, gender, mobile_carrier, phone_number, address, address_detail, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into user_table(user_enter_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, userVO.getUserEnterId());
 			preparedStatement.setString(2, userVO.getUserPassword());
 			preparedStatement.setString(3, userVO.getUserName());
 			preparedStatement.setString(4, Character.toString(userVO.getGender()));
-			preparedStatement.setString(5, userVO.getMobileCarrier());
-			preparedStatement.setString(6, userVO.getPhoneNumber());
-			preparedStatement.setString(7, userVO.getAddress());
-			preparedStatement.setString(8, userVO.getAddressDetail());
-			preparedStatement.setString(9, userVO.getEmail());
-			preparedStatement.setBoolean(10, userVO.isPersonalAgree());
-			preparedStatement.setBoolean(11, userVO.isUniqueAgree());
-			preparedStatement.setBoolean(12, userVO.isMobileAgree());
-			preparedStatement.setBoolean(13, userVO.isUseAgree());
-			preparedStatement.setString(14, userVO.getSalt());
+			preparedStatement.setDate(5, (Date)userVO.getBirth());
+			preparedStatement.setString(6, userVO.getMobileCarrier());
+			preparedStatement.setString(7, userVO.getPhoneNumber());
+			preparedStatement.setString(8, userVO.getAddress());
+			preparedStatement.setString(9, userVO.getAddressDetail());
+			preparedStatement.setString(10, userVO.getEmail());
+			preparedStatement.setBoolean(11, userVO.isPersonalAgree());
+			preparedStatement.setBoolean(12, userVO.isUniqueAgree());
+			preparedStatement.setBoolean(13, userVO.isMobileAgree());
+			preparedStatement.setBoolean(14, userVO.isUseAgree());
+			preparedStatement.setString(15, userVO.getSalt());
 			
 			result = preparedStatement.executeUpdate();
 			if (result > 0) {
