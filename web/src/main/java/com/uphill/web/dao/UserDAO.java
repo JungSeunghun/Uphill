@@ -159,8 +159,8 @@ public class UserDAO {
 		return result;
 	}
 	
-	public UserVO selectUserSalt(UserVO userVO) {
-		UserVO newUserVO = null;
+	public String selectUserSalt(UserVO userVO) {
+		String salt = "";
 		
 		connection = DataBaseUtil.getConnection();
 
@@ -173,8 +173,7 @@ public class UserDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-				newUserVO = new UserVO();
-				newUserVO.setSalt(resultSet.getString("salt"));
+				salt = resultSet.getString("salt");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -194,6 +193,6 @@ public class UserDAO {
 			}
 		}
 		
-		return newUserVO;
+		return salt;
 	}
 }

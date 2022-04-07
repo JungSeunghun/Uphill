@@ -7,7 +7,7 @@
 
 <section>
 	<div>
-		<img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white">
+		<a href="/home/home"><img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 	</div>
 	<div>
 		<c:if test="${loginFail == null}">

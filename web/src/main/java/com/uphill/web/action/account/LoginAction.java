@@ -21,7 +21,8 @@ public class LoginAction implements Action {
 		userVO.setUserEnterId(request.getParameter("userEnterId"));
 		userVO.setUserPassword(request.getParameter("userPassword"));		
 
-		String salt = loginService.getSalt(userVO).getSalt();
+		String salt = loginService.getSalt(userVO);
+				
 		userVO.setSalt(salt);
 		
 		userVO = loginService.login(userVO);
@@ -43,6 +44,7 @@ public class LoginAction implements Action {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("userVO", userVO);
+			session.removeAttribute("loginFail");
 			
 			return new ViewResolver("/home/home", true);			
 		} else {
@@ -60,7 +62,8 @@ public class LoginAction implements Action {
 			response.addCookie(userEnterIdCookie);
 			response.addCookie(rememberIdCookie);
 			
-			request.setAttribute("loginFail", "fail");
+			HttpSession session = request.getSession();
+			session.setAttribute("loginFail", "fail");
 			
 			return new ViewResolver("/account/login", true);			
 		}

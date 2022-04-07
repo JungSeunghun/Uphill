@@ -10,7 +10,7 @@ public class LoginService {
 		return userDAO.loginUser(userVO);
 	}
 	
-	public UserVO getSalt(UserVO userVO) {
+	public String getSalt(UserVO userVO) {
 		UserDAO userDAO = new UserDAO();
 		
 		return userDAO.selectUserSalt(userVO);
