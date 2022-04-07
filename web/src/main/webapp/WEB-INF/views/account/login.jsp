@@ -11,10 +11,11 @@
 	</div>
 	<div>
 		<c:if test="${loginFail == null}">
-			<h2>어서오세요</h2>
+			<div>어서오세요</div>
 		</c:if>
 		<c:if test="${loginFail != null}">
-			<h2>아이디 또는 비밀번호를 틀렸습니다.</h2>
+			<c:remove var="loginFail"/>
+			<div>아이디 또는 비밀번호를 틀렸습니다.</div>
 		</c:if>
 	</div>
 	<div>

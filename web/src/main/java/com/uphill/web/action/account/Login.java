@@ -3,6 +3,7 @@ package com.uphill.web.action.account;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.viewresolver.ViewResolver;
@@ -23,6 +24,11 @@ public class Login implements Action {
 			if(cookieName.equals("rememberIdCookie")){
 				request.setAttribute("rememberIdCookie", cookies[i].getValue());
 			}
+		}
+		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userVO") != null) {
+			return new ViewResolver("/home/home", true);			
 		}
 		
 		return new ViewResolver("/views/account/login.tiles");

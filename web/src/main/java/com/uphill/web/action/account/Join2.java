@@ -27,10 +27,10 @@ public class Join2 implements Action {
 		userVO.setGender(request.getParameter("gender").charAt(0));
 		userVO.setMobileCarrier(request.getParameter("mobileCarrier"));
 		userVO.setPhoneNumber(phoneNumber);
-		userVO.setPersonalAgree(Boolean.parseBoolean(request.getParameter("personalAgree")));
-		userVO.setUniqueAgree(Boolean.parseBoolean(request.getParameter("uniqueAgree")));
-		userVO.setMobileAgree(Boolean.parseBoolean(request.getParameter("mobileAgree")));
-		userVO.setUseAgree(Boolean.parseBoolean(request.getParameter("useAgree")));
+		userVO.setPersonalAgree(request.getParameter("personalAgree") != null ? true : false);
+		userVO.setUniqueAgree(request.getParameter("uniqueAgree") != null ? true : false);
+		userVO.setMobileAgree(request.getParameter("mobileAgree") != null ? true : false);
+		userVO.setUseAgree(request.getParameter("useAgree") != null ? true : false);
 		
 		session.setAttribute("userVO", userVO);
 		

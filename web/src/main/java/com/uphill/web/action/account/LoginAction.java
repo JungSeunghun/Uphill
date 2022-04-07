@@ -44,7 +44,6 @@ public class LoginAction implements Action {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("userVO", userVO);
-			session.removeAttribute("loginFail");
 			
 			return new ViewResolver("/home/home", true);			
 		} else {
