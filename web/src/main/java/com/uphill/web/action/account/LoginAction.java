@@ -25,7 +25,7 @@ public class LoginAction implements Action {
 		
 		userVO = loginService.login(userVO);
 				
-		if(userVO.getUserId() >= 0) {
+		if(userVO != null) {
 			Cookie userEnterIdCookie = new Cookie("userEnterIdCookie", request.getParameter("userEnterId"));
 			Cookie rememberIdCookie = new Cookie("rememberIdCookie", "checked");
 
@@ -41,8 +41,7 @@ public class LoginAction implements Action {
 			response.addCookie(rememberIdCookie);
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("userEnterId", request.getParameter("userEnterId"));
-			session.removeAttribute("loginFail");;
+			session.setAttribute("userVO", userVO);
 			
 			return new ViewResolver("/home/home", true);			
 		} else {
@@ -60,8 +59,7 @@ public class LoginAction implements Action {
 			response.addCookie(userEnterIdCookie);
 			response.addCookie(rememberIdCookie);
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("loginFail", "fail");
+			request.setAttribute("loginFail", "fail");
 			
 			return new ViewResolver("/account/login", true);			
 		}

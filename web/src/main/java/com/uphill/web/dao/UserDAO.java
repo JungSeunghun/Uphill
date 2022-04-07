@@ -10,11 +10,14 @@ import com.uphill.web.dto.user.UserVO;
 import com.uphill.web.util.SHA256Encoder;
 
 public class UserDAO {
+	private Connection connection = null;
+	private PreparedStatement preparedStatement = null;
+	private ResultSet resultSet = null;
 	
 	public UserVO selectUser(UserVO userVO) {
-		Connection connection = DataBaseUtil.getConnection();
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
+		UserVO newUserVO = null;
+		
+		connection = DataBaseUtil.getConnection();
 		
 		try {
 			String sql = "select user_id, user_enter_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email from user_table where user_enter_id = ?";
@@ -25,7 +28,17 @@ public class UserDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-				
+				newUserVO = new UserVO();
+				newUserVO.setUserId(Integer.parseInt(resultSet.getString("user_id")));
+				newUserVO.setUserEnterId(resultSet.getString("user_enter_id"));
+				newUserVO.setUserName(resultSet.getString("user_name"));
+				newUserVO.setGender(resultSet.getString("gender").charAt(0));
+				newUserVO.setBirth(resultSet.getDate("birth"));
+				newUserVO.setMobileCarrier(resultSet.getString("mobile_carrier"));
+				newUserVO.setPhoneNumber(resultSet.getString("phone_number"));
+				newUserVO.setAddress(resultSet.getString("address"));
+				newUserVO.setAddressDetail(resultSet.getString("address_detail"));
+				newUserVO.setEmail(resultSet.getString("email"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -49,11 +62,9 @@ public class UserDAO {
 	}
 	
 	public UserVO loginUser(UserVO userVO) {
-		Connection connection = DataBaseUtil.getConnection();
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-		
-		UserVO newUserVO = new UserVO();
+		UserVO newUserVO = null;
+
+		connection = DataBaseUtil.getConnection();
 		
 		try {
 			String sql = "select user_id, user_enter_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email from user_table where user_enter_id = ? and user_password = ?";
@@ -65,6 +76,7 @@ public class UserDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
+				newUserVO = new UserVO();
 				newUserVO.setUserId(Integer.parseInt(resultSet.getString("user_id")));
 				newUserVO.setUserEnterId(resultSet.getString("user_enter_id"));
 				newUserVO.setUserName(resultSet.getString("user_name"));
@@ -72,7 +84,9 @@ public class UserDAO {
 				newUserVO.setBirth(resultSet.getDate("birth"));
 				newUserVO.setMobileCarrier(resultSet.getString("mobile_carrier"));
 				newUserVO.setPhoneNumber(resultSet.getString("phone_number"));
-				
+				newUserVO.setAddress(resultSet.getString("address"));
+				newUserVO.setAddressDetail(resultSet.getString("address_detail"));
+				newUserVO.setEmail(resultSet.getString("email"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -98,8 +112,7 @@ public class UserDAO {
 	public int insertUser(UserVO userVO) {
 		int result = 0;
 		
-		Connection connection = DataBaseUtil.getConnection();
-		PreparedStatement preparedStatement = null;
+		connection = DataBaseUtil.getConnection();
 		
 		try {
 			String sql = "insert into user_table(user_enter_id, user_password, user_name, gender, mobile_carrier, phone_number, address, address_detail, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -147,12 +160,10 @@ public class UserDAO {
 	}
 	
 	public UserVO selectUserSalt(UserVO userVO) {
-		UserVO newUserVO = new UserVO();
+		UserVO newUserVO = null;
 		
-		Connection connection = DataBaseUtil.getConnection();
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-		
+		connection = DataBaseUtil.getConnection();
+
 		try {
 			String sql = "select salt from user_table where user_enter_id = ?";
 			
@@ -162,6 +173,7 @@ public class UserDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
+				newUserVO = new UserVO();
 				newUserVO.setSalt(resultSet.getString("salt"));
 			}
 		} catch (SQLException e) {
