@@ -197,4 +197,71 @@ public class UserDAO {
 		
 		return salt;
 	}
+	
+	public String selectUserId(UserVO userVO) {
+		String id = "";
+		
+		connection = DataBaseUtil.getConnection();
+		
+		try {
+			String sql = "";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, userVO.getUserEnterId());
+			
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				id = resultSet.getString("salt");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) {
+					resultSet.close();
+				}
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return id;
+	}
+	
+	public int updateUserPassword(UserVO userVO) {
+		int result = 0;
+		
+		connection = DataBaseUtil.getConnection();
+
+		try {
+			String sql = "";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			
+			result = preparedStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
 }

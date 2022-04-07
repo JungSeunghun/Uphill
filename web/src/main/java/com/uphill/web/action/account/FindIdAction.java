@@ -11,7 +11,7 @@ public class FindIdAction implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 자동 생성된 메소드 스텁
-		return null;
+		return new ViewResolver("/views/account/find_id_result.tiles");
 	}
 
 }

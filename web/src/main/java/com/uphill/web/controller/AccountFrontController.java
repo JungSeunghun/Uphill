@@ -45,8 +45,8 @@ public class AccountFrontController extends HttpServlet{
 		
 		actionMap.put("/account/find-select", new FindSelect());
 		
-		actionMap.put("/account/find-Id", new FindId());
-		actionMap.put("/account/find-Id-action", new FindIdAction());
+		actionMap.put("/account/find-id", new FindId());
+		actionMap.put("/account/find-id-action", new FindIdAction());
 		
 		actionMap.put("/account/find-password", new FindPassword());
 		actionMap.put("/account/find-password-action", new FindPasswordAction());

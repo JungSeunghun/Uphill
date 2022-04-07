@@ -81,10 +81,20 @@
 		<put-attribute name="title" value="Up-Hill Find Id" />
 		<put-attribute name="body" value="/WEB-INF/views/account/find_id.jsp" />
 	</definition>
+
+	<definition name="views/account/find_id_result" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+		<put-attribute name="title" value="Up-Hill Find Id" />
+		<put-attribute name="body" value="/WEB-INF/views/account/find_id_result.jsp" />
+	</definition>
 	
 	<definition name="views/account/find_password" template="/WEB-INF/tiles/layouts/login_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Password" />
 		<put-attribute name="body" value="/WEB-INF/views/account/find_password.jsp" />
+	</definition>
+
+	<definition name="views/account/find_password_result" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+		<put-attribute name="title" value="Up-Hill Find Password" />
+		<put-attribute name="body" value="/WEB-INF/views/account/find_password_result.jsp" />
 	</definition>
 
 	<!-- item -->
