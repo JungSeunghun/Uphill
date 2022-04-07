@@ -31,13 +31,14 @@
 		</div>
 		<div>
 			<p>이메일</p>
-				<input type="text" name="emailId" size="">@
-				<select name="emailAddress">
-					<option value="">이메일을 선택하세요.</option>
-					<option value="@naver.com">naver.com</option>
-					<option value="@daum.net">daum.net</option>
-					<option value="@gmail.com">gmail.com</option>
-				</select>
+			<input type="text" name="emailId">@
+			<select name="emailAddress">
+				<option value="">이메일을 선택하세요.</option>
+				<option value="@naver.com">naver.com</option>
+				<option value="@daum.net">daum.net</option>
+				<option value="@gmail.com">gmail.com</option>
+			</select>
+			<input type="button" value="중복확인" onclick="">
 		</div>
 		<div>
 			<input type="submit" value="회원가입" onclick="checkJoin2(); return false;">

@@ -20,8 +20,6 @@ public class Join2 implements Action {
 		HttpSession session = request.getSession();
 
 		UserVO userVO = new UserVO();
-
-		userVO.setUserName(request.getParameter("userName"));
 		
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-mm-dd");
 		Date birth = new Date();
@@ -31,18 +29,20 @@ public class Join2 implements Action {
 			e.printStackTrace();
 			return new ViewResolver("/account/join1", true);
 		}
-		userVO.setBirth(birth);
-		userVO.setGender(request.getParameter("gender").charAt(0));
-		userVO.setMobileCarrier(request.getParameter("mobileCarrier"));
+		
 		String phoneNumber = request.getParameter("firstPhoneNumber") 
 				+ request.getParameter("middlePhoneNumber")
 				+ request.getParameter("lastPhoneNumber");
+
+		userVO.setUserName(request.getParameter("userName"));
+		userVO.setBirth(birth);
+		userVO.setGender(request.getParameter("gender").charAt(0));
+		userVO.setMobileCarrier(request.getParameter("mobileCarrier"));
 		userVO.setPhoneNumber(phoneNumber);
 		userVO.setPersonalAgree(Boolean.parseBoolean(request.getParameter("personalAgree")));
 		userVO.setUniqueAgree(Boolean.parseBoolean(request.getParameter("uniqueAgree")));
 		userVO.setMobileAgree(Boolean.parseBoolean(request.getParameter("mobileAgree")));
 		userVO.setUseAgree(Boolean.parseBoolean(request.getParameter("useAgree")));
-		userVO.setSalt(SHA256Encoder.getRandomPassword(8));
 		
 		session.setAttribute("userVO", userVO);
 		

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.user.UserVO;
 import com.uphill.web.service.account.JoinService;
+import com.uphill.web.util.SHA256Encoder;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class JoinAction implements Action {
@@ -22,12 +23,13 @@ public class JoinAction implements Action {
 		} else {
 			return new ViewResolver("/account/join1", true);
 		}
-		
+		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
+
+		userVO.setSalt(SHA256Encoder.getRandomPassword(8));
 		userVO.setUserEnterId(request.getParameter("userEnterId"));
-		userVO.setUserPassword(request.getParameter("userPassword"));
+		userVO.setUserPassword(SHA256Encoder.encode(request.getParameter("userPassword"), userVO.getSalt()));
 		userVO.setAddress(request.getParameter("address"));
 		userVO.setAddressDetail(request.getParameter("addressDetail"));
-		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
 		userVO.setEmail(email);
 		
 		JoinService joinService = new JoinService();

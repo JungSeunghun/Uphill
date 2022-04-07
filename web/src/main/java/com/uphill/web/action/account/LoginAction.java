@@ -17,16 +17,15 @@ public class LoginAction implements Action {
 		LoginService loginService = new LoginService();
 		
 		UserVO userVO = new UserVO();
+		String salt = loginService.getSalt(userVO).getSalt();
 		
 		userVO.setUserEnterId(request.getParameter("userEnterId"));
-		userVO.setUserPassword(request.getParameter("userPassword"));
-		
-		String salt = loginService.getSalt(userVO);
+		userVO.setUserPassword(request.getParameter("userPassword"));		
 		userVO.setSalt(salt);
 		
-		boolean result = loginService.login(userVO);
+		userVO = loginService.login(userVO);
 				
-		if(result) {
+		if(userVO.getUserId() >= 0) {
 			Cookie userEnterIdCookie = new Cookie("userEnterIdCookie", request.getParameter("userEnterId"));
 			Cookie rememberIdCookie = new Cookie("rememberIdCookie", "checked");
 
