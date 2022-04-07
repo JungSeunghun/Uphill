@@ -21,6 +21,7 @@ public class JoinAction implements Action {
 		if(session.getAttribute("userVO") != null && session.getAttribute("userVO") instanceof UserVO) {
 			userVO = (UserVO)session.getAttribute("userVO");
 		} else {
+			session.removeAttribute("userVO");
 			return new ViewResolver("/views/account/join_fail.tiles");
 		}
 		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
