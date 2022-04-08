@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<link rel="stylesheet" type="text/css" href="/css/account/login.css">
-<script type="text/javascript" src="/javascript/account/login.js"></script>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/account/login.css">
+<script type="text/javascript" src="${contextPath}/javascript/account/login.js"></script>
 
 <section>
 	<div id="loginTitle">
-		<a href="/home/home"><img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
+		<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 	</div>
 	<div id="loginHello">
 		<c:if test="${loginFail == null}">
@@ -31,9 +33,9 @@
 		<div id="passwordForm">
 			<div>비밀번호</div>
 			<input type="password" id="userPassword" name="userPassword" maxlength="20"><br>
-			<a href="/account/find-select">아이디 또는 비밀번호 찾기</a>
+			<a href="${contextPath}/account/find-select">아이디 또는 비밀번호 찾기</a>
 		</div>
 		<button id="loginButton" onclick="loginCheck(); return false;">로그인</button>
 	</form>
-	<button id="joinButton" onclick="location.href='/account/join1'">회원가입</button>
+	<button id="joinButton" onclick="location.href='${contextPath}/account/join1'">회원가입</button>
 </section>	

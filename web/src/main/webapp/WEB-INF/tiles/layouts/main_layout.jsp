@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		<title><tiles:getAsString name="title"/></title>
-		<link rel="stylesheet" type="text/css" href="/css/common.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css">
 	</head>
 	<body>
 		<tiles:insertAttribute name="header" />

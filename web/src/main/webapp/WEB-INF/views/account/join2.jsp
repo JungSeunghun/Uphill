@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<script type="text/javascript" src="/javascript/account/join2.js"></script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<script type="text/javascript" src="${contextPath}/javascript/account/join2.js"></script>
 
 <section>
 	<form action="/account/join-action" name="f" method="post">
 		<div>
-			<a href="/home/home"><img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
+			<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 		</div>
 		<div>
 			<h2>회원가입</h2>
@@ -44,7 +48,7 @@
 			<input type="submit" value="회원가입" onclick="checkJoin2(); return false;">
 		</div>
 		<div>
-			<a href="/account/join1">이전으로</a>
+			<a href="${contextPath}/account/join1">이전으로</a>
 		</div>
 	</form>
 </section>

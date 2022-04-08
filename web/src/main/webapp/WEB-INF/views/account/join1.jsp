@@ -3,12 +3,14 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<link rel="stylesheet" type="text/css" href="/css/account/join1.css">
-<script type="text/javascript" src="/javascript/account/join1.js" ></script>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/account/join1.css">
+<script type="text/javascript" src="${contextPath}/javascript/account/join1.js" ></script>
 
 <section>
 	<div id="joinTitle">
-		<a href="/home/home"><img src="/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
+		<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 	</div>
 	<form action="/account/join2" id="f" name="f" method="post">
 		<div id="joinFormTitle">본인인증</div>

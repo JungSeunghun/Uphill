@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+
 <nav id="gnb">
 	<ul id="gnbList">
 		<li>
 			<a href="/home/home">
-				<img alt="uphill_logo_black" src="/images/logos/uphill_logo_black.svg" width="64px">
+				<img alt="uphill_logo_black" src="${contextPath}/images/logos/uphill_logo_black.svg" width="64px">
 			</a>
 		</li>
 		<li>
@@ -23,10 +25,10 @@
 			<a href="/community/notice">커뮤니티</a>
 		<li>
 		<li>
-			<img alt="search icon" src="/images/icons/search_icon_white.svg" width="16px">
+			<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
 		</li>
 		<li>
-			<a href="/user/basket"><img alt="basket icon" src="/images/icons/basket_icon_white.svg" width="16px"></a>
+			<a href="/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
 		</li>
 	</ul>
 	<div id="category">
@@ -34,9 +36,9 @@
 			<ul></ul>
 			<ul></ul>
 			<ul>
-				<li><a href="/bicycle/mtb">MTB</a></li>
-				<li><a href="/bicycle/road">Road</a></li>
-				<li><a href="/bicycle/minivelo">Minivelo</a></li>
+				<li><a href="${contextPath}/bicycle/mtb">MTB</a></li>
+				<li><a href="${contextPath}/bicycle/road">Road</a></li>
+				<li><a href="${contextPath}/bicycle/minivelo">Minivelo</a></li>
 			</ul>
 			<ul>
 				<li><a href="/item/helmet">헬멧</a></li>
