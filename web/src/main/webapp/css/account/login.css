@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	color: #111111;	
+}
+
+html {
+	font-size: 16px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section #loginTitle img {
+	width: 144px;
+	margin-top: 64px;
+	margin-bottom: 32px;
+}
+
+section #loginHello {
+	font-size: 1.5rem;
+	font-weight: bolder;
+	margin-bottom: 32px;
+}
+
+section #loginForm {
+	width: 300px;
+	border: 1px solid #c4c4c4;
+	padding: 40px;
+}
+
+section #loginForm #idForm {
+	margin-bottom: 40px;
+}
+
+section #loginForm #idForm #userEnterId {
+	height: 28px;
+	width: 100%;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border: 1px solid #c4c4c4;
+}
+
+section #loginForm #rememberIdForm {
+	display: flex;
+	align-items: center;
+}
+
+input[type="checkbox"] {
+	width: 14px;
+	height: 14px;
+	background-color: #ffffff;
+	border: 1px solid #c4c4c4;
+	margin-right: 8px;
+	appearance: none;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+	background-color: #9ccc65;
+}
+
+section #loginForm #rememberIdText {
+	font-size: 0.825rem;
+	color: #c4c4c4;
+	cursor: pointer;
+}
+
+section #loginForm #passwordForm {
+	margin-bottom: 40px;
+}
+
+section #loginForm #passwordForm #userPassword {
+	height: 28px;
+	width: 100%;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border: 1px solid #c4c4c4;
+}
+
+section #loginForm #passwordForm a {
+	color: #c4c4c4;
+	font-size: 0.825rem;
+}
+
+section #loginForm #loginButton {
+	height: 28px;
+	width: 100%;
+	height: 40px;
+	border: none;
+	color: #ffffff;
+	background-color: #9ccc65;
+	font-size: 0.825rem;
+}
+
+section #loginForm #loginButton:hover {
+	color: #ffffff;
+	background-color: #6b9b36;
+}
+
+section #joinButton {
+	width: 300px;
+	height: 40px;
+	margin: 40px;
+	border: 1px solid #c4c4c4;
+	background-color: #ffffff;
+	color: #c4c4c4;
+	font-size: 0.825rem;
+}
+section #joinButton:hover {
+	background-color: #9ccc65;
+	color: #ffffff;
+}

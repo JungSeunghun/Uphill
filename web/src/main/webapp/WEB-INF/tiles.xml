@@ -47,52 +47,52 @@
 	</definition>
 
 	<!-- account -->
-	<definition name="views/account/login" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/login" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Login" />
 		<put-attribute name="body" value="/WEB-INF/views/account/login.jsp" />
 	</definition>
 	
-	<definition name="views/account/join1" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/join1" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Join1" />
 		<put-attribute name="body" value="/WEB-INF/views/account/join1.jsp" />
 	</definition>
 	
-	<definition name="views/account/join2" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/join2" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Join2" />
 		<put-attribute name="body" value="/WEB-INF/views/account/join2.jsp" />
 	</definition>
 
-	<definition name="views/account/join_finish" template="/WEB-INF/tiles/layouts/login_layout.jsp">
-		<put-attribute name="title" value="Up-Hill Join2" />
+	<definition name="views/account/join_finish" template="/WEB-INF/tiles/layouts/account_layout.jsp">
+		<put-attribute name="title" value="Up-Hill Welcome" />
 		<put-attribute name="body" value="/WEB-INF/views/account/join_finish.jsp" />
 	</definition>
 
-	<definition name="views/account/join_fail" template="/WEB-INF/tiles/layouts/login_layout.jsp">
-		<put-attribute name="title" value="Up-Hill Join2" />
+	<definition name="views/account/join_fail" template="/WEB-INF/tiles/layouts/account_layout.jsp">
+		<put-attribute name="title" value="Up-Hill Join Fail" />
 		<put-attribute name="body" value="/WEB-INF/views/account/join_fail.jsp" />
 	</definition>
 	
-	<definition name="views/account/find_select" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/find_select" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Select" />
 		<put-attribute name="body" value="/WEB-INF/views/account/find_select.jsp" />
 	</definition>
 	
-	<definition name="views/account/find_id" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/find_id" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Id" />
 		<put-attribute name="body" value="/WEB-INF/views/account/find_id.jsp" />
 	</definition>
 
-	<definition name="views/account/find_id_result" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/find_id_result" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Id" />
 		<put-attribute name="body" value="/WEB-INF/views/account/find_id_result.jsp" />
 	</definition>
 	
-	<definition name="views/account/find_password" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/find_password" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Password" />
 		<put-attribute name="body" value="/WEB-INF/views/account/find_password.jsp" />
 	</definition>
 
-	<definition name="views/account/find_password_result" template="/WEB-INF/tiles/layouts/login_layout.jsp">
+	<definition name="views/account/find_password_result" template="/WEB-INF/tiles/layouts/account_layout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Password" />
 		<put-attribute name="body" value="/WEB-INF/views/account/find_password_result.jsp" />
 	</definition>

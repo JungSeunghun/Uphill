@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <nav id="gnb">
-	<ul id="gnb-list">
+	<ul id="gnbList">
 		<li>
 			<a href="/home/home">
 				<img alt="uphill_logo_black" src="/images/logos/uphill_logo_black.svg" width="64px">
