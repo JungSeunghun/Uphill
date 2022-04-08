@@ -21,9 +21,11 @@ public class Join2 implements Action {
 		String phoneNumber = request.getParameter("firstPhoneNumber") 
 				+ request.getParameter("middlePhoneNumber")
 				+ request.getParameter("lastPhoneNumber");
-
+		String birth = request.getParameter("year")
+				+ request.getParameter("month")
+				+ request.getParameter("day");
 		userVO.setUserName(request.getParameter("userName"));
-		userVO.setBirth(Date.valueOf(request.getParameter("birth")));
+		userVO.setBirth(Date.valueOf(birth));
 		userVO.setGender(request.getParameter("gender").charAt(0));
 		userVO.setMobileCarrier(request.getParameter("mobileCarrier"));
 		userVO.setPhoneNumber(phoneNumber);

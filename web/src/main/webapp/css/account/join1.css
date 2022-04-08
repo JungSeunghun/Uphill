@@ -24,19 +24,80 @@ section #joinTitle img {
 	margin-bottom: 32px;
 }
 
-section #joinForm {
+section #f {
 	border: 1px solid #c4c4c4;
 	padding: 40px;
+	margin-bottom: 96px;
 }
 
-section #joinForm #joinFormTitle {
+section #f #joinFormTitle {
 	font-size: 1.5rem;
 }
 
-section #joinForm #joinFormDiv {
+section #f #joinFormDiv {
 	margin-top: 40px;
 }
 
-section #joinForm #joinFormDivTitle {
-	margin-bottom: 8px; 
+section #f #joinFormDivTitle {
+	margin-bottom: 8px;
+}
+
+section #f #joinAgreeForm {
+	margin-bottom: 8px;
+}
+
+section #f input[type=text] {
+	height: 28px;
+	width: 104px;
+	border: 1px solid #c4c4c4;
+}
+
+section #f select {
+	height: 28px;
+	border: 1px solid #c4c4c4;
+}
+
+section #f label {
+	cursor: pointer;
+}
+
+section #f input[type=radio] {
+	height: 14px;
+	width: 14px;
+	border: 1px solid #c4c4c4;
+	border-radius: 50%;
+	margin-right: 8px;
+	appearance: none;
+	cursor: pointer;
+}
+
+section #f input[type=radio]:checked {
+	background-color: #9ccc65;
+}
+
+input[type="checkbox"] {
+	width: 14px;
+	height: 14px;
+	background-color: #ffffff;
+	border: 1px solid #c4c4c4;
+	margin-right: 8px;
+	appearance: none;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+	background-color: #9ccc65;
+}
+
+section #f #next {
+	margin-top: 40px;
+	width: 100%;
+	height: 40px;
+	border : 1px solid #c4c4c4;
+	background-color: #ffffff;
+}
+
+section #f #next:hover {
+	background-color: #9ccc65;
+	color: #ffffff;
 }

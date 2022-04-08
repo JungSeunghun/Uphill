@@ -30,17 +30,17 @@ section #loginHello {
 	margin-bottom: 32px;
 }
 
-section #loginForm {
-	width: 300px;
+section #f {
+	width: 304px;
 	border: 1px solid #c4c4c4;
 	padding: 40px;
 }
 
-section #loginForm #idForm {
+section #f #idForm {
 	margin-bottom: 40px;
 }
 
-section #loginForm #idForm #userEnterId {
+section #f #idForm #userEnterId {
 	height: 28px;
 	width: 100%;
 	margin-top: 8px;
@@ -48,7 +48,7 @@ section #loginForm #idForm #userEnterId {
 	border: 1px solid #c4c4c4;
 }
 
-section #loginForm #rememberIdForm {
+section #f #rememberIdForm {
 	display: flex;
 	align-items: center;
 }
@@ -67,17 +67,17 @@ input[type="checkbox"]:checked {
 	background-color: #9ccc65;
 }
 
-section #loginForm #rememberIdText {
+section #f #rememberIdText {
 	font-size: 0.825rem;
 	color: #c4c4c4;
 	cursor: pointer;
 }
 
-section #loginForm #passwordForm {
+section #f #passwordForm {
 	margin-bottom: 40px;
 }
 
-section #loginForm #passwordForm #userPassword {
+section #f #passwordForm #userPassword {
 	height: 28px;
 	width: 100%;
 	margin-top: 8px;
@@ -85,24 +85,25 @@ section #loginForm #passwordForm #userPassword {
 	border: 1px solid #c4c4c4;
 }
 
-section #loginForm #passwordForm a {
+section #f #passwordForm a {
 	color: #c4c4c4;
 	font-size: 0.825rem;
 }
 
-section #loginForm #loginButton {
+section #f #loginButton {
 	height: 28px;
 	width: 100%;
 	height: 40px;
-	border: none;
-	color: #ffffff;
-	background-color: #9ccc65;
+	border: 1px solid #c4c4c4;;
+	color: #c4c4c4;
+	background-color: #ffffff;
 	font-size: 0.825rem;
+	cursor: pointer;
 }
 
-section #loginForm #loginButton:hover {
+section #f #loginButton:hover {
 	color: #ffffff;
-	background-color: #6b9b36;
+	background-color: #9ccc65;
 }
 
 section #joinButton {
@@ -113,8 +114,10 @@ section #joinButton {
 	background-color: #ffffff;
 	color: #c4c4c4;
 	font-size: 0.825rem;
+	cursor: pointer;
 }
 section #joinButton:hover {
 	background-color: #9ccc65;
 	color: #ffffff;
+	
 }
