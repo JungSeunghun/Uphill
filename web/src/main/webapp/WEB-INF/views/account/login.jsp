@@ -21,7 +21,7 @@
 			아이디 또는 비밀번호를 틀렸습니다.
 		</c:if>
 	</div>
-	<form action="/account/login-action" id="f" name="f" method="post">
+	<form action="${contextPath}/account/login-action" id="f" name="f" method="post">
 		<div id="idForm">
 			<div>아이디</div>
 			<input type="text" id="userEnterId" name="userEnterId" value="${userEnterIdCookie }" maxlength="20"><br> 

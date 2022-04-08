@@ -51,11 +51,11 @@ public class HomeFrontController extends HttpServlet{
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
 				dispatcher.forward(request, response);
 			} else {
-				response.sendRedirect(url.substring(0, url.indexOf(uri)) + viewResolver.getPath());
+				response.sendRedirect(url.substring(0, url.indexOf(uri)) + contextPath + viewResolver.getPath());
 			}
 			
 		} else {
-			response.sendRedirect(url.substring(0, url.indexOf(uri)) + command);
+			response.sendRedirect(url.substring(0, url.indexOf(uri)) + contextPath + command);
 		}
 	}
 

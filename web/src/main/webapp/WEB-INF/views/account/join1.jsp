@@ -12,7 +12,7 @@
 	<div id="joinTitle">
 		<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 	</div>
-	<form action="/account/join2" id="f" name="f" method="post">
+	<form action="${contextPath}/account/join2" id="f" name="f" method="post">
 		<div id="joinFormTitle">본인인증</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">이름</div>

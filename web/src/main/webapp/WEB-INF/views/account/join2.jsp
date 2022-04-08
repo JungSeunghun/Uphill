@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${contextPath}/javascript/account/join2.js"></script>
 
 <section>
-	<form action="/account/join-action" name="f" method="post">
+	<form action="${contextPath}/account/join-action" name="f" method="post">
 		<div>
 			<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 		</div>

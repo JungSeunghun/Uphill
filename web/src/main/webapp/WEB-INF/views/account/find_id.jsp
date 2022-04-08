@@ -10,7 +10,7 @@
 		<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 	</div>
 
-	<form action="/account/find-id-action" name="f" method="post">
+	<form action="${contextPath}/account/find-id-action" name="f" method="post">
 		<h2>아이디 찾기</h2>
 		<div>
 			<p>이름</p>
