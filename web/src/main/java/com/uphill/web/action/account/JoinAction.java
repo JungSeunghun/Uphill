@@ -22,7 +22,7 @@ public class JoinAction implements Action {
 			userVO = (UserVO)session.getAttribute("userVO");
 		} else {
 			session.removeAttribute("userVO");
-			return new ViewResolver("/views/account/join_fail.tiles");
+			return new ViewResolver("/views/account/joinFail.tiles");
 		}
 		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
 
@@ -40,9 +40,9 @@ public class JoinAction implements Action {
 		session.removeAttribute("userVO");
 		
 		if(joinService.join(userVO)) {
-			return new ViewResolver("/views/account/join_finish.tiles");
+			return new ViewResolver("/views/account/joinFinish.tiles");
 		} else {
-			return new ViewResolver("/views/account/join_fail.tiles");
+			return new ViewResolver("/views/account/joinFail.tiles");
 		}
 		
 	}

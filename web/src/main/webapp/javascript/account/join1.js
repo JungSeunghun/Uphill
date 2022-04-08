@@ -85,18 +85,6 @@ function checkJoin1() {
 }
 
 /**
- * 전체선택
- */
-function agreeAll() {
-	const agrees = document.querySelectorAll('input[type="checkbox"]');
-	
-	agrees.forEach((agree) => {
-	    agree.checked = f.agree.checked;
-	  });
-}
-
-
-/**
  * 전화번호 입력시 자동으로 넘어가기
  */
 function moveNumber(event) {
@@ -111,6 +99,70 @@ function moveNumber(event) {
 	}
 }
 
+/**
+ * 팝업창 열기
+ */
+function openPopup(checkbox) {
+	if(checkbox.value === "personalAgree") {
+		document.getElementById('personalAgreePopUp').style.display = 'flex';
+		document.getElementById('personalAgreePopUp').style
+	} else if(checkbox.value === "uniqueAgree") {
+		document.getElementById('uniqueAgreePopUp').style.display = 'flex';
+	} else if(checkbox.value === "mobileAgree") {
+		document.getElementById('mobileAgreePopUp').style.display = 'flex';
+	} else if(checkbox.value === "useAgree") {
+		document.getElementById('useAgreePopUp').style.display = 'flex';
+	}
+	
+	
+	document.documentElement.style.height="100%"; // html태그
+	document.body.style.height = "100%";
+	document.body.style.overflow = "hidden";
+}
+
+function agree(popUp) {
+	if(popUp.parentElement.id === "personalAgreePopUp") {
+		document.getElementById("personalAgree").checked = true;
+		popUp.parentElement.style.display = 'none';
+	} else if(popUp.parentElement.id === "uniqueAgreePopUp") {
+		document.getElementById("uniqueAgree").checked = true;
+		popUp.parentElement.style.display = 'none';
+	} else if(popUp.parentElement.id === "mobileAgreePopUp") {
+		document.getElementById("mobileAgree").checked = true;
+		popUp.parentElement.style.display = 'none';
+	} else if(popUp.parentElement.id === "useAgreePopUp") {
+		document.getElementById("useAgree").checked = true;
+		popUp.parentElement.style.display = 'none';
+	}
+	
+	document.documentElement.style.height="auto";
+	document.body.style.height = "auto";
+	document.body.style.overflow = "auto";
+}
+
+function closePopUp(popUp) {
+	if(popUp.parentElement.id === "personalAgreePopUp") {
+		document.getElementById("personalAgree").checked = false;
+		popUp.parentElement.style.display = 'none';
+	} else if(popUp.parentElement.id === "uniqueAgreePopUp") {
+		document.getElementById("uniqueAgree").checked = false;
+		popUp.parentElement.style.display = 'none';
+	} else if(popUp.parentElement.id === "mobileAgreePopUp") {
+		document.getElementById("mobileAgree").checked = false;
+		popUp.parentElement.style.display = 'none';
+	} else if(popUp.parentElement.id === "useAgreePopUp") {
+		document.getElementById("useAgree").checked = false;
+		popUp.parentElement.style.display = 'none';
+	}
+	
+	document.documentElement.style.height="auto";
+	document.body.style.height = "auto";
+	document.body.style.overflow = "auto";
+}
+
+/**
+ * 년도와 달을 구하여 마지막 날짜가 몇일인지 계산
+ */
 function getDate() {
 	const year = f.year.value;
 	const month = f.month.value;
@@ -123,6 +175,9 @@ function getDate() {
 	}
 }
 
+/**
+ * 화면이 로드되면 년도와 달과 몇일인지 초기화
+ */
 window.onload = function setDate() {
 	const startYear = 1900;
 	const today = new Date();

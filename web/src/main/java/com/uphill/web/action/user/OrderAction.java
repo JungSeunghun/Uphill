@@ -11,7 +11,7 @@ public class OrderAction implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return new ViewResolver("/user/purchase-list");
+		return new ViewResolver("/user/purchaseList");
 	}
 
 }

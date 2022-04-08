@@ -95,7 +95,6 @@ section #f #loginButton {
 	width: 100%;
 	height: 40px;
 	border: 1px solid #c4c4c4;;
-	color: #c4c4c4;
 	background-color: #ffffff;
 	font-size: 0.825rem;
 	cursor: pointer;
@@ -104,6 +103,7 @@ section #f #loginButton {
 section #f #loginButton:hover {
 	color: #ffffff;
 	background-color: #9ccc65;
+	border: none;
 }
 
 section #joinButton {
@@ -112,12 +112,11 @@ section #joinButton {
 	margin: 40px;
 	border: 1px solid #c4c4c4;
 	background-color: #ffffff;
-	color: #c4c4c4;
 	font-size: 0.825rem;
 	cursor: pointer;
 }
 section #joinButton:hover {
 	background-color: #9ccc65;
 	color: #ffffff;
-	
+	border: none;
 }

@@ -1,6 +1,8 @@
 package com.uphill.web.action.account;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,11 +23,21 @@ public class Join2 implements Action {
 		String phoneNumber = request.getParameter("firstPhoneNumber") 
 				+ request.getParameter("middlePhoneNumber")
 				+ request.getParameter("lastPhoneNumber");
-		String birth = request.getParameter("year")
-				+ request.getParameter("month")
+		
+		String birthString = request.getParameter("year") + "-"
+				+ request.getParameter("month") + "-"
 				+ request.getParameter("day");
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+		Date birth = null;
+		try {
+			birth = dateFormat.parse(birthString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 		userVO.setUserName(request.getParameter("userName"));
-		userVO.setBirth(Date.valueOf(birth));
+		userVO.setBirth(birth);
 		userVO.setGender(request.getParameter("gender").charAt(0));
 		userVO.setMobileCarrier(request.getParameter("mobileCarrier"));
 		userVO.setPhoneNumber(phoneNumber);

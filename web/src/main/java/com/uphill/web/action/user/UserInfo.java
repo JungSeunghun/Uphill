@@ -11,7 +11,7 @@ public class UserInfo implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return new ViewResolver("/views/user/user_info.tiles");
+		return new ViewResolver("/views/user/userInfo.tiles");
 	}
 
 }

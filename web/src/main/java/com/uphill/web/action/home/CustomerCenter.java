@@ -11,7 +11,7 @@ public class CustomerCenter implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		return new ViewResolver("/views/home/customer_center.tiles");
+		return new ViewResolver("/views/home/customerCenter.tiles");
 	}
 
 }

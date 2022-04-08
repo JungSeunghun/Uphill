@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import com.uphill.web.database.DataBaseUtil;
 import com.uphill.web.dto.user.UserVO;
@@ -118,12 +119,21 @@ public class UserDAO {
 		try {
 			String sql = "insert into user_table(user_enter_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
+			Date birth = null;
+			try {
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String formattedDate = simpleDateFormat.format(userVO.getBirth());
+				birth = Date.valueOf(formattedDate);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
+			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, userVO.getUserEnterId());
 			preparedStatement.setString(2, userVO.getUserPassword());
 			preparedStatement.setString(3, userVO.getUserName());
 			preparedStatement.setString(4, Character.toString(userVO.getGender()));
-			preparedStatement.setDate(5, userVO.getBirth());
+			preparedStatement.setDate(5, birth);
 			preparedStatement.setString(6, userVO.getMobileCarrier());
 			preparedStatement.setString(7, userVO.getPhoneNumber());
 			preparedStatement.setString(8, userVO.getAddress());

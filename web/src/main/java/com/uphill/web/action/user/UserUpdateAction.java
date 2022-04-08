@@ -10,7 +10,7 @@ public class UserUpdateAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
-		return new ViewResolver("/user/user-update");
+		return new ViewResolver("/user/userUpdate");
 	}
 
 }

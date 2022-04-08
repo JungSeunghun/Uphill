@@ -11,7 +11,7 @@ public class UserUpdate implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return new ViewResolver("/views/user/user_update.tiles");
+		return new ViewResolver("/views/user/userUpdate.tiles");
 	}
 
 }

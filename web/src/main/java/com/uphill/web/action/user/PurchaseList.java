@@ -11,7 +11,7 @@ public class PurchaseList implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return new ViewResolver("/views/user/purchase_list.tiles");
+		return new ViewResolver("/views/user/purchaseList.tiles");
 	}
 
 }

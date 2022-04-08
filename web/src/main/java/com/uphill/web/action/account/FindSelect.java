@@ -10,7 +10,7 @@ public class FindSelect implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
-		return new ViewResolver("/views/account/find_select.tiles");
+		return new ViewResolver("/views/account/findSelect.tiles");
 	}
 
 }

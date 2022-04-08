@@ -11,7 +11,7 @@ public class ItemList implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 				
-		return new ViewResolver("/views/item/item_list.tiles");
+		return new ViewResolver("/views/item/itemList.tiles");
 	}
 
 }

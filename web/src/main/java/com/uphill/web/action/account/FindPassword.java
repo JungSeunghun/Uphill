@@ -11,7 +11,7 @@ public class FindPassword implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return new ViewResolver("/views/account/find_password.tiles");
+		return new ViewResolver("/views/account/findPassword.tiles");
 	}
 
 }
