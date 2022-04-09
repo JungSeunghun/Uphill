@@ -12,47 +12,49 @@
 		<div>
 			<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 		</div>
+		<div>회원가입</div>
 		<div>
-			<h2>회원가입</h2>
-		</div>
-		<div>
-			<p>아이디</p>
+			<div>아이디</div>
 			<input type="text" name="userEnterId" id="userEnterId" onchange="changedId();" maxlength="20">
 			<button type="button" onclick="checkDuplicateId();">중복확인</button>
 			<div id="checkDuplicateIdResult"></div>
 			<input type="hidden" id="canUseId" value="false">
 		</div>
 		<div>
-			<p>비밀번호</p>
+			<div>비밀번호</div>
 			<input type="password" name="userPassword" maxlength="20">
 		</div>
 		<div>
-			<p>비밀번호 확인</p>
+			<div>비밀번호 확인</div>
 			<input type="password" name="checkUserPassword" maxlength="20">
 		</div>
 		<div>
-			<p>주소</p>
+			<div>주소</div>
 			<input type="text" name="address" maxlength="100"><br/>
 			<input type="text" name="addressDetail" maxlength="50">
 		</div>
 		<div>
-			<p>이메일</p>
-			<input type="text" name="emailId">@
+			<div>이메일</div>
+			<input type="text" id="emailId" name="emailId" onchange="changedEmail()">@
 			<select name="emailAddress">
 				<option value="">이메일을 선택하세요.</option>
 				<option value="@naver.com">naver.com</option>
 				<option value="@daum.net">daum.net</option>
 				<option value="@gmail.com">gmail.com</option>
 			</select>
-			<button type="button" onclick="sendSecureCode()">보안코드 보내기</button>
+			<button type="button" onclick="sendSecureCode()">보안코드 전송</button>
+			<div id="checkDuplicateEmailResult"></div>
+			<input type="hidden" id="canUseEmail" value="false">
 		</div>
 		<div>
-			<p>보안코드 입력</p>
-			<input type="text" name="emailId">
+			<div>보안코드 입력</div>
+			<input type="text" id="secureCode">
 			<button type="button" onclick="checkSecureCode()">확인</button>
+			<div id="checkSecureCodeResult"></div>
+			<input type="hidden" id="checkSecureCode" value="false">
 		</div>
 		<div>
-			<button onclick="checkJoin2(); return false;">회원가입</button>
+			<button type="button" onclick="checkJoin2();">회원가입</button>
 		</div>
 		<div>
 			<a href="${contextPath}/account/join1">이전으로</a>

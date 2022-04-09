@@ -102,6 +102,7 @@ section #f #next {
 	height: 40px;
 	border: 1px solid #c4c4c4;
 	background-color: #ffffff;
+	cursor: pointer;
 }
 
 section #f #next:hover {
