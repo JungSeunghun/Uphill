@@ -107,8 +107,8 @@
 			헌법개정은 국회재적의원 과반수 또는 대통령의 발의로 제안된다. 모든 국민은 헌법과...<br>
 			대통령의 임기가 만료되는 때에는 임기만료 70일 내지 40일전에 후임자를 선거한다. ...<br>
 		</section>
-		<button onclick="agree(this);">동의</button>
-		<button onclick="closePopUp(this);">취소</button>
+		<button type="button" onclick="agree(this);">동의</button>
+		<button type="button" onclick="closePopUp(this);">취소</button>
 	</div>
 	<div class="popUp" id="uniqueAgreePopUp">
 		<section>
@@ -149,8 +149,8 @@
 			헌법개정은 국회재적의원 과반수 또는 대통령의 발의로 제안된다. 모든 국민은 헌법과...<br>
 			대통령의 임기가 만료되는 때에는 임기만료 70일 내지 40일전에 후임자를 선거한다. ...<br>
 		</section>
-		<button onclick="agree(this);">동의</button>
-		<button onclick="closePopUp(this);">취소</button>
+		<button type="button" onclick="agree(this);">동의</button>
+		<button type="button" onclick="closePopUp(this);">취소</button>
 	</div>
 	<div class="popUp" id="mobileAgreePopUp">
 		<section>
@@ -191,8 +191,8 @@
 			헌법개정은 국회재적의원 과반수 또는 대통령의 발의로 제안된다. 모든 국민은 헌법과...<br>
 			대통령의 임기가 만료되는 때에는 임기만료 70일 내지 40일전에 후임자를 선거한다. ...<br>
 		</section>
-		<button onclick="agree(this);">동의</button>
-		<button onclick="closePopUp(this);">취소</button>
+		<button type="button" onclick="agree(this);">동의</button>
+		<button type="button" onclick="closePopUp(this);">취소</button>
 	</div>
 	<div class="popUp" id="useAgreePopUp">
 		<section>
@@ -233,7 +233,7 @@
 			헌법개정은 국회재적의원 과반수 또는 대통령의 발의로 제안된다. 모든 국민은 헌법과...<br>
 			대통령의 임기가 만료되는 때에는 임기만료 70일 내지 40일전에 후임자를 선거한다. ...<br>
 		</section>
-		<button onclick="agree(this);">동의</button>
-		<button onclick="closePopUp(this);">취소</button>
+		<button type="button" onclick="agree(this);">동의</button>
+		<button type="button" onclick="closePopUp(this);">취소</button>
 	</div>
 </section>

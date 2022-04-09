@@ -17,8 +17,10 @@
 		</div>
 		<div>
 			<p>아이디</p>
-			<input type="text" name="userEnterId" maxlength="20">
-			<input type="button" value="중복확인" onclick="">
+			<input type="text" name="userEnterId" id="userEnterId" onchange="changedId();" maxlength="20">
+			<button type="button" onclick="checkDuplicateId();">중복확인</button>
+			<div id="checkDuplicateIdResult"></div>
+			<input type="hidden" id="canUseId" value="false">
 		</div>
 		<div>
 			<p>비밀번호</p>
@@ -42,10 +44,15 @@
 				<option value="@daum.net">daum.net</option>
 				<option value="@gmail.com">gmail.com</option>
 			</select>
-			<input type="button" value="중복확인" onclick="">
+			<button type="button" onclick="sendSecureCode()">보안코드 보내기</button>
 		</div>
 		<div>
-			<input type="submit" value="회원가입" onclick="checkJoin2(); return false;">
+			<p>보안코드 입력</p>
+			<input type="text" name="emailId">
+			<button type="button" onclick="checkSecureCode()">확인</button>
+		</div>
+		<div>
+			<button onclick="checkJoin2(); return false;">회원가입</button>
 		</div>
 		<div>
 			<a href="${contextPath}/account/join1">이전으로</a>

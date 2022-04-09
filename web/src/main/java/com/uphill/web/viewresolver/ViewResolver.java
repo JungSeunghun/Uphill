@@ -2,8 +2,13 @@ package com.uphill.web.viewresolver;
 
 public class ViewResolver {
 	private String path;
+	private String data;
 	private boolean isRedirect;
-		
+	
+	public ViewResolver() {
+		super();
+	}
+	
 	public ViewResolver(String path) {
 		super();
 		this.path = path;
@@ -22,6 +27,14 @@ public class ViewResolver {
 	
 	public boolean getIsRedirect() {
 		return isRedirect;
+	}
+	
+	public String getData() {
+		return data;
+	}
+	
+	public void setData(String data) {
+		this.data = data;
 	}
 	
 }

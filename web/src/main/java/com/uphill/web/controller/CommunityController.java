@@ -43,15 +43,17 @@ public class CommunityController extends HttpServlet{
 		if(action != null) {
 			ViewResolver viewResolver = action.execute(request, response);
 			
+			if(viewResolver.getData() != null) {
+				response.getWriter().write(viewResolver.getData());
+				return;
+			}
+			
 			if(!viewResolver.getIsRedirect()) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
 				dispatcher.forward(request, response);
 			} else {
 				response.sendRedirect(url.substring(0, url.indexOf(uri)) + contextPath + viewResolver.getPath());
-			}
-			
-		} else {
-			response.sendRedirect(url.substring(0, url.indexOf(uri)) + contextPath + command);
+			}			
 		}
 	}
 

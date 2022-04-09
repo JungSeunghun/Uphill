@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.action.account.FindIdAction;
+import com.uphill.web.action.account.CheckDuplicateEmailAction;
+import com.uphill.web.action.account.CheckDuplicateIdAction;
 import com.uphill.web.action.account.FindId;
 import com.uphill.web.action.account.FindPasswordAction;
 import com.uphill.web.action.account.FindPassword;
@@ -41,6 +43,8 @@ public class AccountFrontController extends HttpServlet{
 		
 		actionMap.put("/account/join1", new Join1());
 		actionMap.put("/account/join2", new Join2());
+		actionMap.put("/account/check-duplicate-id-action", new CheckDuplicateIdAction());
+		actionMap.put("/account/check-duplicate-email-action", new CheckDuplicateEmailAction());
 		actionMap.put("/account/join-action", new JoinAction());
 		
 		actionMap.put("/account/find-select", new FindSelect());
@@ -67,15 +71,17 @@ public class AccountFrontController extends HttpServlet{
 		if(action != null) {
 			ViewResolver viewResolver = action.execute(request, response);
 			
+			if(viewResolver.getData() != null) {
+				response.getWriter().write(viewResolver.getData());
+				return;
+			}
+			
 			if(!viewResolver.getIsRedirect()) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
 				dispatcher.forward(request, response);
 			} else {
 				response.sendRedirect(url.substring(0, url.indexOf(uri)) + contextPath + viewResolver.getPath());
-			}
-			
-		} else {
-			response.sendRedirect(url.substring(0, url.indexOf(uri)) + contextPath + command);
+			}			
 		}
 	}
 

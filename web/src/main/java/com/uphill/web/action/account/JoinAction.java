@@ -24,6 +24,7 @@ public class JoinAction implements Action {
 			session.removeAttribute("userVO");
 			return new ViewResolver("/views/account/joinFail.tiles");
 		}
+		
 		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
 
 		String salt = SHA256Encoder.getRandomPassword(8);
