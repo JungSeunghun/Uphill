@@ -47,7 +47,7 @@ function checkJoin1() {
 	if (!f.middlePhoneNumber.value) {
 		alert("전화번호를 입력하세요.");
 		return f.middlePhoneNumber.focus();
-	} else if (!regexpCallMiddleNumber.test(f.middle_phone_number.value)) {
+	} else if (!regexpCallMiddleNumber.test(f.middlePhoneNumber.value)) {
 		alert("전화번호를 잘못입력했습니다.");
 		return f.middlePhoneNumber.select();
 	}
@@ -55,7 +55,7 @@ function checkJoin1() {
 	if (!f.lastPhoneNumber.value) {
 		alert("전화번호를 입력하세요.");
 		return f.lastPhoneNumber.focus();
-	} else if (!regexpCallLastNumber.test(f.last_phone_number.value)) {
+	} else if (!regexpCallLastNumber.test(f.lastPhoneNumber.value)) {
 		alert("전화번호를 잘못입력했습니다.");
 		return f.lastPhoneNumber.select();
 	}

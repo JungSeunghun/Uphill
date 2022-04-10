@@ -147,6 +147,7 @@ section #f #next:hover {
 	border: 1px solid #c4c4c4;
 	background-color: rgba(0, 0, 0, 0);
 	color: #ffffff;
+	cursor: pointer;
 }
 
 .popUp button + button {
