@@ -14,6 +14,7 @@ public class UserVO {
 	private String phoneNumber;
 	private String address;
 	private String addressDetail;
+	private String addressExtra;
 	private String email;
 	private boolean personalAgree;
 	private boolean uniqueAgree;
@@ -115,6 +116,14 @@ public class UserVO {
 
 	public void setAddressDetail(String addressDetail) {
 		this.addressDetail = addressDetail;
+	}
+
+	public String getAddressExtra() {
+		return addressExtra;
+	}
+	
+	public void setAddressExtra(String addressExtra) {
+		this.addressExtra = addressExtra;
 	}
 
 	public String getEmail() {

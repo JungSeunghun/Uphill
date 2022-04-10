@@ -117,7 +117,7 @@ public class UserDAO {
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "insert into user_table(user_enter_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into user_table(user_enter_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, address_extra, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
 			Date birth = null;
 			try {
@@ -138,12 +138,13 @@ public class UserDAO {
 			preparedStatement.setString(7, userVO.getPhoneNumber());
 			preparedStatement.setString(8, userVO.getAddress());
 			preparedStatement.setString(9, userVO.getAddressDetail());
-			preparedStatement.setString(10, userVO.getEmail());
-			preparedStatement.setBoolean(11, userVO.isPersonalAgree());
-			preparedStatement.setBoolean(12, userVO.isUniqueAgree());
-			preparedStatement.setBoolean(13, userVO.isMobileAgree());
-			preparedStatement.setBoolean(14, userVO.isUseAgree());
-			preparedStatement.setString(15, userVO.getSalt());
+			preparedStatement.setString(10, userVO.getAddressExtra());
+			preparedStatement.setString(11, userVO.getEmail());
+			preparedStatement.setBoolean(12, userVO.isPersonalAgree());
+			preparedStatement.setBoolean(13, userVO.isUniqueAgree());
+			preparedStatement.setBoolean(14, userVO.isMobileAgree());
+			preparedStatement.setBoolean(15, userVO.isUseAgree());
+			preparedStatement.setString(16, userVO.getSalt());
 			
 			result = preparedStatement.executeUpdate();
 			if (result > 0) {

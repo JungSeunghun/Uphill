@@ -34,6 +34,7 @@ public class JoinAction implements Action {
 		userVO.setUserPassword(SHA256Encoder.encode(request.getParameter("userPassword"), salt));
 		userVO.setAddress(request.getParameter("address"));
 		userVO.setAddressDetail(request.getParameter("addressDetail"));
+		userVO.setAddressExtra(request.getParameter("addressExtra"));
 		userVO.setEmail(email);
 		
 		JoinService joinService = new JoinService();

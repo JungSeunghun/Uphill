@@ -24,8 +24,8 @@
 		</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">비밀번호</div>
-			<input type="password" name="userPassword" maxlength="20"><br><br>
-			<input type="password" name="checkUserPassword" maxlength="20">
+			<input type="password" name="userPassword" id="userPassword" maxlength="20"><br>
+			<input type="password" name="checkUserPassword" id="checkUserPassword" maxlength="20">
 		</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">주소</div>
@@ -34,8 +34,10 @@
 			<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 				<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 			</div>
-			<input type="text" name="addressDetail" id="addressDetail" maxlength="45">
-			<input type="text" name="addressExtra" id="addressExtra" readonly="readonly">
+			<div id="addressForm">
+				<input type="text" name="addressDetail" id="addressDetail" maxlength="45">
+				<input type="text" name="addressExtra" id="addressExtra" readonly="readonly">
+			</div>
 		</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">이메일</div>
@@ -57,7 +59,7 @@
 			<div id="checkSecureCodeResult"></div>
 			<input type="hidden" id="isSecureCode" value="false">
 		</div>
-		<button id="join" onclick="checkJoin2();">회원가입</button><br>
+		<button type="button" id="join" onclick="checkJoin2();">회원가입</button><br>
 		<button type="button" id="prev" onclick="history.back();">이전으로</button>
 	</form>	
 </section>
