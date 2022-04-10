@@ -58,6 +58,7 @@ section #f #checkDuplicateIdResult {
 	font-size: 0.825rem;
 }
 
+
 section #f #checkSecureCodeResult {
 	font-size: 0.825rem;
 }
@@ -143,4 +144,28 @@ section #f #prev {
 section #f #prev:hover {
 	background-color: #9ccc65;
 	color: #ffffff;
+}
+
+
+/*태블릿*/
+@media (min-width:768px) and (max-width:1079px) {
+	
+}
+
+/*모바일*/
+@media screen and (max-width:767px) {
+	section #f {
+		border: 1px solid #c4c4c4;
+		padding: 40px;
+		margin-bottom: 96px;
+		width: 300px;
+	}	
+
+	#emailId {
+		margin-bottom: 8px;
+	}	
+
+	#emailAddress {
+		margin-bottom: 8px;
+	}	
 }

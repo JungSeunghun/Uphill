@@ -17,7 +17,7 @@
 		<div id="joinFormTitle">회원가입</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">아이디</div>
-			<input type="text" name="userEnterId" id="userEnterId" onchange="changedId();" maxlength="20">
+			<input type="text" name="userId" id="userId" onchange="changedId();" maxlength="20">
 			<button type="button" onclick="checkDuplicateId();">중복확인</button>
 			<div id="checkDuplicateIdResult"></div>
 			<input type="hidden" id="canUseId" value="false">

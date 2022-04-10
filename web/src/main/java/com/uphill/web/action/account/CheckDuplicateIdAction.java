@@ -30,10 +30,10 @@ public class CheckDuplicateIdAction implements Action {
 		}
 		
 		JSONObject jsonObject = new JSONObject(buffer.toString());
-		String userEnterId = jsonObject.getString("userEnterId");		
+		String userId = jsonObject.getString("userId");		
 		
 		CheckDuplicateIdService checkDuplicateIdService = new CheckDuplicateIdService();
-		boolean result = checkDuplicateIdService.checkDuplicateIdService(userEnterId);		
+		boolean result = checkDuplicateIdService.checkDuplicateIdService(userId);		
 		
 		ViewResolver viewResolver = new ViewResolver();
 		if(result) { // 이미 존재하는 아이디일 경우

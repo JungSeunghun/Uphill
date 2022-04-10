@@ -46,7 +46,7 @@ public class Join2 implements Action {
 		userVO.setMobileAgree(request.getParameter("mobileAgree") != null ? true : false);
 		userVO.setUseAgree(request.getParameter("useAgree") != null ? true : false);
 		
-		session.setAttribute("userVO", userVO);
+		session.setAttribute("joinUserVO", userVO);
 		
 		return new ViewResolver("/views/account/join2.tiles");
 	}

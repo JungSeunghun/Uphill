@@ -18,28 +18,28 @@ public class LoginAction implements Action {
 		
 		UserVO userVO = new UserVO();
 		
-		userVO.setUserEnterId(request.getParameter("userEnterId"));
+		userVO.setUserId(request.getParameter("userId"));
 		userVO.setUserPassword(request.getParameter("userPassword"));		
 
-		String salt = loginService.getSalt(userVO);
+		String salt = loginService.getSalt(userVO.getUserId());
 				
 		userVO.setSalt(salt);
 		
 		userVO = loginService.login(userVO);
 				
 		if(userVO != null) {
-			Cookie userEnterIdCookie = new Cookie("userEnterIdCookie", request.getParameter("userEnterId"));
+			Cookie userIdCookie = new Cookie("userIdCookie", request.getParameter("userId"));
 			Cookie rememberIdCookie = new Cookie("rememberIdCookie", "checked");
 
 			if(request.getParameter("rememberId") != null) {
-				userEnterIdCookie.setMaxAge(1*60*60*24);
+				userIdCookie.setMaxAge(1*60*60*24);
 				rememberIdCookie.setMaxAge(1*60*60*24);		
 			} else {
-				userEnterIdCookie.setMaxAge(0);
+				userIdCookie.setMaxAge(0);
 				rememberIdCookie.setMaxAge(0);
 			}
 			
-			response.addCookie(userEnterIdCookie);
+			response.addCookie(userIdCookie);
 			response.addCookie(rememberIdCookie);
 			
 			HttpSession session = request.getSession();
@@ -47,18 +47,18 @@ public class LoginAction implements Action {
 			
 			return new ViewResolver("/home/home", true);			
 		} else {
-			Cookie userEnterIdCookie = new Cookie("userEnterIdCookie", request.getParameter("userEnterId"));
+			Cookie userIdCookie = new Cookie("userIdCookie", request.getParameter("userId"));
 			Cookie rememberIdCookie = new Cookie("rememberIdCookie", "checked");
 
 			if(request.getParameter("rememberId") != null) {
-				userEnterIdCookie.setMaxAge(1*60*60*24);
+				userIdCookie.setMaxAge(1*60*60*24);
 				rememberIdCookie.setMaxAge(1*60*60*24);		
 			} else {
-				userEnterIdCookie.setMaxAge(0);
+				userIdCookie.setMaxAge(0);
 				rememberIdCookie.setMaxAge(0);
 			}
 			
-			response.addCookie(userEnterIdCookie);
+			response.addCookie(userIdCookie);
 			response.addCookie(rememberIdCookie);
 			
 			HttpSession session = request.getSession();

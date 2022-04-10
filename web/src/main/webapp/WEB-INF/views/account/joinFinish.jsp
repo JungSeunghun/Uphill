@@ -9,5 +9,10 @@
 	<div>
 		<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 	</div>
-	<h1>회원가입을 축하드립니다.</h1>
+	<c:if test="${join != null }">
+		<h1>회원가입을 축하드립니다.</h1>
+	</c:if>
+	<c:if test="${join == null }">
+		<h1>회원가입을 실패했습니다.</h1>
+	</c:if>
 </section>

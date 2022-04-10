@@ -24,7 +24,7 @@
 	<form action="${contextPath}/account/login-action" id="f" name="f" method="post">
 		<div id="idForm">
 			<div>아이디</div>
-			<input type="text" id="userEnterId" name="userEnterId" value="${userEnterIdCookie }" maxlength="20"><br> 
+			<input type="text" id="userId" name="userId" value="${userEnterIdCookie }" maxlength="20"><br> 
 			<div id="rememberIdForm">
 				<input type="checkbox" id="rememberId" name="rememberId" ${rememberIdCookie }>
 				<label for="rememberId"><span id="rememberIdText">아이디 저장</span></label>

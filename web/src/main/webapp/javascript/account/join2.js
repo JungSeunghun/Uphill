@@ -5,12 +5,12 @@ function checkJoin2() {
 	const regexpId = /^[a-zA-Z0-9_]{4,20}$/;
 	const regexpPassword = /^[a-zA-Z0-9!@#$%^&*()?_~]{6,20}$/;
 	
-	if(!f.userEnterId.value){
+	if(!f.userId.value){
 		alert("아이디를 입력하세요.");
-		return f.userEnterId.focus();
-	} else if(!regexpId.test(f.userEnterId.value)) {
+		return f.userId.focus();
+	} else if(!regexpId.test(f.userId.value)) {
 		alert("아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
-		return f.userEnterId.select();
+		return f.userId.select();
 	}
 	
 	if(f.canUseId.value !== "true") {
@@ -154,19 +154,19 @@ function foldDaumPostcode() {
 
 function checkDuplicateId() {
 	const httpRequest = new XMLHttpRequest();
-	const userEnterId = document.getElementById("userEnterId").value;
+	const userId = document.getElementById("userId").value;
 	
 	const regexpId = /^[a-zA-Z0-9_]{4,20}$/;
-	if(userEnterId==="") {
+	if(userId==="") {
 		alert("아이디를 입력하세요.");
 		return;
-	} else if(!regexpId.test(userEnterId.value)) {
+	} else if(!regexpId.test(userId.value)) {
 		alert("아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
 		return f.userEnterId.select();
 	}
-
+	
 	var reqJson = new Object();
-	reqJson.userEnterId = userEnterId;
+	reqJson.userId = userId;
 	httpRequest.onreadystatechange = () => {
 		if (httpRequest.readyState === XMLHttpRequest.DONE) {
 			if (httpRequest.status === 200) {
@@ -184,6 +184,7 @@ function checkDuplicateId() {
 		}		
     };
     
+    document.getElementById("checkDuplicateIdResult").innerText = "잠시만 기다려 주세요.";	
     httpRequest.open('POST', 'check-duplicate-id-action', true);
     httpRequest.responseType = "json";
     httpRequest.setRequestHeader('Content-Type', 'application/json');

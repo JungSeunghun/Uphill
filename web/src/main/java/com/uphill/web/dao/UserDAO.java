@@ -22,17 +22,17 @@ public class UserDAO {
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "select user_id, user_enter_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email from user_table where user_enter_id = ?";
+			String sql = "select user_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email from user_table where user_id = ?";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userVO.getUserEnterId());
+			preparedStatement.setString(1, userVO.getUserId());
 			
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
 				newUserVO = new UserVO();
-				newUserVO.setUserId(Integer.parseInt(resultSet.getString("user_id")));
-				newUserVO.setUserEnterId(resultSet.getString("user_enter_id"));
+				newUserVO.setUserIndex(Integer.parseInt(resultSet.getString("user_index")));
+				newUserVO.setUserId(resultSet.getString("user_id"));
 				newUserVO.setUserName(resultSet.getString("user_name"));
 				newUserVO.setGender(resultSet.getString("gender").charAt(0));
 				newUserVO.setBirth(resultSet.getDate("birth"));
@@ -69,18 +69,18 @@ public class UserDAO {
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "select user_id, user_enter_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email from user_table where user_enter_id = ? and user_password = ?";
+			String sql = "select user_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email from user_table where user_id = ? and user_password = ?";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userVO.getUserEnterId());
+			preparedStatement.setString(1, userVO.getUserId());
 			preparedStatement.setString(2, SHA256Encoder.encode(userVO.getUserPassword(), userVO.getSalt()));
 			
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
 				newUserVO = new UserVO();
-				newUserVO.setUserId(Integer.parseInt(resultSet.getString("user_id")));
-				newUserVO.setUserEnterId(resultSet.getString("user_enter_id"));
+				newUserVO.setUserIndex(Integer.parseInt(resultSet.getString("user_index")));
+				newUserVO.setUserId(resultSet.getString("user_id"));
 				newUserVO.setUserName(resultSet.getString("user_name"));
 				newUserVO.setGender(resultSet.getString("gender").charAt(0));
 				newUserVO.setBirth(resultSet.getDate("birth"));
@@ -117,7 +117,7 @@ public class UserDAO {
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "insert into user_table(user_enter_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, address_extra, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into user_table(user_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, address_extra, email, personal_agree, unique_agree, mobile_agree, use_agree, salt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
 			Date birth = null;
 			try {
@@ -129,7 +129,7 @@ public class UserDAO {
 			}
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userVO.getUserEnterId());
+			preparedStatement.setString(1, userVO.getUserId());
 			preparedStatement.setString(2, userVO.getUserPassword());
 			preparedStatement.setString(3, userVO.getUserName());
 			preparedStatement.setString(4, Character.toString(userVO.getGender()));
@@ -172,16 +172,16 @@ public class UserDAO {
 		return result;
 	}
 	
-	public String selectUserSalt(UserVO userVO) {
+	public String selectUserSalt(String userId) {
 		String salt = "";
 		
 		connection = DataBaseUtil.getConnection();
 
 		try {
-			String sql = "select salt from user_table where user_enter_id = ?";
+			String sql = "select salt from user_table where user_id = ?";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userVO.getUserEnterId());
+			preparedStatement.setString(1, userId);
 			
 			resultSet = preparedStatement.executeQuery();
 			
@@ -215,7 +215,7 @@ public class UserDAO {
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "select user_enter_id from user_table where email = ? ";
+			String sql = "select user_id from user_table where email = ? ";
 			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, email);
@@ -223,7 +223,7 @@ public class UserDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-				id = resultSet.getString("salt");
+				id = resultSet.getString("user_id");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -276,16 +276,16 @@ public class UserDAO {
 		return result;
 	}
 
-	public boolean selectUserEnterId(String userEnterId) {
+	public boolean selectUserId(String userId) {
 		boolean result = false;
 		
 		connection = DataBaseUtil.getConnection();
 
 		try {
-			String sql = "select user_id from user_table where user_enter_id = ?";
+			String sql = "select user_id from user_table where user_id = ?";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userEnterId);
+			preparedStatement.setString(1, userId);
 			
 			resultSet = preparedStatement.executeQuery();
 			

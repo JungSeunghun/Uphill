@@ -3,9 +3,9 @@ package com.uphill.web.dto.user;
 import java.util.Date;
 
 public class UserVO {
-	private int userId;
+	private int userIndex;
 	private int gradeId;
-	private String userEnterId;
+	private String userId;
 	private String userPassword;
 	private String userName;
 	private char gender;
@@ -30,12 +30,12 @@ public class UserVO {
 		super();
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUserIndex() {
+		return userIndex;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserIndex(int userIndex) {
+		this.userIndex = userIndex;
 	}
 
 	public int getGradeId() {
@@ -46,12 +46,12 @@ public class UserVO {
 		this.gradeId = gradeId;
 	}
 
-	public String getUserEnterId() {
-		return userEnterId;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUserEnterId(String userEnterId) {
-		this.userEnterId = userEnterId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getUserPassword() {
@@ -121,7 +121,7 @@ public class UserVO {
 	public String getAddressExtra() {
 		return addressExtra;
 	}
-	
+
 	public void setAddressExtra(String addressExtra) {
 		this.addressExtra = addressExtra;
 	}
@@ -206,4 +206,5 @@ public class UserVO {
 		this.salt = salt;
 	}
 
+	
 }

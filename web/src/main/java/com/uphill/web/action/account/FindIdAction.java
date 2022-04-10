@@ -18,20 +18,12 @@ public class FindIdAction implements Action {
 		String email = request.getParameter("email");
 		UserIdFindService userIdFindService = new UserIdFindService();
 		
-		String userId = userIdFindService.userIdFindService("userEnterId");
+		String userId = userIdFindService.userIdFindService(email);
 		
 		if( userId == null) {
-			response.setContentType("text/html;charset=UTF-8");
 			
-			PrintWriter out = response.getWriter();
-			
-			out.print("<script>");
-			out.print("alert('존재하지 않는 계정입니다')");
-			out.print("history.back()");
-			out.print("</script>");
 		}else {
 			
-			request.setAttribute("", );
 		} 
 		
 				

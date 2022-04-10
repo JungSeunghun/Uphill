@@ -18,11 +18,11 @@ public class JoinAction implements Action {
 		
 		UserVO userVO = new UserVO();
 		
-		if(session.getAttribute("userVO") != null && session.getAttribute("userVO") instanceof UserVO) {
-			userVO = (UserVO)session.getAttribute("userVO");
+		if(session.getAttribute("joinUserVO") != null && session.getAttribute("joinUserVO") instanceof UserVO) {
+			userVO = (UserVO)session.getAttribute("joinUserVO");
 		} else {
-			session.removeAttribute("userVO");
-			return new ViewResolver("/views/account/joinFail.tiles");
+			session.removeAttribute("joinUserVO");
+			return new ViewResolver("/views/account/joinFinish.tiles");
 		}
 		
 		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
@@ -30,7 +30,7 @@ public class JoinAction implements Action {
 		String salt = SHA256Encoder.getRandomPassword(8);
 		
 		userVO.setSalt(salt);
-		userVO.setUserEnterId(request.getParameter("userEnterId"));
+		userVO.setUserId(request.getParameter("userId"));
 		userVO.setUserPassword(SHA256Encoder.encode(request.getParameter("userPassword"), salt));
 		userVO.setAddress(request.getParameter("address"));
 		userVO.setAddressDetail(request.getParameter("addressDetail"));
@@ -39,14 +39,13 @@ public class JoinAction implements Action {
 		
 		JoinService joinService = new JoinService();
 		
-		session.removeAttribute("userVO");
+		session.removeAttribute("joinUserVO");
 		
-		if(joinService.join(userVO)) {
-			return new ViewResolver("/views/account/joinFinish.tiles");
-		} else {
-			return new ViewResolver("/views/account/joinFail.tiles");
+		if(joinService.join(userVO) == true) {
+			request.setAttribute("join", "join");
 		}
 		
+		return new ViewResolver("/views/account/joinFinish.tiles");		
 	}
 
 }

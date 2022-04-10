@@ -20,24 +20,25 @@
 		</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">생년월일</div>
-			<select name="year" onchange="getDate();"></select>&nbsp;년&nbsp;&nbsp;
-			<select name="month" onchange="getDate();"></select>&nbsp;월&nbsp;&nbsp;
-			<select name="day"></select>&nbsp;일
+			<div id="birthDayForm">
+				<select name="year" onchange="getDate();"></select>&nbsp;년&nbsp;&nbsp;
+				<select name="month" onchange="getDate();"></select>&nbsp;월&nbsp;&nbsp;
+				<select name="day"></select>&nbsp;일
+			</div>
 		</div>
 		<div id="joinFormDiv">
 		 	<div id="joinFormDivTitle">성별</div>
-		 	<label><input type="radio" name="gender" value="M">남자</label>&nbsp;&nbsp;
+		 	<label><input type="radio" name="gender" value="M">남자&nbsp;&nbsp;</label>
 		 	<label><input type="radio" name="gender" value="F">여자</label>
 		</div>
 		<div id="joinFormDiv">
 		 	<div id="joinFormDivTitle">이동통신사</div>
-		 	<label><input type="radio" id="skt" name="mobileCarrier" value="SKT">SKT</label>
-		 	&nbsp;&nbsp;
-		 	<label><input type="radio" id="kt" name="mobileCarrier" value="KT">KT</label>
-		 	&nbsp;&nbsp;
-		 	<label><input type="radio" id="lg" name="mobileCarrier" value="LGU+">LGU+</label>
-		 	&nbsp;&nbsp;
-		 	<label><input type="radio" id="other" name="mobileCarrier" value="알뜰폰">알뜰폰</label>
+		 	<div id="mobileCarrierForm">
+			 	<label><input type="radio" id="skt" name="mobileCarrier" value="SKT">SKT&nbsp;&nbsp;</label>
+			 	<label><input type="radio" id="kt" name="mobileCarrier" value="KT">KT&nbsp;&nbsp;</label>
+			 	<label><input type="radio" id="lg" name="mobileCarrier" value="LGU+">LGU+&nbsp;&nbsp;</label>
+		 		<label><input type="radio" id="other" name="mobileCarrier" value="알뜰폰">알뜰폰&nbsp;&nbsp;</label>
+		 	</div>
 		</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">전화번호</div>

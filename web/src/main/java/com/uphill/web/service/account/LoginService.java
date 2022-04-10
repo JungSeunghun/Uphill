@@ -10,9 +10,9 @@ public class LoginService {
 		return userDAO.loginUser(userVO);
 	}
 	
-	public String getSalt(UserVO userVO) {
+	public String getSalt(String userId) {
 		UserDAO userDAO = new UserDAO();
 		
-		return userDAO.selectUserSalt(userVO);
+		return userDAO.selectUserSalt(userId);
 	}
 }

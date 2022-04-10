@@ -17,8 +17,8 @@ public class Login implements Action {
 		for(int i = 0; i < cookies.length; i++){
 			String cookieName = cookies[i].getName();
 			
-			if(cookieName.equals("userEnterIdCookie")){
-				request.setAttribute("userEnterIdCookie", cookies[i].getValue());
+			if(cookieName.equals("userIdCookie")){
+				request.setAttribute("userIdCookie", cookies[i].getValue());
 			}
 			
 			if(cookieName.equals("rememberIdCookie")){
