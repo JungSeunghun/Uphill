@@ -10,10 +10,14 @@
 		<a href="${contextPath}/home/home"><img src="${contextPath}/images/logos/uphill_logo_white.svg" alt="uphill_logo_white"></a>
 	</div>
 	
-	<c:if test="">
+	<c:if test="${ }">
+	
 	</c:if>
 
-	<c:if test="">
+	<c:if test="${ }">
+
 	</c:if>
+	
+	
 
 </section>

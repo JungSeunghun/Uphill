@@ -209,16 +209,16 @@ public class UserDAO {
 		return salt;
 	}
 	
-	public String selectUserId(UserVO userVO) {
+	public String selectUserEnterIdWithEmail(String email) {
 		String id = "";
 		
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "";
+			String sql = "select user_enter_id from user_table where email = ? ";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userVO.getUserEnterId());
+			preparedStatement.setString(1, email);
 			
 			resultSet = preparedStatement.executeQuery();
 			
