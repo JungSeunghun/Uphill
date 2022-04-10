@@ -16,6 +16,7 @@ import com.uphill.web.action.Action;
 import com.uphill.web.action.account.FindIdAction;
 import com.uphill.web.action.account.CheckDuplicateEmailAction;
 import com.uphill.web.action.account.CheckDuplicateIdAction;
+import com.uphill.web.action.account.CheckSecureCodeAction;
 import com.uphill.web.action.account.FindId;
 import com.uphill.web.action.account.FindPasswordAction;
 import com.uphill.web.action.account.FindPassword;
@@ -45,6 +46,7 @@ public class AccountFrontController extends HttpServlet{
 		actionMap.put("/account/join2", new Join2());
 		actionMap.put("/account/check-duplicate-id-action", new CheckDuplicateIdAction());
 		actionMap.put("/account/check-duplicate-email-action", new CheckDuplicateEmailAction());
+		actionMap.put("/account/check-secure-code-action", new CheckSecureCodeAction());
 		actionMap.put("/account/join-action", new JoinAction());
 		
 		actionMap.put("/account/find-select", new FindSelect());

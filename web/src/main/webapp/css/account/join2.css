@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	color: #111111;
+}
+
+html {
+	font-size: 16px;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+section #joinTitle img {
+	width: 72px;
+	margin-top: 64px;
+	margin-bottom: 32px;
+}
+
+section #f {
+	border: 1px solid #c4c4c4;
+	padding: 40px;
+	margin-bottom: 96px;
+}
+
+section #f #joinFormTitle {
+	font-size: 1.5rem;
+}
+
+section #f #joinFormDiv {
+	margin-top: 40px;
+}
+
+section #f #joinFormDivTitle {
+	margin-bottom: 8px;
+}
+
+section #f #joinAgreeForm {
+	margin-bottom: 8px;
+}
+
+section #f input[type=text] {
+	height: 28px;
+	width: 104px;
+	border: 1px solid #c4c4c4;
+}
+
+section #f #userName {
+	width: 208px;
+}
+
+section #f select {
+	height: 28px;
+	background-color: #ffffff;
+	border: 1px solid #c4c4c4;
+}
+
+section #f label {
+	cursor: pointer;
+}
+
+section #f input[type=radio] {
+	height: 14px;
+	width: 14px;
+	border: 1px solid #c4c4c4;
+	border-radius: 50%;
+	margin-right: 8px;
+	appearance: none;
+	cursor: pointer;
+}
+
+section #f input[type=radio]:checked {
+	background-color: #9ccc65;
+	border: none;
+}
+
+input[type="checkbox"] {
+	width: 14px;
+	height: 14px;
+	background-color: #ffffff;
+	border: 1px solid #c4c4c4;
+	margin-right: 8px;
+	appearance: none;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+	background-color: #9ccc65;
+	border: none;
+}
+
+section #f #next {
+	margin-top: 40px;
+	width: 100%;
+	height: 40px;
+	border: 1px solid #c4c4c4;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+section #f #next:hover {
+	background-color: #9ccc65;
+	color: #ffffff;
+}
+
+.popUp {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+	overflow: auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.popUp section {
+	color: #ffffff;
+	width: 560px;
+	height: 50%;
+	border: 1px solid #c4c4c4;
+	padding: 40px;
+	overflow: auto;
+}
+
+.popUp section div {
+	text-align: center;
+	font-size: 1.5rem;
+	color: #ffffff;
+	margin-bottom: 24px;
+}
+
+.popUp button {
+	margin-top: 40px;
+	width: 208px;
+	min-height: 40px;
+	border: 1px solid #c4c4c4;
+	background-color: rgba(0, 0, 0, 0);
+	color: #ffffff;
+}
+
+.popUp button + button {
+	margin-bottom: 96px;
+}
+
+.popUp button:hover {
+	background-color: #9ccc65;
+	border: none;
+	color: #ffffff;
+}

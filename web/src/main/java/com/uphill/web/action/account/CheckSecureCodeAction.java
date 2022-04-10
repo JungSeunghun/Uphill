@@ -10,13 +10,10 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.service.account.CheckDuplicateEmailService;
 import com.uphill.web.service.account.CheckDuplicateIdService;
-import com.uphill.web.util.Email;
-import com.uphill.web.util.SHA256Encoder;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class CheckDuplicateEmailAction implements Action {
+public class CheckSecureCodeAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
@@ -34,32 +31,22 @@ public class CheckDuplicateEmailAction implements Action {
 		}
 		
 		JSONObject jsonObject = new JSONObject(buffer.toString());
-		String email = jsonObject.getString("email");		
-		
-		CheckDuplicateEmailService checkDuplicateEmailService = new CheckDuplicateEmailService();
-		boolean result = checkDuplicateEmailService.checkDuplicateIdService(email);		
+		String secureCode = jsonObject.getString("secureCode");		
 		
 		ViewResolver viewResolver = new ViewResolver();
-		if(result) { // 이미 존재하는 이메일일 경우
+		
+		HttpSession session = request.getSession();
+		
+		if(secureCode.equals(session.getAttribute("secureCode"))) { // secureCode가 동일할 경우
 			JSONObject sendJsonObject = new JSONObject();
-			sendJsonObject.append("isDuplicateEmail", "true");
+			sendJsonObject.append("isSecureCodeCheck", "true");
 			viewResolver.setData(sendJsonObject.toString());
-		} else { // 존재하지 않는 이메일일 경우
+		} else { // secureCode가 동일하지 않을 경우
 			JSONObject sendJsonObject = new JSONObject();
-			sendJsonObject.append("isDuplicateEmail", "false");
+			sendJsonObject.append("isSecureCodeCheck", "false");
 			viewResolver.setData(sendJsonObject.toString());
-			
-			String secureCode = SHA256Encoder.getRandomPassword(8);
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("secureCode", secureCode);
-			
-			String subject = "Up-Hill 보안코드";
-			String content = "secureCode : " + secureCode;
-			
-			Email.sendEmail(email, subject, content);
 		}		
-	
+		
 		return viewResolver;
 	}
 

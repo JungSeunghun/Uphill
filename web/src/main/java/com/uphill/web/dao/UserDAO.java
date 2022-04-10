@@ -311,4 +311,41 @@ public class UserDAO {
 		
 		return result;
 	}
+
+	public boolean selectUserEmail(String email) {
+boolean result = false;
+		
+		connection = DataBaseUtil.getConnection();
+
+		try {
+			String sql = "select user_id from user_table where email = ?";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, email);
+			
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				result = true;
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) {
+					resultSet.close();
+				}
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
 }

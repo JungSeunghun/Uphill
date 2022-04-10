@@ -41,12 +41,12 @@ function checkJoin2() {
 	
 	if (!f.address.value) {
 		alert("주소 입력하세요.");
-		return;
+		return f.address.focus();
 	}
 
 	if (!f.addressDetail.value) {
 		alert("상세주소를 입력하세요.");
-		return;
+		return f.addressDetail.focus();
 	}
 	
 	if(!f.emailId.value){
@@ -72,12 +72,85 @@ function checkJoin2() {
 		return;
 	}
 
-	if (f.checkSecureCode.value !== "true") {
+	if (f.isSecureCode.value !== "true") {
 		alert("보안코드를 잘못 입력하셨습니다.");
 		return;
 	}
 	
 	f.submit();
+}
+
+function findAddress() {
+	var addressLayer = document.getElementById('addressLayer');
+	
+	new daum.Postcode({
+        oncomplete: function(data) {
+            // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            let addr = ''; // 주소 변수
+            let extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if(data.userSelectedType === 'R'){
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraAddr !== ''){
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                // 조합된 참고항목을 해당 필드에 넣는다.
+                document.getElementById("address").value = extraAddr;
+            
+            } else {
+                document.getElementById("address").value = '';
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('postCode').value = data.zonecode;
+            document.getElementById("address").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("addressDetail").focus();
+
+            // iframe을 넣은 element를 안보이게 한다.
+            // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+            addressLayer.style.display = 'none';
+        },
+        width : '100%',
+        height : '100%',
+        maxSuggestItems : 5
+    }).embed(addressLayer);
+
+    // iframe을 넣은 element를 보이게 한다.
+	addressLayer.style.display = 'block';
+
+    // iframe을 넣은 element의 위치를 화면의 가운데로 이동시킨다.
+    const width = 300; //우편번호서비스가 들어갈 element의 width
+    const height = 400; //우편번호서비스가 들어갈 element의 height
+    const borderWidth = 1; //샘플에서 사용하는 border의 두께
+
+    // 위에서 선언한 값들을 실제 element에 넣는다.
+    addressLayer.style.width = width + 'px';
+    addressLayer.style.height = height + 'px';
+    addressLayer.style.border = borderWidth + 'px solid #c4c4c4';
+    // 실행되는 순간의 화면 너비와 높이 값을 가져와서 중앙에 뜰 수 있도록 위치를 계산한다.
+    addressLayer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
+    addressLayer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
 }
 
 function checkDuplicateId() {
@@ -88,7 +161,7 @@ function checkDuplicateId() {
 	if(userEnterId==="") {
 		alert("아이디를 입력하세요.");
 		return;
-	} else if(!regexpId.test(f.userEnterId.value)) {
+	} else if(!regexpId.test(userEnterId.value)) {
 		alert("아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
 		return f.userEnterId.select();
 	}
@@ -99,10 +172,10 @@ function checkDuplicateId() {
 		if (httpRequest.readyState === XMLHttpRequest.DONE) {
 			if (httpRequest.status === 200) {
 		    	var result = httpRequest.response;
-		    	if(result.isDuplicateId.at(0) === "false") {
+		    	if(result.isDuplicateId.at(0) === "false") { // 존재하지 않는 아이디일 경우
 		    		document.getElementById("checkDuplicateIdResult").innerText = "사용가능한 아이디 입니다.";		    		
 		    		document.getElementById("canUseId").value = "true";		    		
-		    	} else {
+		    	} else { // 존재하는 아이디일 경우
 		    		document.getElementById("checkDuplicateIdResult").innerText = "이미 존재하는 아이디 입니다.";			    					    		
 		    		document.getElementById("canUseId").value = "false";		    		
 		    	}			    	
@@ -132,7 +205,7 @@ function sendSecureCode() {
 	if(emailId==="") {
 		alert("이메일을 입력하세요.");
 		return;
-	} else if(!regexpId.test(f.userEnterId.value)) {
+	} else if(!regexpId.test(emailId.value)) {
 		alert("이메일 아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
 		return f.userEnterId.select();
 	}
@@ -148,10 +221,10 @@ function sendSecureCode() {
 		if (httpRequest.readyState === XMLHttpRequest.DONE) {
 			if (httpRequest.status === 200) {
 		    	var result = httpRequest.response;
-		    	if(result.isDuplicateEmail.at(0) === "false") {
+		    	if(result.isDuplicateEmail.at(0) === "false") { // 존재하지 않는 이메일일 경우
 		    		document.getElementById("checkDuplicateEmailResult").innerText = "보안코드를 이메일로 전송했습니다.";		    		
 		    		document.getElementById("canUseEmail").value = "true";		    		
-		    	} else {
+		    	} else { // 존재하는 이메일일 경우
 		    		document.getElementById("checkDuplicateEmailResult").innerText = "이미 존재하는 이메일 입니다.";			    					    		
 		    		document.getElementById("canUseEmail").value = "false";		    		
 		    	}			    	
@@ -160,7 +233,7 @@ function sendSecureCode() {
 		    }
 		}		
     };
-    
+    document.getElementById("checkDuplicateEmailResult").innerText = "잠시만 기다려주세요.";
     httpRequest.open('POST', 'check-duplicate-email-action', true);
     httpRequest.responseType = "json";
     httpRequest.setRequestHeader('Content-Type', 'application/json');
@@ -172,9 +245,12 @@ function changedEmail() {
 }
 
 function checkSecureCode() {
+	const httpRequest = new XMLHttpRequest();
+	
 	const secureCode = document.getElementById("secureCode").value;
 	if(secureCode == "") {
 		alert("보안코드를 입력해주세요.");
+		return f.secureCode.select();
 	}
 	
 	var reqJson = new Object();
@@ -185,17 +261,17 @@ function checkSecureCode() {
 		    	var result = httpRequest.response;
 		    	if(result.isSecureCodeCheck.at(0) === "true") {
 		    		document.getElementById("checkSecureCodeResult").innerText = "확인되었습니다.";		    		
-		    		document.getElementById("checkSecureCode").value = "true";		    		
+		    		document.getElementById("isSecureCode").value = "true";		    		
 		    	} else {
 		    		document.getElementById("checkSecureCodeResult").innerText = "잘못된 보안코드입니다.";			    					    		
-		    		document.getElementById("checkSecureCode").value = "false";		    		
+		    		document.getElementById("isSecureCode").value = "false";		    		
 		    	}			    	
 		    } else {
 		    	alert('request error');
 		    }
 		}		
     };
-    
+    document.getElementById("checkSecureCodeResult").innerText = "잠시만 기다려주세요.";
     httpRequest.open('POST', 'check-secure-code-action', true);
     httpRequest.responseType = "json";
     httpRequest.setRequestHeader('Content-Type', 'application/json');

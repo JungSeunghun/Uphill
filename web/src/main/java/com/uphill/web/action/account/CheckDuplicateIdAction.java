@@ -36,11 +36,11 @@ public class CheckDuplicateIdAction implements Action {
 		boolean result = checkDuplicateIdService.checkDuplicateIdService(userEnterId);		
 		
 		ViewResolver viewResolver = new ViewResolver();
-		if(result) {
+		if(result) { // 이미 존재하는 아이디일 경우
 			JSONObject sendJsonObject = new JSONObject();
 			sendJsonObject.append("isDuplicateId", "true");
 			viewResolver.setData(sendJsonObject.toString());
-		} else {
+		} else { // 존재하지 않는 아이디일 경우
 			JSONObject sendJsonObject = new JSONObject();
 			sendJsonObject.append("isDuplicateId", "false");
 			viewResolver.setData(sendJsonObject.toString());

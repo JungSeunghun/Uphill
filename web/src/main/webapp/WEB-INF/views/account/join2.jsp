@@ -5,7 +5,10 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/account/join1.css">
+
 <script type="text/javascript" src="${contextPath}/javascript/account/join2.js"></script>
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
 <section>
 	<form action="${contextPath}/account/join-action" name="f" method="post">
@@ -30,28 +33,30 @@
 		</div>
 		<div>
 			<div>주소</div>
-			<input type="text" name="address" maxlength="100"><br/>
-			<input type="text" name="addressDetail" maxlength="50">
+			<input type="text" name="postCode" id="postCode" onclick="findAddress();" readonly="readonly">
+			<input type="text" name="address" id="address" onclick="findAddress();" readonly="readonly"><br>
+			<div id="addressLayer"></div>
+			<input type="text" name="addressDetail" id="addressDetail" maxlength="45">
 		</div>
 		<div>
 			<div>이메일</div>
 			<input type="text" id="emailId" name="emailId" onchange="changedEmail()">@
-			<select name="emailAddress">
+			<select id="emailAddress" name="emailAddress">
 				<option value="">이메일을 선택하세요.</option>
 				<option value="@naver.com">naver.com</option>
 				<option value="@daum.net">daum.net</option>
 				<option value="@gmail.com">gmail.com</option>
 			</select>
-			<button type="button" onclick="sendSecureCode()">보안코드 전송</button>
+			<button type="button" onclick="sendSecureCode();">보안코드 전송</button>
 			<div id="checkDuplicateEmailResult"></div>
 			<input type="hidden" id="canUseEmail" value="false">
 		</div>
 		<div>
 			<div>보안코드 입력</div>
 			<input type="text" id="secureCode">
-			<button type="button" onclick="checkSecureCode()">확인</button>
+			<button type="button" onclick="checkSecureCode();">확인</button>
 			<div id="checkSecureCodeResult"></div>
-			<input type="hidden" id="checkSecureCode" value="false">
+			<input type="hidden" id="isSecureCode" value="false">
 		</div>
 		<div>
 			<button type="button" onclick="checkJoin2();">회원가입</button>
@@ -59,5 +64,5 @@
 		<div>
 			<a href="${contextPath}/account/join1">이전으로</a>
 		</div>
-	</form>
+	</form>	
 </section>
