@@ -6,7 +6,6 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/account/join1.css">
-
 <script type="text/javascript" src="${contextPath}/javascript/account/join2.js"></script>
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
@@ -35,8 +34,11 @@
 			<div>주소</div>
 			<input type="text" name="postCode" id="postCode" onclick="findAddress();" readonly="readonly">
 			<input type="text" name="address" id="address" onclick="findAddress();" readonly="readonly"><br>
-			<div id="addressLayer"></div>
+			<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+				<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+			</div>
 			<input type="text" name="addressDetail" id="addressDetail" maxlength="45">
+			<input type="text" name="addressExtra" id="addressExtra" readonly="readonly">
 		</div>
 		<div>
 			<div>이메일</div>
