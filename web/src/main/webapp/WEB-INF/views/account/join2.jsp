@@ -24,19 +24,19 @@
 		</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">비밀번호</div>
-			<input type="password" name="userPassword" id="userPassword" maxlength="20"><br>
-			<input type="password" name="checkUserPassword" id="checkUserPassword" maxlength="20">
+			<input type="password" name="userPassword" id="userPassword" maxlength="20" placeholder="비밀번호"><br>
+			<input type="password" name="checkUserPassword" id="checkUserPassword" maxlength="20" placeholder="비밀번호 다시입력">
 		</div>
 		<div id="joinFormDiv">
 			<div id="joinFormDivTitle">주소</div>
-			<input type="text" name="postCode" id="postCode" onclick="findAddress();" readonly="readonly"><br>
-			<input type="text" name="address" id="address" onclick="findAddress();" readonly="readonly"><br>
+			<input type="text" name="postCode" id="postCode" onclick="findAddress();" placeholder="우편번호" readonly="readonly"><br>
+			<input type="text" name="address" id="address" onclick="findAddress();" placeholder="주소" readonly="readonly"><br>
 			<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 				<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 			</div>
 			<div id="addressForm">
-				<input type="text" name="addressDetail" id="addressDetail" maxlength="45">
-				<input type="text" name="addressExtra" id="addressExtra" readonly="readonly">
+				<input type="text" name="addressDetail" id="addressDetail" placeholder="상세주소" maxlength="45">
+				<input type="text" name="addressExtra" id="addressExtra" placeholder="추가주소" readonly="readonly">
 			</div>
 		</div>
 		<div id="joinFormDiv">

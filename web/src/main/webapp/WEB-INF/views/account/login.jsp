@@ -14,12 +14,21 @@
 	</div>
 	<div id="loginHello">
 		<c:if test="${loginFail == null}">
-			어서오세요.
+			<c:if test="${join == null }">
+				어서오세요.
+			</c:if>
+			<c:if test="${join == 'true' }">
+				회원가입을 축하드립니다.
+			</c:if>
+			<c:if test="${join == 'false' }">
+				회원가입을 실패했습니다.
+			</c:if>
 		</c:if>
 		<c:if test="${loginFail != null}">
 			<c:remove var="loginFail"/>
 			아이디 또는 비밀번호를 틀렸습니다.
 		</c:if>
+		
 	</div>
 	<form action="${contextPath}/account/login-action" id="f" name="f" method="post">
 		<div id="idForm">

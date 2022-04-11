@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	color: #111111;
+}
+
+html {
+	font-size: 16px;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+section #logo {
+	width: 144px;
+	margin-top: 64px;
+	margin-bottom: 32px;
+}
+
+section #answer {	
+	font-size: 1.5rem;
+	font-weight: bolder;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+section button {
+	height: 28px;
+	width: 256px;
+	height: 40px;
+	border: 1px solid #c4c4c4;;
+	background-color: #ffffff;
+	font-size: 0.825rem;
+	cursor: pointer;
+	margin-bottom: 40px;
+}
+
+section button:hover {
+	color: #ffffff;
+	background-color: #9ccc65;
+	border: none;
+}
+
+/*태블릿*/
+@media (min-width:768px) and (max-width:1079px) {
+	
+}
+
+/*모바일*/
+@media screen and (max-width:767px) {
+		
+}

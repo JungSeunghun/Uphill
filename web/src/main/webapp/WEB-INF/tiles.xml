@@ -61,16 +61,6 @@
 		<put-attribute name="title" value="Up-Hill Join2" />
 		<put-attribute name="body" value="/WEB-INF/views/account/join2.jsp" />
 	</definition>
-
-	<definition name="views/account/joinFinish" template="/WEB-INF/tiles/layouts/accountLayout.jsp">
-		<put-attribute name="title" value="Up-Hill Welcome" />
-		<put-attribute name="body" value="/WEB-INF/views/account/joinFinish.jsp" />
-	</definition>
-
-	<definition name="views/account/joinFail" template="/WEB-INF/tiles/layouts/accountLayout.jsp">
-		<put-attribute name="title" value="Up-Hill Join Fail" />
-		<put-attribute name="body" value="/WEB-INF/views/account/joinFail.jsp" />
-	</definition>
 	
 	<definition name="views/account/findSelect" template="/WEB-INF/tiles/layouts/accountLayout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Select" />
@@ -92,7 +82,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/account/findPassword.jsp" />
 	</definition>
 
-	<definition name="views/account/findPassword_result" template="/WEB-INF/tiles/layouts/accountLayout.jsp">
+	<definition name="views/account/findPasswordResult" template="/WEB-INF/tiles/layouts/accountLayout.jsp">
 		<put-attribute name="title" value="Up-Hill Find Password" />
 		<put-attribute name="body" value="/WEB-INF/views/account/findPasswordResult.jsp" />
 	</definition>

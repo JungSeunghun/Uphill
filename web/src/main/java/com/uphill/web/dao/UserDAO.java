@@ -209,21 +209,34 @@ public class UserDAO {
 		return salt;
 	}
 	
-	public String selectUserEnterIdWithEmail(String email) {
-		String id = "";
+	public String selectUserId(UserVO userVO) {
+		String userId = "";
 		
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "select user_id from user_table where email = ? ";
+			String sql = "select user_id from user_table where user_name = ? and birth = ? and mobile_carrier = ? and phone_number = ? and email = ?";
+			
+			Date birth = null;
+			try {
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String formattedDate = simpleDateFormat.format(userVO.getBirth());
+				birth = Date.valueOf(formattedDate);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, email);
+			preparedStatement.setString(1, userVO.getUserName());
+			preparedStatement.setDate(2, birth);
+			preparedStatement.setString(3, userVO.getMobileCarrier());
+			preparedStatement.setString(4, userVO.getPhoneNumber());
+			preparedStatement.setString(5, userVO.getEmail());
 			
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-				id = resultSet.getString("user_id");
+				userId = resultSet.getString("user_id");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -243,7 +256,7 @@ public class UserDAO {
 			}
 		}
 		
-		return id;
+		return userId;
 	}
 	
 	public int updateUserPassword(UserVO userVO) {
@@ -252,11 +265,33 @@ public class UserDAO {
 		connection = DataBaseUtil.getConnection();
 
 		try {
-			String sql = "";
+			String sql = "update user_table set user_password=? where user_id=? and user_name=? and birth=? and mobile_carrier=? and phone_number=? and email=?";
+			
+			Date birth = null;
+			try {
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String formattedDate = simpleDateFormat.format(userVO.getBirth());
+				birth = Date.valueOf(formattedDate);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
 			
 			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, SHA256Encoder.encode(userVO.getUserPassword(), userVO.getSalt()));
+			preparedStatement.setString(2, userVO.getUserId());
+			preparedStatement.setString(3, userVO.getUserName());
+			preparedStatement.setDate(4, birth);
+			preparedStatement.setString(5, userVO.getMobileCarrier());
+			preparedStatement.setString(6, userVO.getPhoneNumber());
+			preparedStatement.setString(7, userVO.getEmail());
 			
 			result = preparedStatement.executeUpdate();
+			
+			if(result > 0) {
+				connection.commit();
+			} else {
+				connection.rollback();
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

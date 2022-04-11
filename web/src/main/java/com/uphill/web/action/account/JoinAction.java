@@ -21,8 +21,9 @@ public class JoinAction implements Action {
 		if(session.getAttribute("joinUserVO") != null && session.getAttribute("joinUserVO") instanceof UserVO) {
 			userVO = (UserVO)session.getAttribute("joinUserVO");
 		} else {
+			request.setAttribute("join", "false");
 			session.removeAttribute("joinUserVO");
-			return new ViewResolver("/views/account/joinFinish.tiles");
+			return new ViewResolver("/views/account/login.tiles");
 		}
 		
 		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
@@ -42,10 +43,12 @@ public class JoinAction implements Action {
 		session.removeAttribute("joinUserVO");
 		
 		if(joinService.join(userVO) == true) {
-			request.setAttribute("join", "join");
+			request.setAttribute("join", "true");
+		} else {
+			request.setAttribute("join", "false");			
 		}
 		
-		return new ViewResolver("/views/account/joinFinish.tiles");		
+		return new ViewResolver("/views/account/login.tiles");		
 	}
 
 }
