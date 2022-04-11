@@ -49,6 +49,7 @@
 			<div id="findIdDivTitle">이메일</div>
 			<input type="text" name="emailId" id="emailId"> @
 			<select name="emailAddress" id="emailAddress">
+				<option value="">이메일을 선택하세요.</option>
 				<option value="@naver.com">naver.com</option>
 				<option value="@daum.net">daum.net</option>
 				<option value="@gmail.com">gmail.com</option>

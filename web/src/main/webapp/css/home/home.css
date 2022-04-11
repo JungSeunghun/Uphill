@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+	font-size: 16px;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#mainBanner {
+	position: relative;
+}
+
+#mainBanner #leftButton {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	width: 16px;
+	cursor: pointer;
+}
+
+#mainBanner #rightButton {
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	width: 16px;
+	cursor: pointer;
+}
+
+#mainBanner #circle {
+	position: absolute;
+	left: 50%;
+	bottom: 16px;
+	width: 12px;
+	cursor: pointer;
+}
+
+#mainArticle {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+#mainArticleTitle {
+	font-size: 4.5rem;
+	font-weight: bold;
+	margin: 56px 0px;
+}
+
+#mainArticleContent {
+	font-size: 1.5rem;
+	margin-bottom: 56px;
+}
+
+#mainArticle a {
+	margin: 0px 16px;
+}
+
+#promotion {
+	text-align: center;
+}
+
+#promotionTitle {
+	font-size: 1.5rem;
+	margin-bottom: 32px;
+}

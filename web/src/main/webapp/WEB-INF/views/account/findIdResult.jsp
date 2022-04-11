@@ -14,7 +14,7 @@
 	</div>
 	
 	<div id="answer">
-		<c:if test="${findId != true }">
+		<c:if test="${findId == true }">
 			아이디는 ${userId }입니다.
 		</c:if>
 		<c:if test="${findId == false || findId == null }">

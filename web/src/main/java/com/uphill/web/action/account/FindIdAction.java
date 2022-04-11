@@ -46,6 +46,7 @@ public class FindIdAction implements Action {
 		String userId = userIdFindService.userIdFindService(userVO);
 		
 		if(!userId.equals("")) {
+			request.setAttribute("userId", userId);
 			request.setAttribute("findId", true);
 		} else {
 			request.setAttribute("findId", false);			
