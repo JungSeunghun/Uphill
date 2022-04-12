@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -14,7 +14,7 @@
 		<div id="mainBanner">
 			<c:if test="${mainBannerList != null }">
 				<div id="mainBannerImageDiv">
-					<c:forEach var="banner" items="${mainBannerList }"><img class="mainBannerImage" src="${contextPath}/images/banners/${banner.imageFile }" onclick="moveBanner(this);"></c:forEach>
+					<c:forEach var="banner" items="${mainBannerList }"><img class="mainBannerImage" src="${contextPath}/images/banners/${banner.imageFile }" onclick="var path='${contextPath}${banner.link}'; moveBanner(this, path);" ></c:forEach>
 				</div>
 			</c:if>
 		</div>
@@ -27,22 +27,40 @@
 			<a href="#">Minivelo</a>
 		</div>
 		
-		<div id="bestSellers">
+		<div id="bestSeller">
+			<div id="bestSellerTitle">Best Seller</div>
 			<c:if test="${bestSellerList != null }">
-				<c:forEach var="bestSeller" items="${bestSellerList }">
-					<div>
-						<img alt="${bestSeller.itemImage }" src="${contextPath}/images/items/${bestSeller.itemImage }">
-						<div>${bestSeller.itemName }</div>
-						<div>${bestSeller.itemPrice }</div>
-						<div>${bestSeller.itemDiscountPrice }</div>
-						<c:forEach var="i" begin="1" end="5">
-							<img src="${contextPath}/images/icons/empty_star.svg">
-						</c:forEach>
-						<c:forEach var="i" begin="1" end="${bestSeller.starRating+(1-(bestSeller.starRating%1))%1}">
-							<img src="${contextPath}/images/icons/green_star.svg">
-						</c:forEach>
-					</div>
-				</c:forEach>
+				<div id="bestSellerContentList">
+					<c:forEach var="bestSeller" items="${bestSellerList }">
+						<div id="bestSellerContent">
+							<img id="bestSellerImage" alt="${bestSeller.itemImage }" src="${contextPath}/images/items/${bestSeller.itemImage }">
+							<div id="bestSellerInfo">
+								<div id="bestSellerName">${bestSeller.itemName }</div>
+								<c:if test="${bestSeller.itemDiscountPrice != 0 }">
+									<div id="bestSellerPrice"><fmt:formatNumber value="${bestSeller.itemDiscountPrice }" pattern="#,###" />원</div>
+									<div id="bestSellerBeforePrice"><fmt:formatNumber value="${bestSeller.itemPrice }" pattern="#,###" />원</div>
+								</c:if>
+								<c:if test="${bestSeller.itemDiscountPrice == 0 }">
+									<div id="bestSellerPrice"><fmt:formatNumber value="${bestSeller.itemPrice }" pattern="#,###" />원</div>
+								</c:if>
+								<div id="starDiv">
+									<div id="emptyStar">
+										<c:forEach var="i" begin="1" end="5">
+											<img src="${contextPath}/images/icons/empty_star.svg">
+										</c:forEach>
+									</div>
+									<div id="greenStar">
+										<c:forEach var="i" begin="1" end="${bestSeller.starRating+(1-(bestSeller.starRating%1))%1}">
+											<span class="starWrap">
+												<img src="${contextPath}/images/icons/green_star.svg" onload="const star='${bestSeller.itemPrice }'; setStar(star);">
+											</span>
+										</c:forEach>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
 			</c:if>
 		</div>
 		

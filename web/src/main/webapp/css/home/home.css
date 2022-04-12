@@ -22,12 +22,13 @@ section {
 
 #mainBanner #mainBannerImageDiv {
 	display: flex;
+	width: 100%;
 }
 
 #mainBanner .mainBannerImage {
 	display: block;
 	width: 0%;
-	object-fit: cover;
+	object-fit: none;
 	cursor: pointer;
 	transition: 1s;
 }
@@ -44,7 +45,7 @@ section {
 
 #mainArticle {
 	text-align: center;
-	margin-bottom: 80px;
+	margin-bottom: 96px;
 }
 
 #mainArticleTitle {
@@ -63,12 +64,103 @@ section {
 	margin: 0px 16px;
 }
 
+#bestSeller {
+	width: 100%;
+	margin-bottom: 96px;
+}
+
+#bestSeller #bestSellerTitle {
+	font-size: 2rem;
+	margin-left: 40px;
+	margin-bottom: 24px;
+	font-weight: bold;
+}
+
+#bestSeller #bestSellerContentList {
+	display: flex;
+	justify-content: center;
+}
+
+#bestSeller #bestSellerContent {
+	position: relative;
+	margin: 0px 8px;
+	width: 30%;
+}
+
+#bestSeller #bestSellerContent:after {
+	content: "";
+  	display: block;
+  	padding-bottom: 100%;
+}
+
+#bestSeller #bestSellerImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+}
+
+#bestSeller #bestSellerInfo {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background-color: rgba(17,17,17,0.8);
+	transition: 1s;
+}
+
+#bestSeller #bestSellerInfo:hover {
+	opacity: 1;
+}
+
+#bestSeller #bestSellerInfo #bestSellerName {
+	color: #ffffff;
+	margin-bottom: 16px;
+}
+
+#bestSeller #bestSellerInfo #bestSellerPrice {
+	color: #ffffff;
+	font-size: 1.2rem;
+	margin-bottom: 16px;
+}
+
+#bestSeller #starDiv {
+	position: relative;
+}
+
+#bestSeller #starDiv #emptyStar {
+}
+
+#bestSeller #starDiv #greenStar {
+	position: absolute;
+	top: 0;
+}
+
+#bestSeller #emptyStar img {
+	width: 12px;
+}
+
+#bestSeller #greenStar .starWrap {
+	width: 12px;
+	display:inline-block;
+	overflow: hidden;
+}
+
+#bestSeller #greenStar img {
+	width: 12px;
+	
+}
+
 #promotion {
 	text-align: center;
 }
 
 #promotionTitle {
-	font-size: 1.5rem;
+	font-size: 2rem;
 	margin-bottom: 24px;
 	font-weight: bold;
 }
