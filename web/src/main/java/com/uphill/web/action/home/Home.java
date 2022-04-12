@@ -11,8 +11,6 @@ public class Home implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();		
-		session.removeAttribute("loginFail");
 		
 		return new ViewResolver("/views/home/home.tiles");
 	}

@@ -76,7 +76,7 @@ header a {
 	height: 168px;
 	background-color: #111111;
 	position: absolute;
-	bottom: -168px;
+	top: 100%;
 	z-index: 100;
 }
 
@@ -111,6 +111,10 @@ header a {
 }
 
 #gnb #menuButton {
+	display: none;
+}
+
+#gnb #mobileCategory {
 	display: none;
 }
 
@@ -163,25 +167,12 @@ footer #down p {
 		display: none;
 	}
 
-	#gnb #menuButton {
-		display: block;
-		cursor: pointer;
-	}
-}
-
-/*모바일*/
-@media screen and (max-width:767px) {
-	header {
+	#gnb #gnbList li{
 		display: none;
 	}
 	
-	#gnb #gnbList li{
+	#gnb #category {
 		display: none;
-		width: 64px;
-		text-align: center;
-		margin-right: 16px;
-		align-items: center;
-		justify-content: center;
 	}
 	
 	#gnb #menuButton {
@@ -197,5 +188,71 @@ footer #down p {
 		display: flex;
 		margin-left: auto;
 		margin-right: 0px;
+	}
+	
+	#gnb #mobileCategory {
+		display: none;
+		position: absolute;
+		right: 0px;
+		top: 100%;
+		z-index: 100;
+		background-color: #111111;
+		text-align: center;
+	}
+	
+	#gnb #mobileCategory li {
+		margin: 24px 40px;
+	}
+	
+	#gnb #mobileCategory li a {
+		color: white;
+	}
+}
+
+/*모바일*/
+@media screen and (max-width:767px) {
+	header {
+		display: none;
+	}
+	
+	#gnb #gnbList li{
+		display: none;
+	}
+	
+	#gnb #category {
+		display: none;
+	}
+	
+	#gnb #menuButton {
+		display: block;
+		cursor: pointer;
+	}
+	
+	#gnb #gnbList li:first-child {
+		display: flex;
+	}
+
+	#gnb #gnbList li:last-child {
+		display: flex;
+		margin-left: auto;
+		margin-right: 0px;
+	}
+	
+	#gnb #mobileCategory {
+		display: none;
+		position: absolute;
+		right: 0px;
+		top: 100%;
+		z-index: 100;
+		background-color: #111111;
+		text-align: center;
+	}
+	
+	#gnb #mobileCategory li {
+		margin: 24px 40px;
+	}
+	
+	#gnb #mobileCategory li a {
+		color: white;
 	}
 }
