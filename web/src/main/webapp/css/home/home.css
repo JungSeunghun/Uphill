@@ -17,31 +17,29 @@ section {
 }
 
 #mainBanner {
-	position: relative;
+	width: 100%;
 }
 
-#mainBanner #leftButton {
-	position: absolute;
-	left: 16px;
-	top: 50%;
-	width: 16px;
-	cursor: pointer;
+#mainBanner #mainBannerImageDiv {
+	display: flex;
 }
 
-#mainBanner #rightButton {
-	position: absolute;
-	right: 16px;
-	top: 50%;
-	width: 16px;
+#mainBanner .mainBannerImage {
+	display: block;
+	width: 0%;
+	object-fit: cover;
 	cursor: pointer;
+	transition: 1s;
 }
 
-#mainBanner #circle {
-	position: absolute;
-	left: 50%;
-	bottom: 16px;
-	width: 12px;
-	cursor: pointer;
+#mainBanner .mainBannerImage:first-child {
+	display: block;
+	width: 95%;
+}
+
+#mainBanner .mainBannerImage:nth-child(2) {
+	display: block;
+	width: 5%;
 }
 
 #mainArticle {

@@ -6,6 +6,7 @@ public class ItemVO {
 	private int itemSubcategoryIndex;
 	private String itemName;
 	private String itemImage;
+	private float starRating;
 	private int itemPrice;
 	private int itemDiscountPrice;
 	private int itemTotalQty;
@@ -44,6 +45,12 @@ public class ItemVO {
 	}
 	public void setItemImage(String itemImage) {
 		this.itemImage = itemImage;
+	}
+	public float getStarRating() {
+		return starRating;
+	}
+	public void setStarRating(float starRating) {
+		this.starRating = starRating;
 	}
 	public int getItemPrice() {
 		return itemPrice;

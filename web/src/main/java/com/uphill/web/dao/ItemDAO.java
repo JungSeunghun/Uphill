@@ -29,7 +29,7 @@ public class ItemDAO {
 			
 			resultSet = preparedStatement.executeQuery();
 			
-			if(resultSet.next()) {
+			while(resultSet.next()) {
 				ItemVO itemVO = new ItemVO();
 				
 				itemVO.setItemIndex(resultSet.getInt("item_index"));
@@ -37,6 +37,7 @@ public class ItemDAO {
 				itemVO.setItemSubcategoryIndex(resultSet.getInt("item_subcategory_index"));
 				itemVO.setItemName(resultSet.getString("item_name"));
 				itemVO.setItemImage(resultSet.getString("item_image"));
+				itemVO.setStarRating(resultSet.getFloat("star_rating"));
 				itemVO.setItemDiscountPrice(resultSet.getInt("item_discount_price"));
 				itemVO.setItemTotalQty(resultSet.getInt("item_total_qty"));
 				itemVO.setItemSellCount(resultSet.getInt("item_sell_count"));
@@ -77,7 +78,7 @@ public class ItemDAO {
 			
 			resultSet = preparedStatement.executeQuery();
 			
-			if(resultSet.next()) {
+			while(resultSet.next()) {
 				ItemVO itemVO = new ItemVO();
 				
 				itemVO.setItemIndex(resultSet.getInt("item_index"));
