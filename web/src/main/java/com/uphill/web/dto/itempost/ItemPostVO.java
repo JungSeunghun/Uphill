@@ -1,87 +1,83 @@
-package com.uphill.web.data.afterservice.dto;
+package com.uphill.web.dto.itempost;
 
 import java.util.Date;
 
-public class AfterServiceVO {
-	private int afterServiceId;
-	private int userId;
+public class ItemPostVO {
+	private int itemPostIndex;
+	private int itemIndex;
+	private String userId;
 	private Date postDate;
 	private String title;
 	private String content;
 	private String imageFile;
+	private int hits;
 	
-	public AfterServiceVO() {}
-	
-	public AfterServiceVO(int afterServiceId, int userId, Date postDate, String title, String content,
-			String imageFile) {
+	public ItemPostVO() {
 		super();
-		this.afterServiceId = afterServiceId;
-		this.userId = userId;
-		this.postDate = postDate;
-		this.title = title;
-		this.content = content;
-		this.imageFile = imageFile;
 	}
 
-
-	public int getAfterServiceId() {
-		return afterServiceId;
+	public int getItemPostIndex() {
+		return itemPostIndex;
 	}
 
-
-	public void setAfterServiceId(int afterServiceId) {
-		this.afterServiceId = afterServiceId;
+	public void setItemPostIndex(int itemPostIndex) {
+		this.itemPostIndex = itemPostIndex;
 	}
 
+	public int getItemIndex() {
+		return itemIndex;
+	}
 
-	public int getUserId() {
+	public void setItemIndex(int itemIndex) {
+		this.itemIndex = itemIndex;
+	}
+
+	public String getUserId() {
 		return userId;
 	}
 
-
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
 
 	public Date getPostDate() {
 		return postDate;
 	}
 
-
 	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
-
 
 	public String getTitle() {
 		return title;
 	}
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 	public String getContent() {
 		return content;
 	}
 
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 
 	public String getImageFile() {
 		return imageFile;
 	}
 
-
 	public void setImageFile(String imageFile) {
 		this.imageFile = imageFile;
 	}
-	
-	
+
+	public int getHits() {
+		return hits;
+	}
+
+	public void setHits(int hits) {
+		this.hits = hits;
+	}
+		
 }
