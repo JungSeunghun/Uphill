@@ -4,8 +4,10 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 
+<script type="text/javascript" src="${contextPath}/javascript/common.js" ></script>
+
 <nav id="gnb">
-	<ul id="gnbList">
+	<ul id="gnbList" onmouseenter="openCategory();" onclick="javascript:openCategoryToggle();">
 		<li>
 			<a href="${contextPath}/home/home">
 				<img alt="uphill_logo_black" src="${contextPath}/images/logos/uphill_logo_black.svg" width="64px">
@@ -23,15 +25,18 @@
 		</li>
 		<li>
 			<a href="${contextPath}/community/notice">커뮤니티</a>
+		</li>		
 		<li>
+			<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
+		</li>
 		<li>
 			<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
 		</li>
 		<li>
-			<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
+			<img id="menuButton" src="${contextPath}/images/icons/menu_button_white.svg" onclick="javascript:openCategoryToggle();">
 		</li>
 	</ul>
-	<div id="category">
+	<div id="category" onmouseleave="closeCategory()">
 		<div>
 			<ul></ul>
 			<ul></ul>
