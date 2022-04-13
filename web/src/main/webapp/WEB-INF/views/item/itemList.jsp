@@ -7,14 +7,14 @@
 	<c:if test="${itemList != null }">
 		<c:forEach var="item" items="${itemList }">
 			<div>
-				<a href=""><img alt="best item" src="${contextPath }/images/items/${item.name }.svg"></a>
-				<div>${item.name }</div>
-				<div>${item.price }</div>
-				<div>${item.discountPrice }</div>
+				<a href=""><img alt="best item" src="${contextPath }/images/items/${item.itemImage }"></a>
+				<div>${item.itemName }</div>
+				<div>${item.itemPrice }</div>
+				<div>${item.itemDiscountPrice }</div>
 				<c:forEach begin="0" end="4">
 					<img alt="empty star" src="${contextPath }/images/icons/empty_star.svg">
 				</c:forEach>
-				<c:forEach begin="0" end="${item.starRating}">
+				<c:forEach begin="0" end="5">
 					<img alt="green star" src="${contextPath }/images/icons/green_star.svg">
 				</c:forEach>
 			</div>

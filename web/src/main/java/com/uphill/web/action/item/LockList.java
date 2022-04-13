@@ -10,15 +10,15 @@ import com.uphill.web.dto.item.ItemVO;
 import com.uphill.web.service.item.ItemService;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class ItemList implements Action {
+public class LockList implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 
 		ItemService itemService = new ItemService();
-		List<ItemVO> itemList = itemService.getItemListExceptCategory(1);
+		List<ItemVO> lockList = itemService.getItemListWithCategory(4);
 		
-		request.setAttribute("itemList", itemList);		
+		request.setAttribute("itemList", lockList);		
 		
 		return new ViewResolver("/views/item/itemList.tiles");
 	}

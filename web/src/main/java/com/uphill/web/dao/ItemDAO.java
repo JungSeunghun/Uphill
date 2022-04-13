@@ -72,10 +72,164 @@ public class ItemDAO {
 		connection = DataBaseUtil.getConnection();
 		
 		try {
-			String sql = "select * from (select rank() over(order by item_sell_count desc, item_price desc) as ranking, item_table.* from item_table where item_total_qty != 0 and item_category_index != 1) as bestseller where ranking <= ?;";
+			String sql = "select * from (select rank() over(order by item_sell_count desc, item_price desc) as ranking, item_table.* from item_table where item_total_qty != 0 and item_category_index != 1) as bestseller where ranking <= ?";
 			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, count);
+			
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				ItemVO itemVO = new ItemVO();
+				
+				itemVO.setItemIndex(resultSet.getInt("item_index"));
+				itemVO.setItemCategoryIndex(resultSet.getInt("item_category_index"));
+				itemVO.setItemSubcategoryIndex(resultSet.getInt("item_subcategory_index"));
+				itemVO.setItemName(resultSet.getString("item_name"));
+				itemVO.setItemImage(resultSet.getString("item_image"));
+				itemVO.setStarRating(resultSet.getFloat("star_rating"));
+				itemVO.setItemPrice(resultSet.getInt("item_price"));
+				itemVO.setItemDiscountPrice(resultSet.getInt("item_discount_price"));
+				itemVO.setItemTotalQty(resultSet.getInt("item_total_qty"));
+				itemVO.setItemSellCount(resultSet.getInt("item_sell_count"));
+				
+				itemList.add(itemVO);				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) {
+					resultSet.close();
+				}
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return itemList;
+	}
+
+	public List<ItemVO> selectItemListExceptCategory(int categoryIndex) {
+		List<ItemVO> itemList = new ArrayList<ItemVO>();
+		
+		connection = DataBaseUtil.getConnection();
+		
+		try {
+			String sql = "select * from item_table where item_category_index != ?";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, categoryIndex);
+			
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				ItemVO itemVO = new ItemVO();
+				
+				itemVO.setItemIndex(resultSet.getInt("item_index"));
+				itemVO.setItemCategoryIndex(resultSet.getInt("item_category_index"));
+				itemVO.setItemSubcategoryIndex(resultSet.getInt("item_subcategory_index"));
+				itemVO.setItemName(resultSet.getString("item_name"));
+				itemVO.setItemImage(resultSet.getString("item_image"));
+				itemVO.setStarRating(resultSet.getFloat("star_rating"));
+				itemVO.setItemPrice(resultSet.getInt("item_price"));
+				itemVO.setItemDiscountPrice(resultSet.getInt("item_discount_price"));
+				itemVO.setItemTotalQty(resultSet.getInt("item_total_qty"));
+				itemVO.setItemSellCount(resultSet.getInt("item_sell_count"));
+				
+				itemList.add(itemVO);				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) {
+					resultSet.close();
+				}
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return itemList;
+	}
+	
+	public List<ItemVO> selectItemListWithCategory(int categoryIndex) {
+		List<ItemVO> itemList = new ArrayList<ItemVO>();
+		
+		connection = DataBaseUtil.getConnection();
+		
+		try {
+			String sql = "select * from item_table where item_category_index = ?";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, categoryIndex);
+			
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				ItemVO itemVO = new ItemVO();
+				
+				itemVO.setItemIndex(resultSet.getInt("item_index"));
+				itemVO.setItemCategoryIndex(resultSet.getInt("item_category_index"));
+				itemVO.setItemSubcategoryIndex(resultSet.getInt("item_subcategory_index"));
+				itemVO.setItemName(resultSet.getString("item_name"));
+				itemVO.setItemImage(resultSet.getString("item_image"));
+				itemVO.setStarRating(resultSet.getFloat("star_rating"));
+				itemVO.setItemPrice(resultSet.getInt("item_price"));
+				itemVO.setItemDiscountPrice(resultSet.getInt("item_discount_price"));
+				itemVO.setItemTotalQty(resultSet.getInt("item_total_qty"));
+				itemVO.setItemSellCount(resultSet.getInt("item_sell_count"));
+				
+				itemList.add(itemVO);				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) {
+					resultSet.close();
+				}
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return itemList;
+	}
+
+	public List<ItemVO> selectItemListWithCategoryAndSubcategory(int categoryIndex, int subcategoryIndex) {
+		List<ItemVO> itemList = new ArrayList<ItemVO>();
+		
+		connection = DataBaseUtil.getConnection();
+		
+		try {
+			String sql = "select * from item_table where item_category_index = ? and item_subcategory_index = ?";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, categoryIndex);
+			preparedStatement.setInt(2, subcategoryIndex);
 			
 			resultSet = preparedStatement.executeQuery();
 			
