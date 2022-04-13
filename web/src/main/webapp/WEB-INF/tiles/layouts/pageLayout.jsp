@@ -12,8 +12,10 @@
 <body>
 	<tiles:insertAttribute name="header" />
 	<tiles:insertAttribute name="gnb" />
-	<tiles:insertAttribute name="snb" />
-	<tiles:insertAttribute name="body" />
+	<div id="bodySection">
+		<tiles:insertAttribute name="snb" />
+		<tiles:insertAttribute name="body" />
+	</div>
 	<tiles:insertAttribute name="footer" />
 </body>
 </html>

@@ -54,7 +54,7 @@
 			</ul>
 		</div>
 	</div>
-	<div id="mobileCategory" onmouseleave="closeMobileCategory()">
+	<div id="mobileCategory">
 		<ul>
 			<li>
 				<a href="${contextPath}/account/login">로그인</a>

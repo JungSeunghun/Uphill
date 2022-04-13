@@ -3,6 +3,9 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/item/itemList.css">
+
 <section>
 	<c:if test="${itemList != null }">
 		<c:forEach var="item" items="${itemList }">

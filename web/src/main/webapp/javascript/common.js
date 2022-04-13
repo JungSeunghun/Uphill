@@ -25,15 +25,11 @@ function closeCategory() {
 
 function mobileCategoryToggle() {
 	mobileCategory = document.getElementById("mobileCategory");
-	if(mobileCategory.style.opacity === 0) {
+	if(mobileCategory.style.width !== "144px") {
 		mobileCategory.style.opacity = 1;		
+		mobileCategory.style.width = "144px";		
 	} else {
 		mobileCategory.style.opacity = 0;		
+		mobileCategory.style.width = "0px";		
 	}
-}
-
-function closeMobileCategory() {
-	mobileCategory = document.getElementById("mobileCategory");
-	mobileCategory.style.opacity = 0;		
-	mobileCategory.style.width = "0px";	
 }

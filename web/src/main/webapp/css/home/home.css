@@ -34,12 +34,14 @@ section {
 }
 
 #mainBanner .mainBannerImage:first-child {
-	display: block;
-	width: 95%;
+	width: 90%;
 }
 
 #mainBanner .mainBannerImage:nth-child(2) {
-	display: block;
+	width: 5%;
+}
+
+#mainBanner .mainBannerImage:nth-child(3) {
 	width: 5%;
 }
 
@@ -254,13 +256,21 @@ section {
 
 #recentReviewListWrap {
 	display:flex;
-	width: 160%;
-	transition: 15s;
+	width: 200%;
+	animation-name: moveReview;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
-#recentReviewListWrap:hover {
-	transform: translateX(-37%);
+@keyframes moveReview {
+    from {
+    }
+    to {
+    	transform: translateX(-50%);
+    }
 }
+
 
 #recentReview #recentReviewDiv {
 	position: relative;
@@ -325,11 +335,18 @@ section {
 	
 	#recentReviewListWrap {
 		display:flex;
-		width: 700%;
-		transition: 15s;
+		width: 400%;
+		animation-name: moveReview;
+	    animation-duration: 20s;
+	    animation-iteration-count: infinite;
+	    animation-timing-function: linear;
 	}
 	
-	#recentReviewListWrap:hover {
-		transform: translateX(-87%);
+	@keyframes moveReview {
+	    from {
+	    }
+	    to {
+	    	transform: translateX(-75%);
+	    }
 	}
 }

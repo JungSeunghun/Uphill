@@ -7,50 +7,44 @@
 <nav id="snb">
 	<c:if test="${snb=='bicycle' }">
 		<div>
-			<div>
-				<a href="${contextPath}/bicycle/bicycle">전체</a>
-			</div>
-			<div>
-				<a href="${contextPath}/bicycle/mtb">MTB</a>
-			</div>
-			<div>
-				<a href="${contextPath}/bicycle/road">Road</a>
-			</div>
-			<div>
-				<a href="${contextPath}/bicycle/minivelo">MiniVelo</a>
-			</div>
+			<a href="${contextPath}/bicycle/bicycle">전체</a>
+		</div>
+		<div>
+			<a href="${contextPath}/bicycle/mtb">MTB</a>
+		</div>
+		<div>
+			<a href="${contextPath}/bicycle/road">Road</a>
+		</div>
+		<div>
+			<a href="${contextPath}/bicycle/minivelo">MiniVelo</a>
 		</div>
 	</c:if>
 	<c:if test="${snb=='item' }">
 		<div>
-			<div>
-				<a href="${contextPath}/item/item">전체</a>
-			</div>
-			<div>
-				<a href="${contextPath}/item/helmet">헬멧</a>
-			</div>
-			<div>
-				<a href="${contextPath}/item/light">라이트</a>
-			</div>
-			<div>
-				<a href="${contextPath}/item/lock">자물쇠</a>
-			</div>
+			<a href="${contextPath}/item/item">전체</a>
+		</div>
+		<div>
+			<a href="${contextPath}/item/helmet">헬멧</a>
+		</div>
+		<div>
+			<a href="${contextPath}/item/light">라이트</a>
+		</div>
+		<div>
+			<a href="${contextPath}/item/lock">자물쇠</a>
 		</div>
 	</c:if>
 	<c:if test="${snb=='user' }">
 		<div>
-			<div>
-				<a href="${contextPath}/user/basket">장바구니</a>
-			</div>
-			<div>
-				<a href="${contextPath}/user/order">주문내역</a>
-			</div>
-			<div>
-				<a href="${contextPath}/user/user-info">회원정보</a>
-			</div>
-			<div>
-				<a href="${contextPath}/user/user-update">회원정보수정</a>
-			</div>
+			<a href="${contextPath}/user/basket">장바구니</a>
+		</div>
+		<div>
+			<a href="${contextPath}/user/order">주문내역</a>
+		</div>
+		<div>
+			<a href="${contextPath}/user/user-info">회원정보</a>
+		</div>
+		<div>
+			<a href="${contextPath}/user/user-update">회원정보수정</a>
 		</div>
 	</c:if>
 	<c:if test="${snb=='community' }">
