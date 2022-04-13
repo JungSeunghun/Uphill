@@ -69,39 +69,39 @@ section {
 	margin-bottom: 128px;
 }
 
-#bestSeller #bestSellerTitle {
+#bestSellerTitle {
 	font-size: 3rem;
 	margin-bottom: 48px;
 	text-align: center;
 	font-weight: bold;
 }
 
-#bestSeller #bestSellerContentList {
+#bestSellerContentList {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 }
 
-#bestSeller #bestSellerContent {
+#bestSellerContent {
 	position: relative;
 	margin: 4px;
 	width: 40%;
 }
 
-#bestSeller #bestSellerContent:after {
+#bestSellerContent:after {
 	content: "";
   	display: block;
   	padding-bottom: 100%;
 }
 
-#bestSeller #bestSellerImage {
+#bestSellerImage {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	position: absolute;
 }
 
-#bestSeller #bestSellerInfo {
+#bestSellerInfo {
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
@@ -110,50 +110,24 @@ section {
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-	background-color: rgba(17,17,17,0.8);
+	background-color: rgba(17,17,17,0.6);
 	transition: 1s;
 }
 
-#bestSeller #bestSellerInfo:hover {
+#bestSellerInfo:hover {
 	opacity: 1;
 }
 
-#bestSeller #bestSellerInfo #bestSellerName {
+#bestSellerName {
 	color: #ffffff;
 	margin-bottom: 16px;
 	font-size: 1.2rem;
 }
 
-#bestSeller #bestSellerInfo #bestSellerPrice {
+#bestSellerPrice {
 	color: #ffffff;
 	font-size: 1.5rem;
 	margin-bottom: 16px;
-}
-
-#bestSeller #starDiv {
-	position: relative;
-}
-
-#bestSeller #starDiv #emptyStar {
-}
-
-#bestSeller #starDiv #greenStar {
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-}
-
-#bestSeller #emptyStar img {
-	width: 14px;
-}
-
-#bestSeller #greenStar #starWrap {
-	width: max-content;
-}
-
-#bestSeller #greenStar img {
-	width: 14px;
-	
 }
 
 #bestItem {
@@ -161,37 +135,39 @@ section {
 	margin-bottom: 128px;
 }
 
-#bestItem #bestItemTitle {
+#bestItemTitle {
 	font-size: 3rem;
 	margin-bottom: 48px;
 	text-align: center;
 	font-weight: bold;
 }
 
-#bestItem #bestItemContentList {
+#bestItemContentList {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
-#bestItem #bestItemContent {
+#bestItemContent {
 	position: relative;
-	width: 25%;
+	width: 30%;
+	margin: 4px;
 }
 
-#bestItem #bestItemContent:after {
+#bestItemContent:after {
 	content: "";
   	display: block;
   	padding-bottom: 100%;
 }
 
-#bestItem #bestItemImage {
+#bestItemImage {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	position: absolute;
 }
 
-#bestItem #bestItemInfo {
+#bestItemInfo {
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
@@ -200,48 +176,48 @@ section {
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-	background-color: rgba(17,17,17,0.8);
+	background-color: rgba(17,17,17,0.6);
 	transition: 1s;
 }
 
-#bestItem #bestItemInfo:hover {
+#bestItemInfo:hover {
 	opacity: 1;
 }
 
-#bestItem #bestItemInfo #bestItemName {
+#bestItemInfo #bestItemName {
 	color: #ffffff;
 	margin-bottom: 16px;
 	font-size: 1.2rem;
 }
 
-#bestItem #bestItemInfo #bestItemPrice {
+#bestItemInfo #bestItemPrice {
 	color: #ffffff;
 	font-size: 1.5rem;
 	margin-bottom: 16px;
 }
 
-#bestItem #starDiv {
+#starDiv {
 	position: relative;
 }
 
-#bestItem #starDiv #emptyStar {
+#starDiv #emptyStar {
 }
 
-#bestItem #starDiv #greenStar {
+#starDiv #greenStar {
 	position: absolute;
 	overflow: hidden;
 	top: 0;
 }
 
-#bestItem #emptyStar img {
+#emptyStar img {
 	width: 14px;
 }
 
-#bestItem #greenStar #starWrap {
+#greenStar #starWrap {
 	width: max-content;
 }
 
-#bestItem #greenStar img {
+#greenStar img {
 	width: 14px;
 	
 }
@@ -255,4 +231,82 @@ section {
 	font-size: 3rem;
 	margin-bottom: 48px;
 	font-weight: bold;
+}
+
+#recentReview {
+	width: 100%;
+	margin-bottom: 128px;
+}
+
+#recentReview #recentReviewTitle {
+	font-size: 3rem;
+	margin-bottom: 48px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#recentReview #recentReviewList {
+	display: div;
+	justify-content: center;
+	overflow:hidden;
+}
+
+#recentReviewListWrap {
+	display:flex;
+	width: 160%;
+	transition: 10s;
+}
+
+#recentReviewListWrap:hover {
+	transform: translateX(-37%);
+}
+
+#recentReview #recentReviewDiv {
+	position: relative;
+	width: 100%;
+}
+
+#recentReview #recentReviewDiv:after {
+	content: "";
+  	display: block;
+  	padding-bottom: 100%;
+}
+
+#recentReview #recentReviewImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+}
+
+#recentReview #recentReviewInfo {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(17,17,17,0.6);
+	transition: 1s;
+}
+
+#recentReviewInfoTitle {
+	color: #ffffff;
+	margin-bottom: 8px;
+	font-size: 1.2rem;
+}
+
+#recentReviewInfoContent {
+	color: #ffffff;
+	font-size: 1rem;
+	margin-bottom: 8px;
+}
+
+/*태블릿*/
+@media (min-width:768px) and (max-width:1079px) {
+}
+
+/*모바일*/
+@media screen and (max-width:767px) {
 }

@@ -108,23 +108,41 @@
 			</c:if>
 		</div>
 		
-		<div id="recentReviews">
+		<div id="recentReview">
+			<div id="recentReviewTitle">Recent Reviews</div>
 			<c:if test="${recentReviewList != null }">
-				<c:forEach var="review" items="${recentReviewList }">
-					<div>
-						<c:if test="${review.imageFile != null }">
-							<img alt="${review.imageFile }" src="${contextPath}/images/reviews/${review.imageFile }">
-						</c:if>
-						<div>${review.title }</div>
-						<div>${review.content }</div>
-						<c:forEach var="i" begin="1" end="5">
-							<img src="${contextPath}/images/icons/empty_star.svg">
-						</c:forEach>
-						<c:forEach var="i" begin="1" end="${review.starRating+(1-(review.starRating%1))%1 }">
-							<img src="${contextPath}/images/icons/green_star.svg">
+				<div id="recentReviewList">
+					<div id="recentReviewListWrap">
+						<c:forEach var="review" items="${recentReviewList }">
+							<div id="recentReviewDiv">
+								<c:if test="${review.imageFile != null }">
+									<img id="recentReviewImage" alt="${review.imageFile }" src="${contextPath}/images/reviews/${review.imageFile }">
+								</c:if>
+								<c:if test="${review.imageFile == null }">
+									<img id="recentReviewImage" alt="${review.imageFile }" src="${contextPath}/images/reviews/default_review.jpg">
+								</c:if>
+								<div id="recentReviewInfo">
+									<div id="recentReviewInfoTitle">${review.title }</div>
+									<div id="recentReviewInfoContent">${review.content }</div>
+									<div id="starDiv">
+										<div id="emptyStar">
+											<c:forEach var="i" begin="1" end="5">
+												<img src="${contextPath}/images/icons/empty_star.svg">
+											</c:forEach>
+										</div>
+										<div id="greenStar">
+											<div id="starWrap">
+												<c:forEach var="i" begin="1" end="${review.starRating+(1-(review.starRating%1))%1 }">
+													<img src="${contextPath}/images/icons/green_star.svg">
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</c:forEach>
 					</div>
-				</c:forEach>
+				</div>
 			</c:if>
 		</div>
 	</section>
