@@ -19,6 +19,7 @@ public class ItemList implements Action {
 		List<ItemVO> itemList = itemService.getItemListExceptCategory(1);
 		
 		request.setAttribute("itemList", itemList);		
+		request.setAttribute("snb", "item");
 		
 		return new ViewResolver("/views/item/itemList.tiles");
 	}

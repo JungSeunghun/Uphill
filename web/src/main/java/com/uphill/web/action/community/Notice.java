@@ -11,6 +11,8 @@ public class Notice implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		request.setAttribute("snb", "community");
+		
 		return new ViewResolver("/views/community/notice.tiles");
 	}
 

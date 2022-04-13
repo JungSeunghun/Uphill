@@ -73,7 +73,7 @@ header a {
 #gnb #category {
 	display: block;
 	width: 100%;
-	height: 168px;
+	height: 0px;
 	background-color: #111111;
 	position: absolute;
 	top: 100%;
@@ -82,33 +82,35 @@ header a {
 	transition: 1s;
 }
 
-#gnb #category div{
+#gnb #category #categoryDiv{
 	display: flex;
-	height: 168px;
+	height: 0px;
+	overflow:hidden;
 	margin: 0px auto;
 	padding: 0px 40px;
 	font-size: 1rem;
 	align-items: flex-start;
+	transition: 1s;
 }
 
-#gnb #category div ul{
+#gnb #category #categoryDiv ul{
 	width: 64px;
 	text-align: center;
 	margin-right: 16px;
 }
 
-#gnb #category div ul li{
+#gnb #category #categoryDiv ul li{
 	display: flex;
 	height: 56px;
 	justify-content: center;
 	align-items: center;
 }
 
-#gnb #category div a{
+#gnb #category #categoryDiv a{
 	color: #ffffff;
 }
 
-#gnb #category div a:hover {
+#gnb #category #categoryDiv a:hover {
 	color: #cfff94;
 }
 
@@ -120,8 +122,8 @@ header a {
 	display: none;
 }
 
-section{
-	z-index: 0;
+#snb {
+		
 }
 
 footer {
@@ -193,13 +195,15 @@ footer #down p {
 	}
 	
 	#gnb #mobileCategory {
-		display: none;
 		position: absolute;
+		height: 1080px;
 		right: 0px;
 		top: 100%;
 		z-index: 100;
 		background-color: #111111;
 		text-align: center;
+		transition: 1s;
+		overflow: hidden;
 	}
 	
 	#gnb #mobileCategory li {
@@ -241,13 +245,16 @@ footer #down p {
 	}
 	
 	#gnb #mobileCategory {
-		display: none;
 		position: absolute;
+		height: 1080px;
+		opacity: 1;
 		right: 0px;
 		top: 100%;
 		z-index: 100;
 		background-color: #111111;
 		text-align: center;
+		transition: 1s;
+		overflow: hidden;
 	}
 	
 	#gnb #mobileCategory li {

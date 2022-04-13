@@ -112,7 +112,7 @@
 			<div id="recentReviewTitle">Recent Reviews</div>
 			<c:if test="${recentReviewList != null }">
 				<div id="recentReviewList">
-					<div id="recentReviewListWrap">
+					<div id="recentReviewListWrap" onmouseover="setTransition()">
 						<c:forEach var="review" items="${recentReviewList }">
 							<div id="recentReviewDiv">
 								<c:if test="${review.imageFile != null }">

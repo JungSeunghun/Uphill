@@ -1,58 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<nav>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+
+<nav id="snb">
 	<c:if test="${snb=='bicycle' }">
 		<div>
 			<div>
-				<a href="allBicycles.item">전체</a>
+				<a href="${contextPath}/bicycle/bicycle">전체</a>
 			</div>
 			<div>
-				<a href="mtb.item">MTB</a>
+				<a href="${contextPath}/bicycle/mtb">MTB</a>
 			</div>
 			<div>
-				<a href="raod.item">Road</a>
+				<a href="${contextPath}/bicycle/road">Road</a>
 			</div>
 			<div>
-				<a href="minivelo.item">MiniVelo</a>
+				<a href="${contextPath}/bicycle/minivelo">MiniVelo</a>
 			</div>
 		</div>
 	</c:if>
 	<c:if test="${snb=='item' }">
 		<div>
 			<div>
-				<a href="allItems.item">전체</a>
+				<a href="${contextPath}/item/item">전체</a>
 			</div>
 			<div>
-				<a href="helmet.item">헬멧</a>
+				<a href="${contextPath}/item/helmet">헬멧</a>
 			</div>
 			<div>
-				<a href="light.item">라이트</a>
+				<a href="${contextPath}/item/light">라이트</a>
 			</div>
 			<div>
-				<a href="lock.item">자물쇠</a>
+				<a href="${contextPath}/item/lock">자물쇠</a>
 			</div>
 		</div>
 	</c:if>
 	<c:if test="${snb=='user' }">
 		<div>
 			<div>
-				<a href="basketPage.user">장바구니</a>
+				<a href="${contextPath}/user/basket">장바구니</a>
 			</div>
 			<div>
-				<a href="purchasePage.user">주문내역</a>
+				<a href="${contextPath}/user/order">주문내역</a>
 			</div>
 			<div>
-				<a href="userInfoPage.user">회원정보</a>
+				<a href="${contextPath}/user/user-info">회원정보</a>
 			</div>
 			<div>
-				<a href="userUpdatePage.user">회원정보수정</a>
+				<a href="${contextPath}/user/user-update">회원정보수정</a>
 			</div>
 		</div>
 	</c:if>
 	<c:if test="${snb=='community' }">
 		<div>
-			<a href="noticePage.community">공지사항</a>
+			<a href="${contextPath}/community/notice">공지사항</a>
 		</div>
 	</c:if>
 </nav>

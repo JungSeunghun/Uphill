@@ -57,7 +57,7 @@ section {
 #mainArticleContent {
 	font-size: 1.5rem;
 	margin-bottom: 56px;
-	max-width: 944px;
+	max-width: 1000px;
 }
 
 #mainArticle a {
@@ -66,6 +66,7 @@ section {
 
 #bestSeller {
 	width: 100%;
+	max-width: 1000px;
 	margin-bottom: 128px;
 }
 
@@ -84,8 +85,8 @@ section {
 
 #bestSellerContent {
 	position: relative;
-	margin: 4px;
-	width: 40%;
+	margin: 0.5%;
+	width: 49%;
 }
 
 #bestSellerContent:after {
@@ -132,6 +133,7 @@ section {
 
 #bestItem {
 	width: 100%;
+	max-width: 1000px;
 	margin-bottom: 128px;
 }
 
@@ -150,8 +152,8 @@ section {
 
 #bestItemContent {
 	position: relative;
-	width: 30%;
-	margin: 4px;
+	width: 32%;
+	margin: 0.5%;
 }
 
 #bestItemContent:after {
@@ -247,14 +249,13 @@ section {
 
 #recentReview #recentReviewList {
 	display: div;
-	justify-content: center;
 	overflow:hidden;
 }
 
 #recentReviewListWrap {
 	display:flex;
 	width: 160%;
-	transition: 10s;
+	transition: 15s;
 }
 
 #recentReviewListWrap:hover {
@@ -305,8 +306,30 @@ section {
 
 /*태블릿*/
 @media (min-width:768px) and (max-width:1079px) {
+	
 }
 
 /*모바일*/
 @media screen and (max-width:767px) {
+	#bestSellerContent {
+		position: relative;
+		margin: 4px;
+		width: 90%;
+	}
+	
+	#bestItemContent {
+		position: relative;
+		width: 90%;
+		margin: 4px;
+	}
+	
+	#recentReviewListWrap {
+		display:flex;
+		width: 700%;
+		transition: 15s;
+	}
+	
+	#recentReviewListWrap:hover {
+		transform: translateX(-87%);
+	}
 }

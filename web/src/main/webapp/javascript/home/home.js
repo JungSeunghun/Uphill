@@ -67,6 +67,9 @@ window.onresize = function () {
 		bannerList[i].style.height = window.innerWidth * 0.35 + "px";
 		bannerList[i].style.transition = "0s";
 	}
+	
+	const reviewListWrap = document.getElementById("recentReviewListWrap");
+	reviewListWrap.style.transition = "0s";
 }
 
 window.onload = function () {
@@ -75,4 +78,12 @@ window.onload = function () {
 		bannerList[i].style.height = window.innerWidth * 0.35 + "px";		
 		bannerList[i].style.transition = "0s";
 	}
+}
+
+/**
+ * 리뷰 트랜지션 on
+ */
+function setTransition() {
+	const reviewListWrap = document.getElementById("recentReviewListWrap");
+	reviewListWrap.style.transition = "15s";
 }

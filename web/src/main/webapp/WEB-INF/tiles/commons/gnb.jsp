@@ -32,11 +32,11 @@
 			<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
 		</li>
 		<li>
-			<img id="menuButton" src="${contextPath}/images/icons/menu_button_white.svg" onclick="javascript:mobileCategoryToggle();">
+			<img id="menuButton" src="${contextPath}/images/icons/menu_button_white.svg" onclick="mobileCategoryToggle();">
 		</li>
 	</ul>
 	<div id="category" onmouseleave="closeCategory()">
-		<div>
+		<div id="categoryDiv">
 			<ul></ul>
 			<ul></ul>
 			<ul>

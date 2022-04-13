@@ -19,6 +19,7 @@ public class RoadList implements Action {
 		List<ItemVO> roadList = itemService.getItemListWithCategoryAndSubcategory(1, 2);
 		
 		request.setAttribute("itemList", roadList);		
+		request.setAttribute("snb", "bicycle");
 		
 		return new ViewResolver("/views/item/itemList.tiles");
 	}
