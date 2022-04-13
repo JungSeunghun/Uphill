@@ -54,13 +54,13 @@
 			</ul>
 		</div>
 	</div>
-	<div id="mobileCategory">
+	<div id="mobileCategory" onmouseleave="closeMobileCategory()">
 		<ul>
 			<li>
 				<a href="${contextPath}/account/login">로그인</a>
 			</li>
 			<li>
-				<a href="${contextPath}/account/join">회원가입</a>
+				<a href="${contextPath}/account/join1">회원가입</a>
 			</li>
 			<li>
 				<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">

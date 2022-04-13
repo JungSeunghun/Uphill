@@ -28,7 +28,7 @@
 		</div>
 		
 		<div id="bestSeller">
-			<div id="bestSellerTitle">Best Seller</div>
+			<div id="bestSellerTitle">Best Sellers</div>
 			<c:if test="${bestSellerList != null }">
 				<div id="bestSellerContentList">
 					<c:forEach var="bestSeller" items="${bestSellerList }">
@@ -49,12 +49,12 @@
 											<img src="${contextPath}/images/icons/empty_star.svg">
 										</c:forEach>
 									</div>
-									<div id="greenStar">
-										<c:forEach var="i" begin="1" end="${bestSeller.starRating+(1-(bestSeller.starRating%1))%1}">
-											<span class="starWrap">
-												<img src="${contextPath}/images/icons/green_star.svg" onload="const star='${bestSeller.itemPrice }'; setStar(star);">
-											</span>
-										</c:forEach>
+									<div id="greenStar" style="width:${100 * bestSeller.starRating/5}%">
+										<div id="starWrap">
+											<c:forEach var="i" begin="1" end="5">
+												<img src="${contextPath}/images/icons/green_star.svg">
+											</c:forEach>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -71,22 +71,40 @@
 			</video>
 		</div>
 		
-		<div id="bestItems">
+		<div id="bestItem">
+			<div id="bestItemTitle">Best Items</div>
 			<c:if test="${bestItemList != null }">
-				<c:forEach var="item" items="${bestItemList }">
-					<div>
-						<img alt="${item.itemImage }" src="${contextPath}/images/items/${item.itemImage }">
-						<div>${item.itemName }</div>
-						<div>${item.itemPrice }</div>
-						<div>${item.itemDiscountPrice }</div>
-						<c:forEach var="i" begin="1" end="5">
-							<img src="${contextPath}/images/icons/empty_star.svg">
-						</c:forEach>
-						<c:forEach var="i" begin="1" end="${item.starRating+(1-(item.starRating%1))%1}">
-							<img src="${contextPath}/images/icons/green_star.svg">
-						</c:forEach>
-					</div>
-				</c:forEach>
+				<div id="bestItemContentList">
+					<c:forEach var="bestItem" items="${bestItemList }">
+						<div id="bestItemContent">
+							<img id="bestItemImage" alt="${bestItem.itemImage }" src="${contextPath}/images/items/${bestItem.itemImage }">
+							<div id="bestItemInfo">
+								<div id="bestItemName">${bestItem.itemName }</div>
+								<c:if test="${bestItem.itemDiscountPrice != 0 }">
+									<div id="bestItemPrice"><fmt:formatNumber value="${bestItem.itemDiscountPrice }" pattern="#,###" />원</div>
+									<div id="bestItemBeforePrice"><fmt:formatNumber value="${bestItem.itemPrice }" pattern="#,###" />원</div>
+								</c:if>
+								<c:if test="${bestItem.itemDiscountPrice == 0 }">
+									<div id="bestItemPrice"><fmt:formatNumber value="${bestItem.itemPrice }" pattern="#,###" />원</div>
+								</c:if>
+								<div id="starDiv">
+									<div id="emptyStar">
+										<c:forEach var="i" begin="1" end="5">
+											<img src="${contextPath}/images/icons/empty_star.svg">
+										</c:forEach>
+									</div>
+									<div id="greenStar" style="width:${100 * bestItem.starRating/5}%">
+										<div id="starWrap">
+											<c:forEach var="i" begin="1" end="5">
+												<img src="${contextPath}/images/icons/green_star.svg">
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
 			</c:if>
 		</div>
 		

@@ -8,7 +8,7 @@ function openCategory() {
 	}
 	category = document.getElementById("category");
 	
-	category.style.display = "block";
+	category.style.opacity = 1;
 }
 
 function mobileCategoryToggle() {
@@ -23,5 +23,10 @@ function mobileCategoryToggle() {
 function closeCategory() {
 	category = document.getElementById("category");
 	
-	category.style.display = "none";
+	category.style.opacity = 0;
+}
+
+function closeMobileCategory() {
+	mobileCategory = document.getElementById("mobileCategory");
+	mobileCategory.style.display = "none";
 }

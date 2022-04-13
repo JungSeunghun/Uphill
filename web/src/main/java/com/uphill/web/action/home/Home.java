@@ -19,9 +19,9 @@ public class Home implements Action {
 		
 		HomeService homeService  = new HomeService();
 		List<MainBannerVO> mainBannerList = homeService.getMainBannerList();
-		List<ItemVO> bestSellerList =  homeService.getBestSellerList(1, 3); // category=1, count=3
+		List<ItemVO> bestSellerList =  homeService.getBestSellerList(1, 4); // category=1, count=3
 		List<ItemVO> bestItemList =  homeService.getBestItemList(6); // count=6
-		List<ReviewVO> recentReviewList = homeService.getRecentReviewList(5);
+		List<ReviewVO> recentReviewList = homeService.getRecentReviewList(10);
 		
 		request.setAttribute("mainBannerList", mainBannerList);
 		request.setAttribute("bestSellerList", bestSellerList);

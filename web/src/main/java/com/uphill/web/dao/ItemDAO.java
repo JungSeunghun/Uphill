@@ -87,6 +87,7 @@ public class ItemDAO {
 				itemVO.setItemSubcategoryIndex(resultSet.getInt("item_subcategory_index"));
 				itemVO.setItemName(resultSet.getString("item_name"));
 				itemVO.setItemImage(resultSet.getString("item_image"));
+				itemVO.setStarRating(resultSet.getFloat("star_rating"));
 				itemVO.setItemPrice(resultSet.getInt("item_price"));
 				itemVO.setItemDiscountPrice(resultSet.getInt("item_discount_price"));
 				itemVO.setItemTotalQty(resultSet.getInt("item_total_qty"));

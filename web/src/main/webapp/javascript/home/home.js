@@ -66,8 +66,6 @@ window.onresize = function () {
 	for(let i = 0; i < bannerList.length; i++) {
 		bannerList[i].style.height = window.innerWidth * 0.35 + "px";
 		bannerList[i].style.transition = "0s";
-		
-		console.log(bannerList[i].style.height);
 	}
 }
 
@@ -77,12 +75,4 @@ window.onload = function () {
 		bannerList[i].style.height = window.innerWidth * 0.35 + "px";		
 		bannerList[i].style.transition = "0s";
 	}
-}
-
-/**
- * 별점설정
- */
-function setStar(star) {
-	starWrap = document.getElementsByClassName("starWrap");
-	const length = starWrap.length;	
 }
