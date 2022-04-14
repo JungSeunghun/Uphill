@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.dto.item.ItemVO;
-import com.uphill.web.dto.mainbanner.MainBannerVO;
-import com.uphill.web.dto.review.ReviewVO;
+import com.uphill.web.dto.ItemVO;
+import com.uphill.web.dto.MainBannerVO;
+import com.uphill.web.dto.ReviewVO;
 import com.uphill.web.service.home.HomeService;
 import com.uphill.web.viewresolver.ViewResolver;
 

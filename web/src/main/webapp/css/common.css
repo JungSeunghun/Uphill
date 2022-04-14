@@ -125,17 +125,19 @@ header a {
 #bodySection {
 	display: flex;
 	width: 100%;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 #snb {
-	display: flex;
+	display: block;
 	border: 1px solid #c4c4c4;
 	width: 144px;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: 16px;
+    height:max-content;
+	margin: 0px 16px;
+	text-align: center;
 }
 
 #snb div {

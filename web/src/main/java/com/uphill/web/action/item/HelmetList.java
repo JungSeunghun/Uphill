@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.dto.item.ItemVO;
+import com.uphill.web.dto.ItemVO;
 import com.uphill.web.service.item.ItemService;
 import com.uphill.web.viewresolver.ViewResolver;
 

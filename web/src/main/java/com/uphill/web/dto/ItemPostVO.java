@@ -1,29 +1,32 @@
-package com.uphill.web.dto.review;
+package com.uphill.web.dto;
 
 import java.util.Date;
 
-public class ReviewVO {
-	private int reviewIndex;
+public class ItemPostVO {
 	private int itemPostIndex;
+	private int itemIndex;
 	private String userId;
 	private Date postDate;
 	private String title;
 	private String content;
-	private int starRating;
 	private String imageFile;
 	private int hits;
-	private int recommend;
 	
-	public ReviewVO() {
+	public ItemPostVO() {
 		super();
 	}
-
-	public int getReviewIndex() {
-		return reviewIndex;
-	}
-
-	public void setReviewIndex(int reviewIndex) {
-		this.reviewIndex = reviewIndex;
+	
+	public ItemPostVO(int itemPostIndex, int itemIndex, String userId, Date postDate, String title, String content,
+			String imageFile, int hits) {
+		super();
+		this.itemPostIndex = itemPostIndex;
+		this.itemIndex = itemIndex;
+		this.userId = userId;
+		this.postDate = postDate;
+		this.title = title;
+		this.content = content;
+		this.imageFile = imageFile;
+		this.hits = hits;
 	}
 
 	public int getItemPostIndex() {
@@ -32,6 +35,14 @@ public class ReviewVO {
 
 	public void setItemPostIndex(int itemPostIndex) {
 		this.itemPostIndex = itemPostIndex;
+	}
+
+	public int getItemIndex() {
+		return itemIndex;
+	}
+
+	public void setItemIndex(int itemIndex) {
+		this.itemIndex = itemIndex;
 	}
 
 	public String getUserId() {
@@ -66,14 +77,6 @@ public class ReviewVO {
 		this.content = content;
 	}
 
-	public int getStarRating() {
-		return starRating;
-	}
-
-	public void setStarRating(int starRating) {
-		this.starRating = starRating;
-	}
-
 	public String getImageFile() {
 		return imageFile;
 	}
@@ -89,13 +92,5 @@ public class ReviewVO {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
-
-	public int getRecommend() {
-		return recommend;
-	}
-
-	public void setRecommend(int recommend) {
-		this.recommend = recommend;
-	}
-	
+		
 }

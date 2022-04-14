@@ -5,9 +5,9 @@ import java.util.List;
 import com.uphill.web.dao.ItemDAO;
 import com.uphill.web.dao.MainBannerDAO;
 import com.uphill.web.dao.ReviewDAO;
-import com.uphill.web.dto.item.ItemVO;
-import com.uphill.web.dto.mainbanner.MainBannerVO;
-import com.uphill.web.dto.review.ReviewVO;
+import com.uphill.web.dto.ItemVO;
+import com.uphill.web.dto.MainBannerVO;
+import com.uphill.web.dto.ReviewVO;
 
 public class HomeService {
 

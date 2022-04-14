@@ -89,6 +89,7 @@ section {
 	position: relative;
 	margin: 0.5%;
 	width: 49%;
+	cursor: pointer;
 }
 
 #bestSellerContent:after {
@@ -156,6 +157,7 @@ section {
 	position: relative;
 	width: 32%;
 	margin: 0.5%;
+	cursor: pointer;
 }
 
 #bestItemContent:after {

@@ -1,4 +1,4 @@
-package com.uphill.web.dto.mainbanner;
+package com.uphill.web.dto;
 
 public class MainBannerVO {
 	private int mainBannerIndex;
@@ -7,6 +7,13 @@ public class MainBannerVO {
 	
 	public MainBannerVO() {
 		super();
+	}
+
+	public MainBannerVO(int mainBannerIndex, String imageFile, String link) {
+		super();
+		this.mainBannerIndex = mainBannerIndex;
+		this.imageFile = imageFile;
+		this.link = link;
 	}
 
 	public int getMainBannerIndex() {

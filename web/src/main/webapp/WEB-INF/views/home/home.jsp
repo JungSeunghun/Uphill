@@ -32,7 +32,7 @@
 			<c:if test="${bestSellerList != null }">
 				<div id="bestSellerContentList">
 					<c:forEach var="bestSeller" items="${bestSellerList }">
-						<div id="bestSellerContent">
+						<div id="bestSellerContent" onclick="location.href='${contextPath}/item/item-info?id=${bestSeller.itemIndex }'">
 							<img id="bestSellerImage" alt="${bestSeller.itemImage }" src="${contextPath}/images/items/${bestSeller.itemImage }">
 							<div id="bestSellerInfo">
 								<div id="bestSellerName">${bestSeller.itemName }</div>
@@ -76,7 +76,7 @@
 			<c:if test="${bestItemList != null }">
 				<div id="bestItemContentList">
 					<c:forEach var="bestItem" items="${bestItemList }">
-						<div id="bestItemContent">
+						<div id="bestItemContent" onclick="location.href='${contextPath}/item/item-info?id=${bestItem.itemIndex }'">
 							<img id="bestItemImage" alt="${bestItem.itemImage }" src="${contextPath}/images/items/${bestItem.itemImage }">
 							<div id="bestItemInfo">
 								<div id="bestItemName">${bestItem.itemName }</div>

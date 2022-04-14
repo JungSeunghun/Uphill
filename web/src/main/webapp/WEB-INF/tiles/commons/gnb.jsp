@@ -17,7 +17,7 @@
 			<a href="${contextPath}/home/intro">소개</a>
 		</li>
 		<li>
-			<a href="${contextPath}/bicycle/bicycle">자전거</a>
+			<a href="${contextPath}/item/bicycle">자전거</a>
 		</li>
 		<li>
 			<a href="${contextPath}/item/item">용품</a>			
@@ -40,9 +40,9 @@
 			<ul></ul>
 			<ul></ul>
 			<ul>
-				<li><a href="${contextPath}/bicycle/mtb">MTB</a></li>
-				<li><a href="${contextPath}/bicycle/road">Road</a></li>
-				<li><a href="${contextPath}/bicycle/minivelo">Minivelo</a></li>
+				<li><a href="${contextPath}/item/mtb">MTB</a></li>
+				<li><a href="${contextPath}/item/road">Road</a></li>
+				<li><a href="${contextPath}/item/minivelo">Minivelo</a></li>
 			</ul>
 			<ul>
 				<li><a href="${contextPath}/item/helmet">헬멧</a></li>
@@ -72,7 +72,7 @@
 				<a href="${contextPath}/home/intro">소개</a>
 			</li>
 			<li>
-				<a href="${contextPath}/bicycle/bicycle">자전거</a>
+				<a href="${contextPath}/item/bicycle">자전거</a>
 			</li>
 			<li>
 				<a href="${contextPath}/item/item">용품</a>			

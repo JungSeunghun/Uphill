@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.dto.user.UserVO;
+import com.uphill.web.dto.UserVO;
 import com.uphill.web.service.account.FindPasswordService;
 import com.uphill.web.util.Email;
 import com.uphill.web.util.SHA256Encoder;

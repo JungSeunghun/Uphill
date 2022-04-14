@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.dto.user.UserVO;
+import com.uphill.web.dto.UserVO;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class Join2 implements Action {

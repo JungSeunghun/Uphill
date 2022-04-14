@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.uphill.web.database.DataBaseUtil;
-import com.uphill.web.dto.mainbanner.MainBannerVO;
+import com.uphill.web.dto.MainBannerVO;
 
 public class MainBannerDAO {
 	private Connection connection = null;
@@ -28,12 +28,12 @@ public class MainBannerDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				MainBannerVO mainBannerVO = new MainBannerVO();
+				int mainBannerIndex = resultSet.getInt("main_banner_index");
+				String imageFile = resultSet.getString("image_file");
+				String link = resultSet.getString("link");
 				
-				mainBannerVO.setMainBannerIndex(resultSet.getInt("main_banner_index"));
-				mainBannerVO.setImageFile(resultSet.getString("image_file"));
-				mainBannerVO.setLink(resultSet.getString("link"));
-				
+				MainBannerVO mainBannerVO = new MainBannerVO(mainBannerIndex, imageFile, link);
+
 				mainBannerList.add(mainBannerVO);				
 			}
 		} catch (SQLException e) {

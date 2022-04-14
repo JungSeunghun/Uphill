@@ -1,7 +1,7 @@
 package com.uphill.web.service.account;
 
 import com.uphill.web.dao.UserDAO;
-import com.uphill.web.dto.user.UserVO;
+import com.uphill.web.dto.UserVO;
 
 public class UserIdFindService {
 	public String userIdFindService(UserVO userVO) {

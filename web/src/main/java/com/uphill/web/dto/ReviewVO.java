@@ -1,27 +1,44 @@
-package com.uphill.web.dto.itempost;
+package com.uphill.web.dto;
 
 import java.util.Date;
 
-public class ItemPostVO {
-	private int itemPostIndex;
+public class ReviewVO {
+	private int reviewIndex;
 	private int itemIndex;
 	private String userId;
 	private Date postDate;
 	private String title;
 	private String content;
+	private float starRating;
 	private String imageFile;
 	private int hits;
+	private int recommend;
 	
-	public ItemPostVO() {
+	public ReviewVO() {
 		super();
 	}
-
-	public int getItemPostIndex() {
-		return itemPostIndex;
+	
+	public ReviewVO(int reviewIndex, int itemIndex, String userId, Date postDate, String title, String content,
+			float starRating, String imageFile, int hits, int recommend) {
+		super();
+		this.reviewIndex = reviewIndex;
+		this.itemIndex = itemIndex;
+		this.userId = userId;
+		this.postDate = postDate;
+		this.title = title;
+		this.content = content;
+		this.starRating = starRating;
+		this.imageFile = imageFile;
+		this.hits = hits;
+		this.recommend = recommend;
 	}
 
-	public void setItemPostIndex(int itemPostIndex) {
-		this.itemPostIndex = itemPostIndex;
+	public int getReviewIndex() {
+		return reviewIndex;
+	}
+
+	public void setReviewIndex(int reviewIndex) {
+		this.reviewIndex = reviewIndex;
 	}
 
 	public int getItemIndex() {
@@ -64,6 +81,14 @@ public class ItemPostVO {
 		this.content = content;
 	}
 
+	public float getStarRating() {
+		return starRating;
+	}
+
+	public void setStarRating(float starRating) {
+		this.starRating = starRating;
+	}
+
 	public String getImageFile() {
 		return imageFile;
 	}
@@ -79,5 +104,13 @@ public class ItemPostVO {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
-		
+
+	public int getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(int recommend) {
+		this.recommend = recommend;
+	}
+	
 }

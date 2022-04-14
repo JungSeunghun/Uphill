@@ -16,6 +16,7 @@ import com.uphill.web.action.Action;
 import com.uphill.web.action.item.Ask;
 import com.uphill.web.action.item.BicycleList;
 import com.uphill.web.action.item.HelmetList;
+import com.uphill.web.action.item.ItemInfo;
 import com.uphill.web.action.item.ItemList;
 import com.uphill.web.action.item.LightList;
 import com.uphill.web.action.item.LockList;
@@ -25,7 +26,7 @@ import com.uphill.web.action.item.Review;
 import com.uphill.web.action.item.RoadList;
 import com.uphill.web.viewresolver.ViewResolver;
 
-@WebServlet(urlPatterns = {"/bicycle/*","/item/*"})
+@WebServlet("/item/*")
 public class ItemFrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -34,19 +35,18 @@ public class ItemFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		actionMap.put("/bicycle/bicycle", new BicycleList());
-		actionMap.put("/bicycle/mtb", new MtbList());
-		actionMap.put("/bicycle/road", new RoadList());
-		actionMap.put("/bicycle/minivelo", new MiniveloList());
+		actionMap.put("/item/bicycle", new BicycleList());
+		actionMap.put("/item/mtb", new MtbList());
+		actionMap.put("/item/road", new RoadList());
+		actionMap.put("/item/minivelo", new MiniveloList());
 		
 		actionMap.put("/item/item", new ItemList());
 		actionMap.put("/item/helmet", new HelmetList());
 		actionMap.put("/item/light", new LightList());
 		actionMap.put("/item/lock", new LockList());
 
-		actionMap.put("/bicycle/review", new Review());
+		actionMap.put("/item/item-info", new ItemInfo());
 		actionMap.put("/item/review", new Review());
-		actionMap.put("/bicycle/ask", new Ask());
 		actionMap.put("/item/ask", new Ask());
 	}
 	

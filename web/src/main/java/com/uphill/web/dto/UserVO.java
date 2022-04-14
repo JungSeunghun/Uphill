@@ -1,4 +1,4 @@
-package com.uphill.web.dto.user;
+package com.uphill.web.dto;
 
 import java.util.Date;
 
@@ -28,6 +28,35 @@ public class UserVO {
 	
 	public UserVO() {
 		super();
+	}
+	
+	public UserVO(int userIndex, int gradeId, String userId, String userPassword, String userName, char gender,
+			Date birth, String mobileCarrier, String phoneNumber, String address, String addressDetail,
+			String addressExtra, String email, boolean personalAgree, boolean uniqueAgree, boolean mobileAgree,
+			boolean useAgree, int purchase, int point, Date joinDate, Date leaveDate, String salt) {
+		super();
+		this.userIndex = userIndex;
+		this.gradeId = gradeId;
+		this.userId = userId;
+		this.userPassword = userPassword;
+		this.userName = userName;
+		this.gender = gender;
+		this.birth = birth;
+		this.mobileCarrier = mobileCarrier;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.addressDetail = addressDetail;
+		this.addressExtra = addressExtra;
+		this.email = email;
+		this.personalAgree = personalAgree;
+		this.uniqueAgree = uniqueAgree;
+		this.mobileAgree = mobileAgree;
+		this.useAgree = useAgree;
+		this.purchase = purchase;
+		this.point = point;
+		this.joinDate = joinDate;
+		this.leaveDate = leaveDate;
+		this.salt = salt;
 	}
 
 	public int getUserIndex() {

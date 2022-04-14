@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 import com.uphill.web.database.DataBaseUtil;
-import com.uphill.web.dto.user.UserVO;
+import com.uphill.web.dto.UserVO;
 import com.uphill.web.util.SHA256Encoder;
 
 public class UserDAO {

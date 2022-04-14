@@ -7,16 +7,16 @@
 <nav id="snb">
 	<c:if test="${snb=='bicycle' }">
 		<div>
-			<a href="${contextPath}/bicycle/bicycle">전체</a>
+			<a href="${contextPath}/item/bicycle">전체</a>
 		</div>
 		<div>
-			<a href="${contextPath}/bicycle/mtb">MTB</a>
+			<a href="${contextPath}/item/mtb">MTB</a>
 		</div>
 		<div>
-			<a href="${contextPath}/bicycle/road">Road</a>
+			<a href="${contextPath}/item/road">Road</a>
 		</div>
 		<div>
-			<a href="${contextPath}/bicycle/minivelo">MiniVelo</a>
+			<a href="${contextPath}/item/minivelo">MiniVelo</a>
 		</div>
 	</c:if>
 	<c:if test="${snb=='item' }">

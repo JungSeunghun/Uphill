@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+section {
+	display: flex;
+	width: 100%;
+	max-width: 1000px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+section #itemInfo {
+	display:flex;
+	width: 75%;
+	flex-direction: column;
+}
+
+section #itemImage img {
+	width: 100%;
+}
+
+section #itemOption {
+	margin-left: 5%;
+	width: 20%;
+}
