@@ -10,7 +10,7 @@ section {
 
 section #itemInfo {
 	display:flex;
-	width: 75%;
+	width: 78%;
 	flex-direction: column;
 }
 
@@ -19,6 +19,6 @@ section #itemImage img {
 }
 
 section #itemOption {
-	margin-left: 5%;
+	margin-left: 2%;
 	width: 20%;
 }
