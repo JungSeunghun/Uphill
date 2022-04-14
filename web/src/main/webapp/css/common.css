@@ -32,11 +32,20 @@ header a {
 	margin-left: 16px;
 }
 
+#gnbWrap {
+	width: 100%;
+	height: 56px;
+	position: relative;
+}
+
 #gnb {
 	width: 100%;
 	height: 56px;
 	background-color: #111111;
 	position: relative;
+	overflow: visible;
+	z-index: 100;
+	transition: 0.5s;
 }
 
 #gnb #gnbList {
@@ -184,7 +193,7 @@ footer #down p {
 }
 
 /*태블릿*/
-@media (min-width:768px) and (max-width:1079px) {
+@media (min-width:768px) and (max-width:1023px) {
 	header {
 		display: none;
 	}

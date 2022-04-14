@@ -3,7 +3,7 @@
  */
 
 function openCategory() {
-	if(window.innerWidth < 1080) {
+	if(window.innerWidth < 1024) {
 		return;
 	}
 	category = document.getElementById("category");
@@ -32,4 +32,24 @@ function mobileCategoryToggle() {
 		mobileCategory.style.opacity = 0;		
 		mobileCategory.style.width = "0px";		
 	}
+}
+
+var scrollHeight = document.documentElement.scrollTop;
+window.onscroll = function() {
+	gnb=document.getElementById("gnb");
+
+	if(scrollHeight < 36) {
+		gnb.style.position = "relative";
+	} else {
+		if(scrollHeight < document.documentElement.scrollTop && window.innerWidth >= 1024) {
+			gnb.style.height = 0;			
+			gnb.style.overflow = "hidden";			
+		} else {
+			gnb.style.height = "56px";
+			gnb.style.overflow = "visible";			
+		}
+		gnb.style.position = "fixed";
+		gnb.style.top = "0px";
+	}
+	scrollHeight = document.documentElement.scrollTop;
 }
