@@ -98,9 +98,16 @@
 				</c:forEach>
 			</div>
 		</c:forEach>
-		<div id="selectedOrderItem"></div>
+		<div id="selectedOrderItemList">
+			<div id="selectedOrderItem">
+				<div id="selectedOrderItemTitle"></div>
+				<div id="selectedOrderItemOption"></div>
+				<input type="number" value="1">
+				<button onclick="cancelOption()">취소</button>
+			</div>
+		</div>
 		<div id="orderPriceTitle">주문금액</div>
-		<div id="orderPrice">0원</div>
+		<div id="orderPrice">0</div>
 		<div><button id="buyButton">구매하기</button></div>
 		<div><button id="basketButton">장바구니</button></div>
 	</div>

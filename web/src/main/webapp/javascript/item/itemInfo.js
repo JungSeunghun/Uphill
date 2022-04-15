@@ -1,10 +1,19 @@
+/*
+ * cancel option
+ */
+function cancelOption() {
+	
+}
+
+
+
 /**
  * option 전부 선택시 selectedOrderItem에 선택한 옵션 보여주기
  */
 
 function addOption(name) {
 	const optionList = document.getElementsByClassName("itemOptionSelect");
-	const selectedOrderItem = document.getElementById("selectedOrderItem");
+	const selectedOrderItemOption = document.getElementById("selectedOrderItemOption");
 	const optionNameArray = [];
 	let isEmpty = false;
 	
@@ -17,17 +26,21 @@ function addOption(name) {
 	
 	if(isEmpty === false) {
 		let optionName = "";
+		let optionPrice = 0;
 		for(let i = 0; i < optionNameArray.length; i++) {
-			optionName = optionName + "/" + optionNameArray[i];
+			optionName += "/" + optionNameArray[i];
+			optionPrice += Number(document.getElementById(optionNameArray[i]).value);
 		}
-		optionNameValue = document.createTextNode(name + optionName);
+		optionNameValue = document.createTextNode(optionName);
 		
-		var cancelButton = document.createElement('button');
-		cancelButton.id = 'cancelButton';
-		var cancelButtonText = document.createTextNode('cancel');
-		cancelButton.appendChild( cancelButtonText );
+		const orderPrice = document.getElementById("orderPrice");
 		
-		selectedOrderItem.appendChild(optionNameValue);
-		selectedOrderItem.appendChild(cancelButton);
+		orderPrice.innerText = optionPrice + Number(orderPrice.innerText);	
+		
+		selectedOrderItemOption.appendChild(optionNameValue);
+		
+		for(let i = 0; i < optionList.length; i++) {
+			optionList[i].options[0].selected = true;
+		}
 	}
 }
