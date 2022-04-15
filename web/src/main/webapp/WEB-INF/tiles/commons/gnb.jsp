@@ -6,8 +6,8 @@
 
 <script type="text/javascript" src="${contextPath}/javascript/common.js" ></script>
 <div id="gnbWrap">
-	<nav id="gnb" onmouseenter="openCategory();">
-		<ul id="gnbList">
+	<nav id="gnb">
+		<ul id="gnbList" onmouseenter="openCategory();">
 			<li>
 				<a href="${contextPath}/home/home">
 					<img alt="uphill_logo_black" src="${contextPath}/images/logos/uphill_logo_black.svg" width="64px">

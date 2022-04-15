@@ -132,10 +132,7 @@ header a {
 }
 
 #bodySection {
-	display: flex;
 	width: 100%;
-	flex-wrap: nowrap;
-	justify-content: center;
 	margin-top: 40px;
 	margin-bottom: 40px;
 }
@@ -147,6 +144,8 @@ header a {
     height:max-content;
 	margin: 0px 16px;
 	text-align: center;
+	position: fixed;
+	left: 40px;
 }
 
 #snb div {

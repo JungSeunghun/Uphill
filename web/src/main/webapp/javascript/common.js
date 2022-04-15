@@ -36,18 +36,27 @@ function mobileCategoryToggle() {
 
 var scrollHeight = document.documentElement.scrollTop;
 window.onscroll = function() {
+	closeCategory();
 	gnb=document.getElementById("gnb");
 
-	if(scrollHeight < 36) {
-		gnb.style.position = "relative";
-	} else {
-		if(scrollHeight < document.documentElement.scrollTop && window.innerWidth >= 1024) {
-			gnb.style.height = 0;			
-			gnb.style.overflow = "hidden";			
+	if(window.innerWidth >= 1024) {
+		if(scrollHeight < 36) {
+			gnb.style.position = "relative";
 		} else {
-			gnb.style.height = "56px";
-			gnb.style.overflow = "visible";			
+			// 휠을 내렸을 때
+			if(scrollHeight < document.documentElement.scrollTop) {
+				gnb.style.height = 0;			
+				gnb.style.overflow = "hidden";			
+			} else { // 휠을 올렸을 때
+				gnb.style.height = "56px";
+				gnb.style.overflow = "visible";			
+			}
+			gnb.style.position = "fixed";
+			gnb.style.top = "0px";
 		}
+	} else {
+		gnb.style.height = "56px";
+		gnb.style.overflow = "visible";	
 		gnb.style.position = "fixed";
 		gnb.style.top = "0px";
 	}

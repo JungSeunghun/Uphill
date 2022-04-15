@@ -2,8 +2,8 @@
 
 section {
 	display: flex;
-	width: 100%;
-	max-width: 1000px;
+	margin-left: 244px;
+	margin-right: 40px;
 	flex-wrap: wrap;
 	justify-content: center;
 }

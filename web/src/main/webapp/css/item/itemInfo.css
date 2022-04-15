@@ -1,24 +1,171 @@
 @charset "UTF-8";
 
 section {
-	display: flex;
 	width: 100%;
-	max-width: 1000px;
-	flex-wrap: wrap;
-	justify-content: center;
 }
 
 section #itemInfo {
-	display:flex;
-	width: 78%;
-	flex-direction: column;
+	margin-left: 244px;
+	margin-right: 284px;
+}
+
+section #itemOption {
+	position: fixed;
+	width: 204px;
+	right: 40px;
+	top: 132px;
+}
+
+section #itemOption #categoryName {
+	font-size: 0.8rem;
+	color: #c4c4c4;
+}
+
+section #itemOption #itemName {
+	font-size: 1rem;
+	margin-bottom: 8px;
+}
+
+section #itemOption #itemPrice {
+	font-size: 1.5rem;
+	margin-bottom: 8px;
+}
+
+section #itemOption #itemOptionSelect {
+	width: 100%;
+	height: 32px;
+	margin-bottom: 16px;
+	border: 1px solid #c4c4c4;
+}
+
+section #itemOption #buyButton {
+	width: 100%;
+	height: 32px;
+	margin-bottom: 16px;
+	color: #EF5350;
+	background-color: #ffffff;
+	border: 1px solid #ef5350;
+	cursor: pointer;
+}
+
+section #itemOption #basketButton {
+	width: 100%;
+	height: 32px;
+	margin-bottom: 16px;
+	color: #9ccc65;
+	background-color: #ffffff;
+	border: 1px solid #9ccc65;
+	cursor: pointer;
+}
+
+section #itemOption #orderPriceTitle {
+	color: #c4c4c4;
+	font-size: 0.825rem;
+}
+
+section #itemOption #orderPrice {
+	font-size: 1.5rem;
+	padding-bottom: 16px;
+}
+
+section #itemOption #selectedOrderItem {
+	width: 100%;
+	height: max-content;
+	overflow: auto;
+	margin-bottom: 8px;
+}
+
+section #itemOption #selectedOrderItem #cancelButton{
+	width: 100%;
+	height: 24px;
+	border: 1px solid #c4c4c4;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+#starDiv {
+	position: relative;
+	width: max-content;
+	margin-bottom: 16px;
+}
+
+#starDiv #emptyStar {
+}
+
+#starDiv #greenStar {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+}
+
+#emptyStar img {
+	width: 14px;
+}
+
+#greenStar #starWrap {
+	width: max-content;
+}
+
+#greenStar img {
+	width: 14px;
+}
+
+section #itemImage{
+	width: 100%;
+	margin-bottom: 80px;
 }
 
 section #itemImage img {
 	width: 100%;
 }
 
-section #itemOption {
-	margin-left: 2%;
-	width: 20%;
+section #itemNav {
+	width: 100%;
+	display: flex;
+	margin-bottom: 80px;
+}
+
+section #itemNav a {
+	width: 100%;
+	text-align: center;
+	border: 1px solid #c4c4c4;
+	padding: 16px;
+}
+
+section #itemPost {
+	width: 100%;
+	margin-bottom: 80px;
+}
+
+section #itemPost img{
+	width: 100%;
+}
+
+section #itemReview {
+	width: 100%;
+	margin-bottom: 80px;
+}
+
+section #itemReviewTitle {
+	font-size: 1.5rem;
+	margin-bottom: 40px;
+}
+
+section #itemAsk {
+	width: 100%;
+	margin-bottom: 80px;
+}
+section #itemAskTitle {
+	font-size: 1.5rem;
+	margin-bottom: 40px;
+}
+
+section #itemGuide {
+	width: 100%;
+	margin-bottom: 80px;
+}
+
+section #itemGuideTitle {
+	font-size: 1.5rem;
+	margin-bottom: 40px;
 }
