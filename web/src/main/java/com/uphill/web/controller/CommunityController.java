@@ -52,7 +52,7 @@ public class CommunityController extends HttpServlet{
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewResolver.getPath());
 				dispatcher.forward(request, response);
 			} else {
-				response.sendRedirect(url.substring(0, url.indexOf(uri)) + contextPath + viewResolver.getPath());
+				response.sendRedirect(contextPath + viewResolver.getPath());
 			}			
 		}
 	}
