@@ -40,6 +40,7 @@ function addOption(name, itemPrice) {
 		
 		selectedOrderItem.firstElementChild.appendChild(optionNameValue);
 		selectedOrderItem.lastElementChild.value = Number(itemPrice) + optionPrice;
+		selectedOrderItem.children[1].value = optionName;
 				
 		for(let i = 0; i < optionList.length; i++) {
 			optionList[i].options[0].selected = true;
@@ -73,4 +74,40 @@ function multiplyPrice(number) {
 	price = optionPrice.value * number.value;
 	
 	orderPrice.innerText = (Number(orderPrice.innerText) + Number(price)).toLocaleString('ko-KR');
+}
+
+/*
+ * 구매하기
+ */
+function checkBuy(contextPath) {
+	if(document.getElementsByClassName("selectedOrderItemOption").length == 1) {
+		alert("옵션을 선택하세요.");
+		return false;
+	}
+	
+	if(f.itemOptionNumber < 1 || f.itemOptionNumber > 10) {
+		alert("10개이하만 고르실수있습니다.");
+		return false;
+	}
+	
+	f.action = contextPath + "/user/order";
+	f.submit();
+}
+
+/*
+ * 장바구니
+ */
+function checkBasket(contextPath) {
+	if(document.getElementsByClassName("selectedOrderItemOption").length == 1) {
+		alert("옵션을 선택하세요.");
+		return false;
+	}
+	
+	if(f.itemOptionNumber < 1 || f.itemOptionNumber > 10) {
+		alert("10개이하만 고르실수있습니다.");
+		return false;
+	}
+	
+	f.action = contextPath + "/user/basket-action";
+	f.submit();
 }

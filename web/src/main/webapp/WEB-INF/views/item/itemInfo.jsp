@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/item/itemInfo.css">
 <script type="text/javascript" src="${contextPath}/javascript/item/itemInfo.js" ></script>
     
-<section>
+<section>	
 	<div id="itemInfo">
 		<div id="itemImage">
 			<img src="${contextPath }/images/items/${item.itemImage}">
@@ -114,17 +114,21 @@
 				</c:if>
 			</div>
 		</c:forEach>
-		<div id="selectedOrderItemList">
-			<div id="selectedOrderItem">
-				<div id="selectedOrderItemOption" class="selectedOrderItemOption"></div>
-				<input id="itemOptionNumber" type="number" value="1" min="1" max="10" onchange="multiplyPrice(this); this.oldvalue = this.value;">
-				<button onclick="cancelOption(this);">취소</button>
-				<input type="hidden" id="optionsPrice" value="">
-			</div>
+		<div id="selectedOrderItem">
+			<div id="selectedOrderItemOption" class="selectedOrderItemOption"></div>
+			<input type="hidden" name="optionsName" id="optionsName" value="">
+			<input type="number" name="itemOptionNumber" id="itemOptionNumber" value="1" min="1" max="10" onchange="multiplyPrice(this); this.oldvalue = this.value;">
+			<button onclick="cancelOption(this);">취소</button>
+			<input type="hidden" name="optionsPrice" id="optionsPrice" value="">
 		</div>
-		<div id="orderPriceTitle">주문금액</div>
-		<span id="orderPrice">0</span>원<br>
-		<div><button id="buyButton">구매하기</button></div>
-		<div><button id="basketButton">장바구니</button></div>
+		<form name="f" method="post">
+			<input type="hidden" name="itemIndex" value="${item.itemIndex }">
+			<div id="selectedOrderItemList">
+			</div>
+			<div id="orderPriceTitle">주문금액</div>
+			<span id="orderPrice">0</span>원<br>
+			<div><button type="button" id="buyButton" onclick="checkBuy('${contextPath }');">구매하기</button></div>
+			<div><button type="button" id="basketButton" onclick="checkBasket('${contextPath }');">장바구니</button></div>
+		</form>
 	</div>
 </section>

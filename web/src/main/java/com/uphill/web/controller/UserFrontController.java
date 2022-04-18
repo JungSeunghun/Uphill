@@ -18,6 +18,7 @@ import com.uphill.web.action.user.UserInfo;
 import com.uphill.web.action.user.BasketCancelAction;
 import com.uphill.web.action.user.BasketCancelAllAction;
 import com.uphill.web.action.user.Basket;
+import com.uphill.web.action.user.BasketAction;
 import com.uphill.web.action.user.UserLeaveAction;
 import com.uphill.web.action.user.OrderAction;
 import com.uphill.web.action.user.Order;
@@ -35,6 +36,7 @@ public class UserFrontController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		actionMap.put("/user/basket", new Basket());
+		actionMap.put("/user/basket-action", new BasketAction());
 		actionMap.put("/user/basket-cancel-action", new BasketCancelAction());
 		actionMap.put("/user/basket-cancel-all-action", new BasketCancelAllAction());
 		

@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <section>
 	<c:if test="${itemList != null }">
-		<form action="purchasePage.user" name="f" method="post">
-			<c:forEach var="item" items="${itemList }">
+		<form action="" name="f" method="post">
+			<c:forEach var="item" items="${basketList }">
 				<div>
 					<div>
 						<img src="">
@@ -42,10 +42,10 @@
 					<p>3,000,000원</p>
 				</div>
 				<div>
-					<input type="button" value="구매하기">
+					<button type="button">구매하기</button>
 				</div>
 				<div>
-					<input type="button" value="전체취소">
+					<button type="button">전체취소</button>
 				</div>
 			</div>
 		</form>	
