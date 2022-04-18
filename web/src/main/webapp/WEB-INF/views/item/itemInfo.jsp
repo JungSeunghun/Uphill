@@ -3,6 +3,7 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -85,29 +86,44 @@
 		</div>
 		<c:forEach var="itemOptionName" items="${itemOptionNameList }">
 			<div>
-				<select id="itemOptionSelect" class="itemOptionSelect" onchange="addOption('${item.itemName }');">
-					<option value="">${itemOptionName } 선택</option>
+				<c:if test="${item.itemDiscountPrice == 0 }">
+					<select id="itemOptionSelect" class="itemOptionSelect" onchange="addOption('${item.itemName }','${item.itemPrice }');">
+						<option value="" selected disabled="disabled">${itemOptionName } 선택</option>
+						<c:forEach var="itemOption" items="${itemOptionList }">
+							<c:if test="${itemOptionName == itemOption.itemOptionName}">
+								<option value="${itemOption.itemOptionContent }">${itemOption.itemOptionContent }/<fmt:formatNumber value="${itemOption.itemOptionPrice }" pattern="#,###" />원/${itemOption.itemOptionQty }개</option>
+							</c:if>
+						</c:forEach>
+					</select>
 					<c:forEach var="itemOption" items="${itemOptionList }">
-						<c:if test="${itemOptionName == itemOption.itemOptionName}">
-							<option value="${itemOption.itemOptionContent }">${itemOption.itemOptionContent }/<fmt:formatNumber value="${itemOption.itemOptionPrice }" pattern="#,###" />원/${itemOption.itemOptionQty }개</option>
-						</c:if>
+						<input type="hidden" id="${itemOption.itemOptionContent }" value="${itemOption.itemOptionPrice }">
 					</c:forEach>
-				</select>
-				<c:forEach var="itemOption" items="${itemOptionList }">
-					<input type="hidden" id="${itemOption.itemOptionContent }" value="${itemOption.itemOptionPrice }">
-				</c:forEach>
+				</c:if>
+				<c:if test="${item.itemDiscountPrice != 0 }">
+					<select id="itemOptionSelect" class="itemOptionSelect" onchange="addOption('${item.itemName }','${item.itemDiscountPrice }');">
+						<option value="" selected disabled="disabled">${itemOptionName } 선택</option>
+						<c:forEach var="itemOption" items="${itemOptionList }">
+							<c:if test="${itemOptionName == itemOption.itemOptionName}">
+								<option value="${itemOption.itemOptionContent }">${itemOption.itemOptionContent }/<fmt:formatNumber value="${itemOption.itemOptionPrice }" pattern="#,###" />원/${itemOption.itemOptionQty }개</option>
+							</c:if>
+						</c:forEach>
+					</select>
+					<c:forEach var="itemOption" items="${itemOptionList }">
+						<input type="hidden" id="${itemOption.itemOptionContent }" value="${itemOption.itemOptionPrice }">
+					</c:forEach>
+				</c:if>
 			</div>
 		</c:forEach>
 		<div id="selectedOrderItemList">
 			<div id="selectedOrderItem">
-				<div id="selectedOrderItemTitle"></div>
-				<div id="selectedOrderItemOption"></div>
-				<input type="number" value="1">
-				<button onclick="cancelOption()">취소</button>
+				<div id="selectedOrderItemOption" class="selectedOrderItemOption"></div>
+				<input id="itemOptionNumber" type="number" value="1" min="1" max="10" onchange="multiplyPrice(this); this.oldvalue = this.value;">
+				<button onclick="cancelOption(this);">취소</button>
+				<input type="hidden" id="optionsPrice" value="">
 			</div>
 		</div>
 		<div id="orderPriceTitle">주문금액</div>
-		<div id="orderPrice">0</div>
+		<span id="orderPrice">0</span>원<br>
 		<div><button id="buyButton">구매하기</button></div>
 		<div><button id="basketButton">장바구니</button></div>
 	</div>
