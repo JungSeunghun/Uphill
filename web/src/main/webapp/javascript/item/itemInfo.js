@@ -80,6 +80,11 @@ function multiplyPrice(number) {
  * 구매하기
  */
 function checkBuy(contextPath) {
+	if(!f.userIndex.value) {
+		alert("로그인 해주세요.");
+		return false;
+	}
+
 	if(document.getElementsByClassName("selectedOrderItemOption").length == 1) {
 		alert("옵션을 선택하세요.");
 		return false;
@@ -98,6 +103,11 @@ function checkBuy(contextPath) {
  * 장바구니
  */
 function checkBasket(contextPath) {
+	if(!f.userIndex.value) {
+		alert("로그인 해주세요.");
+		return false;
+	}
+	
 	if(document.getElementsByClassName("selectedOrderItemOption").length == 1) {
 		alert("옵션을 선택하세요.");
 		return false;

@@ -349,7 +349,8 @@ public class UserDAO {
 	}
 
 	public boolean selectUserEmail(String email) {
-boolean result = false;
+		
+		boolean result = false;
 		
 		connection = DataBaseUtil.getConnection();
 

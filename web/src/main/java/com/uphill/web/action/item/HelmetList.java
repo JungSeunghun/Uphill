@@ -19,7 +19,6 @@ public class HelmetList implements Action {
 		List<ItemVO> helmetList = itemService.getItemListWithCategory(2);
 		
 		request.setAttribute("itemList", helmetList);		
-		request.setAttribute("snb", "item");
 		
 		return new ViewResolver("/views/item/itemList.tiles");
 	}

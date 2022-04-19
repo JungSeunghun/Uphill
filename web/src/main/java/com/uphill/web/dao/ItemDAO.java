@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.uphill.web.database.DataBaseUtil;
+import com.uphill.web.dto.BasketVO;
 import com.uphill.web.dto.ItemOptionVO;
 import com.uphill.web.dto.ItemPostVO;
 import com.uphill.web.dto.ItemVO;
@@ -466,5 +467,5 @@ public class ItemDAO {
 		
 		return itemOptionList;
 	}
-	
+
 }

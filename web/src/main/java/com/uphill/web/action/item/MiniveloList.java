@@ -16,12 +16,11 @@ public class MiniveloList implements Action {
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 
 		ItemService itemService = new ItemService();
-		List<ItemVO> mtbList = itemService.getItemListWithCategoryAndSubcategory(1, 3);
+		List<ItemVO> miniveloList = itemService.getItemListWithCategoryAndSubcategory(1, 3);
 		
-		request.setAttribute("itemList", mtbList);		
-		request.setAttribute("snb", "bicycle");
+		request.setAttribute("itemList", miniveloList);		
 		
-		return new ViewResolver("/views/item/itemList.tiles");
+		return new ViewResolver("/views/item/bicycleList.tiles");
 	}
 
 }

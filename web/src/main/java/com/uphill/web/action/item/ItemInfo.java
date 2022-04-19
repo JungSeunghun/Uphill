@@ -31,12 +31,11 @@ public class ItemInfo implements Action {
 		request.setAttribute("itemOptionList", itemOptionList);
 		
 		if(item.getItemCategoryIndex() == 1) {
-			request.setAttribute("snb", "bicycle");
+			return new ViewResolver("/views/item/bicycleInfo.tiles");
 		} else {
-			request.setAttribute("snb", "item");			
+			return new ViewResolver("/views/item/itemInfo.tiles");
 		}
 		
-		return new ViewResolver("/views/item/itemInfo.tiles");
 	}
 
 }

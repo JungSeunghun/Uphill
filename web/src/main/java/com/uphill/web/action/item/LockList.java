@@ -19,7 +19,6 @@ public class LockList implements Action {
 		List<ItemVO> lockList = itemService.getItemListWithCategory(4);
 		
 		request.setAttribute("itemList", lockList);		
-		request.setAttribute("snb", "item");
 		
 		return new ViewResolver("/views/item/itemList.tiles");
 	}

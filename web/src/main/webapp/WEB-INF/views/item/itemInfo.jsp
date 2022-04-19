@@ -114,17 +114,18 @@
 				</c:if>
 			</div>
 		</c:forEach>
+		<!-- clone -->
 		<div id="selectedOrderItem">
 			<div id="selectedOrderItemOption" class="selectedOrderItemOption"></div>
-			<input type="hidden" name="optionsName" id="optionsName" value="">
-			<input type="number" name="itemOptionNumber" id="itemOptionNumber" value="1" min="1" max="10" onchange="multiplyPrice(this); this.oldvalue = this.value;">
-			<button onclick="cancelOption(this);">취소</button>
-			<input type="hidden" name="optionsPrice" id="optionsPrice" value="">
+			<input type="hidden" name="optionName" id="optionName" value="">
+			<input type="number" name="optionQty" id="optionQty" value="1" min="1" max="10" onchange="multiplyPrice(this); this.oldvalue = this.value;">
+			<button id="cancelButton" onclick="cancelOption(this);">취소</button>
+			<input type="hidden" name="optionPrice" id="optionPrice" value="">
 		</div>
 		<form name="f" method="post">
 			<input type="hidden" name="itemIndex" value="${item.itemIndex }">
-			<div id="selectedOrderItemList">
-			</div>
+			<input type="hidden" name="userIndex" value="${userVO.userIndex }">
+			<div id="selectedOrderItemList"></div>
 			<div id="orderPriceTitle">주문금액</div>
 			<span id="orderPrice">0</span>원<br>
 			<div><button type="button" id="buyButton" onclick="checkBuy('${contextPath }');">구매하기</button></div>

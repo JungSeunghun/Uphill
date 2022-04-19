@@ -19,7 +19,6 @@ public class LightList implements Action {
 		List<ItemVO> lightList = itemService.getItemListWithCategory(3);
 		
 		request.setAttribute("itemList", lightList);		
-		request.setAttribute("snb", "item");
 		
 		return new ViewResolver("/views/item/itemList.tiles");
 	}

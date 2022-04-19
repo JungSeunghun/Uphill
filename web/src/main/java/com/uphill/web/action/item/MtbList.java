@@ -19,9 +19,8 @@ public class MtbList implements Action {
 		List<ItemVO> mtbList = itemService.getItemListWithCategoryAndSubcategory(1, 1);
 		
 		request.setAttribute("itemList", mtbList);		
-		request.setAttribute("snb", "bicycle");
 		
-		return new ViewResolver("/views/item/itemList.tiles");
+		return new ViewResolver("/views/item/bicycleList.tiles");
 	}
 
 }
