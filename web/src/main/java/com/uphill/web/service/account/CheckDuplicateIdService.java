@@ -7,7 +7,7 @@ public class CheckDuplicateIdService {
 	public boolean checkDuplicateIdService(String userId) {
 		UserDAO userDAO = new UserDAO();
 		
-		return userDAO.selectUserId(userId);
+		return userDAO.selectDuplicateUserId(userId);
 	}
 	
 }

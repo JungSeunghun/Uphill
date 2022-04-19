@@ -23,19 +23,23 @@ public class JoinAction implements Action {
 		} else {
 			request.setAttribute("join", "false");
 			session.removeAttribute("joinUserVO");
-			return new ViewResolver("/views/account/login.tiles");
+			return new ViewResolver("/account/login", true);
 		}
 		
-		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
-
 		String salt = SHA256Encoder.getRandomPassword(8);
+		String userId = request.getParameter("userId");
+		String userPassword = SHA256Encoder.encode(request.getParameter("userPassword"), salt);
+		String address = request.getParameter("address");
+		String addressDetail = request.getParameter("addressDetail");
+		String addressExtra = request.getParameter("addressExtra");
+		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
 		
 		userVO.setSalt(salt);
-		userVO.setUserId(request.getParameter("userId"));
-		userVO.setUserPassword(SHA256Encoder.encode(request.getParameter("userPassword"), salt));
-		userVO.setAddress(request.getParameter("address"));
-		userVO.setAddressDetail(request.getParameter("addressDetail"));
-		userVO.setAddressExtra(request.getParameter("addressExtra"));
+		userVO.setUserId(userId);
+		userVO.setUserPassword(userPassword);
+		userVO.setAddress(address);
+		userVO.setAddressDetail(addressDetail);
+		userVO.setAddressExtra(addressExtra);
 		userVO.setEmail(email);
 		
 		JoinService joinService = new JoinService();
@@ -47,8 +51,8 @@ public class JoinAction implements Action {
 		} else {
 			request.setAttribute("join", "false");			
 		}
-		
-		return new ViewResolver("/views/account/login.tiles");		
+
+		return new ViewResolver("/account/login", true);		
 	}
 
 }

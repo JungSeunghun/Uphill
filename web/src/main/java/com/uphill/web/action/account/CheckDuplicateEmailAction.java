@@ -37,7 +37,7 @@ public class CheckDuplicateEmailAction implements Action {
 		String email = jsonObject.getString("email");		
 		
 		CheckDuplicateEmailService checkDuplicateEmailService = new CheckDuplicateEmailService();
-		boolean result = checkDuplicateEmailService.checkDuplicateIdService(email);		
+		boolean result = checkDuplicateEmailService.checkDuplicateEmailService(email);		
 		
 		ViewResolver viewResolver = new ViewResolver();
 		if(result) { // 이미 존재하는 이메일일 경우

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uphill.web.UserMapper">
+	<select id="selectUser" resultType="userVO" parameterType="Integer">
+		select user_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email 
+		from user_table 
+		where user_id = #{userId}
+	</select>
+	
+	<select id="loginUser" resultType="userVO" parameterType="userVO">
+		select user_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email
+		from user_table
+		where user_id = #{userId} and user_password = #{userPassword}
+	</select>
+	
+	<insert id="insertUser" parameterType="userVO">
+		insert into user_table(user_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, address_extra, email, personal_agree, unique_agree, mobile_agree, use_agree, salt)
+		values(#{userId}, #{userPassword}, #{userName}, #{gender}, #{birth}, #{mobileCarrier}, #{phoneNumber}, #{address}, #{addressDetail}, #{addressExtra}, #{email}, #{personalAgree}, #{uniqueAgree}, #{mobileAgree}, #{useAgree}, #{salt})
+	</insert>
+	
+	<select id="selectUserSalt" resultType="String" parameterType="String">
+		select salt from user_table where user_id = #{userId}
+	</select>
+	
+	<select id="selectUserId" resultType="String" parameterType="userVO">
+		select user_id 
+		from user_table 
+		where user_name = #{userName} and birth = #{birth} and mobile_carrier = #{mobileCarrier} and phone_number = #{phoneNumber} and email = #{email}
+	</select>
+	
+	<update id="updateUserPassword" parameterType="userVO">
+		update user_table
+		set user_password=#{userPassword}
+		where user_id=#{userId} and user_name=#{userName} and birth=#{birth} and mobile_carrier=#{mobileCarrier} and phone_number=#{phoneNumber} and email=#{email}
+	</update>
+	
+	<select id="selectDuplicateUserId" resultType="String" parameterType="String">
+		select user_id from user_table where user_id = #{userId}
+	</select>
+
+	<select id="selectDuplicateEmail" resultType="String" parameterType="String">
+		select email from user_table where email = #{email}
+	</select>
+</mapper>

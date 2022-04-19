@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.UserVO;
 import com.uphill.web.service.account.LoginService;
+import com.uphill.web.util.SHA256Encoder;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class LoginAction implements Action {
@@ -18,11 +19,12 @@ public class LoginAction implements Action {
 		
 		UserVO userVO = new UserVO();
 		
-		userVO.setUserId(request.getParameter("userId"));
-		userVO.setUserPassword(request.getParameter("userPassword"));		
-
-		String salt = loginService.getSalt(userVO.getUserId());
-				
+		String userId = request.getParameter("userId");
+		String salt = loginService.getSalt(userId);
+		String userPassword = SHA256Encoder.encode(request.getParameter("userPassword"), salt);
+		
+		userVO.setUserId(userId);
+		userVO.setUserPassword(userPassword);
 		userVO.setSalt(salt);
 		
 		userVO = loginService.login(userVO);
