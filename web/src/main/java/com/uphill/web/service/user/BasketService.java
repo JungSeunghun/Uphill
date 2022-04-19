@@ -16,4 +16,19 @@ public class BasketService {
 		BasketDAO basketDAO = new BasketDAO();
 		return basketDAO.selectBasketItemList(userIndex);
 	}
+
+	public void updateBasket(int userIndex, int basketIndex, int optionQty) {
+		BasketDAO basketDAO = new BasketDAO();
+		basketDAO.updateBasket(userIndex, basketIndex, optionQty);
+	}
+
+	public void cancelBasket(int userIndex, int basketIndex) {
+		BasketDAO basketDAO = new BasketDAO();
+		basketDAO.deleteBasket(userIndex, basketIndex);
+	}
+
+	public void cancelBasketList(int userIndex) {
+		BasketDAO basketDAO = new BasketDAO();
+		basketDAO.deleteBasketList(userIndex);
+	}
 }

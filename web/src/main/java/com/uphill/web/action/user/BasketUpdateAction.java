@@ -9,7 +9,7 @@ import com.uphill.web.dto.UserVO;
 import com.uphill.web.service.user.BasketService;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class BasketCancelAllAction implements Action {
+public class BasketUpdateAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
@@ -22,10 +22,16 @@ public class BasketCancelAllAction implements Action {
 			return new ViewResolver("/account/login", true);
 		}
 		
+		int basketIndex = Integer.parseInt(request.getParameter("basketIndex"));
+		int optionQty = Integer.parseInt(request.getParameter("optionQty"));
 		int userIndex = userVO.getUserIndex();
 		
+		if(optionQty < 1 || optionQty > 10) {
+			return new ViewResolver("/user/basket", true);			
+		}
+		
 		BasketService basketService = new BasketService();
-		basketService.cancelBasketList(userIndex);
+		basketService.updateBasket(userIndex, basketIndex, optionQty);
 		
 		return new ViewResolver("/user/basket", true);
 	}

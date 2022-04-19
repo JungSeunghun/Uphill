@@ -2,15 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/user/basket.css">
 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/user/basket.css">
+<script type="text/javascript" src="${contextPath}/javascript/user/basket.js" ></script>
+    
 <section>
-	<c:if test="${basketItemList == null }">
+	<c:if test="${fn:length(basketItemList) < 1}">
 		<div id="basketItem">장바구니에 물건이 없습니다.</div>
 	</c:if>
-	<c:if test="${basketItemList != null }">
+	<c:if test="${fn:length(basketItemList) > 0 }">
 		<form action="" name="f" method="post">
 			<c:forEach var="basketItem" items="${basketItemList }">
 				<div id="basketItem">
@@ -45,25 +48,28 @@
 						<div id="basketInfoTop">
 							<div id="basketOptionName">${basketItem.optionName }</div>
 							<div id="basketInfoTopDiv">
-								<input id="optionQty" type="number" min="1" max="10" value="${basketItem.optionQty }">
-								<button id="cancelButton" type="button">취소</button>
+								<input id="optionQty" type="number" min="1" max="10" value="${basketItem.optionQty }" onchange="location.href = '${contextPath }/user/basket-update-action?basketIndex=' + '${basketItem.basketIndex}' + '&&optionQty=' + this.value" >
+								<button id="cancelButton" type="button" onclick="location.href = '${contextPath}/user/basket-cancel-action?basketIndex=${basketItem.basketIndex}'">취소</button>
 							</div>
 						</div>
 						<div id="basketInfoBottom">
 							<div id="orderPriceTitle">주문금액</div>
-							<div id="orderPrice"><fmt:formatNumber value="${basketItem.optionPrice }" pattern="#,###" />원</div>
+							<div id="orderPrice"><fmt:formatNumber value="${basketItem.optionPrice * basketItem.optionQty }" pattern="#,###" />원</div>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
+			<c:forEach var="basketItem" items="${basketItemList }">
+				<c:set var="totalPrice" value="${totalPrice + basketItem.optionPrice * basketItem.optionQty }"/>
+			</c:forEach>
 			<div id="orderInfo">		
 				<div id="orderTotalPriceTitle">총 주문금액</div>
-				<div id="orderTotalPrice">3,000,000원</div>
+				<div id="orderTotalPrice"><fmt:formatNumber value="${totalPrice }" pattern="#,###" />원</div>
 				<div>
-					<button type="button">구매하기</button>
+					<button id="buyButton" type="button">구매하기</button>
 				</div>
 				<div>
-					<button type="button">전체취소</button>
+					<button id="cancelAllButton" type="button" onclick="location.href='${contextPath}/user/basket-cancel-all-action'">전체취소</button>
 				</div>
 			</div>
 		</form>	

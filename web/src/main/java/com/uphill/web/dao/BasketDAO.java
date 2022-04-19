@@ -117,5 +117,119 @@ public class BasketDAO {
 		
 		return basketItemList;
 	}
+
+	public int updateBasket(int userIndex, int basketIndex, int optionQty) {
+		int result = 0;
+		
+		connection = DataBaseUtil.getConnection();
+		
+		try {
+			String sql = "update basket_table set option_qty = ? where basket_index = ? and user_index = ?";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, optionQty);
+			preparedStatement.setInt(2, basketIndex);
+			preparedStatement.setInt(3, userIndex);
+			
+			result = preparedStatement.executeUpdate();
+			
+			if(result > 0) {
+				connection.commit();
+			} else {
+				connection.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
+	public int deleteBasket(int userIndex, int basketIndex) {
+		int result = 0;
+		
+		connection = DataBaseUtil.getConnection();
+		
+		try {
+			String sql = "delete from basket_table where basket_index = ? and user_index = ?";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, basketIndex);
+			preparedStatement.setInt(2, userIndex);
+			
+			result = preparedStatement.executeUpdate();
+			
+			if(result > 0) {
+				connection.commit();
+			} else {
+				connection.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
+	public int deleteBasketList(int userIndex) {
+		int result = 0;
+		
+		connection = DataBaseUtil.getConnection();
+		
+		try {
+			String sql = "delete from basket_table where user_index = ?";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, userIndex);
+			
+			result = preparedStatement.executeUpdate();
+			
+			if(result > 0) {
+				connection.commit();
+			} else {
+				connection.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
 	
 }

@@ -17,6 +17,7 @@ import com.uphill.web.action.user.PurchaseList;
 import com.uphill.web.action.user.UserInfo;
 import com.uphill.web.action.user.BasketCancelAction;
 import com.uphill.web.action.user.BasketCancelAllAction;
+import com.uphill.web.action.user.BasketUpdateAction;
 import com.uphill.web.action.user.Basket;
 import com.uphill.web.action.user.BasketAction;
 import com.uphill.web.action.user.UserLeaveAction;
@@ -32,11 +33,11 @@ public class UserFrontController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	private Map<String, Action> actionMap = new HashMap<String, Action>();
-		
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		actionMap.put("/user/basket", new Basket());
 		actionMap.put("/user/basket-action", new BasketAction());
+		actionMap.put("/user/basket-update-action", new BasketUpdateAction());
 		actionMap.put("/user/basket-cancel-action", new BasketCancelAction());
 		actionMap.put("/user/basket-cancel-all-action", new BasketCancelAllAction());
 		
