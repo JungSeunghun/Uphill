@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uphill.web.service.item.ItemMapper">
+	
+	<select id="selectItem" resultType="itemVO" parameterType="Integer">
+		select * from item_table where item_index = #{itemIndex}
+	</select>
+
+	<select id="selectItemList" resultType="itemVO">
+		select * from item_table where item_category_index != 1
+	</select>
+
+	<select id="selectItemListWithCategory" resultType="itemVO" parameterType="Integer">
+		select * from item_table 
+		where item_category_index = #{categoryIndex}
+	</select>
+
+	<select id="selectBicycleList" resultType="itemVO">
+		select * from item_table 
+		where item_category_index = 1
+	</select>
+	
+	<select id="selectBicycleListWithSubcategory" resultType="itemVO" parameterType="Integer">
+		select * from item_table 
+		where item_category_index = 1 and item_subcategory_index = #{subcategoryIndex}
+	</select>
+	
+	<select id="selectItemPost" resultType="itemPostVO" parameterType="Integer">
+		select * from item_post_table 
+		where item_index = #{itemIndex}
+	</select>
+
+	<select id="selectItemOptionList" resultType="itemOptionVO" parameterType="Integer">
+		select * from item_option_table 
+		where item_index = #{itemIndex}
+	</select>
+			
+</mapper>

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.UserVO;
-import com.uphill.web.service.account.JoinService;
+import com.uphill.web.service.account.AccountServiceImpl;
 import com.uphill.web.util.SHA256Encoder;
 import com.uphill.web.viewresolver.ViewResolver;
 
@@ -26,15 +26,13 @@ public class JoinAction implements Action {
 			return new ViewResolver("/account/login", true);
 		}
 		
-		String salt = SHA256Encoder.getRandomPassword(8);
 		String userId = request.getParameter("userId");
-		String userPassword = SHA256Encoder.encode(request.getParameter("userPassword"), salt);
+		String userPassword = SHA256Encoder.encode(request.getParameter("userPassword"));
 		String address = request.getParameter("address");
 		String addressDetail = request.getParameter("addressDetail");
 		String addressExtra = request.getParameter("addressExtra");
 		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
 		
-		userVO.setSalt(salt);
 		userVO.setUserId(userId);
 		userVO.setUserPassword(userPassword);
 		userVO.setAddress(address);
@@ -42,11 +40,11 @@ public class JoinAction implements Action {
 		userVO.setAddressExtra(addressExtra);
 		userVO.setEmail(email);
 		
-		JoinService joinService = new JoinService();
+		AccountServiceImpl userService = new AccountServiceImpl();
 		
 		session.removeAttribute("joinUserVO");
 		
-		if(joinService.join(userVO) == true) {
+		if(userService.join(userVO) > 0) {
 			request.setAttribute("join", "true");
 		} else {
 			request.setAttribute("join", "false");			

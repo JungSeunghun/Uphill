@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uphill.web.service.home.HomeMapper">
+	<select id="selectMainBannerList" resultType="mainBannerVO">
+		select * from main_banner_table
+	</select>
+	
+	<select id="selectBestSellerList" resultType="itemVO" parameterType="Integer">
+		<![CDATA[
+			select * from
+			(select rank() over(order by item_sell_count desc, item_price desc) as ranking, item_table.*
+			from item_table 
+			where item_total_qty != 0 and item_category_index = 1) as bestseller 
+			where ranking <= #{count}
+		]]>
+	</select>
+	
+	<select id="selectBestItemList" resultType="itemVO" parameterType="Integer">
+		<![CDATA[
+			select * from
+			(select rank() over(order by item_sell_count desc, item_price desc) as ranking, item_table.*
+			from item_table
+			where item_total_qty != 0 and item_category_index != 1) as bestseller
+			where ranking <= #{count}
+		]]>
+	</select>
+
+	<select id="selectRecentReviewList" resultType="reviewVO" parameterType="Integer">
+		<![CDATA[
+			select * from 
+			(select rank() over(order by post_date desc, review_index desc) as ranking, review_table.*
+			from review_table) as review 
+			where ranking <= #{count}
+		]]>
+	</select>
+	
+</mapper>

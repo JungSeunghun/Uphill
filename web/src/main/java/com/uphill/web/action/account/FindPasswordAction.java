@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.UserVO;
-import com.uphill.web.service.account.FindPasswordService;
-import com.uphill.web.service.account.LoginService;
+import com.uphill.web.service.account.AccountServiceImpl;
 import com.uphill.web.util.Email;
 import com.uphill.web.util.SHA256Encoder;
 import com.uphill.web.viewresolver.ViewResolver;
@@ -40,22 +39,20 @@ public class FindPasswordAction implements Action {
 		String userId = request.getParameter("userId");
 		String userPassword = SHA256Encoder.getRandomPassword(8);
 		
-		LoginService loginService = new LoginService();
-		String salt = loginService.getSalt(userId);
 		
 		UserVO userVO = new UserVO();
 		userVO.setUserId(userId);
-		userVO.setUserPassword(SHA256Encoder.encode(userPassword, salt));
+		userVO.setUserPassword(SHA256Encoder.encode(userPassword));
 		userVO.setUserName(request.getParameter("userName"));
 		userVO.setBirth(birth);
 		userVO.setMobileCarrier(request.getParameter("mobileCarrier"));
 		userVO.setPhoneNumber(phoneNumber);
 		userVO.setEmail(email);
 		
-		FindPasswordService findPasswordService = new FindPasswordService();
-		boolean result = findPasswordService.updatePassword(userVO);
+		AccountServiceImpl userService = new AccountServiceImpl();
+		int result = userService.updatePassword(userVO);
 		
-		if(result == true) {
+		if(result > 0) {
 			request.setAttribute("findPassword", true);
 			Email.sendEmail(email, "Up-Hill 바뀐 비밀번호", "password : " + userPassword);
 		} else {

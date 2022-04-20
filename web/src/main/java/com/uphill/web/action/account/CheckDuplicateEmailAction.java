@@ -10,8 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.service.account.CheckDuplicateEmailService;
-import com.uphill.web.service.account.CheckDuplicateIdService;
+import com.uphill.web.service.account.AccountServiceImpl;
 import com.uphill.web.util.Email;
 import com.uphill.web.util.SHA256Encoder;
 import com.uphill.web.viewresolver.ViewResolver;
@@ -36,8 +35,8 @@ public class CheckDuplicateEmailAction implements Action {
 		JSONObject jsonObject = new JSONObject(buffer.toString());
 		String email = jsonObject.getString("email");		
 		
-		CheckDuplicateEmailService checkDuplicateEmailService = new CheckDuplicateEmailService();
-		boolean result = checkDuplicateEmailService.checkDuplicateEmailService(email);		
+		AccountServiceImpl userService = new AccountServiceImpl();
+		boolean result = userService.checkDuplicateEmail(email);		
 		
 		ViewResolver viewResolver = new ViewResolver();
 		if(result) { // 이미 존재하는 이메일일 경우

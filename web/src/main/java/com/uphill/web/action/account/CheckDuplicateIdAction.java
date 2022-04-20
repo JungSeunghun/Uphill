@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.service.account.CheckDuplicateIdService;
+import com.uphill.web.service.account.AccountServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class CheckDuplicateIdAction implements Action {
@@ -32,8 +32,8 @@ public class CheckDuplicateIdAction implements Action {
 		JSONObject jsonObject = new JSONObject(buffer.toString());
 		String userId = jsonObject.getString("userId");		
 		
-		CheckDuplicateIdService checkDuplicateIdService = new CheckDuplicateIdService();
-		boolean result = checkDuplicateIdService.checkDuplicateIdService(userId);		
+		AccountServiceImpl userService = new AccountServiceImpl();
+		boolean result = userService.checkDuplicateId(userId);		
 		
 		ViewResolver viewResolver = new ViewResolver();
 		if(result) { // 이미 존재하는 아이디일 경우

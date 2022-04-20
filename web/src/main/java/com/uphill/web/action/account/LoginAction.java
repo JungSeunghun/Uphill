@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.UserVO;
-import com.uphill.web.service.account.LoginService;
+import com.uphill.web.service.account.AccountServiceImpl;
 import com.uphill.web.util.SHA256Encoder;
 import com.uphill.web.viewresolver.ViewResolver;
 
@@ -15,19 +15,17 @@ public class LoginAction implements Action {
 	
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
-		LoginService loginService = new LoginService();
 		
 		UserVO userVO = new UserVO();
 		
 		String userId = request.getParameter("userId");
-		String salt = loginService.getSalt(userId);
-		String userPassword = SHA256Encoder.encode(request.getParameter("userPassword"), salt);
+		String userPassword = SHA256Encoder.encode(request.getParameter("userPassword"));
 		
 		userVO.setUserId(userId);
 		userVO.setUserPassword(userPassword);
-		userVO.setSalt(salt);
 		
-		userVO = loginService.login(userVO);
+		AccountServiceImpl accountService = new AccountServiceImpl();
+		userVO = accountService.login(userVO);
 				
 		if(userVO != null) {
 			Cookie userIdCookie = new Cookie("userIdCookie", request.getParameter("userId"));

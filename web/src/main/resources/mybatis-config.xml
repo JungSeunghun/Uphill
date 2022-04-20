@@ -3,12 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="com/uphill/web/database/mybatis/db.properties"/>
+	<properties resource="/db.properties"/>
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.uphill.web.dto.UserVO" alias="userVO"/>
+		<typeAlias type="com.uphill.web.dto.MainBannerVO" alias="mainBannerVO"/>
+		<typeAlias type="com.uphill.web.dto.ItemVO" alias="itemVO"/>
+		<typeAlias type="com.uphill.web.dto.ReviewVO" alias="reviewVO"/>
+		<typeAlias type="com.uphill.web.dto.ItemPostVO" alias="itemPostVO"/>
+		<typeAlias type="com.uphill.web.dto.ItemOptionVO" alias="itemOptionVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -22,6 +27,8 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/uphill/web/database/mybatis/UserMapper.xml" />
+		<mapper resource="com/uphill/web/service/account/AccountMapper.xml" />
+		<mapper resource="com/uphill/web/service/home/HomeMapper.xml" />
+		<mapper resource="com/uphill/web/service/item/ItemMapper.xml" />
 	</mappers>
 </configuration>

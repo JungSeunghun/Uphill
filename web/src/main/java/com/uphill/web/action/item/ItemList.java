@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.ItemVO;
 import com.uphill.web.service.item.ItemService;
+import com.uphill.web.service.item.ItemServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class ItemList implements Action {
@@ -15,8 +16,8 @@ public class ItemList implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 
-		ItemService itemService = new ItemService();
-		List<ItemVO> itemList = itemService.getItemListExceptCategory(1);
+		ItemService itemService = new ItemServiceImpl();
+		List<ItemVO> itemList = itemService.getItemList();
 		
 		request.setAttribute("itemList", itemList);		
 		

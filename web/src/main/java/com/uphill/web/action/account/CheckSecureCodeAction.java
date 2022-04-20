@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.service.account.CheckDuplicateIdService;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class CheckSecureCodeAction implements Action {

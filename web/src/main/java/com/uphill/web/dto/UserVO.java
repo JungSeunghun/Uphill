@@ -24,7 +24,6 @@ public class UserVO {
 	private int point;
 	private Date joinDate;
 	private Date leaveDate;
-	private String salt;
 	
 	public UserVO() {
 		super();
@@ -33,7 +32,7 @@ public class UserVO {
 	public UserVO(int userIndex, int gradeId, String userId, String userPassword, String userName, char gender,
 			Date birth, String mobileCarrier, String phoneNumber, String address, String addressDetail,
 			String addressExtra, String email, boolean personalAgree, boolean uniqueAgree, boolean mobileAgree,
-			boolean useAgree, int purchase, int point, Date joinDate, Date leaveDate, String salt) {
+			boolean useAgree, int purchase, int point, Date joinDate, Date leaveDate) {
 		super();
 		this.userIndex = userIndex;
 		this.gradeId = gradeId;
@@ -56,7 +55,6 @@ public class UserVO {
 		this.point = point;
 		this.joinDate = joinDate;
 		this.leaveDate = leaveDate;
-		this.salt = salt;
 	}
 
 	public int getUserIndex() {
@@ -226,14 +224,5 @@ public class UserVO {
 	public void setLeaveDate(Date leaveDate) {
 		this.leaveDate = leaveDate;
 	}
-
-	public String getSalt() {
-		return salt;
-	}
-
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-
 	
 }

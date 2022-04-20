@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.UserVO;
-import com.uphill.web.service.account.UserIdFindService;
+import com.uphill.web.service.account.AccountServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class FindIdAction implements Action {
@@ -42,8 +42,8 @@ public class FindIdAction implements Action {
 		userVO.setPhoneNumber(phoneNumber);
 		userVO.setEmail(email);
 		
-		UserIdFindService userIdFindService = new UserIdFindService();
-		String userId = userIdFindService.userIdFindService(userVO);
+		AccountServiceImpl userService = new AccountServiceImpl();
+		String userId = userService.findUserId(userVO);
 		
 		if(!userId.equals("")) {
 			request.setAttribute("userId", userId);
