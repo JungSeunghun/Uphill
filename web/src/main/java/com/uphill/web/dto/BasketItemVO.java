@@ -17,16 +17,37 @@ public class BasketItemVO {
 	private int itemPrice;
 	private int itemDiscountPrice;
 	private int itemTotalQty;
-	private int itemSellCount;
 	
 	public BasketItemVO() {
 		super();
+	}
+	
+	public BasketItemVO(int userIndex, int itemIndex, String optionName, int optionQty,
+			int optionPrice, int itemCategoryIndex, String itemCategoryName, int itemSubcategoryIndex,
+			String itemSubcategoryName, String itemName, String itemImage, float starRating, int itemPrice,
+			int itemDiscountPrice, int itemTotalQty) {
+		super();
+		this.userIndex = userIndex;
+		this.itemIndex = itemIndex;
+		this.optionName = optionName;
+		this.optionQty = optionQty;
+		this.optionPrice = optionPrice;
+		this.itemCategoryIndex = itemCategoryIndex;
+		this.itemCategoryName = itemCategoryName;
+		this.itemSubcategoryIndex = itemSubcategoryIndex;
+		this.itemSubcategoryName = itemSubcategoryName;
+		this.itemName = itemName;
+		this.itemImage = itemImage;
+		this.starRating = starRating;
+		this.itemPrice = itemPrice;
+		this.itemDiscountPrice = itemDiscountPrice;
+		this.itemTotalQty = itemTotalQty;
 	}
 
 	public BasketItemVO(int basketIndex, int userIndex, int itemIndex, String optionName, int optionQty,
 			int optionPrice, int itemCategoryIndex, String itemCategoryName, int itemSubcategoryIndex,
 			String itemSubcategoryName, String itemName, String itemImage, float starRating, int itemPrice,
-			int itemDiscountPrice, int itemTotalQty, int itemSellCount) {
+			int itemDiscountPrice, int itemTotalQty) {
 		super();
 		this.basketIndex = basketIndex;
 		this.userIndex = userIndex;
@@ -44,7 +65,6 @@ public class BasketItemVO {
 		this.itemPrice = itemPrice;
 		this.itemDiscountPrice = itemDiscountPrice;
 		this.itemTotalQty = itemTotalQty;
-		this.itemSellCount = itemSellCount;
 	}
 
 	public int getBasketIndex() {
@@ -174,15 +194,5 @@ public class BasketItemVO {
 	public void setItemTotalQty(int itemTotalQty) {
 		this.itemTotalQty = itemTotalQty;
 	}
-
-	public int getItemSellCount() {
-		return itemSellCount;
-	}
-
-	public void setItemSellCount(int itemSellCount) {
-		this.itemSellCount = itemSellCount;
-	}
-	
-	
 	
 }

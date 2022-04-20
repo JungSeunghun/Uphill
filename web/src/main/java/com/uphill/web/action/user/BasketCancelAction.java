@@ -6,7 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.UserVO;
-import com.uphill.web.service.user.BasketService;
+import com.uphill.web.service.basket.BasketService;
+import com.uphill.web.service.basket.BasketServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class BasketCancelAction implements Action {
@@ -25,7 +26,7 @@ public class BasketCancelAction implements Action {
 		int basketIndex = Integer.parseInt(request.getParameter("basketIndex"));
 		int userIndex = userVO.getUserIndex();
 		
-		BasketService basketService = new BasketService();
+		BasketService basketService = new BasketServiceImpl();
 		basketService.cancelBasket(userIndex, basketIndex);
 		
 		return new ViewResolver("/user/basket", true);

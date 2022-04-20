@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uphill.web.service.basket.BasketMapper">
+	
+	<insert id="insertBasket" parameterType="basketVO">
+		insert into basket_table
+		values(null, #{userIndex}, #{itemIndex}, #{optionName}, #{optionQty}, #{optionPrice})
+	</insert>
+
+	<select id="selectBasketItemList" resultType="basketItemVO" parameterType="Integer">
+		select * from basket_table
+		join item_table using(item_index)
+		where user_index = #{userIndex}
+	</select>
+
+	<update id="updateBasket" parameterType="Map">
+		update basket_table 
+		set option_qty = #{optionQty} 
+		where basket_index = #{basketIndex} and user_index = #{userIndex}
+	</update>
+	
+	<delete id="deleteBasket" parameterType="Map">
+		delete from basket_table
+		where basket_index = #{basketIndex} and user_index = #{userIndex}
+	</delete>
+			
+	<delete id="deleteBasketList" parameterType="Integer">
+		delete from basket_table where user_index = #{userIndex}
+	</delete>
+	
+</mapper>

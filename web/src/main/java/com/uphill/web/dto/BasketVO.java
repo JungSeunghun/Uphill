@@ -12,6 +12,15 @@ public class BasketVO {
 		super();
 	}
 	
+	public BasketVO(int userIndex, int itemIndex, String optionName, int optionQty, int optionPrice) {
+		super();
+		this.userIndex = userIndex;
+		this.itemIndex = itemIndex;
+		this.optionName = optionName;
+		this.optionQty = optionQty;
+		this.optionPrice = optionPrice;
+	}
+
 	public BasketVO(int basketIndex, int userIndex, int itemIndex, String optionName, int optionQty, int optionPrice) {
 		super();
 		this.basketIndex = basketIndex;

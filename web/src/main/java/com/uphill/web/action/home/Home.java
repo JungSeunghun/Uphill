@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.dto.HomeVO;
 import com.uphill.web.dto.ItemVO;
 import com.uphill.web.dto.MainBannerVO;
 import com.uphill.web.dto.ReviewVO;
@@ -18,12 +19,12 @@ public class Home implements Action {
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		HomeServiceImpl homeService  = new HomeServiceImpl();
-		List<List<?>> list = homeService.getMainPage();
+		HomeVO homeVO = homeService.getMainPage();
 		
-		List<MainBannerVO> mainBannerList = (List<MainBannerVO>) list.get(0);
-		List<ItemVO> bestSellerList =  (List<ItemVO>) list.get(1);
-		List<ItemVO> bestItemList =  (List<ItemVO>) list.get(2);
-		List<ReviewVO> recentReviewList = (List<ReviewVO>) list.get(3);
+		List<MainBannerVO> mainBannerList = homeVO.getMainBannerList();
+		List<ItemVO> bestSellerList = homeVO.getBestSellerList();
+		List<ItemVO> bestItemList = homeVO.getBestItemList();
+		List<ReviewVO> recentReviewList = homeVO.getRecentReviewList();
 		
 		request.setAttribute("mainBannerList", mainBannerList);
 		request.setAttribute("bestSellerList", bestSellerList);

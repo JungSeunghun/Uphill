@@ -1,7 +1,7 @@
 package com.uphill.web.service.home;
 
-import java.util.List;
+import com.uphill.web.dto.HomeVO;
 
 public interface HomeService {
-	List<List<?>> getMainPage();
+	HomeVO getMainPage();
 }

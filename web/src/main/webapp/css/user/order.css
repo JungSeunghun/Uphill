@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+section {
+	width: 100%;
+	min-height: 500px;
+}
+
+#orderItem {
+	display: flex;
+	margin-left: 244px;
+	width: max-content;
+	border-bottom: 1px solid #c4c4c4;
+	margin-bottom: 40px;
+}
+
+#itemInfo {
+	width: 224px;
+	display: flex;
+	flex-direction: column;
+}
+
+#orderInfoTop {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid #c4c4c4;
+	height: 144px;
+}
+
+#orderOptionName {
+	margin-bottom: 8px;
+}
+
+#orderInfoTopDiv {
+	width: 100%;
+}
+
+#orderInfoTop #optionQty{
+	width: 70%;
+	height: 24px;
+	border: 1px solid #c4c4c4;
+	background-color: #ffffff;
+	text-align: center;
+}
+
+#orderInfoTop #cancelButton{
+	width: 25%;
+	height: 24px;
+	border: 1px solid #c4c4c4;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+#orderInfoBottom {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	flex-grow: 1;
+}
+
+#orderInfoBottom #orderPriceTitle{
+	font-size: 0.825rem;
+	color: #c4c4c4;
+}
+
+#orderInfoBottom #orderPrice{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#itemDiv {
+	width: 144px;
+	margin: 0px 8px 8px 0px;
+	cursor: pointer;
+}
+
+#itemImageDiv {
+	position: relative;
+	width: 100%;
+}
+#itemImageDiv:after {  
+	content: "";
+  	display: block;
+  	padding-bottom: 100%;
+}
+
+
+#itemImage {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#itemDiv #itemInfo {
+	display:flex;
+	flex-direction:column;
+}
+
+#itemInfo #itemName {	
+	font-weight: bold;
+	margin: 4px;
+}
+
+#itemInfo #itemPrice {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin: 4px;
+}
+
+#starDiv {
+	position: relative;
+	width: max-content;
+	margin: 4px;
+}
+
+#starDiv #emptyStar {
+}
+
+#starDiv #greenStar {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+}
+
+#emptyStar img {
+	width: 14px;
+}
+
+#greenStar #starWrap {
+	width: max-content;
+}
+
+#greenStar img {
+	width: 14px;
+}
+
+#orderUserInfo {
+	position: fixed;
+	width: 304px;
+	right: 40px;
+	top: 132px;
+}
+
+#orderUserInfo #orderTotalPriceTitle {
+	font-size: 0.825rem;
+	color: #c4c4c4;
+}
+
+#orderUserInfo #orderTotalPrice {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+#orderUserInfo #buyButton {
+	width: 100%;
+	height: 40px;
+	border: 1px solid #ef5350;
+	background-color: #ffffff;
+	color: #ef5350;
+	cursor: pointer;
+	margin-bottom: 24px;
+}
+
+#orderUserInfo #buyButton:hover {
+	background-color: #ef5350;
+	color: #ffffff;
+}
+

@@ -9,7 +9,8 @@ import javax.servlet.http.HttpSession;
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.BasketItemVO;
 import com.uphill.web.dto.UserVO;
-import com.uphill.web.service.user.BasketService;
+import com.uphill.web.service.basket.BasketService;
+import com.uphill.web.service.basket.BasketServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class Basket implements Action {
@@ -24,7 +25,7 @@ public class Basket implements Action {
 			return new ViewResolver("/account/login", true);
 		}
 		
-		BasketService basketService = new BasketService();
+		BasketService basketService = new BasketServiceImpl();
 		List<BasketItemVO> basketItemList =  basketService.getBasketItemList(userVO.getUserIndex());
 		
 		request.setAttribute("basketItemList", basketItemList);

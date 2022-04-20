@@ -14,7 +14,7 @@
 		<div id="basketItem">장바구니에 물건이 없습니다.</div>
 	</c:if>
 	<c:if test="${fn:length(basketItemList) > 0 }">
-		<form action="" name="f" method="post">
+		<form action="${contextPath }/user/order" name="f" method="post">
 			<c:forEach var="basketItem" items="${basketItemList }">
 				<div id="basketItem">
 					<div id="itemDiv" onclick="location.href='${contextPath}/item/item-info?id=${basketItem.itemIndex }'">
@@ -66,7 +66,7 @@
 				<div id="orderTotalPriceTitle">총 주문금액</div>
 				<div id="orderTotalPrice"><fmt:formatNumber value="${totalPrice }" pattern="#,###" />원</div>
 				<div>
-					<button id="buyButton" type="button">구매하기</button>
+					<button id="buyButton" type="button" onclick="f.submit();">구매하기</button>
 				</div>
 				<div>
 					<button id="cancelAllButton" type="button" onclick="location.href='${contextPath}/user/basket-cancel-all-action'">전체취소</button>

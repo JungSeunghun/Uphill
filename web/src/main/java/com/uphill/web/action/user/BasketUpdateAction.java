@@ -6,7 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.UserVO;
-import com.uphill.web.service.user.BasketService;
+import com.uphill.web.service.basket.BasketService;
+import com.uphill.web.service.basket.BasketServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class BasketUpdateAction implements Action {
@@ -30,7 +31,7 @@ public class BasketUpdateAction implements Action {
 			return new ViewResolver("/user/basket", true);			
 		}
 		
-		BasketService basketService = new BasketService();
+		BasketService basketService = new BasketServiceImpl();
 		basketService.updateBasket(userIndex, basketIndex, optionQty);
 		
 		return new ViewResolver("/user/basket", true);
