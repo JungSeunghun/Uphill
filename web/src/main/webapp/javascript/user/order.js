@@ -71,6 +71,18 @@ function foldDaumPostcode() {
 }
 
 /**
+ * 포인트 사용
+ */
+function changeTotalPrice(point) {
+	const orderTotalPrice = document.getElementById("orderTotalPrice");
+	const totalPrice = document.getElementById("totalPrice");
+	
+	const price = totalPrice.value - point.value;
+	
+	orderTotalPrice.innerText = price.toLocaleString('ko-KR') + "원";
+}
+
+/**
  * 결제 체크
  */
 function checkOrder() {

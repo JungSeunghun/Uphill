@@ -22,7 +22,6 @@
 					<c:forEach var="orderItem" items="${orderItemList }">
 						<div id="orderItem">
 							<input type="hidden" name="itemIndex" value="${orderItem.itemIndex }">
-							<input type="hidden" name="itemName" value="${orderItem.itemName }">
 							<input type="hidden" name="optionName" value="${orderItem.optionName }">
 							<input type="hidden" name="optionPrice" value="${orderItem.optionPrice }">
 							<input type="hidden" name="optionQty" value="${orderItem.optionQty }">
@@ -131,7 +130,7 @@
 					</div>
 					<div id="orderUserInfoDiv">
 						<div id="orderUserInfoTitle">사용가능한포인트(${userVO.point })</div>
-						<input type="number" name="usePoint" value="0" min="0" max="${userVO.point }">
+						<input type="number" name="usePoint" value="0" min="0" max="${userVO.point }" onchange="changeTotalPrice(this);">
 					</div>
 					<div id="orderUserInfoDiv">
 						<div id="orderUserInfoTitle">배송요청</div>
@@ -150,18 +149,21 @@
 						<div id="orderUserInfoTitle">포인트적립액</div>
 						<c:if test="${userVO.gradeIndex == 1 }">
 							<div id="point"><fmt:formatNumber type="number" maxFractionDigits="0" value="${totalPrice * 0.01 }"/>(silver)</div>
+							<input type="hidden" name="point" value="${totalPrice * 0.01 }">
 						</c:if>
 						<c:if test="${userVO.gradeIndex == 2 }">
 							<div id="point"><fmt:formatNumber type="number" maxFractionDigits="0" value="${totalPrice * 0.02 }"/>(gold)</div>
+							<input type="hidden" name="point" value="${totalPrice * 0.02 }">
 						</c:if>
 						<c:if test="${userVO.gradeIndex == 3 }">
 							<div id="point"><fmt:formatNumber type="number" maxFractionDigits="0" value="${totalPrice * 0.03 }"/>(diamond)</div>
+							<input type="hidden" name="point" value="${totalPrice * 0.03 }">
 						</c:if>
 					</div>
 					<div id="orderUserInfoDiv">
 						<div id="orderTotalPriceTitle">총 주문금액</div>
 						<div id="orderTotalPrice"><fmt:formatNumber value="${totalPrice }" pattern="#,###" />원</div>
-						<input type="hidden" name="totalPrice" value="${totalPrice }">
+						<input type="hidden" name="totalPrice" id="totalPrice" value="${totalPrice }">
 					</div>
 					<button type="button" id="buyButton" onclick="checkOrder();" >결제하기</button>
 				</div>

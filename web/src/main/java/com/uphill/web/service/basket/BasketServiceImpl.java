@@ -20,6 +20,8 @@ public class BasketServiceImpl implements BasketService{
 		
 		if(result > 0) {
 			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
 		}
 		
 		sqlSession.close();
@@ -47,6 +49,8 @@ public class BasketServiceImpl implements BasketService{
 		
 		if(result > 0) {
 			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
 		}
 		
 		sqlSession.close();
@@ -64,6 +68,8 @@ public class BasketServiceImpl implements BasketService{
 		
 		if(result > 0) {
 			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
 		}
 		
 		sqlSession.close();
@@ -77,6 +83,8 @@ public class BasketServiceImpl implements BasketService{
 		
 		if(result > 0) {
 			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
 		}
 		
 		sqlSession.close();

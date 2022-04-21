@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uphill.web.service.basket.BasketMapper">
+	
+	<insert id="insertOrder" parameterType="orderVO">
+		insert into order_table(recipient, user_index, post_code, address, address_detail, address_extra, mobile_carrier, phone_number, point, use_point, deliver_request, payment, total_price)
+		values(#{recipient}, #{userIndex}, #{postCode}, #{address}, #{addressDetail}, #{addressExtra}, #{mobileCarrier}, #{phoneNumber}, #{point}, #{usePoint}, #{deliverRequest}, #{payment}, #{totalPrice})
+	</insert>
+	
+	<insert id="insertOrderItem" parameterType="Map">
+		insert into order_item_table
+		values
+		<foreach item="item" collection="List" separator="">
+			(null, #{item.orderIndex}, #{item.itemIndex}, #{item.optionName}, #{item.optionQty}, #{item.optionPrice})
+		</foreach>
+	</insert>
+	
+	<update id="updatePoint" parameterType="Map">
+		update user_table 
+		set point = point + #{point} 
+		where user_index = #{userIndex}
+	</update>
+	
+</mapper>

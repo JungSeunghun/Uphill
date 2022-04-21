@@ -33,6 +33,8 @@ public class AccountServiceImpl implements AccountService {
 		
 		if(result > 0) {
 			sqlSession.commit();			
+		} else {
+			sqlSession.rollback();
 		}
 		
 		sqlSession.close();
