@@ -152,6 +152,10 @@ header a {
 	margin: 24px;
 }
 
+#snb div a {
+	font-size: 0.825rem;
+}
+
 footer {
 	height: 192px;
 	background-color: #111111;
@@ -245,6 +249,10 @@ footer #down p {
 	#gnb #mobileCategory li a {
 		color: white;
 	}
+	
+	#snb {
+		display: none;
+	}
 }
 
 /*모바일*/
@@ -300,6 +308,10 @@ footer #down p {
 	
 	#gnb #mobileCategory li a {
 		color: white;
+	}
+	
+	#snb {
+		display: none;
 	}
 	
 	footer #down {

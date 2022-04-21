@@ -28,6 +28,7 @@ public class JoinAction implements Action {
 		
 		String userId = request.getParameter("userId");
 		String userPassword = SHA256Encoder.encode(request.getParameter("userPassword"));
+		String postCode = request.getParameter("postCode");
 		String address = request.getParameter("address");
 		String addressDetail = request.getParameter("addressDetail");
 		String addressExtra = request.getParameter("addressExtra");
@@ -35,6 +36,7 @@ public class JoinAction implements Action {
 		
 		userVO.setUserId(userId);
 		userVO.setUserPassword(userPassword);
+		userVO.setPostCode(postCode);
 		userVO.setAddress(address);
 		userVO.setAddressDetail(addressDetail);
 		userVO.setAddressExtra(addressExtra);

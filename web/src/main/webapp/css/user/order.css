@@ -1,16 +1,22 @@
 @charset "UTF-8";
 
 section {
+	display: flex;
 	width: 100%;
-	min-height: 500px;
+	min-height: 800px;
+	justify-content: center;
+}
+
+section form {
+	display: flex;
 }
 
 #orderItem {
 	display: flex;
-	margin-left: 244px;
 	width: max-content;
 	border-bottom: 1px solid #c4c4c4;
 	margin-bottom: 40px;
+	margin-right: 80px;
 }
 
 #itemInfo {
@@ -37,7 +43,7 @@ section {
 }
 
 #orderInfoTop #optionQty{
-	width: 70%;
+	width: 100%;
 	height: 24px;
 	border: 1px solid #c4c4c4;
 	background-color: #ffffff;
@@ -138,10 +144,74 @@ section {
 }
 
 #orderUserInfo {
-	position: fixed;
 	width: 304px;
-	right: 40px;
-	top: 132px;
+}
+
+#orderUserInfo #orderUserInfoDiv{
+	margin-bottom: 32px;
+}
+
+#orderUserInfo #orderUserInfoTitle{
+	font-size: 0.825rem;
+	margin-bottom: 8px;
+}
+
+#orderUserInfo #postCode {
+	margin-bottom: 8px;
+}
+
+#orderUserInfo #address {
+	margin-bottom: 8px;
+	width: 100%;
+}
+
+#orderUserInfo #addressForm {
+	display: flex;
+	justify-content: space-between;
+}
+
+#orderUserInfo #addressDetail {
+	width: 70%;
+}
+
+#orderUserInfo #addressExtra {
+	width: 28%;
+}
+
+#orderUserInfo select {
+	height: 28px;
+	background-color: #ffffff;
+	border: 1px solid #c4c4c4;
+}
+
+#orderUserInfo input[type=text] {
+	height: 28px;
+	width: 104px;
+	border: 1px solid #c4c4c4;
+}
+
+#orderUserInfo #deliverRequest {
+	width: 100%;
+}
+
+#orderUserInfo input[type=radio] {
+	height: 14px;
+	width: 14px;
+	border: 1px solid #c4c4c4;
+	border-radius: 50%;
+	margin-right: 8px;
+	appearance: none;
+	cursor: pointer;
+}
+
+#orderUserInfo input[type=radio]:checked {
+	background-color: #9ccc65;
+	border: none;
+}
+
+#orderUserInfo #point {
+	font-size: 1rem;
+	font-weight: bold;
 }
 
 #orderUserInfo #orderTotalPriceTitle {

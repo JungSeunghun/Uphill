@@ -34,10 +34,10 @@
 		<div id="joinFormDiv">
 		 	<div id="joinFormDivTitle">이동통신사</div>
 		 	<div id="mobileCarrierForm">
-			 	<label><input type="radio" id="skt" name="mobileCarrier" value="SKT">SKT&nbsp;&nbsp;</label>
-			 	<label><input type="radio" id="kt" name="mobileCarrier" value="KT">KT&nbsp;&nbsp;</label>
-			 	<label><input type="radio" id="lg" name="mobileCarrier" value="LGU+">LGU+&nbsp;&nbsp;</label>
-		 		<label><input type="radio" id="other" name="mobileCarrier" value="알뜰폰">알뜰폰&nbsp;&nbsp;</label>
+			 	<label><input type="radio" name="mobileCarrier" value="SKT">SKT&nbsp;&nbsp;</label>
+			 	<label><input type="radio" name="mobileCarrier" value="KT">KT&nbsp;&nbsp;</label>
+			 	<label><input type="radio" name="mobileCarrier" value="LGU+">LGU+&nbsp;&nbsp;</label>
+		 		<label><input type="radio" name="mobileCarrier" value="알뜰폰">알뜰폰&nbsp;&nbsp;</label>
 		 	</div>
 		</div>
 		<div id="joinFormDiv">

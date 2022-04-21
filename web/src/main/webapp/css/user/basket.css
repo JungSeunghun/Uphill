@@ -1,16 +1,22 @@
 @charset "UTF-8";
 
 section {
+	display: flex;
 	width: 100%;
 	min-height: 500px;
+	justify-content: center;
+}
+
+section form {
+	display: flex;
 }
 
 #basketItem {
 	display: flex;
-	margin-left: 244px;
 	width: max-content;
 	border-bottom: 1px solid #c4c4c4;
 	margin-bottom: 40px;
+	margin-right: 80px;
 }
 
 #basketInfo {
@@ -138,10 +144,7 @@ section {
 }
 
 #orderInfo {
-	position: fixed;
 	width: 304px;
-	right: 40px;
-	top: 132px;
 }
 
 #orderInfo #orderTotalPriceTitle {

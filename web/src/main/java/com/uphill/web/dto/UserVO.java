@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserVO {
 	private int userIndex;
-	private int gradeId;
+	private int gradeIndex;
 	private String userId;
 	private String userPassword;
 	private String userName;
@@ -12,6 +12,7 @@ public class UserVO {
 	private Date birth;
 	private String mobileCarrier;
 	private String phoneNumber;
+	private String postCode;
 	private String address;
 	private String addressDetail;
 	private String addressExtra;
@@ -28,34 +29,6 @@ public class UserVO {
 	public UserVO() {
 		super();
 	}
-	
-	public UserVO(int userIndex, int gradeId, String userId, String userPassword, String userName, char gender,
-			Date birth, String mobileCarrier, String phoneNumber, String address, String addressDetail,
-			String addressExtra, String email, boolean personalAgree, boolean uniqueAgree, boolean mobileAgree,
-			boolean useAgree, int purchase, int point, Date joinDate, Date leaveDate) {
-		super();
-		this.userIndex = userIndex;
-		this.gradeId = gradeId;
-		this.userId = userId;
-		this.userPassword = userPassword;
-		this.userName = userName;
-		this.gender = gender;
-		this.birth = birth;
-		this.mobileCarrier = mobileCarrier;
-		this.phoneNumber = phoneNumber;
-		this.address = address;
-		this.addressDetail = addressDetail;
-		this.addressExtra = addressExtra;
-		this.email = email;
-		this.personalAgree = personalAgree;
-		this.uniqueAgree = uniqueAgree;
-		this.mobileAgree = mobileAgree;
-		this.useAgree = useAgree;
-		this.purchase = purchase;
-		this.point = point;
-		this.joinDate = joinDate;
-		this.leaveDate = leaveDate;
-	}
 
 	public int getUserIndex() {
 		return userIndex;
@@ -65,12 +38,12 @@ public class UserVO {
 		this.userIndex = userIndex;
 	}
 
-	public int getGradeId() {
-		return gradeId;
+	public int getGradeIndex() {
+		return gradeIndex;
 	}
 
-	public void setGradeId(int gradeId) {
-		this.gradeId = gradeId;
+	public void setGradeIndex(int gradeIndex) {
+		this.gradeIndex = gradeIndex;
 	}
 
 	public String getUserId() {
@@ -127,6 +100,14 @@ public class UserVO {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getPostCode() {
+		return postCode;
+	}
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
 	}
 
 	public String getAddress() {
@@ -224,5 +205,5 @@ public class UserVO {
 	public void setLeaveDate(Date leaveDate) {
 		this.leaveDate = leaveDate;
 	}
-	
+		
 }
