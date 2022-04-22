@@ -55,10 +55,12 @@ public class Order implements Action {
 			BasketItemVO basketItemVO = new BasketItemVO(userIndex, itemIndex, optionName, optionQty, optionPrice, itemCategoryIndex, itemCategoryName, itemSubcategoryIndex, itemSubcategoryName, itemName, itemImage, starRating, itemPrice, itemDiscountPrice, itemTotalQty);
 			orderItemList.add(basketItemVO);			
 			request.setAttribute("orderItemList", orderItemList);
+			request.setAttribute("isBasket", false);
 		} else {
 			BasketService basketService = new BasketServiceImpl();
 			List<BasketItemVO> orderItemList = basketService.getBasketItemList(userVO.getUserIndex());
 			request.setAttribute("orderItemList", orderItemList);
+			request.setAttribute("isBasket", true);
 		}		
 		
 		return new ViewResolver("/views/user/order.tiles");

@@ -1,5 +1,8 @@
 package com.uphill.web.action.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,17 +15,38 @@ import com.uphill.web.service.order.OrderService;
 import com.uphill.web.service.order.OrderServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class OrderAction implements Action {
+public class OrderBasketAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
-		int itemIndex = Integer.parseInt(request.getParameter("itemIndex"));	
-		String optionName = request.getParameter("optionName");
-		int optionQty = Integer.parseInt(request.getParameter("optionQty"));
-		int optionPrice = Integer.parseInt(request.getParameter("optionPrice"));
+		String[] itemIndexStringArray = request.getParameterValues("itemIndex");	
+		String[] optionNameArray = request.getParameterValues("optionName");
+		String[] optionQtyStringArray = request.getParameterValues("optionQty");
+		String[] optionPriceStringArray = request.getParameterValues("optionPrice");
 		
-		OrderItemVO orderItemVO = new OrderItemVO(0, itemIndex, optionName, optionQty, optionPrice);
+		int[] itemIndexArray = new int[itemIndexStringArray.length];	
+		for(int i = 0; i < itemIndexArray.length; i++) {
+			itemIndexArray[i] = Integer.parseInt(itemIndexStringArray[i]); 
+		}
+		int[] optionQtyArray = new int[optionQtyStringArray.length];	
+		for(int i = 0; i < optionQtyArray.length; i++) {
+			optionQtyArray[i] = Integer.parseInt(optionQtyStringArray[i]); 
+		}
+		int[] optionPriceArray = new int[optionPriceStringArray.length];
+		for(int i = 0; i < optionPriceStringArray.length; i++) {
+			optionPriceArray[i] = Integer.parseInt(optionPriceStringArray[i]); 
+		}
 		
+		List<OrderItemVO> orderItemList = new ArrayList<OrderItemVO>();
+		for(int i = 0; i < itemIndexArray.length; i++) {
+			int itemIndex = itemIndexArray[i];
+			String optionName = optionNameArray[i];
+			int optionQty = optionQtyArray[i];
+			int optionPrice = optionPriceArray[i];
+			
+			orderItemList.add(new OrderItemVO(0, itemIndex, optionName, optionQty, optionPrice));
+		}
+
 		HttpSession session = request.getSession();
 		UserVO userVO = null;
 		
@@ -49,7 +73,7 @@ public class OrderAction implements Action {
 		OrderVO orderVO = new OrderVO(userIndex, recipient, postCode, address, addressDetail, addressExtra, mobileCarrier, phoneNumber, point, usePoint, deliverRequest, payment, totalPrice);
 		
 		OrderService orderService = new OrderServiceImpl();
-		orderService.order(orderVO, orderItemVO, userVO.getPurchase());
+		orderService.orderBasket(orderVO, orderItemList, userVO.getPurchase());
 		
 		return new ViewResolver("/user/purchaseList");
 	}

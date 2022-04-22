@@ -22,6 +22,7 @@ import com.uphill.web.action.user.Basket;
 import com.uphill.web.action.user.BasketAction;
 import com.uphill.web.action.user.UserLeaveAction;
 import com.uphill.web.action.user.OrderAction;
+import com.uphill.web.action.user.OrderBasketAction;
 import com.uphill.web.action.user.Order;
 import com.uphill.web.action.user.UserUpdateAction;
 import com.uphill.web.viewresolver.ViewResolver;
@@ -43,6 +44,7 @@ public class UserFrontController extends HttpServlet{
 		
 		actionMap.put("/user/order", new Order());
 		actionMap.put("/user/order-action", new OrderAction());
+		actionMap.put("/user/order-basket-action", new OrderBasketAction());
 		
 		actionMap.put("/user/purchase-list", new PurchaseList());
 		

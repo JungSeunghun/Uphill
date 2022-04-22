@@ -4,26 +4,41 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uphill.web.service.order.OrderMapper">
 	<select id="selectOrderIndex" resultType="Integer">
-		select ifnull(max(order_index), 1) from order_table;
+		select ifnull(max(order_index), 0) + 1 from order_table;
 	</select>	
 	
 	<insert id="insertOrder" parameterType="orderVO">
-		insert into order_table(recipient, user_index, post_code, address, address_detail, address_extra, mobile_carrier, phone_number, point, use_point, deliver_request, payment, total_price)
-		values(#{recipient}, #{userIndex}, #{postCode}, #{address}, #{addressDetail}, #{addressExtra}, #{mobileCarrier}, #{phoneNumber}, #{point}, #{usePoint}, #{deliverRequest}, #{payment}, #{totalPrice})
+		insert into order_table(order_index, user_index, recipient, post_code, address, address_detail, address_extra, mobile_carrier, phone_number, point, use_point, deliver_request, payment, total_price)
+		values(#{orderIndex}, #{userIndex}, #{recipient}, #{postCode}, #{address}, #{addressDetail}, #{addressExtra}, #{mobileCarrier}, #{phoneNumber}, #{point}, #{usePoint}, #{deliverRequest}, #{payment}, #{totalPrice})
 	</insert>
 	
-	<insert id="insertOrderItem" parameterType="Map">
+	<insert id="insertOrderItem" parameterType="orderItemVO">
+		insert into order_item_table
+		values (null, #{orderIndex}, #{itemIndex}, #{optionName}, #{optionQty}, #{optionPrice})
+	</insert>
+	
+	<insert id="insertOrderItemList" parameterType="Map">
 		insert into order_item_table
 		values
-		<foreach item="item" collection="List" separator=",">
+		<foreach item="item" collection="list" separator=",">
 			(null, #{item.orderIndex}, #{item.itemIndex}, #{item.optionName}, #{item.optionQty}, #{item.optionPrice})
 		</foreach>
 	</insert>
 	
-	<update id="updatePoint" parameterType="Map">
+	<update id="updateUser" parameterType="Map">
 		update user_table 
-		set point = point + #{point} 
+		set point = point + #{point}, purchase = #{purchase}
+		<if test="purchase >= 500000">
+			, grade_index = 2
+		</if>
+		<if test="purchase >= 1000000">
+			, grade_index = 3
+		</if>
 		where user_index = #{userIndex}
 	</update>
 	
+	<delete id="deleteBasket" parameterType="Integer">
+		delete from basket_table
+		where user_index = #{userIndex}
+	</delete>
 </mapper>

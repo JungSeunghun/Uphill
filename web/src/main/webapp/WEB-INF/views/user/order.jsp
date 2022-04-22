@@ -17,7 +17,13 @@
 	</c:if>
 	<c:if test="${fn:length(orderItemList) > 0 }">
 		<div>
-			<form action="${contextPath}/user/order-action" name="f" method="post">
+			<c:if test="${isBasket == false }">
+				<c:set var="orderPath" value="${contextPath }/user/order-action" />
+			</c:if>
+			<c:if test="${isBasket == true }">
+				<c:set var="orderPath" value="${contextPath }/user/order-basket-action" />
+			</c:if>
+			<form action="${orderPath }" name="f" method="post">
 				<div>
 					<c:forEach var="orderItem" items="${orderItemList }">
 						<div id="orderItem">

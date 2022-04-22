@@ -10,7 +10,7 @@
 	</select>
 	
 	<select id="selectLoginUser" resultType="userVO" parameterType="userVO">
-		select user_index, grade_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, post_code, address, address_detail, address_extra, email
+		select user_index, grade_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, post_code, address, address_detail, address_extra, email, point, purchase, join_date
 		from user_table
 		where user_id = #{userId} and user_password = #{userPassword}
 	</select>
