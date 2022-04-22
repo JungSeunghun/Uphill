@@ -17,7 +17,7 @@
 	</c:if>
 	<c:if test="${fn:length(orderItemList) > 0 }">
 		<div>
-			<form action="/user/order-action" name="f" method="post">
+			<form action="${contextPath}/user/order-action" name="f" method="post">
 				<div>
 					<c:forEach var="orderItem" items="${orderItemList }">
 						<div id="orderItem">

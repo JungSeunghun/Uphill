@@ -2,7 +2,10 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.uphill.web.service.basket.BasketMapper">
+<mapper namespace="com.uphill.web.service.order.OrderMapper">
+	<select id="selectOrderIndex" resultType="Integer">
+		select ifnull(max(order_index), 1) from order_table;
+	</select>	
 	
 	<insert id="insertOrder" parameterType="orderVO">
 		insert into order_table(recipient, user_index, post_code, address, address_detail, address_extra, mobile_carrier, phone_number, point, use_point, deliver_request, payment, total_price)
@@ -12,7 +15,7 @@
 	<insert id="insertOrderItem" parameterType="Map">
 		insert into order_item_table
 		values
-		<foreach item="item" collection="List" separator="">
+		<foreach item="item" collection="List" separator=",">
 			(null, #{item.orderIndex}, #{item.itemIndex}, #{item.optionName}, #{item.optionQty}, #{item.optionPrice})
 		</foreach>
 	</insert>

@@ -12,6 +12,15 @@ public class OrderItemVO {
 		super();
 	}
 
+	public OrderItemVO(int orderIndex, int itemIndex, String optionName, int optionQty, int optionPrice) {
+		super();
+		this.orderIndex = orderIndex;
+		this.itemIndex = itemIndex;
+		this.optionName = optionName;
+		this.optionQty = optionQty;
+		this.optionPrice = optionPrice;
+	}
+
 	public OrderItemVO(int orderItemIndex, int orderIndex, int itemIndex, String optionName,
 			int optionQty, int optionPrice) {
 		super();

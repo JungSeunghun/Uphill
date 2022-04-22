@@ -18,7 +18,6 @@ public class OrderServiceImpl implements OrderService{
 	public int order(OrderInfoVO orderInfoVO) {
 		int result = 0;
 		Map<String, List<OrderItemVO>> orderItemMap = new HashMap<String, List<OrderItemVO>>();
-		orderItemMap.put("list", orderInfoVO.getOrderItemList());
 		Map<String, Integer> updatePointMap = new HashMap<String, Integer>();
 		int usePoint = orderInfoVO.getOrderVO().getUsePoint();
 		int point = orderInfoVO.getOrderVO().getPoint();
@@ -26,6 +25,12 @@ public class OrderServiceImpl implements OrderService{
 		updatePointMap.put("point", point - usePoint);
 		updatePointMap.put("userIndex", userIndex);
 
+		int seletOrderIndex = orderMapper.selectOrderIndex();
+		for(OrderItemVO orderItemVO : orderInfoVO.getOrderItemList()) {
+			orderItemVO.setOrderIndex(seletOrderIndex);
+		}
+		orderItemMap.put("item", orderInfoVO.getOrderItemList());
+		
 		int insertOrderResult = orderMapper.insertOrder(orderInfoVO.getOrderVO());
 		int insertOrderItemResult = orderMapper.insertOrderItem(orderItemMap);
 		int updatePointResult = orderMapper.updatePoint(updatePointMap);

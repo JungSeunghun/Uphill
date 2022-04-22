@@ -7,6 +7,7 @@ import com.uphill.web.dto.OrderItemVO;
 import com.uphill.web.dto.OrderVO;
 
 public interface OrderMapper {
+	int selectOrderIndex();
 	int insertOrder(OrderVO orderVO);
 	int insertOrderItem(Map<String, List<OrderItemVO>> map);
 	int updatePoint(Map<String, Integer> map);

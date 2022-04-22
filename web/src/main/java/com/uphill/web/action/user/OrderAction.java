@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.dto.OrderInfoVO;
 import com.uphill.web.dto.OrderItemVO;
 import com.uphill.web.dto.OrderVO;
 import com.uphill.web.dto.UserVO;
+import com.uphill.web.service.order.OrderService;
+import com.uphill.web.service.order.OrderServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class OrderAction implements Action {
@@ -51,7 +54,7 @@ public class OrderAction implements Action {
 		String addressExtra = request.getParameter("addressExtra");
 		String mobileCarrier = request.getParameter("mobileCarrier");
 		String phoneNumber = request.getParameter("firstPhoneNumber") + request.getParameter("middlePhoneNumber") + request.getParameter("lastPhoneNumber");
-		int point = Integer.parseInt(request.getParameter("point"));
+		int point = (int)Float.parseFloat(request.getParameter("point"));
 		int usePoint = Integer.parseInt(request.getParameter("usePoint"));
 		String deliverRequest = request.getParameter("deliverRequest");
 		String payment = request.getParameter("payment");
@@ -66,8 +69,13 @@ public class OrderAction implements Action {
 			int optionQty = optionQtyArray[i];
 			int optionPrice = optionPriceArray[i];
 			
-			orderItemList.add(new OrderItemVO(orderIndex, itemIndex, optionName, optionQty, optionPrice));
+			orderItemList.add(new OrderItemVO(0, itemIndex, optionName, optionQty, optionPrice));
 		}
+		
+		OrderInfoVO orderInfoVO = new OrderInfoVO(orderVO, orderItemList);
+		
+		OrderService orderService = new OrderServiceImpl();
+		orderService.order(orderInfoVO);
 		
 		return new ViewResolver("/user/purchaseList");
 	}
