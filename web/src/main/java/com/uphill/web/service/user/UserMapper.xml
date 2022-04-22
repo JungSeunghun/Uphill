@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uphill.web.service.user.UserMapper">
+	<select id="selectOrderList" resultType="Integer">
+		select * from order_table where user_index = ${userIndex};
+	</select>
+
+	<select id="selectOrderItemList" resultType="Integer">
+		select * from order_item_table where user_index = ${userIndex};
+	</select>
+</mapper>

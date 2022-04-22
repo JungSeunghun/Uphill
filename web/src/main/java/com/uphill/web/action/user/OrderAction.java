@@ -51,7 +51,7 @@ public class OrderAction implements Action {
 		OrderService orderService = new OrderServiceImpl();
 		orderService.order(orderVO, orderItemVO, userVO.getPurchase());
 		
-		return new ViewResolver("/user/purchaseList");
+		return new ViewResolver("/user/order-list", true);
 	}
 
 }

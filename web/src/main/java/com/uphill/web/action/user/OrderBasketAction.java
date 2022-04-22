@@ -75,7 +75,7 @@ public class OrderBasketAction implements Action {
 		OrderService orderService = new OrderServiceImpl();
 		orderService.orderBasket(orderVO, orderItemList, userVO.getPurchase());
 		
-		return new ViewResolver("/user/purchaseList");
+		return new ViewResolver("/user/order-list", true);
 	}
 
 }

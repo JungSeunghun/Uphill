@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.user.PurchaseList;
+import com.uphill.web.action.user.OrderList;
 import com.uphill.web.action.user.UserInfo;
 import com.uphill.web.action.user.BasketCancelAction;
 import com.uphill.web.action.user.BasketCancelAllAction;
@@ -44,9 +44,8 @@ public class UserFrontController extends HttpServlet{
 		
 		actionMap.put("/user/order", new Order());
 		actionMap.put("/user/order-action", new OrderAction());
-		actionMap.put("/user/order-basket-action", new OrderBasketAction());
-		
-		actionMap.put("/user/purchase-list", new PurchaseList());
+		actionMap.put("/user/order-basket-action", new OrderBasketAction());		
+		actionMap.put("/user/order-list", new OrderList());
 		
 		actionMap.put("/user/user-info", new UserInfo());
 		actionMap.put("/user/user-leave-action", new UserLeaveAction());
