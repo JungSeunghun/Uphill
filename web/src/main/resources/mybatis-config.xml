@@ -18,6 +18,7 @@
 		<typeAlias type="com.uphill.web.dto.BasketItemVO" alias="basketItemVO"/>
 		<typeAlias type="com.uphill.web.dto.OrderVO" alias="orderVO"/>
 		<typeAlias type="com.uphill.web.dto.OrderItemVO" alias="orderItemVO"/>
+		<typeAlias type="com.uphill.web.dto.OrderItemInfoVO" alias="orderItemInfoVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -36,5 +37,6 @@
 		<mapper resource="com/uphill/web/service/item/ItemMapper.xml" />
 		<mapper resource="com/uphill/web/service/basket/BasketMapper.xml" />
 		<mapper resource="com/uphill/web/service/order/OrderMapper.xml" />
+		<mapper resource="com/uphill/web/service/user/UserMapper.xml" />
 	</mappers>
 </configuration>

@@ -29,7 +29,7 @@ public class OrderList implements Action {
 		OrderListVO orderListVO = userService.getOrderList(userVO.getUserIndex());
 		
 		request.setAttribute("orderList", orderListVO.getOrderList());
-		request.setAttribute("orderItemList", orderListVO.getOrderItemList());
+		request.setAttribute("orderItemList", orderListVO.getOrderItemInfoList());
 		
 		return new ViewResolver("/views/user/orderList.tiles");
 	}

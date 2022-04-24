@@ -33,7 +33,6 @@ public class CommunityController extends HttpServlet{
 		// 이 부분은 나중에 필터로 빼는게 좋은지 알아보기 - 220324(정승훈)
 		request.setCharacterEncoding("UTF-8");
 		
-		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = uri.substring(contextPath.length());

@@ -10,7 +10,7 @@
 		<a href="${contextPath}/user/basket">장바구니</a>
 	</div>
 	<div>
-		<a href="${contextPath}/user/order">주문내역</a>
+		<a href="${contextPath}/user/order-list">주문내역</a>
 	</div>
 	<div>
 		<a href="${contextPath}/user/user-info">회원정보</a>

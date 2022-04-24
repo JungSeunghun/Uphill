@@ -4,16 +4,16 @@ import java.util.List;
 
 public class OrderListVO {
 	List<OrderVO> orderList;
-	List<OrderItemVO> orderItemList;
+	List<OrderItemInfoVO> orderItemInfoList;
 	
 	public OrderListVO() {
 		super();
 	}
 
-	public OrderListVO(List<OrderVO> orderList, List<OrderItemVO> orderItemList) {
+	public OrderListVO(List<OrderVO> orderList, List<OrderItemInfoVO> orderItemInfoList) {
 		super();
 		this.orderList = orderList;
-		this.orderItemList = orderItemList;
+		this.orderItemInfoList = orderItemInfoList;
 	}
 
 	public List<OrderVO> getOrderList() {
@@ -24,13 +24,14 @@ public class OrderListVO {
 		this.orderList = orderList;
 	}
 
-	public List<OrderItemVO> getOrderItemList() {
-		return orderItemList;
+	public List<OrderItemInfoVO> getOrderItemInfoList() {
+		return orderItemInfoList;
 	}
 
-	public void setOrderItemList(List<OrderItemVO> orderItemList) {
-		this.orderItemList = orderItemList;
+	public void setOrderItemInfoList(List<OrderItemInfoVO> orderItemInfoList) {
+		this.orderItemInfoList = orderItemInfoList;
 	}
+
 	
 	
 }

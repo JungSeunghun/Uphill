@@ -1,8 +1,8 @@
 package com.uphill.web.dto;
 
-public class BasketItemVO {
-	private int basketIndex;
-	private int userIndex;
+public class OrderItemInfoVO {
+	private int orderItemIndex;
+	private int orderIndex;
 	private int itemIndex;
 	private String optionName;
 	private int optionQty;
@@ -17,16 +17,17 @@ public class BasketItemVO {
 	private int itemPrice;
 	private int itemDiscountPrice;
 	
-	public BasketItemVO() {
+	public OrderItemInfoVO() {
 		super();
 	}
-	
-	public BasketItemVO(int userIndex, int itemIndex, String optionName, int optionQty,
+
+	public OrderItemInfoVO(int orderItemIndex, int orderIndex, int itemIndex, String optionName, int optionQty,
 			int optionPrice, int itemCategoryIndex, String itemCategoryName, int itemSubcategoryIndex,
 			String itemSubcategoryName, String itemName, String itemImage, float starRating, int itemPrice,
 			int itemDiscountPrice) {
 		super();
-		this.userIndex = userIndex;
+		this.orderItemIndex = orderItemIndex;
+		this.orderIndex = orderIndex;
 		this.itemIndex = itemIndex;
 		this.optionName = optionName;
 		this.optionQty = optionQty;
@@ -42,42 +43,20 @@ public class BasketItemVO {
 		this.itemDiscountPrice = itemDiscountPrice;
 	}
 
-	public BasketItemVO(int basketIndex, int userIndex, int itemIndex, String optionName, int optionQty,
-			int optionPrice, int itemCategoryIndex, String itemCategoryName, int itemSubcategoryIndex,
-			String itemSubcategoryName, String itemName, String itemImage, float starRating, int itemPrice,
-			int itemDiscountPrice) {
-		super();
-		this.basketIndex = basketIndex;
-		this.userIndex = userIndex;
-		this.itemIndex = itemIndex;
-		this.optionName = optionName;
-		this.optionQty = optionQty;
-		this.optionPrice = optionPrice;
-		this.itemCategoryIndex = itemCategoryIndex;
-		this.itemCategoryName = itemCategoryName;
-		this.itemSubcategoryIndex = itemSubcategoryIndex;
-		this.itemSubcategoryName = itemSubcategoryName;
-		this.itemName = itemName;
-		this.itemImage = itemImage;
-		this.starRating = starRating;
-		this.itemPrice = itemPrice;
-		this.itemDiscountPrice = itemDiscountPrice;
+	public int getOrderItemIndex() {
+		return orderItemIndex;
 	}
 
-	public int getBasketIndex() {
-		return basketIndex;
+	public void setOrderItemIndex(int orderItemIndex) {
+		this.orderItemIndex = orderItemIndex;
 	}
 
-	public void setBasketIndex(int basketIndex) {
-		this.basketIndex = basketIndex;
+	public int getOrderIndex() {
+		return orderIndex;
 	}
 
-	public int getUserIndex() {
-		return userIndex;
-	}
-
-	public void setUserIndex(int userIndex) {
-		this.userIndex = userIndex;
+	public void setOrderIndex(int orderIndex) {
+		this.orderIndex = orderIndex;
 	}
 
 	public int getItemIndex() {

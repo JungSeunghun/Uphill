@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+section {
+	display: flex;
+	width: 100%;
+	min-height: 500px;
+	align-items: center;
+	flex-direction: column;
+}
+
+#orderList {
+	display: flex;
+	border-bottom: 1px solid #c4c4c4;
+	margin-bottom: 80px;
+	width: max-content;
+}
+
+#orderItem {
+	display: flex;
+	width: max-content;
+	border-bottom: 1px solid #c4c4c4;
+	margin-bottom: 40px;
+	margin-right: 80px;
+}
+
+#orderItemInfo {
+	width: 224px;
+	display: flex;
+	flex-direction: column;
+}
+
+#orderItemInfoTop {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid #c4c4c4;
+	height: 144px;
+}
+
+#orderItemOptionName {
+	margin-bottom: 8px;
+}
+
+#orderItemInfoTopDiv {
+	width: 100%;
+}
+
+#basketInfoTop #optionQty{
+	width: 70%;
+	height: 24px;
+	border: 1px solid #c4c4c4;
+	background-color: #ffffff;
+	text-align: center;
+}
+
+#orderItemInfoBottom {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	flex-grow: 1;
+}
+
+#orderItemInfoBottom #orderPriceTitle{
+	font-size: 0.825rem;
+	color: #c4c4c4;
+}
+
+#orderItemInfoBottom #orderPrice{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#itemDiv {
+	width: 144px;
+	margin: 0px 8px 8px 0px;
+	cursor: pointer;
+}
+
+#itemImageDiv {
+	position: relative;
+	width: 100%;
+}
+#itemImageDiv:after {  
+	content: "";
+  	display: block;
+  	padding-bottom: 100%;
+}
+
+
+#itemImage {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#itemDiv #itemInfo {
+	display:flex;
+	flex-direction:column;
+}
+
+#itemInfo #itemName {	
+	font-weight: bold;
+	margin: 4px;
+}
+
+#itemInfo #itemPrice {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin: 4px;
+}
+
+#starDiv {
+	position: relative;
+	width: max-content;
+	margin: 4px;
+}
+
+#starDiv #emptyStar {
+}
+
+#starDiv #greenStar {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+}
+
+#emptyStar img {
+	width: 14px;
+}
+
+#greenStar #starWrap {
+	width: max-content;
+}
+
+#greenStar img {
+	width: 14px;
+}
+
+#orderInfo {
+	width: 304px;
+}
+
+#orderInfo #orderInfoTitle {
+	font-size: 0.825rem;
+	color: #c4c4c4;
+}
+
+#orderInfo #orderTotalPrice {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+#orderInfo #orderInfoContent {
+	margin-bottom: 40px;
+}

@@ -49,10 +49,9 @@ public class Order implements Action {
 			float starRating = itemVO.getStarRating();
 			int itemPrice = itemVO.getItemPrice();
 			int itemDiscountPrice = itemVO.getItemDiscountPrice();
-			int itemTotalQty = itemVO.getItemTotalQty();
 			
 			List<BasketItemVO> orderItemList = new ArrayList<BasketItemVO>();
-			BasketItemVO basketItemVO = new BasketItemVO(userIndex, itemIndex, optionName, optionQty, optionPrice, itemCategoryIndex, itemCategoryName, itemSubcategoryIndex, itemSubcategoryName, itemName, itemImage, starRating, itemPrice, itemDiscountPrice, itemTotalQty);
+			BasketItemVO basketItemVO = new BasketItemVO(userIndex, itemIndex, optionName, optionQty, optionPrice, itemCategoryIndex, itemCategoryName, itemSubcategoryIndex, itemSubcategoryName, itemName, itemImage, starRating, itemPrice, itemDiscountPrice);
 			orderItemList.add(basketItemVO);			
 			request.setAttribute("orderItemList", orderItemList);
 			request.setAttribute("isBasket", false);
