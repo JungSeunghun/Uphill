@@ -4,7 +4,7 @@ section {
 	display: flex;
 	width: 100%;
 	min-height: 500px;
-	justify-content: center;
+	padding-left: 244px;
 }
 
 section form {
@@ -186,4 +186,25 @@ section form {
 	background-color: #9ccc65;
 	border: 1px solid #9ccc65;
 	color: #ffffff;
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+	section {
+		display: flex;
+		width: 100%;
+		min-height: 500px;
+		justify-content: center;		
+		padding-left: 0px;
+	}
+}
+
+/*모바일*/
+@media screen and (max-width:767px) {
+	section {
+		display: flex;
+		width: 100%;
+		min-height: 500px;
+		justify-content: center;		
+		padding-left: 0px;
+	}
 }
