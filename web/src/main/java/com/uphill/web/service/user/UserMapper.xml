@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uphill.web.service.user.UserMapper">
 	<select id="selectOrderList" resultType="orderVO" parameterType="Integer">
-		select * from order_table where user_index = ${userIndex}
+		select * from order_table where user_index = #{userIndex}
 	</select>
 
 	<select id="selectOrderItemList" resultType="orderItemInfoVO" parameterType="List">
@@ -13,4 +13,23 @@
 			#{orderIndex}
 		</foreach>
 	</select>
+	
+	<update id="updateUser" parameterType="userVO">
+		update user_table 
+		set user_name = #{userName},
+			user_password = #{userPassword},
+			mobile_carrier = #{mobileCarrier},
+			phone_number = #{phoneNumber},
+			post_code = #{postCode},
+			address = #{address},
+			address_detail = #{addressDetail},
+			address_extra = #{addressExtra},
+			email = #{email}
+		where user_index = #{userIndex}
+	</update>
+	
+	<delete id="deleteUser" parameterType="Integer">\
+		delete from user_table
+		where user_index = #{userIndex}
+	</delete>
 </mapper>

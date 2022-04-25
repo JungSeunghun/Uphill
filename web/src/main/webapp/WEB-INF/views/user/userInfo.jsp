@@ -9,7 +9,7 @@
 <script type="text/javascript" src="${contextPath}/javascript/user/userInfo.js" ></script>
 
 <section>
-	<form action="${contextPath }/user/leave-action" name="f" method="post">
+	<form action="${contextPath }/user/user-leave-action" name="f" method="post">
 		<div id="userInfoName">${userVO.userName } 회원님 반갑습니다!</div>
 		<c:if test="${userVO.gradeIndex == 1 }">
 			<div id="userInfo">등급:&nbsp;실버</div>
