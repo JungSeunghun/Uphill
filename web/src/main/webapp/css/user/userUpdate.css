@@ -88,6 +88,22 @@ button:hover {
 	color: #ffffff;
 }
 
+#updateButton {
+	height: 28px;
+	width: 128px;
+	background-color: #ffffff;
+	border: 1px solid #9ccc65;
+	color: #9ccc65;
+	cursor: pointer;
+	margin-bottom: 80px;
+}
+
+#updateButton:hover {
+	background-color: #9ccc65;
+	border: 1px solid #9ccc65;
+	color: #ffffff;
+}
+
 @media (min-width:768px) and (max-width:1023px) {	
 	section {
 		display: flex;

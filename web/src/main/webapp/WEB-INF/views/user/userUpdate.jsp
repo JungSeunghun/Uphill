@@ -10,18 +10,18 @@
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
   
 <section>
-	<form action="/user/update-action" name="f" method="post">
+	<form action="${contextPath }/user/user-update-action" name="f" method="post">
 		<div id="updateFormDiv">
 			<div id="updateFormDivTitle">이름</div>
 			<input type="text" name="userName" value="${userVO.userName }">
 		</div>
 		<div id="updateFormDiv">
 			<div id="updateFormDivTitle">비밀번호</div>
-			<input type="text" name="">
+			<input type="text" name="userPassword">
 		</div>
 		<div id="updateFormDiv">
 			<div id="updateFormDivTitle">비밀번호 확인</div>
-			<input type="text" name="">
+			<input type="text" name="userPasswordCheck">
 		</div>
 		<div id="updateFormDiv">
 		 	<div id="updateFormDivTitle">이동통신사</div>
@@ -84,8 +84,15 @@
 			<div id="checkDuplicateEmailResult"></div>
 			<input type="hidden" id="canUseEmail" value="false">
 		</div>
+		<div id="updateFormDiv">
+			<div id="updateFormDivTitle">보안코드 입력</div>
+			<input type="text" id="secureCode">
+			<button type="button" onclick="checkSecureCode();">확인</button>
+			<div id="checkSecureCodeResult"></div>
+			<input type="hidden" id="isSecureCode" value="false">
+		</div>
 		<div>
-		<button type="button" onclick="userUpdate();">수정하기</button>
+		<button type="button" id="updateButton" onclick="userUpdate();">수정하기</button>
 	</div>
 	</form>
 </section>

@@ -26,14 +26,6 @@ function checkJoin2() {
 		return f.userPassword.select();
 	}
 	
-	if(!f.checkUserPassword.value){
-		alert("비밀번호를 입력하세요.");
-		return f.checkUserPassword.focus();
-	} else if(!regexpPassword.test(f.checkUserPassword.value)) {
-		alert("비밀번호는 6~20자리의 영어 대소문자와 숫자 그리고 일부 특수문자(!@#$%^&*()?_~)로만 입력가능합니다.");
-		return f.checkUserPassword.select();
-	}
-	
 	if(f.userPassword.value != f.checkUserPassword.value) {
 		alert("비밀번호가 서로 다릅니다.");
 		return f.checkUserPassword.select();
