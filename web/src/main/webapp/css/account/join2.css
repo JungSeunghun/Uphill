@@ -103,12 +103,6 @@ section #f button {
 	height: 28px;
 	background-color: #ffffff;
 	border: 1px solid #c4c4c4;
-}
-
-section #f button {
-	height: 28px;
-	background-color: #ffffff;
-	border: 1px solid #c4c4c4;
 	cursor: pointer;
 	padding: 0px 8px;
 }
