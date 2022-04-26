@@ -2,20 +2,27 @@ package com.uphill.web.dto;
 
 import java.util.List;
 
+import com.uphill.web.vo.AskVO;
+
 public class ItemPostInfoVO {
 	private ItemPostVO itemPostVO;
 	private List<ItemOptionVO> itemOptionList;
 	private ItemVO itemVO;
+	private List<ReviewVO> reviewList;
+	private List<AskVO> askList;
 	
 	public ItemPostInfoVO() {
 		super();
 	}
 
-	public ItemPostInfoVO(ItemPostVO itemPostVO, List<ItemOptionVO> itemOptionList, ItemVO itemVO) {
+	public ItemPostInfoVO(ItemPostVO itemPostVO, List<ItemOptionVO> itemOptionList, ItemVO itemVO,
+			List<ReviewVO> reviewList, List<AskVO> askList) {
 		super();
 		this.itemPostVO = itemPostVO;
 		this.itemOptionList = itemOptionList;
 		this.itemVO = itemVO;
+		this.reviewList = reviewList;
+		this.askList = askList;
 	}
 
 	public ItemPostVO getItemPostVO() {
@@ -40,6 +47,22 @@ public class ItemPostInfoVO {
 
 	public void setItemVO(ItemVO itemVO) {
 		this.itemVO = itemVO;
+	}
+
+	public List<ReviewVO> getReviewList() {
+		return reviewList;
+	}
+
+	public void setReviewList(List<ReviewVO> reviewList) {
+		this.reviewList = reviewList;
+	}
+
+	public List<AskVO> getAskList() {
+		return askList;
+	}
+
+	public void setAskList(List<AskVO> askList) {
+		this.askList = askList;
 	}
 	
 }

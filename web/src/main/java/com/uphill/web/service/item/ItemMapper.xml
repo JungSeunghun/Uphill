@@ -36,5 +36,15 @@
 		select * from item_option_table 
 		where item_index = #{itemIndex}
 	</select>
+	
+	<select id="selectReviewList" resultType="reviewVO" parameterType="Map">
+		select * from review_table
+		where item_index = #{itemIndex}
+	</select>
+
+	<select id="selectAskList" resultType="askVO" parameterType="Map">
+		select * from ask_table
+		where item_index = #{itemIndex}
+	</select>
 			
 </mapper>

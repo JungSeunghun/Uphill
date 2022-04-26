@@ -19,6 +19,8 @@
 		<typeAlias type="com.uphill.web.dto.OrderVO" alias="orderVO"/>
 		<typeAlias type="com.uphill.web.dto.OrderItemVO" alias="orderItemVO"/>
 		<typeAlias type="com.uphill.web.dto.OrderItemInfoVO" alias="orderItemInfoVO"/>
+		<typeAlias type="com.uphill.web.dto.ReviewVO" alias="reviewVO"/>
+		<typeAlias type="com.uphill.web.dto.AskVO" alias="askVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

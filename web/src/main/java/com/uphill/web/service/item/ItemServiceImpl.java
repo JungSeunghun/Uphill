@@ -1,6 +1,8 @@
 package com.uphill.web.service.item;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -9,6 +11,8 @@ import com.uphill.web.dto.ItemOptionVO;
 import com.uphill.web.dto.ItemPostInfoVO;
 import com.uphill.web.dto.ItemPostVO;
 import com.uphill.web.dto.ItemVO;
+import com.uphill.web.dto.ReviewVO;
+import com.uphill.web.vo.AskVO;
 
 public class ItemServiceImpl implements ItemService{
 	private SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
@@ -56,11 +60,19 @@ public class ItemServiceImpl implements ItemService{
 
 	@Override
 	public ItemPostInfoVO getItemPost(int itemIndex) {
+		Map<String, Integer> reviewParameterMap = new HashMap<String, Integer>();
+		Map<String, Integer> askParameterMap = new HashMap<String, Integer>();
+		reviewParameterMap.put("itemIndex", itemIndex);
+		reviewParameterMap.put(key, value)
+		reviewParameterMap.put(key, value)
+		
 		ItemPostVO itemPostVO = itemMapper.selectItemPost(itemIndex);
 		List<ItemOptionVO> itemOptionList = itemMapper.selectItemOptionList(itemIndex);
-		ItemVO itemVO = itemMapper.selectItem(itemIndex);
+		ItemVO itemVO = itemMapper.selectItem(itemIndex);		
+		List<ReviewVO> reviewList = itemMapper.selectReviewList(reviewParameterMap);
+		List<AskVO> askList = itemMapper.selectAskList(askParameterMap);
 		
-		ItemPostInfoVO itemPostInfoVO = new ItemPostInfoVO(itemPostVO, itemOptionList, itemVO);
+		ItemPostInfoVO itemPostInfoVO = new ItemPostInfoVO(itemPostVO, itemOptionList, itemVO, reviewList, askList);
 		
 		sqlSession.close();
 		
