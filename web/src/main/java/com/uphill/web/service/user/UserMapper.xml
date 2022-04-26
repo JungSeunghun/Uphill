@@ -23,13 +23,18 @@
 			post_code = #{postCode},
 			address = #{address},
 			address_detail = #{addressDetail},
-			address_extra = #{addressExtra},
-			email = #{email}
+			address_extra = #{addressExtra}
 		where user_index = #{userIndex}
 	</update>
 	
-	<delete id="deleteUser" parameterType="Integer">\
+	<delete id="deleteUser" parameterType="Integer">
 		delete from user_table
 		where user_index = #{userIndex}
 	</delete>
+	
+	<select id="selectUser" resultType="userVO" parameterType="Integer">
+		select user_index, grade_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, post_code, address, address_detail, address_extra, email, point, purchase, join_date
+		from user_table 
+		where user_index = #{userIndex}
+	</select>
 </mapper>

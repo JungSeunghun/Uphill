@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.uphill.web.dto.OrderItemVO;
 import com.uphill.web.dto.OrderVO;
+import com.uphill.web.dto.UserVO;
 
 public interface OrderMapper {
 	int selectOrderIndex();
@@ -13,4 +14,5 @@ public interface OrderMapper {
 	int insertOrderItemList(Map<String, List<OrderItemVO>> orderItemMap);
 	int updateUser(Map<String, Integer> map);
 	int deleteBasket(int userIndex);
+	UserVO selectUser(int userIndex);
 }

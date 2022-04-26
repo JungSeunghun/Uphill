@@ -13,7 +13,6 @@ public class UserUpdate implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		UserVO userVO = null;
 		if(session.getAttribute("userVO") != null && session.getAttribute("userVO") instanceof UserVO) {
 			return new ViewResolver("/views/user/userUpdate.tiles");
 		} else {

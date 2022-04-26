@@ -5,6 +5,6 @@ import com.uphill.web.dto.UserVO;
 
 public interface UserService {
 	OrderListVO getOrderList(int userIndex);
-	int updateUser(UserVO userVO);
+	UserVO updateUser(UserVO userVO);
 	int leaveUser(int userIndex);
 }

@@ -41,4 +41,10 @@
 		delete from basket_table
 		where user_index = #{userIndex}
 	</delete>
+	
+	<select id="selectUser" resultType="userVO" parameterType="Integer">
+		select user_index, grade_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, post_code, address, address_detail, address_extra, email, point, purchase, join_date
+		from user_table 
+		where user_index = #{userIndex}
+	</select>
 </mapper>

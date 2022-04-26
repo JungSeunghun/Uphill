@@ -62,16 +62,10 @@
 							</div>
 						</c:if>		
 					</c:forEach>
-					<c:set var="totalPrice" value="0"/>
-					<c:forEach var="orderItem" items="${orderItemList }">
-						<c:if test="${order.orderIndex == orderItem.orderIndex }">
-							<c:set var="totalPrice" value="${totalPrice + orderItem.optionPrice * orderItem.optionQty }"/>
-						</c:if>
-					</c:forEach>
 				</div>
 				<div id="orderInfo">
 					<div id="orderInfoTitle">총 주문금액</div>
-					<div id="orderTotalPrice"><fmt:formatNumber value="${totalPrice }" pattern="#,###" />원</div>
+					<div id="orderTotalPrice"><fmt:formatNumber value="${order.totalPrice }" pattern="#,###" />원</div>
 					<div id="orderInfoTitle">수령인</div>
 					<div id="orderInfoContent">${order.recipient }</div>
 					<div id="orderInfoTitle">배송주소</div>
@@ -80,6 +74,8 @@
 						<div id="orderInfoTitle">배송요청</div>
 						<div id="orderInfoContent">${order.deliverRequest }</div>
 					</c:if>
+					<div id="orderInfoTitle">배송시간</div>
+					<div id="orderInfoContent">${order.orderTime }</div>
 				</div>
 			</div>
 		</c:forEach>

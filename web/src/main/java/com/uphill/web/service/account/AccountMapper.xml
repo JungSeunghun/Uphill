@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uphill.web.service.account.AccountMapper">
 	<select id="selectUser" resultType="userVO" parameterType="Integer">
-		select user_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, email 
+		select user_index, grade_index, user_id, user_name, gender, birth, mobile_carrier, phone_number, post_code, address, address_detail, address_extra, email, point, purchase, join_date
 		from user_table 
-		where user_id = #{userId}
+		where user_index = #{userIndex}
 	</select>
 	
 	<select id="selectLoginUser" resultType="userVO" parameterType="userVO">
@@ -16,8 +16,8 @@
 	</select>
 	
 	<insert id="insertUser" parameterType="userVO">
-		insert into user_table(user_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, address, address_detail, address_extra, email, personal_agree, unique_agree, mobile_agree, use_agree)
-		values(#{userId}, #{userPassword}, #{userName}, #{gender}, #{birth}, #{mobileCarrier}, #{phoneNumber}, #{address}, #{addressDetail}, #{addressExtra}, #{email}, #{personalAgree}, #{uniqueAgree}, #{mobileAgree}, #{useAgree})
+		insert into user_table(user_id, user_password, user_name, gender, birth, mobile_carrier, phone_number, post_code, address, address_detail, address_extra, email, personal_agree, unique_agree, mobile_agree, use_agree)
+		values(#{userId}, #{userPassword}, #{userName}, #{gender}, #{birth}, #{mobileCarrier}, #{phoneNumber}, #{postCode}, #{address}, #{addressDetail}, #{addressExtra}, #{email}, #{personalAgree}, #{uniqueAgree}, #{mobileAgree}, #{useAgree})
 	</insert>
 		
 	<select id="selectUserId" resultType="String" parameterType="userVO">

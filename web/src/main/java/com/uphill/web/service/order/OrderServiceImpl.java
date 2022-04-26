@@ -9,14 +9,14 @@ import org.apache.ibatis.session.SqlSession;
 import com.uphill.web.database.mybatis.MybatisSessionFactory;
 import com.uphill.web.dto.OrderItemVO;
 import com.uphill.web.dto.OrderVO;
+import com.uphill.web.dto.UserVO;
 
 public class OrderServiceImpl implements OrderService{
 	private SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 	private OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
 
 	@Override
-	public int order(OrderVO orderVO, OrderItemVO orderItemVO, int purchase) {
-		int result = 0;
+	public UserVO order(OrderVO orderVO, OrderItemVO orderItemVO, int purchase) {
 		Map<String, Integer> updateUsereMap = new HashMap<String, Integer>();
 		int usePoint = orderVO.getUsePoint();
 		int point = orderVO.getPoint();
@@ -36,19 +36,19 @@ public class OrderServiceImpl implements OrderService{
 		
 		if(insertOrderResult > 0 && insertOrderItemResult > 0 && updateUserResult > 0) {
 			sqlSession.commit();
-			result = insertOrderResult + insertOrderItemResult + updateUserResult;
 		} else {
 			sqlSession.rollback();
 		}
 		
+		UserVO userVO = orderMapper.selectUser(userIndex);
+		
 		sqlSession.close();
 		
-		return result;
+		return userVO;
 	}
 	
 	@Override
-	public int orderBasket(OrderVO orderVO, List<OrderItemVO> orderItemList, int purchase) {
-		int result = 0;
+	public UserVO orderBasket(OrderVO orderVO, List<OrderItemVO> orderItemList, int purchase) {
 		Map<String, List<OrderItemVO>> orderItemMap = new HashMap<String, List<OrderItemVO>>();
 		Map<String, Integer> updateUsereMap = new HashMap<String, Integer>();
 		int usePoint = orderVO.getUsePoint();
@@ -73,14 +73,15 @@ public class OrderServiceImpl implements OrderService{
 		
 		if(insertOrderResult > 0 && insertOrderItemResult > 0 && updateUserResult > 0 && deleteBasketResult > 0) {
 			sqlSession.commit();
-			result = insertOrderResult + insertOrderItemResult + updateUserResult + deleteBasketResult;
 		} else {
 			sqlSession.rollback();
 		}
 		
+		UserVO userVO = orderMapper.selectUser(userIndex);
+
 		sqlSession.close();
 		
-		return result;
+		return userVO;
 	}
 	
 }

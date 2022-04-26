@@ -20,7 +20,7 @@ public class UserUpdateAction implements Action {
 		if(session.getAttribute("userVO") != null && session.getAttribute("userVO") instanceof UserVO) {
 			currentUserVO = (UserVO)session.getAttribute("userVO");			
 		} else {
-			return new ViewResolver("/account/login", true);
+			return new ViewResolver("/home/home", true);
 		}
 		
 		String userName = request.getParameter("userName");
@@ -31,7 +31,6 @@ public class UserUpdateAction implements Action {
 		String address = request.getParameter("address");
 		String addressDetail = request.getParameter("addressDetail");
 		String addressExtra = request.getParameter("addressExtra");
-		String email = request.getParameter("emailId") + request.getParameter("emailAddress");
 		
 		UserVO userVO = new UserVO();
 		userVO.setUserIndex(currentUserVO.getUserIndex());
@@ -40,15 +39,15 @@ public class UserUpdateAction implements Action {
 		userVO.setMobileCarrier(mobileCarrier);
 		userVO.setPhoneNumber(phoneNumber);
 		userVO.setPostCode(postCode);
-		userVO.setAddress(addressExtra);
+		userVO.setAddress(address);
 		userVO.setAddressDetail(addressDetail);
 		userVO.setAddressExtra(addressExtra);
-		userVO.setEmail(email);
 		
 		UserService userService = new UserServiceImpl();
-		userService.updateUser(userVO);
-				
-		return new ViewResolver("/user/user-update");
+		UserVO newUserVO = userService.updateUser(userVO);
+		session.setAttribute("userVO", newUserVO);
+		
+		return new ViewResolver("/user/user-update", true);
 	}
 
 }

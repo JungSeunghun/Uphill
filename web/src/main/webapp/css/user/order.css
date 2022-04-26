@@ -11,6 +11,10 @@ section form {
 	display: flex;
 }
 
+section form label {
+	cursor: pointer;
+}
+
 #orderItem {
 	display: flex;
 	width: max-content;

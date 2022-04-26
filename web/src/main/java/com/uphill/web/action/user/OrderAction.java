@@ -44,12 +44,13 @@ public class OrderAction implements Action {
 		int usePoint = Integer.parseInt(request.getParameter("usePoint"));
 		String deliverRequest = request.getParameter("deliverRequest");
 		String payment = request.getParameter("payment");
-		int totalPrice = Integer.parseInt(request.getParameter("totalPrice")) - point;
+		int totalPrice = Integer.parseInt(request.getParameter("totalPrice")) - usePoint;
 		
 		OrderVO orderVO = new OrderVO(userIndex, recipient, postCode, address, addressDetail, addressExtra, mobileCarrier, phoneNumber, point, usePoint, deliverRequest, payment, totalPrice);
 		
 		OrderService orderService = new OrderServiceImpl();
-		orderService.order(orderVO, orderItemVO, userVO.getPurchase());
+		UserVO newUserVO = orderService.order(orderVO, orderItemVO, userVO.getPurchase());
+		session.setAttribute("userVO", newUserVO);
 		
 		return new ViewResolver("/user/order-list", true);
 	}

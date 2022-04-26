@@ -11,4 +11,5 @@ public interface UserMapper {
 	List<OrderItemInfoVO> selectOrderItemList(List<Integer> orderListIndex);
 	int updateUser(UserVO userVO);
 	int deleteUser(int userIndex);
+	UserVO selectUser(int userIndex);
 }

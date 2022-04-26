@@ -27,6 +27,8 @@ public class UserLeaveAction implements Action {
 		UserService userService = new UserServiceImpl();
 		userService.leaveUser(userIndex);
 		
+		session.removeAttribute("userVO");
+		
 		return new ViewResolver("/home/home");
 	}
 

@@ -122,7 +122,7 @@ function checkOrder() {
 		return false;
 	}
 	
-	if(userPoint < 0) {
+	if(f.usePoint.value < 0) {
 		alert("포인트를 잘못입력했습니다.");
 		return false;
 	}

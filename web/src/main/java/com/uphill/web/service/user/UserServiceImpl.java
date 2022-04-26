@@ -18,14 +18,17 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public OrderListVO getOrderList(int userIndex) {
+		OrderListVO orderListVO = null;
 		List<OrderVO> orderList = orderMapper.selectOrderList(userIndex);
-		List<Integer> orderIndexList = new ArrayList<Integer>();
-		for(OrderVO orderVo : orderList) {
-			orderIndexList.add(orderVo.getOrderIndex());
+		if(orderList.size() != 0) {			
+			List<Integer> orderIndexList = new ArrayList<Integer>();
+			for(OrderVO orderVo : orderList) {
+				orderIndexList.add(orderVo.getOrderIndex());
+			}
+			List<OrderItemInfoVO> orderItemList = orderMapper.selectOrderItemList(orderIndexList);
+			
+			orderListVO = new OrderListVO(orderList, orderItemList);	
 		}
-		List<OrderItemInfoVO> orderItemList = orderMapper.selectOrderItemList(orderIndexList);
-		
-		OrderListVO orderListVO = new OrderListVO(orderList, orderItemList);	
 		
 		sqlSession.close();
 		
@@ -33,17 +36,31 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int updateUser(UserVO userVO) {
+	public UserVO updateUser(UserVO userVO) {
 		int result = orderMapper.updateUser(userVO);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		UserVO newUserVO = orderMapper.selectUser(userVO.getUserIndex());
 		
 		sqlSession.close();
 		
-		return result;
+		return newUserVO;
 	}
 
 	@Override
 	public int leaveUser(int userIndex) {
 		int result = orderMapper.deleteUser(userIndex);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
 		
 		sqlSession.close();
 		

@@ -27,9 +27,10 @@ public class OrderList implements Action {
 		UserService userService = new UserServiceImpl();
 		
 		OrderListVO orderListVO = userService.getOrderList(userVO.getUserIndex());
-		
-		request.setAttribute("orderList", orderListVO.getOrderList());
-		request.setAttribute("orderItemList", orderListVO.getOrderItemInfoList());
+		if(orderListVO != null) {			
+			request.setAttribute("orderList", orderListVO.getOrderList());
+			request.setAttribute("orderItemList", orderListVO.getOrderItemInfoList());
+		}
 		
 		return new ViewResolver("/views/user/orderList.tiles");
 	}

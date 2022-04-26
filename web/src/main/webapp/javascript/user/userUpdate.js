@@ -8,9 +8,9 @@ function userUpdate() {
 	const regexpCallMiddleNumber = /^\d{3,4}$/;
 	const regexpCallLastNumber = /^\d{4}$/;
 	
-	if(!f.name.value) {
+	if(!f.userName.value) {
 		alert("이름을 입력하세요.");
-		return false;
+		return f.userName.focus();
 	} else if (!regexpName.test(f.userName.value)) {
 		alert("이름을 잘못입력했습니다.");
 		return f.userName.select();
@@ -18,7 +18,7 @@ function userUpdate() {
 	
 	if(!f.userPassword.value) {
 		alert("비밀번호를 입력하세요.");
-		return false;
+		return f.userPassword.focus();
 	} else if(!regexpPassword.test(f.userPassword.value)) {
 		alert("비밀번호는 6~20자리의 영어 대소문자와 숫자 그리고 일부 특수문자(!@#$%^&*()?_~)로만 입력가능합니다.");
 		return f.userPassword.select();
@@ -26,7 +26,7 @@ function userUpdate() {
 	
 	if(f.userPassword.value !== f.userPasswordCheck.value) {
 		alert("비밀번호가 다릅니다.");
-		return false;
+		return f.userPasswordCheck.select();
 	}
 	if (!f.mobileCarrier.value) {
 		alert("이동통신사를 입력하세요.");
@@ -63,35 +63,7 @@ function userUpdate() {
 		alert("상세주소를 입력하세요.");
 		return f.addressDetail.focus();
 	}
-	
-	if(!f.emailId.value){
-		alert("이메일아이디를 입력하세요.");
-		return f.emailId.focus();
-	} else if(!regexpId.test(f.emailId.value)) {
-		alert("이메일아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
-		return f.emailId.select();
-	}
-	
-	if (!f.emailAddress.value) {
-		alert("이메일주소를 선택하세요.");
-		return;
-	}
-	
-	if (f.canUseEmail.value !== "true") {
-		alert("보안코드를 다시 전송하세요.");
-		return;
-	}
-
-	if (!f.secureCode.value) {
-		alert("보안코드를 입력하세요.");
-		return;
-	}
-
-	if (f.isSecureCode.value !== "true") {
-		alert("보안코드를 잘못 입력하셨습니다.");
-		return;
-	}
-	
+		
 	f.submit();
 }
 
@@ -167,85 +139,17 @@ function foldDaumPostcode() {
 	document.getElementById('wrap').style.display = 'none';
 }
 
-function sendSecureCode() {
-	const httpRequest = new XMLHttpRequest();
-	const emailId = document.getElementById("emailId").value;
-	const emailAddress = document.getElementById("emailAddress").value;
-	
-	const regexpId = /^[a-zA-Z0-9_]{4,20}$/;
-		
-	if(emailId==="") {
-		alert("이메일을 입력하세요.");
-		return;
-	} else if(!regexpId.test(emailId.value)) {
-		alert("이메일 아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
-		return f.userEnterId.select();
+/**
+ * 전화번호 입력시 자동으로 넘어가기
+ */
+function moveNumber(event) {
+	if(f.middlePhoneNumber.value.length === f.middlePhoneNumber.maxLength) {
+		f.lastPhoneNumber.focus();
 	}
 	
-	if(emailAddress==="") {
-		alert("이메일 주소를 선택하세요.");
-		return;
+	if(event.keyCode === 8) { // keyCode 8 = backspace
+		if(f.lastPhoneNumber.value.length === 0) {
+			f.middlePhoneNumber.focus();
+		}
 	}
-
-	var reqJson = new Object();
-	reqJson.email = emailId + emailAddress;
-	httpRequest.onreadystatechange = () => {
-		if (httpRequest.readyState === XMLHttpRequest.DONE) {
-			if (httpRequest.status === 200) {
-		    	var result = httpRequest.response;
-		    	if(result.isDuplicateEmail.at(0) === "false") { // 존재하지 않는 이메일일 경우
-		    		document.getElementById("checkDuplicateEmailResult").innerText = "보안코드를 이메일로 전송했습니다.";		    		
-		    		document.getElementById("canUseEmail").value = "true";		    		
-		    	} else { // 존재하는 이메일일 경우
-		    		document.getElementById("checkDuplicateEmailResult").innerText = "이미 존재하는 이메일 입니다.";			    					    		
-		    		document.getElementById("canUseEmail").value = "false";		    		
-		    	}			    	
-		    } else {
-		    	alert('request error');
-		    }
-		}		
-    };
-    document.getElementById("checkDuplicateEmailResult").innerText = "잠시만 기다려주세요.";
-    httpRequest.open('POST', 'check-duplicate-email-action', true);
-    httpRequest.responseType = "json";
-    httpRequest.setRequestHeader('Content-Type', 'application/json');
-    httpRequest.send(JSON.stringify(reqJson));
-}
-
-function changedEmail() {
-	document.getElementById("canUseEmail").value = "false";
-}
-
-function checkSecureCode() {
-	const httpRequest = new XMLHttpRequest();
-	
-	const secureCode = document.getElementById("secureCode").value;
-	if(secureCode == "") {
-		alert("보안코드를 입력해주세요.");
-		return f.secureCode.select();
-	}
-	
-	var reqJson = new Object();
-	reqJson.secureCode = secureCode;
-	httpRequest.onreadystatechange = () => {
-		if (httpRequest.readyState === XMLHttpRequest.DONE) {
-			if (httpRequest.status === 200) {
-		    	var result = httpRequest.response;
-		    	if(result.isSecureCodeCheck.at(0) === "true") {
-		    		document.getElementById("checkSecureCodeResult").innerText = "확인되었습니다.";		    		
-		    		document.getElementById("isSecureCode").value = "true";		    		
-		    	} else {
-		    		document.getElementById("checkSecureCodeResult").innerText = "잘못된 보안코드입니다.";			    					    		
-		    		document.getElementById("isSecureCode").value = "false";		    		
-		    	}			    	
-		    } else {
-		    	alert('request error');
-		    }
-		}		
-    };
-    document.getElementById("checkSecureCodeResult").innerText = "잠시만 기다려주세요.";
-    httpRequest.open('POST', 'check-secure-code-action', true);
-    httpRequest.responseType = "json";
-    httpRequest.setRequestHeader('Content-Type', 'application/json');
-    httpRequest.send(JSON.stringify(reqJson));
 }
