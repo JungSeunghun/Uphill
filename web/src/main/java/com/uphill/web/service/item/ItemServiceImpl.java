@@ -63,8 +63,8 @@ public class ItemServiceImpl implements ItemService{
 		Map<String, Integer> reviewParameterMap = new HashMap<String, Integer>();
 		Map<String, Integer> askParameterMap = new HashMap<String, Integer>();
 		reviewParameterMap.put("itemIndex", itemIndex);
-		reviewParameterMap.put(key, value)
-		reviewParameterMap.put(key, value)
+		reviewParameterMap.put(key, value);
+		reviewParameterMap.put(key, value);
 		
 		ItemPostVO itemPostVO = itemMapper.selectItemPost(itemIndex);
 		List<ItemOptionVO> itemOptionList = itemMapper.selectItemOptionList(itemIndex);
