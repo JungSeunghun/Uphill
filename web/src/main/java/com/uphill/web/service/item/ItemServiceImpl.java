@@ -59,12 +59,15 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public ItemPostInfoVO getItemPost(int itemIndex) {
+	public ItemPostInfoVO getItemPost(int itemIndex, int reviewStartNum, int askStartNum) {
 		Map<String, Integer> reviewParameterMap = new HashMap<String, Integer>();
 		Map<String, Integer> askParameterMap = new HashMap<String, Integer>();
 		reviewParameterMap.put("itemIndex", itemIndex);
-		reviewParameterMap.put(key, value);
-		reviewParameterMap.put(key, value);
+		reviewParameterMap.put("startNum", reviewStartNum);
+		reviewParameterMap.put("count", 5);
+		askParameterMap.put("itemIndex", itemIndex);
+		askParameterMap.put("startNum", askStartNum);
+		askParameterMap.put("count", 5);
 		
 		ItemPostVO itemPostVO = itemMapper.selectItemPost(itemIndex);
 		List<ItemOptionVO> itemOptionList = itemMapper.selectItemOptionList(itemIndex);

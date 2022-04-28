@@ -34,11 +34,11 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/uphill/web/service/account/AccountMapper.xml" />
-		<mapper resource="com/uphill/web/service/home/HomeMapper.xml" />
-		<mapper resource="com/uphill/web/service/item/ItemMapper.xml" />
-		<mapper resource="com/uphill/web/service/basket/BasketMapper.xml" />
-		<mapper resource="com/uphill/web/service/order/OrderMapper.xml" />
-		<mapper resource="com/uphill/web/service/user/UserMapper.xml" />
+		<mapper resource="/AccountMapper.xml" />
+		<mapper resource="/HomeMapper.xml" />
+		<mapper resource="/ItemMapper.xml" />
+		<mapper resource="/BasketMapper.xml" />
+		<mapper resource="/OrderMapper.xml" />
+		<mapper resource="/UserMapper.xml" />
 	</mappers>
 </configuration>

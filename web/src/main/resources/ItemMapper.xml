@@ -40,15 +40,16 @@
 	<select id="selectReviewList" resultType="reviewVO" parameterType="Map">
 		select * from review_table
 		where item_index = #{itemIndex}
-		order by post_date desc
+		order by review_index desc
 		limit ${startNum}, ${count}
 	</select>
 
 	<select id="selectAskList" resultType="askVO" parameterType="Map">
-		select * from ask_table
+		select ask_index, ask_group_index, ask_group_level, item_index, user_id, post_date, title, hits 
+		from ask_table
 		where item_index = #{itemIndex}
-		order by post_date desc
-		limit ${startNum}, ${count}
+		order by ask_group_index desc
+		limit #{startNum}, #{count}
 	</select>
 			
 </mapper>

@@ -22,9 +22,17 @@ public class ItemInfo implements Action {
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 
 		int id = Integer.parseInt(request.getParameter("id"));
+		int reviewPage = 0;
+		int askPage = 0;
+		if(request.getParameter("reviewPage") != null) {
+			reviewPage = Integer.parseInt(request.getParameter("reviewPage"));
+		}
+		if(request.getParameter("askPage") != null) {
+			askPage = Integer.parseInt(request.getParameter("askPage"));			
+		}
 		
 		ItemService itemService = new ItemServiceImpl();
-		ItemPostInfoVO itemPostInfo = itemService.getItemPost(id);
+		ItemPostInfoVO itemPostInfo = itemService.getItemPost(id, reviewPage, askPage);
 		ItemPostVO itemPost = itemPostInfo.getItemPostVO();
 		ItemVO item = itemPostInfo.getItemVO();
 		List<ItemOptionVO> itemOptionList = itemPostInfo.getItemOptionList();

@@ -7,11 +7,11 @@ import com.uphill.web.dto.ItemPostInfoVO;
 import com.uphill.web.dto.ItemVO;
 
 public interface ItemService {
-	ItemVO getItem(int id);
+	ItemVO getItem(int itemIndex);
 	List<ItemVO> getItemList();	
 	List<ItemVO> getItemListWithCategory(int categoryIndex);	
 	List<ItemVO> getBicycleList();	
 	List<ItemVO> getBicycleListWithSubcategory(int subcategoryIndex);
-	ItemPostInfoVO getItemPost(int id);
-	List<ItemOptionVO> getItemOptionList(int id);
+	ItemPostInfoVO getItemPost(int itemIndex, int reviewStartNum, int askStartNum);
+	List<ItemOptionVO> getItemOptionList(int itemIndex);
 }
