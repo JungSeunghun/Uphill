@@ -7,12 +7,12 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.uphill.web.database.mybatis.MybatisSessionFactory;
+import com.uphill.web.dto.AskVO;
 import com.uphill.web.dto.ItemOptionVO;
 import com.uphill.web.dto.ItemPostInfoVO;
 import com.uphill.web.dto.ItemPostVO;
 import com.uphill.web.dto.ItemVO;
 import com.uphill.web.dto.ReviewVO;
-import com.uphill.web.vo.AskVO;
 
 public class ItemServiceImpl implements ItemService{
 	private SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();

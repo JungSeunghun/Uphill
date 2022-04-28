@@ -32,15 +32,45 @@
 		
 		<div id="itemReview">
 			<div id="itemReviewTitle">제품 후기</div>
-			<c:forEach var="i" items="">
-			</c:forEach>
+			<table>
+				<tr>
+					<th>아이디</th>
+					<th>제목</th>
+					<th>작성일</th>
+					<th>추천수</th>
+					<th>조회수</th>
+				</tr>
+				<c:forEach var="review" items="${reviewList }">
+					<tr>
+						<th>${review.userId }</th>
+						<th>${review.title }(${review.starRating })</th>
+						<th>${review.postDate }</th>
+						<th>${review.recommend }</th>
+						<th>${review.hits }</th>
+					</tr>
+				</c:forEach>
+			</table>
 			<button onclick="href='${contextPath }/item/review'">후기남기기</button>
 		</div>
 		
 		<div id="itemAsk">
 			<div id="itemAskTitle">제품 문의</div>
-			<c:forEach var="i" items="">
-			</c:forEach>
+			<table>
+				<tr>
+					<th>아이디</th>
+					<th>제목</th>
+					<th>작성일</th>
+					<th>조회수</th>
+				</tr>
+				<c:forEach var="ask" items="${askList }">
+					<tr>
+						<th>${ask.userId }</th>
+						<th>${ask.title }</th>
+						<th>${ask.postDate }</th>
+						<th>${ask.hits }</th>
+					</tr>
+				</c:forEach>
+			</table>
 			<button onclick="href='${contextPath }/item/ask'">문의하기</button>
 		</div>
 		

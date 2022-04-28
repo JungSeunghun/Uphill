@@ -2,8 +2,6 @@ package com.uphill.web.dto;
 
 import java.util.List;
 
-import com.uphill.web.vo.AskVO;
-
 public class ItemPostInfoVO {
 	private ItemPostVO itemPostVO;
 	private List<ItemOptionVO> itemOptionList;
