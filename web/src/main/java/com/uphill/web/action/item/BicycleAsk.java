@@ -10,7 +10,9 @@ public class BicycleAsk implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		int itemIndex = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("itemIndex", itemIndex);
+		
 		return new ViewResolver("/views/item/bicycleAsk.tiles");
 	}
 

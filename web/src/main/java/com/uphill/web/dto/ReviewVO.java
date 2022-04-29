@@ -17,7 +17,17 @@ public class ReviewVO {
 	public ReviewVO() {
 		super();
 	}
-	
+		
+	public ReviewVO(int itemIndex, String userId, String title, String content, float starRating, String imageFile) {
+		super();
+		this.itemIndex = itemIndex;
+		this.userId = userId;
+		this.title = title;
+		this.content = content;
+		this.starRating = starRating;
+		this.imageFile = imageFile;
+	}
+
 	public ReviewVO(int reviewIndex, int itemIndex, String userId, Date postDate, String title, String content,
 			float starRating, String imageFile, int hits, int recommend) {
 		super();
