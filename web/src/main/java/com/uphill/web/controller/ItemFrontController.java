@@ -24,7 +24,9 @@ import com.uphill.web.action.item.LightList;
 import com.uphill.web.action.item.LockList;
 import com.uphill.web.action.item.MiniveloList;
 import com.uphill.web.action.item.MtbList;
+import com.uphill.web.action.item.ReviewAction;
 import com.uphill.web.action.item.RoadList;
+import com.uphill.web.action.item.AskAction;
 import com.uphill.web.action.item.BicycleAsk;
 import com.uphill.web.viewresolver.ViewResolver;
 
@@ -52,6 +54,9 @@ public class ItemFrontController extends HttpServlet{
 		actionMap.put("/item/item/review", new ItemReview());
 		actionMap.put("/item/bicycle/ask", new BicycleAsk());
 		actionMap.put("/item/item/ask", new ItemAsk());
+
+		actionMap.put("/item/ask-action", new AskAction());
+		actionMap.put("/item/review-action", new ReviewAction());
 	}
 	
 	@Override

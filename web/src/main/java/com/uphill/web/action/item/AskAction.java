@@ -6,14 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class BicycleReview implements Action {
+public class AskAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
-		int itemIndex = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("itemIndex", itemIndex);
-		
-		return new ViewResolver("/views/item/bicycleReview.tiles");
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

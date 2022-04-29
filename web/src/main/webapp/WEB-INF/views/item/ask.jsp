@@ -9,19 +9,19 @@
 <script type="text/javascript" src="${contextPath}/javascript/item/ask.js" ></script>
     
 <section>
-	<div id="title">문의하기</div>
-	<form action="" name="f" method="post" enctype="multipart/form-data">
+	<div id="mainTitle">문의하기</div>
+	<form action="${contextPath }/item/ask-action?id=${itemIndex}" name="f" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>제목</td>
 				<td>
-					<input id="askTitle" type="text">
+					<input name="title" id="title" type="text">
 				</td>
 			</tr>
 			<tr>
 				<td>내용</td>
 				<td>
-					<textarea id="askContent"></textarea>
+					<textarea name="content" id="content"></textarea>
 				</td>
 			</tr>
 			<tr>

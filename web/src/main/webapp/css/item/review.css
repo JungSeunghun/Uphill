@@ -10,7 +10,7 @@ section {
 	align-items: center;
 }
 
-#title {
+#mainTitle {
 	font-size: 2rem;
 	margin-bottom: 24px;
 }
@@ -19,13 +19,13 @@ td {
 	padding: 8px;
 }
 
-#reviewTitle {
+#title {
 	border: 1px solid #c4c4c4;
 	width: 500px;
 	height: 24px;
 }
 
-#reviewContent {
+#content {
 	border: 1px solid #c4c4c4;
 	width: 500px;
 	height: 300px;
