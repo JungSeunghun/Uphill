@@ -8,19 +8,23 @@ public class ItemPostInfoVO {
 	private ItemVO itemVO;
 	private List<ReviewVO> reviewList;
 	private List<AskVO> askList;
+	int reviewCount;
+	int askCount;
 	
 	public ItemPostInfoVO() {
 		super();
 	}
 
 	public ItemPostInfoVO(ItemPostVO itemPostVO, List<ItemOptionVO> itemOptionList, ItemVO itemVO,
-			List<ReviewVO> reviewList, List<AskVO> askList) {
+			List<ReviewVO> reviewList, List<AskVO> askList, int reviewCount, int askCount) {
 		super();
 		this.itemPostVO = itemPostVO;
 		this.itemOptionList = itemOptionList;
 		this.itemVO = itemVO;
 		this.reviewList = reviewList;
 		this.askList = askList;
+		this.reviewCount = reviewCount;
+		this.askCount = askCount;
 	}
 
 	public ItemPostVO getItemPostVO() {
@@ -61,6 +65,22 @@ public class ItemPostInfoVO {
 
 	public void setAskList(List<AskVO> askList) {
 		this.askList = askList;
+	}
+
+	public int getReviewCount() {
+		return reviewCount;
+	}
+
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
+	}
+
+	public int getAskCount() {
+		return askCount;
+	}
+
+	public void setAskCount(int askCount) {
+		this.askCount = askCount;
 	}
 	
 }

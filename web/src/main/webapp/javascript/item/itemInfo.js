@@ -121,3 +121,19 @@ function checkBasket(contextPath) {
 	f.action = contextPath + "/user/basket-action";
 	f.submit();
 }
+
+/*
+ * 포스트 보여주기
+ */
+function showPost(index) {
+	post = document.getElementById(index);
+	if(post.style.display === 'none') {
+		post.style.display = 'table-row';		
+	} else {
+		post.style.display = 'none';
+	}
+}
+
+
+
+

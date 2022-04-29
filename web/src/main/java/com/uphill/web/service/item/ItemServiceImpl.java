@@ -59,23 +59,28 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public ItemPostInfoVO getItemPost(int itemIndex, int reviewStartNum, int askStartNum) {
+	public ItemPostInfoVO getItemPost(int itemIndex, int reviewPage, int reviewCount, int askPage, int askCount) {
+		int reviewStartNum = (reviewPage - 1) * reviewCount ;
+		int askStartNum = (askPage - 1) * askCount;
+		
 		Map<String, Integer> reviewParameterMap = new HashMap<String, Integer>();
 		Map<String, Integer> askParameterMap = new HashMap<String, Integer>();
 		reviewParameterMap.put("itemIndex", itemIndex);
 		reviewParameterMap.put("startNum", reviewStartNum);
-		reviewParameterMap.put("count", 5);
+		reviewParameterMap.put("count", reviewCount);
 		askParameterMap.put("itemIndex", itemIndex);
 		askParameterMap.put("startNum", askStartNum);
-		askParameterMap.put("count", 5);
+		askParameterMap.put("count", askCount);
 		
 		ItemPostVO itemPostVO = itemMapper.selectItemPost(itemIndex);
 		List<ItemOptionVO> itemOptionList = itemMapper.selectItemOptionList(itemIndex);
 		ItemVO itemVO = itemMapper.selectItem(itemIndex);		
 		List<ReviewVO> reviewList = itemMapper.selectReviewList(reviewParameterMap);
 		List<AskVO> askList = itemMapper.selectAskList(askParameterMap);
+		int totalReviewCount = itemMapper.selectReviewCount();
+		int totalAskCount = itemMapper.selectAskCount();
 		
-		ItemPostInfoVO itemPostInfoVO = new ItemPostInfoVO(itemPostVO, itemOptionList, itemVO, reviewList, askList);
+		ItemPostInfoVO itemPostInfoVO = new ItemPostInfoVO(itemPostVO, itemOptionList, itemVO, reviewList, askList, totalReviewCount, totalAskCount);
 		
 		sqlSession.close();
 		

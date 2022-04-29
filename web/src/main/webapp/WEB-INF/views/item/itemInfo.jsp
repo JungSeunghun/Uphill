@@ -32,21 +32,28 @@
 		
 		<div id="itemReview">
 			<div id="itemReviewTitle">제품 후기</div>
-			<table>
-				<tr>
-					<th>아이디</th>
-					<th>제목</th>
-					<th>작성일</th>
-					<th>추천수</th>
-					<th>조회수</th>
-				</tr>
-				<c:forEach var="review" items="${reviewList }">
+			<table id="postTable">
+				<thead>
 					<tr>
-						<th>${review.userId }</th>
-						<th>${review.title }(${review.starRating })</th>
-						<th>${review.postDate }</th>
-						<th>${review.recommend }</th>
-						<th>${review.hits }</th>
+						<td>아이디</td>
+						<td>제목</td>
+						<td>작성일</td>
+						<td>추천수</td>
+						<td>조회수</td>
+					</tr>
+				</thead>
+				<c:forEach var="review" items="${reviewList }">
+					<tr id="post" onclick="showPost('r-${review.reviewIndex}')">
+						<td>${review.userId }</td>
+						<td>${review.title }(${review.starRating })</td>
+						<td>${review.postDate }</td>
+						<td>${review.recommend }</td>
+						<td>${review.hits }</td>
+					</tr>
+					<tr id="r-${review.reviewIndex }" style="display:none;">
+						<td colspan="5">
+							${review.content }
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -55,19 +62,26 @@
 		
 		<div id="itemAsk">
 			<div id="itemAskTitle">제품 문의</div>
-			<table>
-				<tr>
-					<th>아이디</th>
-					<th>제목</th>
-					<th>작성일</th>
-					<th>조회수</th>
-				</tr>
-				<c:forEach var="ask" items="${askList }">
+			<table id="postTable">
+				<thead>
 					<tr>
-						<th>${ask.userId }</th>
-						<th>${ask.title }</th>
-						<th>${ask.postDate }</th>
-						<th>${ask.hits }</th>
+						<td>아이디</td>
+						<td>제목</td>
+						<td>작성일</td>
+						<td>조회수</td>
+					</tr>
+				</thead>
+				<c:forEach var="ask" items="${askList }">
+					<tr id="post" onclick="showPost('a-${ask.askIndex}')">
+						<td>${ask.userId }</td>
+						<td><c:forEach var="i" begin="1" end="${ask.askGroupLevel }">↳</c:forEach>${ask.title }</td>
+						<td>${ask.postDate }</td>
+						<td>${ask.hits }</td>
+					</tr>
+					<tr id="a-${ask.askIndex }" style="display:none;">
+						<td colspan="4">
+							${ask.content }
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

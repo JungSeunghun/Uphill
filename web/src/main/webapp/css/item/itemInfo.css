@@ -200,3 +200,22 @@ section #itemGuideTitle {
 	font-size: 1.5rem;
 	margin-bottom: 40px;
 }
+
+#postTable {
+	margin-bottom: 24px;
+	border-collapse: collapse;
+}
+
+#postTable td {
+	padding: 8px;
+}
+
+#postTable thead td{
+	border-bottom: 1px solid #c4c4c4;
+}
+
+#postTable #post {
+	cursor: pointer;
+}
+
+

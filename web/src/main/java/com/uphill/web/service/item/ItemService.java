@@ -12,6 +12,6 @@ public interface ItemService {
 	List<ItemVO> getItemListWithCategory(int categoryIndex);	
 	List<ItemVO> getBicycleList();	
 	List<ItemVO> getBicycleListWithSubcategory(int subcategoryIndex);
-	ItemPostInfoVO getItemPost(int itemIndex, int reviewStartNum, int askStartNum);
+	ItemPostInfoVO getItemPost(int itemIndex, int reviewPage, int reviewCount, int askPage, int askCount);
 	List<ItemOptionVO> getItemOptionList(int itemIndex);
 }

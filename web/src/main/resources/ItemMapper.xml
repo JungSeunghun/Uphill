@@ -50,5 +50,12 @@
 		order by ask_group_index desc
 		limit #{startNum}, #{count}
 	</select>
-			
+	
+	<select id="selectReviewCount" resultType="Integer">
+		select count(*) from review_table
+	</select>
+	
+	<select id="selectAskCount" resultType="Integer">
+		select count(*) from ask_table
+	</select>
 </mapper>

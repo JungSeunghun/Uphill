@@ -19,4 +19,6 @@ public interface ItemMapper {
 	List<ItemOptionVO> selectItemOptionList(int itemIndex);
 	List<ReviewVO> selectReviewList(Map<String, Integer> map);
 	List<AskVO> selectAskList(Map<String, Integer> map);
+	int selectReviewCount();
+	int selectAskCount();
 }
