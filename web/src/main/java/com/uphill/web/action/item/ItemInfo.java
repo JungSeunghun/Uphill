@@ -48,13 +48,19 @@ public class ItemInfo implements Action {
 		// 페이징
 		int limit = 5;
 		
-		int reviewStartPage = ;
-		int reviewEndPage;
-		int reviewMaxPage = (int)Math.ceil((double)totalReviewCount / limit);
+		int reviewEndPage = (int)Math.ceil(((double)reviewPage / limit)) * limit;
+		int reviewStartPage = reviewEndPage - limit + 1;
+		int reviewMaxPage = (int)Math.ceil((double)totalReviewCount / reviewCount);
+		if(reviewEndPage > reviewMaxPage) {
+			reviewEndPage = reviewMaxPage;
+		}
 		
-		int askStartPage = ;
-		int askEndPage;
-		int askMaxPage = ;
+		int askEndPage = (int)Math.ceil(((double)askPage / limit)) * limit;
+		int askStartPage = askEndPage - limit + 1;
+		int askMaxPage = (int)Math.ceil((double)totalAskCount / askCount);
+		if(askEndPage > askMaxPage) {
+			askEndPage = askMaxPage;
+		}		
 		
 		// 옵션이름 중복제거
 		HashSet<String> itemOptionNameSet = new HashSet<String>();		
@@ -70,6 +76,14 @@ public class ItemInfo implements Action {
 		request.setAttribute("itemOptionList", itemOptionList);
 		request.setAttribute("reviewList", reviewList);
 		request.setAttribute("askList", askList);
+		request.setAttribute("reviewPage", reviewPage);
+		request.setAttribute("reviewStartPage", reviewStartPage);
+		request.setAttribute("reviewEndPage", reviewEndPage);
+		request.setAttribute("reviewMaxPage", reviewMaxPage);
+		request.setAttribute("askPage", askPage);
+		request.setAttribute("askStartPage", askStartPage);
+		request.setAttribute("askEndPage", askEndPage);
+		request.setAttribute("askMaxPage", askMaxPage);
 		
 		if(item.getItemCategoryIndex() == 1) {
 			return new ViewResolver("/views/item/bicycleInfo.tiles");

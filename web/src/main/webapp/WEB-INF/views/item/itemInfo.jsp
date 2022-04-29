@@ -51,13 +51,36 @@
 						<td>${review.hits }</td>
 					</tr>
 					<tr id="r-${review.reviewIndex }" style="display:none;">
-						<td colspan="5">
+						<td colspan="5" style="height: 100px; border: 1px solid #c4c4c4;">
 							${review.content }
 						</td>
 					</tr>
 				</c:forEach>
-			</table>
-			<button onclick="href='${contextPath }/item/review'">후기남기기</button>
+				<tr>
+					<td colspan="5" align="center" style="position:relative">
+						<c:if test="${reviewPage != 1 }">
+							<a href="${contextPath }/item/item-info?id=${item.itemIndex}&reviewPage=${reviewPage-1}#itemReview">[이전]</a>
+						</c:if>
+						<c:forEach var="i" begin="${reviewStartPage }" end="${reviewEndPage }">
+							<c:if test="${reviewPage == i }">
+								<span style="color:#9ccc65">${i }</span>
+							</c:if>
+							<c:if test="${reviewPage != i }">
+								<a href="${contextPath }/item/item-info?id=${item.itemIndex}&reviewPage=${i}#itemReivew">${i }</a>
+							</c:if>
+						</c:forEach>
+						<c:if test="${reviewPage != reviewEndPage }">
+							<a href="${contextPath }/item/item-info?id=${item.itemIndex}&askPage=${askPage+1}#itemReview">[다음]</a>
+						</c:if>
+						<c:if test="${item.itemCategoryIndex == 1 }">
+							<button type="button" id="postButton" onclick="location.href='${contextPath }/item/bicycle/review?id=${item.itemIndex }'">후기남기기</button>
+						</c:if>
+						<c:if test="${item.itemCategoryIndex != 1 }">
+							<button type="button" id="postButton" onclick="location.href='${contextPath }/item/item/review?id=${item.itemIndex }'">후기남기기</button>
+						</c:if>
+					</td>
+				</tr>
+			</table>			
 		</div>
 		
 		<div id="itemAsk">
@@ -79,13 +102,36 @@
 						<td>${ask.hits }</td>
 					</tr>
 					<tr id="a-${ask.askIndex }" style="display:none;">
-						<td colspan="4">
+						<td colspan="4" style="height: 100px; border: 1px solid #c4c4c4;">
 							${ask.content }
 						</td>
 					</tr>
 				</c:forEach>
+				<tr>
+					<td colspan="4" align="center" style="position:relative">
+						<c:if test="${askPage != 1 }">
+							<a href="${contextPath }/item/item-info?id=${item.itemIndex}&askPage=${askPage-1}#itemAsk">[이전]</a>
+						</c:if>
+						<c:forEach var="i" begin="${askStartPage }" end="${askEndPage }">
+							<c:if test="${askPage == i }">
+								<span style="color:#9ccc65">${i }</span>
+							</c:if>
+							<c:if test="${askPage != i }">
+								<a href="${contextPath }/item/item-info?id=${item.itemIndex}&askPage=${i}#itemAsk">${i }</a>
+							</c:if>
+						</c:forEach>
+						<c:if test="${askPage != askEndPage }">
+							<a href="${contextPath }/item/item-info?id=${item.itemIndex}&askPage=${askPage+1}#itemAsk">[다음]</a>
+						</c:if>
+						<c:if test="${item.itemCategoryIndex == 1 }">
+							<button type="button" id="postButton" onclick="location.href='${contextPath }/item/bicycle/ask?id=${item.itemIndex }'">문의하기</button>
+						</c:if>
+						<c:if test="${item.itemCategoryIndex != 1 }">
+							<button type="button" id="postButton" onclick="location.href='${contextPath }/item/item/ask?id=${item.itemIndex }'">문의하기</button>
+						</c:if>
+					</td>
+				</tr>
 			</table>
-			<button onclick="href='${contextPath }/item/ask'">문의하기</button>
 		</div>
 		
 		<div id="itemGuide">

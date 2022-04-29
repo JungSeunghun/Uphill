@@ -77,8 +77,8 @@ public class ItemServiceImpl implements ItemService{
 		ItemVO itemVO = itemMapper.selectItem(itemIndex);		
 		List<ReviewVO> reviewList = itemMapper.selectReviewList(reviewParameterMap);
 		List<AskVO> askList = itemMapper.selectAskList(askParameterMap);
-		int totalReviewCount = itemMapper.selectReviewCount();
-		int totalAskCount = itemMapper.selectAskCount();
+		int totalReviewCount = itemMapper.selectReviewCount(itemIndex);
+		int totalAskCount = itemMapper.selectAskCount(itemIndex);
 		
 		ItemPostInfoVO itemPostInfoVO = new ItemPostInfoVO(itemPostVO, itemOptionList, itemVO, reviewList, askList, totalReviewCount, totalAskCount);
 		

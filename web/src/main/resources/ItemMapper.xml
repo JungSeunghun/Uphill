@@ -51,11 +51,13 @@
 		limit #{startNum}, #{count}
 	</select>
 	
-	<select id="selectReviewCount" resultType="Integer">
-		select count(*) from review_table
+	<select id="selectReviewCount" resultType="Integer" parameterType="Integer">
+		select count(*) from review_table 
+		where item_index = ${itemIndex}
 	</select>
 	
-	<select id="selectAskCount" resultType="Integer">
-		select count(*) from ask_table
+	<select id="selectAskCount" resultType="Integer" parameterType="Integer">
+		select count(*) from ask_table 
+		where item_index = ${itemIndex}
 	</select>
 </mapper>

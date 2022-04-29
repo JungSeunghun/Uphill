@@ -13,17 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.action.item.Ask;
 import com.uphill.web.action.item.BicycleList;
+import com.uphill.web.action.item.BicycleReview;
 import com.uphill.web.action.item.HelmetList;
+import com.uphill.web.action.item.ItemAsk;
 import com.uphill.web.action.item.ItemInfo;
 import com.uphill.web.action.item.ItemList;
+import com.uphill.web.action.item.ItemReview;
 import com.uphill.web.action.item.LightList;
 import com.uphill.web.action.item.LockList;
 import com.uphill.web.action.item.MiniveloList;
 import com.uphill.web.action.item.MtbList;
-import com.uphill.web.action.item.Review;
 import com.uphill.web.action.item.RoadList;
+import com.uphill.web.action.item.BicycleAsk;
 import com.uphill.web.viewresolver.ViewResolver;
 
 @WebServlet("/item/*")
@@ -46,8 +48,10 @@ public class ItemFrontController extends HttpServlet{
 		actionMap.put("/item/lock", new LockList());
 
 		actionMap.put("/item/item-info", new ItemInfo());
-		actionMap.put("/item/review", new Review());
-		actionMap.put("/item/ask", new Ask());
+		actionMap.put("/item/bicycle/review", new BicycleReview());
+		actionMap.put("/item/item/review", new ItemReview());
+		actionMap.put("/item/bicycle/ask", new BicycleAsk());
+		actionMap.put("/item/item/ask", new ItemAsk());
 	}
 	
 	@Override

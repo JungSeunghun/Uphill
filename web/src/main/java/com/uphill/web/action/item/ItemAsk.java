@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class Review implements Action {
+public class ItemAsk implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return new ViewResolver("/viewsitem/review.tiles");
+		return new ViewResolver("/views/item/itemAsk.tiles");
 	}
 
 }
