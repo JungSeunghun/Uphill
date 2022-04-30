@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -61,7 +62,7 @@
 			</tr>
 			<tr>
 				<td>구매금액</td>
-				<td>${userInfo.purchase }</td>
+				<td><fmt:formatNumber value="${userInfo.purchase }" pattern="#,###" />원</td>
 			</tr>
 			<tr>
 				<td>포인트</td>
@@ -70,12 +71,8 @@
 			<tr>
 				<td>가입일</td>
 				<td>${userInfo.joinDate }</td>
-			</tr>
-			<tr>
-				<td>
-					<button type="button" onclick="deleteUser()">회원삭제</button>
-				</td>
-			</tr>		
+			</tr>	
 		</table>
+		<button type="button" onclick="deleteUser()">회원삭제</button>
 	</form>
 </section>

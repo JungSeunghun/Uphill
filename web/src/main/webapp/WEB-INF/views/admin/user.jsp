@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -36,10 +37,24 @@
 				<c:if test="${user.gradeIndex == 4 }">
 					<td>매니저</td>
 				</c:if>
-				<td>${user.purchase }</td>
+				<td><fmt:formatNumber value="${user.purchase }" pattern="#,###" />원</td>
 				<td>${user.point }</td>
 				<td>${user.joinDate }</td>
 			</tr>
 		</c:forEach>
 	</table>
+	<c:forEach var="i" begin="${userStartPage }" end="${userEndPage }">
+		<c:if test="${userPage != 1 }">
+			<a href="${contextPath }/admin/user?page=${userPage - 1}">[이전]</a>
+		</c:if>
+		<c:if test="${userPage == i }">
+			<span style="color:#9ccc65">${i }</span>
+		</c:if>
+		<c:if test="${userPage != i }">
+			<a href="${contextPath }/admin/user?page=${i }">${i }</a>
+		</c:if>
+		<c:if test="${userPage != userEndPage }">
+			<a href="${contextPath }/admin/user?page=${userPage + 1}">[다음]</a>
+		</c:if>
+	</c:forEach>
 </section>

@@ -3,12 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uphill.web.service.admin.AdminMapper">
-	<select id="selectUserList" resultType="userVO">
+	<select id="selectUserList" resultType="userVO" parameterType="Map">
 		select * from user_table
+		limit ${startNum}, ${count}
 	</select>
 
 	<select id="selectUser" resultType="userVO" parameterType="Integer">
 		select * from user_table where user_index = ${userIndex}
+	</select>
+
+	<select id="selectUserCount" resultType="Integer">
+		select count(*) from user_table
 	</select>
 	
 	<delete id="deleteUser" parameterType="Integer">

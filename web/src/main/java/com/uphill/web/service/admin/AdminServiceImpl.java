@@ -1,10 +1,13 @@
 package com.uphill.web.service.admin;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.uphill.web.database.mybatis.MybatisSessionFactory;
+import com.uphill.web.dto.UserListInfoVO;
 import com.uphill.web.dto.UserVO;
 
 public class AdminServiceImpl implements AdminService {
@@ -12,12 +15,20 @@ public class AdminServiceImpl implements AdminService {
 	private AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
 	
 	@Override
-	public List<UserVO> getUserList() {
-		List<UserVO> userList = adminMapper.selectUserList();
+	public UserListInfoVO getUserList(int page, int count) {		
+		int startNum = (page-1) * count;
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startNum", startNum);
+		map.put("count", count);
+		
+		List<UserVO> userList = adminMapper.selectUserList(map);
+		int totalCount = adminMapper.selectUserCount();
+		
+		UserListInfoVO userListInfoVO = new UserListInfoVO(userList, totalCount);
 		
 		sqlSession.close();
 		
-		return userList;
+		return userListInfoVO;
 	}
 
 	@Override

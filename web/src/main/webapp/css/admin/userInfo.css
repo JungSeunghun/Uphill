@@ -5,3 +5,21 @@ section {
 	padding-left: 244px;
 	padding-right: 244px;
 }
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+table {
+	border: 1px solid #c4c4c4;
+}
+
+table td {
+	padding: 8px;
+}
+
+button {
+	margin: 16px;
+}
