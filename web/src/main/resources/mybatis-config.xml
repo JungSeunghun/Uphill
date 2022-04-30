@@ -40,5 +40,6 @@
 		<mapper resource="/BasketMapper.xml" />
 		<mapper resource="/OrderMapper.xml" />
 		<mapper resource="/UserMapper.xml" />
+		<mapper resource="/AdminMapper.xml" />
 	</mappers>
 </configuration>

@@ -30,6 +30,7 @@ header a {
 	width: 64px;
 	text-align: center;
 	margin-left: 16px;
+	white-space: nowrap;
 }
 
 #gnbWrap {
@@ -153,7 +154,7 @@ header a {
 }
 
 #snb div a {
-	font-size: 0.825rem;
+	white-space: nowrap;
 }
 
 footer {

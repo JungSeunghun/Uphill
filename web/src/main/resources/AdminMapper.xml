@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uphill.web.service.admin.AdminMapper">
+	<select id="selectUserList" resultType="userVO">
+		select * from user_table
+	</select>
+
+	<select id="selectUser" resultType="userVO" parameterType="Integer">
+		select * from user_table where user_index = ${userIndex}
+	</select>
+	
+	<delete id="deleteUser" parameterType="Integer">
+		delete from user_table
+		where user_index = ${userIndex}
+	</delete>
+</mapper>
