@@ -3,6 +3,8 @@ package com.uphill.web.service.admin;
 import java.util.List;
 import java.util.Map;
 
+import com.uphill.web.dto.OrderItemInfoVO;
+import com.uphill.web.dto.OrderVO;
 import com.uphill.web.dto.UserVO;
 
 public interface AdminMapper {
@@ -10,4 +12,10 @@ public interface AdminMapper {
 	UserVO selectUser(int userIndex);
 	int deleteUser(int userIndex);
 	int selectUserCount();
+	
+	List<OrderVO> selectOrderList(Map<String, Integer> map);
+	OrderVO selectOrder(int orderIndex);
+	int updateOrder(Map<String, Integer> map);
+	int selectOrderCount();
+	List<OrderItemInfoVO> selectOrderItemInfoList(int orderIndex);
 }

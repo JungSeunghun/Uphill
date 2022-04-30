@@ -165,6 +165,10 @@
 							<div id="point"><fmt:formatNumber type="number" maxFractionDigits="0" value="${totalPrice * 0.03 }"/>(diamond)</div>
 							<input type="hidden" name="point" value="${totalPrice * 0.03 }">
 						</c:if>
+						<c:if test="${userVO.gradeIndex == 4 }">
+							<div id="point"><fmt:formatNumber type="number" maxFractionDigits="0" value="0"/>(manager)</div>
+							<input type="hidden" name="point" value="0">
+						</c:if>
 					</div>
 					<div id="orderUserInfoDiv">
 						<div id="orderTotalPriceTitle">총 주문금액</div>

@@ -5,13 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.uphill.web.action.Action;
-import com.uphill.web.dto.UserListInfoVO;
+import com.uphill.web.dto.OrderListInfoVO;
 import com.uphill.web.dto.UserVO;
 import com.uphill.web.service.admin.AdminService;
 import com.uphill.web.service.admin.AdminServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class User implements Action {
+public class Order implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
@@ -29,29 +29,29 @@ public class User implements Action {
 		
 		int count = 5;
 		int pageCount = 5;
-		int userPage = 1;
+		int orderPage = 1;
 		if(request.getParameter("page") != null) {
-			userPage = Integer.parseInt(request.getParameter("page"));			
+			orderPage = Integer.parseInt(request.getParameter("page"));			
 		}
 		
 		AdminService adminService = new AdminServiceImpl();
-		UserListInfoVO userListInfoVO = adminService.getUserList(userPage, count);
-		int totalCount = userListInfoVO.getTotalCount();		
+		OrderListInfoVO orderListInfoVO = adminService.getOrderList(orderPage, count);
+		int totalCount = orderListInfoVO.getTotalCount();		
 		
-		int userEndPage = (int)Math.ceil((double)totalCount/pageCount) * pageCount;
-		int userStartPage = userEndPage - pageCount + 1 ;
-		int userMaxPage = (int)Math.ceil((double)totalCount/count);
-		if(userEndPage > userMaxPage) {
-			userEndPage = userMaxPage;
+		int orderEndPage = (int)Math.ceil((double)totalCount/pageCount) * pageCount;
+		int orderStartPage = orderEndPage - pageCount + 1 ;
+		int orderMaxPage = (int)Math.ceil((double)totalCount/count);
+		if(orderEndPage > orderMaxPage) {
+			orderEndPage = orderMaxPage;
 		}
 		
-		request.setAttribute("userList", userListInfoVO.getUserList());
-		request.setAttribute("userPage", userPage);
-		request.setAttribute("userStartPage", userStartPage);
-		request.setAttribute("userEndPage", userEndPage);
-		request.setAttribute("userMaxPage", userMaxPage);		
+		request.setAttribute("orderList", orderListInfoVO.getOrderList());
+		request.setAttribute("orderPage", orderPage);
+		request.setAttribute("orderStartPage", orderStartPage);
+		request.setAttribute("orderEndPage", orderEndPage);
+		request.setAttribute("orderMaxPage", orderMaxPage);
 		
-		return new ViewResolver("/views/admin/user.tiles");
+		return new ViewResolver("/views/admin/order.tiles");
 	}
 
 }

@@ -8,8 +8,8 @@
 	</select>	
 	
 	<insert id="insertOrder" parameterType="orderVO">
-		insert into order_table(order_index, user_index, recipient, post_code, address, address_detail, address_extra, mobile_carrier, phone_number, point, use_point, deliver_request, payment, total_price)
-		values(#{orderIndex}, #{userIndex}, #{recipient}, #{postCode}, #{address}, #{addressDetail}, #{addressExtra}, #{mobileCarrier}, #{phoneNumber}, #{point}, #{usePoint}, #{deliverRequest}, #{payment}, #{totalPrice})
+		insert into order_table(order_index, user_index, user_id, recipient, post_code, address, address_detail, address_extra, mobile_carrier, phone_number, point, use_point, deliver_request, payment, total_price)
+		values(#{orderIndex}, #{userIndex}, #{userId}, #{recipient}, #{postCode}, #{address}, #{addressDetail}, #{addressExtra}, #{mobileCarrier}, #{phoneNumber}, #{point}, #{usePoint}, #{deliverRequest}, #{payment}, #{totalPrice})
 	</insert>
 	
 	<insert id="insertOrderItem" parameterType="orderItemVO">

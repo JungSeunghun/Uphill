@@ -7,7 +7,6 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/admin/user.css">
-<script type="text/javascript" src="${contextPath}/javascript/admin/user.js" ></script>
 
 <section>
 	<table>

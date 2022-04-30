@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.action.admin.Order;
+import com.uphill.web.action.admin.OrderInfo;
+import com.uphill.web.action.admin.OrderUpdateAction;
 import com.uphill.web.action.admin.User;
 import com.uphill.web.action.admin.UserDeleteAction;
 import com.uphill.web.action.admin.UserInfo;
@@ -31,6 +34,11 @@ public class AdminFrontController extends HttpServlet{
 		actionMap.put("/admin/user", new User());
 		actionMap.put("/admin/user-info", new UserInfo());
 		actionMap.put("/admin/user-delete-action", new UserDeleteAction());
+		
+		actionMap.put("/admin/order", new Order());
+		actionMap.put("/admin/order-info", new OrderInfo());
+		actionMap.put("/admin/order-update-action", new OrderUpdateAction());
+		
 	}
 	
 	@Override

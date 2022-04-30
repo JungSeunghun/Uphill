@@ -33,6 +33,7 @@ public class OrderAction implements Action {
 		}
 		
 		int userIndex = userVO.getUserIndex();
+		String userId = userVO.getUserId();
 		String recipient = request.getParameter("recipient");
 		String postCode = request.getParameter("postCode");
 		String address = request.getParameter("address");
@@ -46,7 +47,7 @@ public class OrderAction implements Action {
 		String payment = request.getParameter("payment");
 		int totalPrice = Integer.parseInt(request.getParameter("totalPrice")) - usePoint;
 		
-		OrderVO orderVO = new OrderVO(userIndex, recipient, postCode, address, addressDetail, addressExtra, mobileCarrier, phoneNumber, point, usePoint, deliverRequest, payment, totalPrice);
+		OrderVO orderVO = new OrderVO(userIndex, userId, recipient, postCode, address, addressDetail, addressExtra, mobileCarrier, phoneNumber, point, usePoint, deliverRequest, payment, totalPrice);
 		
 		OrderService orderService = new OrderServiceImpl();
 		UserVO newUserVO = orderService.order(orderVO, orderItemVO, userVO.getPurchase());

@@ -5,6 +5,7 @@ import java.util.Date;
 public class OrderVO {
 	private int orderIndex;
 	private int userIndex;
+	private String userId;
 	private String recipient;
 	private String postCode;
 	private String address;
@@ -24,11 +25,12 @@ public class OrderVO {
 		super();
 	}
 	
-	public OrderVO(int userIndex, String recipient, String postCode, String address, String addressDetail,
+	public OrderVO(int userIndex, String userId, String recipient, String postCode, String address, String addressDetail,
 			String addressExtra, String mobileCarrier, String phoneNumber, int point, int usePoint,
 			String deliverRequest, String payment, int totalPrice) {
 		super();
 		this.userIndex = userIndex;
+		this.userId = userId;
 		this.recipient = recipient;
 		this.postCode = postCode;
 		this.address = address;
@@ -43,12 +45,13 @@ public class OrderVO {
 		this.totalPrice = totalPrice;
 	}
 
-	public OrderVO(int orderIndex, int userIndex, String recipient, String postCode, String address,
+	public OrderVO(int orderIndex, int userIndex, String userId, String recipient, String postCode, String address,
 			String addressDetail, String addressExtra, String mobileCarrier, String phoneNumber, int point,
 			int usePoint, String deliverRequest, String payment, int totalPrice, Date orderTime, int orderState) {
 		super();
 		this.orderIndex = orderIndex;
 		this.userIndex = userIndex;
+		this.userId = userId;
 		this.recipient = recipient;
 		this.postCode = postCode;
 		this.address = address;
@@ -79,6 +82,14 @@ public class OrderVO {
 
 	public void setUserIndex(int userIndex) {
 		this.userIndex = userIndex;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getRecipient() {

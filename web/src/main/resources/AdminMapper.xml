@@ -20,4 +20,28 @@
 		delete from user_table
 		where user_index = ${userIndex}
 	</delete>
+	
+	<select id="selectOrderList" resultType="orderVO" parameterType="Map">
+		select * from order_table
+		limit ${startNum}, ${count}
+	</select>
+	
+	<select id="selectOrder" resultType="orderVO" parameterType="Integer">
+		select * from order_table where order_index = ${orderIndex}
+	</select>
+
+	<select id="selectOrderItemInfoList" resultType="orderItemInfoVO" parameterType="Integer">
+		select * from order_item_table join item_table using(item_index)
+		where order_index = ${orderIndex}
+	</select>
+	
+	<select id="selectOrderCount" resultType="Integer">
+		select count(*) from order_table
+	</select>
+	
+	<update id="updateOrder" parameterType="Map">
+		update order_table 
+		set order_state = ${orderState}
+		where order_index = ${orderIndex} 
+	</update>
 </mapper>
