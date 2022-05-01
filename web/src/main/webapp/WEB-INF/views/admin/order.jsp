@@ -43,18 +43,20 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<c:forEach var="i" begin="${orderStartPage }" end="${orderEndPage }">
+	<div>
 		<c:if test="${orderPage != 1 }">
 			<a href="${contextPath }/admin/order?page=${orderPage - 1}">[이전]</a>
 		</c:if>
-		<c:if test="${orderPage == i }">
-			<span style="color:#9ccc65">${i }</span>
-		</c:if>
-		<c:if test="${orderPage != i }">
-			<a href="${contextPath }/admin/order?page=${i }">${i }</a>
-		</c:if>
+		<c:forEach var="i" begin="${orderStartPage }" end="${orderEndPage }">
+			<c:if test="${orderPage == i }">
+				<span style="color:#9ccc65">${i }</span>
+			</c:if>
+			<c:if test="${orderPage != i }">
+				<a href="${contextPath }/admin/order?page=${i }">${i }</a>
+			</c:if>
+		</c:forEach>
 		<c:if test="${orderPage != orderEndPage }">
 			<a href="${contextPath }/admin/order?page=${orderPage + 1}">[다음]</a>
 		</c:if>
-	</c:forEach>
+	</div>
 </section>

@@ -35,10 +35,10 @@ public class User implements Action {
 		}
 		
 		AdminService adminService = new AdminServiceImpl();
-		UserListInfoVO userListInfoVO = adminService.getUserList(userPage, count);
+		UserListInfoVO userListInfoVO = adminService.getUserListInfo(userPage, count);
 		int totalCount = userListInfoVO.getTotalCount();		
 		
-		int userEndPage = (int)Math.ceil((double)totalCount/pageCount) * pageCount;
+		int userEndPage = (int)Math.ceil((double)userPage/pageCount) * pageCount;
 		int userStartPage = userEndPage - pageCount + 1 ;
 		int userMaxPage = (int)Math.ceil((double)totalCount/count);
 		if(userEndPage > userMaxPage) {

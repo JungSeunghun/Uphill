@@ -42,18 +42,20 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<c:forEach var="i" begin="${userStartPage }" end="${userEndPage }">
+	<div>
 		<c:if test="${userPage != 1 }">
 			<a href="${contextPath }/admin/user?page=${userPage - 1}">[이전]</a>
 		</c:if>
-		<c:if test="${userPage == i }">
-			<span style="color:#9ccc65">${i }</span>
-		</c:if>
-		<c:if test="${userPage != i }">
-			<a href="${contextPath }/admin/user?page=${i }">${i }</a>
-		</c:if>
+		<c:forEach var="i" begin="${userStartPage }" end="${userEndPage }">
+			<c:if test="${userPage == i }">
+				<span style="color:#9ccc65">${i }</span>
+			</c:if>
+			<c:if test="${userPage != i }">
+				<a href="${contextPath }/admin/user?page=${i }">${i }</a>
+			</c:if>
+		</c:forEach>
 		<c:if test="${userPage != userEndPage }">
 			<a href="${contextPath }/admin/user?page=${userPage + 1}">[다음]</a>
 		</c:if>
-	</c:forEach>
+	</div>
 </section>

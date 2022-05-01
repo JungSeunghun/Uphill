@@ -44,4 +44,23 @@
 		set order_state = ${orderState}
 		where order_index = ${orderIndex} 
 	</update>
+	
+	<select id="selectItemList" resultType="itemVO" parameterType="Map">
+		select * from item_table
+		limit ${startNum}, ${count}
+	</select>
+	
+	<select id="selectItemCount" resultType="Integer">
+		select count(*) from item_table
+	</select>
+	
+	<select id="selectItem" resultType="itemVO" parameterType="Integer">
+		select * from item_table
+		where item_index = ${itemIndex}
+	</select>
+	
+	<select id="selectItemOptionList" resultType="itemOptionVO" parameterType="Integer">
+		select * from item_option_table
+		where item_index = ${itemIndex}
+	</select>
 </mapper>

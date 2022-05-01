@@ -46,17 +46,17 @@ public class ItemInfo implements Action {
 		int totalAskCount = itemPostInfo.getAskCount();
 		
 		// 페이징
-		int limit = 5;
+		int pageCount = 5;
 		
-		int reviewEndPage = (int)Math.ceil(((double)reviewPage / limit)) * limit;
-		int reviewStartPage = reviewEndPage - limit + 1;
+		int reviewEndPage = (int)Math.ceil(((double)reviewPage / pageCount)) * pageCount;
+		int reviewStartPage = reviewEndPage - pageCount + 1;
 		int reviewMaxPage = (int)Math.ceil((double)totalReviewCount / reviewCount);
 		if(reviewEndPage > reviewMaxPage) {
 			reviewEndPage = reviewMaxPage;
 		}
 		
-		int askEndPage = (int)Math.ceil(((double)askPage / limit)) * limit;
-		int askStartPage = askEndPage - limit + 1;
+		int askEndPage = (int)Math.ceil(((double)askPage / pageCount)) * pageCount;
+		int askStartPage = askEndPage - pageCount + 1;
 		int askMaxPage = (int)Math.ceil((double)totalAskCount / askCount);
 		if(askEndPage > askMaxPage) {
 			askEndPage = askMaxPage;

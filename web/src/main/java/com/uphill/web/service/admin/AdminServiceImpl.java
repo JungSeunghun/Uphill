@@ -7,6 +7,10 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.uphill.web.database.mybatis.MybatisSessionFactory;
+import com.uphill.web.dto.ItemInfoVO;
+import com.uphill.web.dto.ItemListInfoVO;
+import com.uphill.web.dto.ItemOptionVO;
+import com.uphill.web.dto.ItemVO;
 import com.uphill.web.dto.OrderInfoVO;
 import com.uphill.web.dto.OrderItemInfoVO;
 import com.uphill.web.dto.OrderListInfoVO;
@@ -19,7 +23,7 @@ public class AdminServiceImpl implements AdminService {
 	private AdminMapper adminMapper = sqlSession.getMapper(AdminMapper.class);
 	
 	@Override
-	public UserListInfoVO getUserList(int page, int count) {		
+	public UserListInfoVO getUserListInfo(int page, int count) {		
 		int startNum = (page-1) * count;
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
@@ -60,7 +64,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public OrderListInfoVO getOrderList(int orderPage, int count) {
+	public OrderListInfoVO getOrderListInfo(int orderPage, int count) {
 		int startNum = (orderPage-1) * count;
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
@@ -102,6 +106,35 @@ public class AdminServiceImpl implements AdminService {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public ItemListInfoVO getItemListInfo(int itemPage, int count) {
+		int startNum = (itemPage-1) * count;
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startNum", startNum);
+		map.put("count", count);
+		
+		List<ItemVO> itemList = adminMapper.selectItemList(map);
+		int totalCount = adminMapper.selectItemCount();
+		
+		ItemListInfoVO itemListInfoVO = new ItemListInfoVO(itemList, totalCount);
+		
+		sqlSession.close();
+		
+		return itemListInfoVO;
+	}
+
+	@Override
+	public ItemInfoVO getItemInfo(int itemIndex) {
+		ItemVO itemVO = adminMapper.selectItem(itemIndex);
+		List<ItemOptionVO> itemOptionList = adminMapper.selectItemOptionList(itemIndex);
+		
+		ItemInfoVO itemInfoVO = new ItemInfoVO(itemVO, itemOptionList);
+		
+		sqlSession.close();
+		
+		return itemInfoVO;
 	}
 	
 }
