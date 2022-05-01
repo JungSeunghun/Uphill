@@ -57,5 +57,24 @@
 				<td><input type="number" name="itemPrice" value="${itemVO.itemTotalQty }"></td>
 			</tr>
 		</table>
+		
+		<table>
+			<thead>
+				<tr>
+					<td>옵션이름</td>
+					<td>옵션내용</td>
+					<td>옵션가격</td>
+					<td>옵션갯수</td>
+				</tr>
+			</thead>
+			<c:forEach var="itemOption" items="${itemOptionList }">
+				<tr>
+					<td><input type="text" name="itemOptionName" value=${itemOption.itemOptionName }></td>
+					<td><input type="text" name="itemOptionContent" value="${itemOption.itemOptionContent }"></td>
+					<td><input type="number" name="itemOptionPrice" value="${itemOption.itemOptionPrice }"></td>
+					<td><input type="number" name="itemOptionQty" value="${itemOption.itemOptionQty }"></td>
+				</tr>
+			</c:forEach>
+		</table>
 	</form>
 </section>
