@@ -5,6 +5,7 @@ import java.util.List;
 import com.uphill.web.dto.ItemOptionVO;
 import com.uphill.web.dto.ItemPostInfoVO;
 import com.uphill.web.dto.ItemVO;
+import com.uphill.web.dto.ReviewVO;
 
 public interface ItemService {
 	ItemVO getItem(int itemIndex);
@@ -14,4 +15,5 @@ public interface ItemService {
 	List<ItemVO> getBicycleListWithSubcategory(int subcategoryIndex);
 	ItemPostInfoVO getItemPost(int itemIndex, int reviewPage, int reviewCount, int askPage, int askCount);
 	List<ItemOptionVO> getItemOptionList(int itemIndex);
+	int insertReview(ReviewVO reviewVO);
 }

@@ -15,6 +15,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.uphill.web.action.Action;
 import com.uphill.web.dto.ReviewVO;
 import com.uphill.web.dto.UserVO;
+import com.uphill.web.service.item.ItemService;
+import com.uphill.web.service.item.ItemServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
 public class ReviewAction implements Action {
@@ -69,9 +71,12 @@ public class ReviewAction implements Action {
 			e.printStackTrace();
 		}
 		
-		ReviewVO reviewVO = new ReviewVO(itemIndex, userId, title, content, starRating, originalFileName);  
+		ReviewVO reviewVO = new ReviewVO(itemIndex, userId, title, content, starRating, fileSystemName);  
 		
-		return null;
+		ItemService itemService = new ItemServiceImpl();
+		itemService.insertReview(reviewVO);
+				
+		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemReview");
 	}
 
 }

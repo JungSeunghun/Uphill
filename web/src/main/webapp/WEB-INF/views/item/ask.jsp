@@ -27,14 +27,13 @@
 			<tr>
 				<td>이미지</td>
 				<td>
-					<input type="file">
+					<input type="file" name="imageFile">
 				</td>
 			</tr>
 			<tr>
-				<td></td>
-				<th>
-					<button type="button">작성하기</button>
-					<button type="button">이전으로</button>
+				<th colspan="2">
+					<button type="button" onclick="checkAsk()">작성하기</button>
+					<button type="button" onclick="history.back()">이전으로</button>
 				</th>
 			</tr>
 		</table>

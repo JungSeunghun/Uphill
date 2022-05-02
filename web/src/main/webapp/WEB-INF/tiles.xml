@@ -29,6 +29,14 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
 	</definition>
 	
+	<definition name="views/home/policy" template="/WEB-INF/tiles/layouts/mainLayout.jsp">
+		<put-attribute name="title" value="Up-Hill Customer" />
+		<put-attribute name="header" value="/WEB-INF/tiles/commons/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/home/policy.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+	
 	<!-- 오류 -->
 	<definition name="views/error/error404" template="/WEB-INF/tiles/layouts/mainLayout.jsp">
 		<put-attribute name="title" value="Up-Hill" />

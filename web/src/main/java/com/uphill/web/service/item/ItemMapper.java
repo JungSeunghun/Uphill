@@ -21,4 +21,5 @@ public interface ItemMapper {
 	List<AskVO> selectAskList(Map<String, Integer> map);
 	int selectReviewCount(int itemIndex);
 	int selectAskCount(int itemIndex);
+	int insertReview(ReviewVO reviewVO);
 }

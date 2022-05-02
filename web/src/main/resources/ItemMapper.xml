@@ -60,4 +60,9 @@
 		select count(*) from ask_table 
 		where item_index = ${itemIndex}
 	</select>
+	
+	<insert id="insertReview" parameterType="reviewVO">
+		insert into review_table(item_index, user_id, title, content, star_rating, image_file)
+		values(${itemIndex}, ${userId}, ${title}, ${content}, ${starRating}, ${imageFile})
+	</insert>
 </mapper>

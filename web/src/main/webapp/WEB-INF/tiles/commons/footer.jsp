@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <footer>
 	<div id="up">
-		<a href="/home/intro">회사소개</a>
-		<a href="#">이용약관</a>
-		<a href="#">개인정보취급방침</a>
-		<a href="#">이메일주소무단수집거부</a>
+		<a href="${contextPath }/home/intro">회사소개</a>
+		<a href="${contextPath }/home/policy">이용약관</a>
+		<a href="${contextPath }/home/policy">개인정보취급방침</a>
+		<a href="${contextPath }/home/policy">이메일주소무단수집거부</a>
 	</div>
 	<div id="down">
 		<img alt="uphill_logo_black" src="${pageContext.request.contextPath}/images/logos/uphill_logo_black.svg">

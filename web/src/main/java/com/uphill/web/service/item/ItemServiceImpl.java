@@ -93,5 +93,20 @@ public class ItemServiceImpl implements ItemService{
 		sqlSession.close();
 		
 		return itemOptionList;
+	}
+
+	@Override
+	public int insertReview(ReviewVO reviewVO) {
+		int result = itemMapper.insertReview(reviewVO);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
 	}	
 }

@@ -26,19 +26,26 @@
 			</tr>
 			<tr>
 				<td>별점</td>
-				<td></td>
+				<td>
+					<select name="starRating">
+						<option value="1.0">★☆☆☆☆</option>
+						<option value="2.0">★★☆☆☆</option>
+						<option value="3.0">★★★☆☆</option>
+						<option value="4.0">★★★★☆</option>
+						<option value="5.0" selected="selected">★★★★★</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td>이미지</td>
 				<td>
-					<input type="file">
+					<input type="file" name="imageFile">
 				</td>
 			</tr>
 			<tr>
-				<td></td>
-				<th>
-					<button type="button">작성하기</button>
-					<button type="button">이전으로</button>
+				<th colspan="2">
+					<button type="button" onclick="checkReview()">작성하기</button>
+					<button type="button" onclick="history.back()">이전으로</button>
 				</th>
 			</tr>
 		</table>

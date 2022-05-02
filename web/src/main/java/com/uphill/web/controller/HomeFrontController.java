@@ -16,6 +16,7 @@ import com.uphill.web.action.Action;
 import com.uphill.web.action.home.CustomerCenter;
 import com.uphill.web.action.home.Home;
 import com.uphill.web.action.home.Intro;
+import com.uphill.web.action.home.Policy;
 import com.uphill.web.viewresolver.ViewResolver;
 
 @WebServlet("/home/*")
@@ -30,6 +31,7 @@ public class HomeFrontController extends HttpServlet{
 		actionMap.put("/home/home", new Home());
 		actionMap.put("/home/intro", new Intro());
 		actionMap.put("/home/customer-center", new CustomerCenter());
+		actionMap.put("/home/policy", new Policy());
 	}
 	
 	@Override
