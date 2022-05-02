@@ -3,8 +3,9 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<link rel="stylesheet" type="text/css"
-	href="${contextPath}/css/home/policy.css">
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/home/policy.css">
 <script src="${contextPath}/javascript/home/policy.js"></script>
 
 
