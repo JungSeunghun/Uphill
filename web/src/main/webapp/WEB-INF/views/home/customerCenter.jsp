@@ -3,5 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <section>
-	<div>고객센터 페이지 입니다.</div>
+	<!-- content -->
+	<div class="content">
+		<h2>FAQ</h2>
+		<ul>
+			<li>
+				<a href="">FAQ</a>
+			</li>
+		</ul>
+	</div>
+	<!-- main -->
+	<div class="main">
+	<h2>FAQ</h2>
+	</div>
 </section>
