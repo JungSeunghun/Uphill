@@ -45,7 +45,6 @@ public class ReviewAction implements Action {
 		String content = "";
 		String fileName = "";
 		String fileSystemName = "";
-		String originalFileName = "";
 		float starRating = 0;
 		
 		try {
@@ -65,7 +64,6 @@ public class ReviewAction implements Action {
 			if(fileNames.hasMoreElements()) {
 				fileName = (String)fileNames.nextElement();
 				fileSystemName = multipartRequest.getFilesystemName(fileName);
-				originalFileName = multipartRequest.getOriginalFileName(fileName);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

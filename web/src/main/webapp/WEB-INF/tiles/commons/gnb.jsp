@@ -51,6 +51,7 @@
 				</ul>
 				<ul>
 					<li><a href="${contextPath}/community/notice">공지사항</a></li>
+					<li><a href="${contextPath}/community/road">산책로</a></li>
 				</ul>
 			</div>
 		</div>

@@ -17,7 +17,7 @@
 		</div>
 		
 		<div id="itemNav">
-			<a href="#itemInfo">제품 설명</a>
+			<a href="#itemPost">제품 설명</a>
 			<a href="#itemReview">제품 후기</a>
 			<a href="#itemAsk">제품 문의</a>
 			<a href="#itemGuide">안내사항</a>
@@ -52,7 +52,19 @@
 					</tr>
 					<tr id="r-${review.reviewIndex }" style="display:none;">
 						<td colspan="5" style="height: 100px; border: 1px solid #c4c4c4;">
-							${review.content }
+							<c:if test="${review.imageFile != null }">
+								<img src="${contextPath }/images/reviews/${review.imageFile }" height="100px">
+							</c:if>
+							<div>${review.content }</div>
+							<c:if test="${review.userId == userVO.userId }">
+								<div>
+									<form name="f" action="${contextPath }/item/delete-review-action" method="post">
+										<input type="hidden" name="reviewIndex" value="${review.reviewIndex }">
+										<input type="hidden" name="itemIndex" value="${item.itemIndex }">
+										<button type="button" onclick="if(confirm('정말 삭제하시겠습니까?')){f.submit()}">삭제</button>
+									</form>
+								</div>
+							</c:if>
 						</td>
 					</tr>
 				</c:forEach>

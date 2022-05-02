@@ -17,6 +17,17 @@ public class AskVO {
 	public AskVO() {
 		super();
 	}
+	
+	public AskVO(int askGroupIndex, int itemIndex, String userId, String title, String content,
+			String imageFile) {
+		super();
+		this.askGroupIndex = askGroupIndex;
+		this.itemIndex = itemIndex;
+		this.userId = userId;
+		this.title = title;
+		this.content = content;
+		this.imageFile = imageFile;
+	}
 
 	public AskVO(int askIndex, int askGroupIndex, int askGroupLevel, int itemIndex, String userId, Date postDate,
 			String title, String content, String imageFile, int hits) {

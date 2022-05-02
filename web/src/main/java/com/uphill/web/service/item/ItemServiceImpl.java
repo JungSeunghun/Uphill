@@ -108,5 +108,35 @@ public class ItemServiceImpl implements ItemService{
 		sqlSession.close();
 		
 		return result;
+	}
+
+	@Override
+	public int insertAsk(AskVO askVO) {
+		int result = itemMapper.insertAsk(askVO);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+
+	@Override
+	public int deleteReview(int reviewIndex) {
+		int result = itemMapper.deleteReview(reviewIndex);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
 	}	
 }

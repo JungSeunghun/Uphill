@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.uphill.web.action.Action;
 import com.uphill.web.action.item.BicycleList;
 import com.uphill.web.action.item.BicycleReview;
+import com.uphill.web.action.item.DeleteReviewAction;
 import com.uphill.web.action.item.HelmetList;
 import com.uphill.web.action.item.ItemAsk;
 import com.uphill.web.action.item.ItemInfo;
@@ -50,6 +51,7 @@ public class ItemFrontController extends HttpServlet{
 		actionMap.put("/item/lock", new LockList());
 
 		actionMap.put("/item/item-info", new ItemInfo());
+		
 		actionMap.put("/item/bicycle/review", new BicycleReview());
 		actionMap.put("/item/item/review", new ItemReview());
 		actionMap.put("/item/bicycle/ask", new BicycleAsk());
@@ -57,6 +59,8 @@ public class ItemFrontController extends HttpServlet{
 
 		actionMap.put("/item/ask-action", new AskAction());
 		actionMap.put("/item/review-action", new ReviewAction());
+		
+		actionMap.put("/item/delete-review-action", new DeleteReviewAction());
 	}
 	
 	@Override

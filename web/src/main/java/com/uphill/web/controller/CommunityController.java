@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.uphill.web.action.Action;
+import com.uphill.web.action.Road;
 import com.uphill.web.action.community.Notice;
 import com.uphill.web.viewresolver.ViewResolver;
 
@@ -26,6 +27,7 @@ public class CommunityController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		actionMap.put("/community/notice", new Notice());
+		actionMap.put("/community/road", new Road());
 	}
 	
 	@Override

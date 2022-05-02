@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+section {
+	display: flex;
+	min-height: 500px;
+	padding-left: 244px;
+	padding-right: 244px;
+	flex-direction: column;
+	align-items: center;
+}

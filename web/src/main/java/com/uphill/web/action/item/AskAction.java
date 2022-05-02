@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.uphill.web.action.Action;
-import com.uphill.web.dto.ReviewVO;
+import com.uphill.web.dto.AskVO;
 import com.uphill.web.dto.UserVO;
 import com.uphill.web.service.item.ItemService;
 import com.uphill.web.service.item.ItemServiceImpl;
@@ -38,14 +38,13 @@ public class AskAction implements Action {
 		}
 		int size = 10 * 1024 * 1024;
 		
+		int askGroupIndex = 0;
 		int itemIndex = 0;
 		String userId = userVO.getUserId();
 		String title = "";
 		String content = "";
 		String fileName = "";
 		String fileSystemName = "";
-		String originalFileName = "";
-		float starRating = 0;
 		
 		try {
 			MultipartRequest multipartRequest = new MultipartRequest(
@@ -55,25 +54,24 @@ public class AskAction implements Action {
 					"UTF-8",
 					new DefaultFileRenamePolicy()
 					);			
+			askGroupIndex = Integer.parseInt(multipartRequest.getParameter("group"));
 			itemIndex = Integer.parseInt(multipartRequest.getParameter("id"));
 			title = multipartRequest.getParameter("title");
 			content = multipartRequest.getParameter("content");
-			starRating = Float.parseFloat(multipartRequest.getParameter("starRating"));
 			Enumeration<?> fileNames = multipartRequest.getFileNames();
 			
 			if(fileNames.hasMoreElements()) {
 				fileName = (String)fileNames.nextElement();
 				fileSystemName = multipartRequest.getFilesystemName(fileName);
-				originalFileName = multipartRequest.getOriginalFileName(fileName);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		ReviewVO reviewVO = new ReviewVO(itemIndex, userId, title, content, starRating, fileSystemName);  
+		AskVO askVO = new AskVO(askGroupIndex, itemIndex, userId, title, content, fileSystemName);
 		
 		ItemService itemService = new ItemServiceImpl();
-		itemService.insertReview(reviewVO);
+		itemService.insertAsk(askVO);
 				
 		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemAsk");
 	}

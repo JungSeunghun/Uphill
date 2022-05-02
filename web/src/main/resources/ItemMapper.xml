@@ -41,7 +41,7 @@
 		select * from review_table
 		where item_index = #{itemIndex}
 		order by review_index desc
-		limit ${startNum}, ${count}
+		limit #{startNum}, #{count}
 	</select>
 
 	<select id="selectAskList" resultType="askVO" parameterType="Map">
@@ -53,16 +53,26 @@
 	
 	<select id="selectReviewCount" resultType="Integer" parameterType="Integer">
 		select count(*) from review_table 
-		where item_index = ${itemIndex}
+		where item_index = #{itemIndex}
 	</select>
 	
 	<select id="selectAskCount" resultType="Integer" parameterType="Integer">
 		select count(*) from ask_table 
-		where item_index = ${itemIndex}
+		where item_index = #{itemIndex}
 	</select>
 	
 	<insert id="insertReview" parameterType="reviewVO">
 		insert into review_table(item_index, user_id, title, content, star_rating, image_file)
-		values(${itemIndex}, ${userId}, ${title}, ${content}, ${starRating}, ${imageFile})
+		values(#{itemIndex}, #{userId}, #{title}, #{content}, #{starRating}, #{imageFile})
 	</insert>
+	
+	<insert id="insertAsk" parameterType="askVO">
+		insert into ask_table(ask_group_index, ask_group_level, user_id, title, content, image_file)
+		values(#{askGroupIndex}, #{askGroupLevel}, #{userId}, #{title}, #{content}, #{imageFile})
+	</insert>
+	
+	<delete id="deleteReview" parameterType="Integer">
+		delete from review_table 
+		where review_index = #{reviewIndex}
+	</delete>
 </mapper>

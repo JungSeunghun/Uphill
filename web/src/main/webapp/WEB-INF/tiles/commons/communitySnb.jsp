@@ -5,9 +5,10 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 
 <nav id="snb">
-	
 	<div>
 		<a href="${contextPath}/community/notice">공지사항</a>
 	</div>
-	
+	<div>
+		<a href="${contextPath}/community/road">산책로</a>
+	</div>
 </nav>

@@ -5,11 +5,11 @@
 <mapper namespace="com.uphill.web.service.admin.AdminMapper">
 	<select id="selectUserList" resultType="userVO" parameterType="Map">
 		select * from user_table
-		limit ${startNum}, ${count}
+		limit #{startNum}, #{count}
 	</select>
 
 	<select id="selectUser" resultType="userVO" parameterType="Integer">
-		select * from user_table where user_index = ${userIndex}
+		select * from user_table where user_index = #{userIndex}
 	</select>
 
 	<select id="selectUserCount" resultType="Integer">
@@ -18,21 +18,21 @@
 	
 	<delete id="deleteUser" parameterType="Integer">
 		delete from user_table
-		where user_index = ${userIndex}
+		where user_index = #{userIndex}
 	</delete>
 	
 	<select id="selectOrderList" resultType="orderVO" parameterType="Map">
 		select * from order_table
-		limit ${startNum}, ${count}
+		limit ${startNum}, #{count}
 	</select>
 	
 	<select id="selectOrder" resultType="orderVO" parameterType="Integer">
-		select * from order_table where order_index = ${orderIndex}
+		select * from order_table where order_index = #{orderIndex}
 	</select>
 
 	<select id="selectOrderItemInfoList" resultType="orderItemInfoVO" parameterType="Integer">
 		select * from order_item_table join item_table using(item_index)
-		where order_index = ${orderIndex}
+		where order_index = #{orderIndex}
 	</select>
 	
 	<select id="selectOrderCount" resultType="Integer">
@@ -42,12 +42,12 @@
 	<update id="updateOrder" parameterType="Map">
 		update order_table 
 		set order_state = ${orderState}
-		where order_index = ${orderIndex} 
+		where order_index = #{orderIndex} 
 	</update>
 	
 	<select id="selectItemList" resultType="itemVO" parameterType="Map">
 		select * from item_table
-		limit ${startNum}, ${count}
+		limit ${startNum}, #{count}
 	</select>
 	
 	<select id="selectItemCount" resultType="Integer">
@@ -56,11 +56,11 @@
 	
 	<select id="selectItem" resultType="itemVO" parameterType="Integer">
 		select * from item_table
-		where item_index = ${itemIndex}
+		where item_index = #{itemIndex}
 	</select>
 	
 	<select id="selectItemOptionList" resultType="itemOptionVO" parameterType="Integer">
 		select * from item_option_table
-		where item_index = ${itemIndex}
+		where item_index = #{itemIndex}
 	</select>
 </mapper>
