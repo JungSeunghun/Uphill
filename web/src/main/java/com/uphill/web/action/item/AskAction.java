@@ -38,7 +38,6 @@ public class AskAction implements Action {
 		}
 		int size = 10 * 1024 * 1024;
 		
-		int askGroupIndex = 0;
 		int itemIndex = 0;
 		String userId = userVO.getUserId();
 		String title = "";
@@ -54,7 +53,6 @@ public class AskAction implements Action {
 					"UTF-8",
 					new DefaultFileRenamePolicy()
 					);			
-			askGroupIndex = Integer.parseInt(multipartRequest.getParameter("group"));
 			itemIndex = Integer.parseInt(multipartRequest.getParameter("id"));
 			title = multipartRequest.getParameter("title");
 			content = multipartRequest.getParameter("content");
@@ -68,12 +66,12 @@ public class AskAction implements Action {
 			e.printStackTrace();
 		}
 		
-		AskVO askVO = new AskVO(askGroupIndex, itemIndex, userId, title, content, fileSystemName);
+		AskVO askVO = new AskVO(itemIndex, userId, title, content, fileSystemName);
 		
 		ItemService itemService = new ItemServiceImpl();
 		itemService.insertAsk(askVO);
 				
-		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemAsk");
+		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemAsk", true);
 	}
 
 }

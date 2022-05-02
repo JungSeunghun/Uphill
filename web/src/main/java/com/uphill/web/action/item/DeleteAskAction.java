@@ -10,7 +10,7 @@ import com.uphill.web.service.item.ItemService;
 import com.uphill.web.service.item.ItemServiceImpl;
 import com.uphill.web.viewresolver.ViewResolver;
 
-public class DeleteReviewAction implements Action {
+public class DeleteAskAction implements Action {
 
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
@@ -23,12 +23,12 @@ public class DeleteReviewAction implements Action {
 		}
 		
 		int itemIndex = Integer.parseInt(request.getParameter("itemIndex"));
-		int reviewIndex = Integer.parseInt(request.getParameter("reviewIndex"));
+		int askIndex = Integer.parseInt(request.getParameter("askIndex"));
 				
 		ItemService itemService = new ItemServiceImpl();
-		itemService.deleteReview(reviewIndex);
-				
-		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemReview", true);
+		itemService.deleteAsk(askIndex);
+		
+		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemAsk", true);
 	}
 
 }

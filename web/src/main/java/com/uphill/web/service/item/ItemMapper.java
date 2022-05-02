@@ -22,6 +22,8 @@ public interface ItemMapper {
 	int selectReviewCount(int itemIndex);
 	int selectAskCount(int itemIndex);
 	int insertReview(ReviewVO reviewVO);
+	int selectAskIndex();
 	int insertAsk(AskVO askVO);
 	int deleteReview(int reviewIndex);
+	int deleteAsk(int askIndex);
 }

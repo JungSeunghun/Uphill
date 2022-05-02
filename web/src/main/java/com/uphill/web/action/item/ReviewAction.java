@@ -74,7 +74,7 @@ public class ReviewAction implements Action {
 		ItemService itemService = new ItemServiceImpl();
 		itemService.insertReview(reviewVO);
 				
-		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemReview");
+		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemReview", true);
 	}
 
 }

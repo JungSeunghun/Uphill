@@ -19,4 +19,5 @@ public interface ItemService {
 	int insertReview(ReviewVO reviewVO);
 	int insertAsk(AskVO askVO);
 	int deleteReview(int reviewIndex);
+	int deleteAsk(int askIndex);
 }

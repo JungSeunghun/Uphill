@@ -112,6 +112,10 @@ public class ItemServiceImpl implements ItemService{
 
 	@Override
 	public int insertAsk(AskVO askVO) {
+		int askIndex = itemMapper.selectAskIndex();
+		askVO.setAskIndex(askIndex);
+		askVO.setAskGroupIndex(askIndex);
+		askVO.setAskGroupLevel(0);
 		int result = itemMapper.insertAsk(askVO);
 		
 		if(result > 0) {
@@ -138,5 +142,22 @@ public class ItemServiceImpl implements ItemService{
 		sqlSession.close();
 		
 		return result;
-	}	
+	}
+
+	@Override
+	public int deleteAsk(int askIndex) {
+		int result = itemMapper.deleteAsk(askIndex);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+	
+	
 }

@@ -42,7 +42,7 @@
 						<td>조회수</td>
 					</tr>
 				</thead>
-				<c:forEach var="review" items="${reviewList }">
+				<c:forEach var="review" items="${reviewList }" varStatus="status">
 					<tr id="post" onclick="showPost('r-${review.reviewIndex}')">
 						<td>${review.userId }</td>
 						<td>${review.title }(${review.starRating })</td>
@@ -58,10 +58,10 @@
 							<div>${review.content }</div>
 							<c:if test="${review.userId == userVO.userId }">
 								<div>
-									<form name="f" action="${contextPath }/item/delete-review-action" method="post">
+									<form name="deleteReviewForm${status.index }" action="${contextPath }/item/delete-review-action" method="post">
 										<input type="hidden" name="reviewIndex" value="${review.reviewIndex }">
 										<input type="hidden" name="itemIndex" value="${item.itemIndex }">
-										<button type="button" onclick="if(confirm('정말 삭제하시겠습니까?')){f.submit()}">삭제</button>
+										<button type="button" onclick="if(confirm('정말 삭제하시겠습니까?')){deleteReviewForm${status.index }.submit()}">삭제</button>
 									</form>
 								</div>
 							</c:if>
@@ -106,7 +106,7 @@
 						<td>조회수</td>
 					</tr>
 				</thead>
-				<c:forEach var="ask" items="${askList }">
+				<c:forEach var="ask" items="${askList }" varStatus="status">
 					<tr id="post" onclick="showPost('a-${ask.askIndex}')">
 						<td>${ask.userId }</td>
 						<td><c:forEach var="i" begin="1" end="${ask.askGroupLevel }">↳</c:forEach>${ask.title }</td>
@@ -115,7 +115,19 @@
 					</tr>
 					<tr id="a-${ask.askIndex }" style="display:none;">
 						<td colspan="4" style="height: 100px; border: 1px solid #c4c4c4;">
-							${ask.content }
+							<c:if test="${ask.imageFile != null }">
+								<img src="${contextPath }/images/asks/${ask.imageFile }" height="100px">
+							</c:if>
+							<div>${ask.content }</div>
+							<c:if test="${ask.userId == userVO.userId }">
+								<div>
+									<form name="deleteAskForm${status.index }" action="${contextPath }/item/delete-ask-action" method="post">
+										<input type="hidden" name="askIndex" value="${ask.askIndex }">
+										<input type="hidden" name="itemIndex" value="${item.itemIndex }">
+										<button type="button" onclick="if(confirm('정말 삭제하시겠습니까?')){deleteAskForm${status.index }.submit()}">삭제</button>
+									</form>
+								</div>
+							</c:if>
 						</td>
 					</tr>
 				</c:forEach>

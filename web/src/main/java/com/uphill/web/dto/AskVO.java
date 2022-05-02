@@ -18,10 +18,9 @@ public class AskVO {
 		super();
 	}
 	
-	public AskVO(int askGroupIndex, int itemIndex, String userId, String title, String content,
+	public AskVO(int itemIndex, String userId, String title, String content,
 			String imageFile) {
 		super();
-		this.askGroupIndex = askGroupIndex;
 		this.itemIndex = itemIndex;
 		this.userId = userId;
 		this.title = title;

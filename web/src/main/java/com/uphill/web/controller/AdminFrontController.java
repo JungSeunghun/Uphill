@@ -21,7 +21,6 @@ import com.uphill.web.action.admin.OrderUpdateAction;
 import com.uphill.web.action.admin.User;
 import com.uphill.web.action.admin.UserDeleteAction;
 import com.uphill.web.action.admin.UserInfo;
-import com.uphill.web.action.community.Notice;
 import com.uphill.web.viewresolver.ViewResolver;
 
 @WebServlet("/admin/*")
