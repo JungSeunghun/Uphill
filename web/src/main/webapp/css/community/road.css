@@ -8,3 +8,10 @@ section {
 	flex-direction: column;
 	align-items: center;
 }
+div#map1{
+	margin-bottom: 20px;
+}
+
+div#map2{
+	margin-top: 20px;
+}

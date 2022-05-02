@@ -6,9 +6,9 @@
 
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/home/intro.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe035c8da71dcbd1c481b97383153aa6"></script>
-<!-- content -->
 <section class="container">
 		<div class="total">
+		<!-- content -->
 			<div class="content">
 				<h2>소개</h2>
 				<ul>
