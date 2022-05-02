@@ -7,5 +7,28 @@
 }
 
 section {
-	
+	padding : 100px;
+}
+
+section div{
+	 padding-bottom: 20px;
+}
+
+#policy2 {
+	display: none;
+}
+
+#policy3 {
+	display: none;
+}
+
+.btn{
+    border: 1px solid skyblue;
+    padding : 16px;
+    background-color: #ffffff;
+}
+
+.btn:hover{
+	font-size : 20px;
+	background-color: skyblue;
 }

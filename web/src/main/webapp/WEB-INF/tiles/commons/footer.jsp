@@ -9,8 +9,8 @@
 	<div id="up">
 		<a href="${contextPath }/home/intro">회사소개</a>
 		<a href="${contextPath }/home/policy">이용약관</a>
-		<a href="${contextPath }/home/policy">개인정보취급방침</a>
-		<a href="${contextPath }/home/policy">이메일주소무단수집거부</a>
+		<a href="${contextPath }/home/policy?id=policy2">개인정보취급방침</a>
+		<a href="${contextPath }/home/policy?id=policy3">이메일주소무단수집거부</a>
 	</div>
 	<div id="down">
 		<img alt="uphill_logo_black" src="${pageContext.request.contextPath}/images/logos/uphill_logo_black.svg">
