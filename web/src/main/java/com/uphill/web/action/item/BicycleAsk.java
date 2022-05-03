@@ -17,6 +17,16 @@ public class BicycleAsk implements Action {
 			int itemIndex = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("itemIndex", itemIndex);
 			
+			if(request.getParameter("askIndex") != null) {
+				int askIndex = Integer.parseInt(request.getParameter("askIndex"));
+				int askGroupIndex = Integer.parseInt(request.getParameter("askGroupIndex"));
+				int askGroupLevel = Integer.parseInt(request.getParameter("askGroupLevel"));
+				
+				request.setAttribute("askIndex", askIndex);
+				request.setAttribute("askGroupIndex", askGroupIndex);
+				request.setAttribute("askGroupLevel", askGroupLevel);
+			}
+			
 			return new ViewResolver("/views/item/bicycleAsk.tiles");
 		} else {
 			return new ViewResolver("/account/login", true);

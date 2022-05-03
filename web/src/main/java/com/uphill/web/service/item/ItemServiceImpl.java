@@ -114,8 +114,10 @@ public class ItemServiceImpl implements ItemService{
 	public int insertAsk(AskVO askVO) {
 		int askIndex = itemMapper.selectAskIndex();
 		askVO.setAskIndex(askIndex);
-		askVO.setAskGroupIndex(askIndex);
-		askVO.setAskGroupLevel(0);
+		if(askVO.getAskGroupIndex() == 0) {
+			askVO.setAskGroupIndex(askIndex);
+			askVO.setAskGroupLevel(0);			
+		}
 		int result = itemMapper.insertAsk(askVO);
 		
 		if(result > 0) {
@@ -158,6 +160,5 @@ public class ItemServiceImpl implements ItemService{
 		
 		return result;
 	}
-	
 	
 }

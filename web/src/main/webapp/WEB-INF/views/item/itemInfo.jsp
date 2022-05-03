@@ -120,13 +120,31 @@
 							</c:if>
 							<div>${ask.content }</div>
 							<c:if test="${ask.userId == userVO.userId }">
-								<div>
-									<form name="deleteAskForm${status.index }" action="${contextPath }/item/delete-ask-action" method="post">
+								<form name="deleteAskForm${status.index }" action="${contextPath }/item/delete-ask-action" method="post">
+									<input type="hidden" name="askIndex" value="${ask.askIndex }">
+									<input type="hidden" name="itemIndex" value="${item.itemIndex }">
+									<button type="button" onclick="if(confirm('정말 삭제하시겠습니까?')){deleteAskForm${status.index }.submit()}">삭제</button>
+								</form>
+							</c:if>
+							<c:if test="${userVO.gradeIndex == 4 }">
+								<c:if test="${item.itemCategoryIndex == 1 }">
+									<form name="replyAskForm${status.index }" action="${contextPath }/item/bicycle/ask" method="post">
 										<input type="hidden" name="askIndex" value="${ask.askIndex }">
-										<input type="hidden" name="itemIndex" value="${item.itemIndex }">
-										<button type="button" onclick="if(confirm('정말 삭제하시겠습니까?')){deleteAskForm${status.index }.submit()}">삭제</button>
+										<input type="hidden" name="askGroupIndex" value="${ask.askGroupIndex }">
+										<input type="hidden" name="askGroupLevel" value="${ask.askGroupLevel }">
+										<input type="hidden" name="id" value="${item.itemIndex }">
+										<button type="button" onclick="replyAskForm${status.index}.submit()">문의하기</button>
 									</form>
-								</div>
+								</c:if>
+								<c:if test="${item.itemCategoryIndex != 1 }">
+									<form name="replyAskForm${status.index }" action="${contextPath }/item/item/ask" method="post">
+										<input type="hidden" name="askIndex" value="${ask.askIndex }">
+										<input type="hidden" name="askGroupIndex" value="${ask.askGroupIndex }">
+										<input type="hidden" name="askGroupLevel" value="${ask.askGroupLevel }">
+										<input type="hidden" name="id" value="${item.itemIndex }">
+										<button type="button" onclick="replyAskForm${status.index}.submit()">문의하기</button>
+									</form>
+								</c:if>
 							</c:if>
 						</td>
 					</tr>

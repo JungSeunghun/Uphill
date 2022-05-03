@@ -47,7 +47,7 @@
 	<select id="selectAskList" resultType="askVO" parameterType="Map">
 		select * from ask_table
 		where item_index = #{itemIndex}
-		order by ask_group_index desc
+		order by ask_group_index desc, post_date asc
 		limit #{startNum}, #{count}
 	</select>
 	

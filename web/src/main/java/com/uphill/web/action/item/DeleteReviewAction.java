@@ -15,20 +15,18 @@ public class DeleteReviewAction implements Action {
 	@Override
 	public ViewResolver execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		UserVO userVO = null;
 		if(session.getAttribute("userVO") != null && session.getAttribute("userVO") instanceof UserVO) {
-			userVO = (UserVO)session.getAttribute("userVO");			
+			int itemIndex = Integer.parseInt(request.getParameter("itemIndex"));
+			int reviewIndex = Integer.parseInt(request.getParameter("reviewIndex"));
+					
+			ItemService itemService = new ItemServiceImpl();
+			itemService.deleteReview(reviewIndex);
+					
+			return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemReview", true);
 		} else {
 			return new ViewResolver("/account/login", true);
 		}
 		
-		int itemIndex = Integer.parseInt(request.getParameter("itemIndex"));
-		int reviewIndex = Integer.parseInt(request.getParameter("reviewIndex"));
-				
-		ItemService itemService = new ItemServiceImpl();
-		itemService.deleteReview(reviewIndex);
-				
-		return new ViewResolver("/item/item-info?id=" + itemIndex + "#itemReview", true);
 	}
 
 }

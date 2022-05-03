@@ -17,7 +17,7 @@ public class ItemReview implements Action {
 			int itemIndex = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("itemIndex", itemIndex);
 			
-			return new ViewResolver("/views/item/itemReview.tiles");			
+			return new ViewResolver("/views/item/itemReview.tiles");
 		} else {
 			return new ViewResolver("/account/login", true);
 		}

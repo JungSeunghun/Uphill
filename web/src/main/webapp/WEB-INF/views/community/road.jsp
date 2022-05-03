@@ -9,10 +9,10 @@
 <section>
 	<h1>산책로</h1>
 	<h1>두류공원로</h1>
-	<div id="map1" style="width:100%; max-width:500px; height:400px;"></div>
+	<div id="map1" style="width:100%; max-width:1024px; height:400px;"></div>
 	<p>거리가 약 880m정도로 조용한 산책로다 </p>
 	<h1>수성못</h1>
-	<div id="map2" style="width:100%; max-width:500px; height:400px;"></div>
+	<div id="map2" style="width:100%; max-width:1024px; height:400px;"></div>
 	<p>거리가 2km정도로 사람이 많은 산책로다 </p>
 	<script>
 		var container = document.getElementById('map1');

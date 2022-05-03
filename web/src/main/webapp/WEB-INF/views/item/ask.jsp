@@ -11,6 +11,11 @@
 <section>
 	<div id="mainTitle">문의하기</div>
 	<form action="${contextPath }/item/ask-action?id=${itemIndex}" name="f" method="post" enctype="multipart/form-data">
+		<c:if test="${askIndex != null }">
+			<input type="hidden" name="askIndex" value="${askIndex }">
+			<input type="hidden" name="askGroupIndex" value="${askGroupIndex }">
+			<input type="hidden" name="askGroupLevel" value="${askGroupLevel }">
+		</c:if>
 		<table>
 			<tr>
 				<td>제목</td>

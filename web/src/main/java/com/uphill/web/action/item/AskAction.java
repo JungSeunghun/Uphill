@@ -39,6 +39,10 @@ public class AskAction implements Action {
 		int size = 10 * 1024 * 1024;
 		
 		int itemIndex = 0;
+		int askIndex = 0;
+		int askGroupIndex = 0;
+		int askGroupLevel = 0;
+		
 		String userId = userVO.getUserId();
 		String title = "";
 		String content = "";
@@ -54,6 +58,12 @@ public class AskAction implements Action {
 					new DefaultFileRenamePolicy()
 					);			
 			itemIndex = Integer.parseInt(multipartRequest.getParameter("id"));
+			if(multipartRequest.getParameter("askIndex") != null) {
+				askIndex = Integer.parseInt(multipartRequest.getParameter("askIndex"));
+				askGroupIndex = Integer.parseInt(multipartRequest.getParameter("askGroupIndex"));
+				askGroupLevel = Integer.parseInt(multipartRequest.getParameter("askGroupLevel")) + 1;
+			}
+			
 			title = multipartRequest.getParameter("title");
 			content = multipartRequest.getParameter("content");
 			Enumeration<?> fileNames = multipartRequest.getFileNames();
@@ -66,7 +76,12 @@ public class AskAction implements Action {
 			e.printStackTrace();
 		}
 		
-		AskVO askVO = new AskVO(itemIndex, userId, title, content, fileSystemName);
+		AskVO askVO;
+		if(askIndex == 0) {
+			askVO = new AskVO(itemIndex, userId, title, content, fileSystemName);			
+		} else {
+			askVO = new AskVO(askGroupIndex, askGroupLevel, itemIndex, userId, title, content, fileSystemName);
+		}
 		
 		ItemService itemService = new ItemServiceImpl();
 		itemService.insertAsk(askVO);
