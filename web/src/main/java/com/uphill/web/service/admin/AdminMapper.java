@@ -25,4 +25,10 @@ public interface AdminMapper {
 	int selectItemCount();
 	ItemVO selectItem(int itemIndex);
 	List<ItemOptionVO> selectItemOptionList(int itemIndex);
+	int updateItem(ItemVO itemVO);
+	int deleteItemOption(int itemIndex);
+	int insertItemOption(List<ItemOptionVO> itemOptionList);
+	int insertItem(ItemVO itemVO);
+	int selectItemIndex();
+	int deleteItem(int itemIndex);
 }

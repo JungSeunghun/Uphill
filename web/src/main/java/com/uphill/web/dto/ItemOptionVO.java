@@ -12,6 +12,24 @@ public class ItemOptionVO {
 		super();
 	}
 	
+	public ItemOptionVO(String itemOptionName, String itemOptionContent, int itemOptionPrice, int itemOptionQty) {
+		super();
+		this.itemOptionName = itemOptionName;
+		this.itemOptionContent = itemOptionContent;
+		this.itemOptionPrice = itemOptionPrice;
+		this.itemOptionQty = itemOptionQty;
+	}
+
+	public ItemOptionVO(int itemIndex, String itemOptionName, String itemOptionContent, int itemOptionPrice,
+			int itemOptionQty) {
+		super();
+		this.itemIndex = itemIndex;
+		this.itemOptionName = itemOptionName;
+		this.itemOptionContent = itemOptionContent;
+		this.itemOptionPrice = itemOptionPrice;
+		this.itemOptionQty = itemOptionQty;
+	}
+
 	public ItemOptionVO(int itemOptionIndex, int itemIndex, String itemOptionName, String itemOptionContent,
 			int itemOptionPrice, int itemOptionQty) {
 		super();

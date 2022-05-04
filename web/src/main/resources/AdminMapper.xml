@@ -47,6 +47,7 @@
 	
 	<select id="selectItemList" resultType="itemVO" parameterType="Map">
 		select * from item_table
+		order by item_index desc
 		limit ${startNum}, #{count}
 	</select>
 	
@@ -63,4 +64,74 @@
 		select * from item_option_table
 		where item_index = #{itemIndex}
 	</select>
+	
+	<update id="updateItem" parameterType="itemVO">
+		update item_table
+		set item_category_index = #{itemCategoryIndex},
+		item_category_name = #{itemCategoryName},
+		<if test="itemSubcategoryIndex != 0">
+			item_subcategory_index = #{itemSubcategoryIndex},
+			item_subcategory_name = #{itemSubcategoryName},
+		</if>
+		item_name = #{itemName},
+		item_image = #{itemImage},
+		item_price = #{itemPrice},
+		item_discount_price = #{itemDiscountPrice},
+		item_total_qty = #{itemTotalQty}
+		where item_index = #{itemIndex}
+	</update>
+	
+	<delete id="deleteItemOption" parameterType="Integer">
+		delete from item_option_table
+		where item_index = #{itemIndex}
+	</delete>
+	
+	<insert id="insertItemOption" parameterType="java.util.List">
+		insert into item_option_table(item_index, item_option_name, item_option_content, item_option_price, item_option_qty)
+		values
+		<foreach item="itemOptionList" collection="list" separator=",">
+			(
+			#{itemOptionList.itemIndex},
+			#{itemOptionList.itemOptionName},
+			#{itemOptionList.itemOptionContent},
+			#{itemOptionList.itemOptionPrice},
+			#{itemOptionList.itemOptionQty}
+			)
+		</foreach>
+	</insert>
+	
+	<select id="selectItemIndex" resultType="Integer">
+		select ifnull(max(item_index), 0) + 1 from item_table 
+	</select>
+	
+	<insert id="insertItem" parameterType="itemVO">
+		insert into item_table(
+		item_index,
+		item_category_index,
+		item_category_name,
+		item_subcategory_index,
+		item_subcategory_name,
+		item_name,
+		item_image,
+		item_price,
+		item_discount_price,
+		item_total_qty) 
+		values(
+		#{itemIndex},
+		#{itemCategoryIndex},
+		#{itemCategoryName},
+		#{itemSubcategoryIndex},
+		#{itemSubcategoryName},
+		#{itemName},
+		#{itemImage},
+		#{itemPrice},
+		#{itemDiscountPrice},
+		#{itemTotalQty}
+		)
+	</insert>
+	
+	<delete id="deleteItem" parameterType="Integer">
+		delete from item_table
+		where item_index = #{itemIndex}
+	</delete>
 </mapper>

@@ -136,5 +136,63 @@ public class AdminServiceImpl implements AdminService {
 		
 		return itemInfoVO;
 	}
+
+	@Override
+	public int updateItem(ItemVO itemVO, List<ItemOptionVO> itemOptionList) {
+		int updateItemResult = adminMapper.updateItem(itemVO);
+		int deleteItemOptionResult = adminMapper.deleteItemOption(itemVO.getItemIndex());
+		int insertItemOptionResult = adminMapper.insertItemOption(itemOptionList);
+		
+		int result = 0;
+		
+		if(updateItemResult > 0 && deleteItemOptionResult >= 0 && insertItemOptionResult > 0) {
+			result = updateItemResult + deleteItemOptionResult + insertItemOptionResult;
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+
+	@Override
+	public int insertItem(ItemVO itemVO, List<ItemOptionVO> itemOptionList) {
+		int itemIndex = adminMapper.selectItemIndex();
+		itemVO.setItemIndex(itemIndex);
+		for(ItemOptionVO itemOption : itemOptionList) {
+			itemOption.setItemIndex(itemIndex);
+		}
+		int insertItemResult = adminMapper.insertItem(itemVO);
+		int insertItemOptionResult = adminMapper.insertItemOption(itemOptionList);
+		
+		int result = 0;
+		
+		if(insertItemResult >= 0 && insertItemOptionResult > 0) {
+			result = insertItemResult + insertItemOptionResult;
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+
+	@Override
+	public int deleteItem(int itemIndex) {
+		int result = adminMapper.deleteItem(itemIndex);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		return 0;
+	}
 	
 }

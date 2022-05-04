@@ -1,7 +1,10 @@
 package com.uphill.web.service.admin;
 
+import java.util.List;
+
 import com.uphill.web.dto.ItemInfoVO;
 import com.uphill.web.dto.ItemListInfoVO;
+import com.uphill.web.dto.ItemOptionVO;
 import com.uphill.web.dto.ItemVO;
 import com.uphill.web.dto.OrderInfoVO;
 import com.uphill.web.dto.OrderListInfoVO;
@@ -19,4 +22,7 @@ public interface AdminService {
 	
 	ItemListInfoVO getItemListInfo(int itemPage, int count);
 	ItemInfoVO getItemInfo(int itemIndex);
+	int updateItem(ItemVO itemVO, List<ItemOptionVO> itemOptionList);
+	int insertItem(ItemVO itemVO, List<ItemOptionVO> itemOptionList);
+	int deleteItem(int itemIndex);
 }

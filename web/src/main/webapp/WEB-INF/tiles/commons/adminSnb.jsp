@@ -14,7 +14,4 @@
 	<div>
 		<a href="${contextPath}/admin/item">재고관리</a>
 	</div>
-	<div>
-		<a href="${contextPath}/admin/sales">월별결산</a>
-	</div>
 </nav>

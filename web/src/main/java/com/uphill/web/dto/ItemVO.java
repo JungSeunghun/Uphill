@@ -17,6 +17,37 @@ public class ItemVO {
 	public ItemVO() {
 		super();
 	}
+	
+	public ItemVO(int itemCategoryIndex, String itemCategoryName, int itemSubcategoryIndex,
+			String itemSubcategoryName, String itemName, String itemImage, int itemPrice, int itemDiscountPrice,
+			int itemTotalQty) {
+		super();
+		this.itemCategoryIndex = itemCategoryIndex;
+		this.itemCategoryName = itemCategoryName;
+		this.itemSubcategoryIndex = itemSubcategoryIndex;
+		this.itemSubcategoryName = itemSubcategoryName;
+		this.itemName = itemName;
+		this.itemImage = itemImage;
+		this.itemPrice = itemPrice;
+		this.itemDiscountPrice = itemDiscountPrice;
+		this.itemTotalQty = itemTotalQty;
+	}
+	
+	public ItemVO(int itemIndex, int itemCategoryIndex, String itemCategoryName, int itemSubcategoryIndex,
+			String itemSubcategoryName, String itemName, String itemImage, int itemPrice, int itemDiscountPrice,
+			int itemTotalQty) {
+		super();
+		this.itemIndex = itemIndex;
+		this.itemCategoryIndex = itemCategoryIndex;
+		this.itemCategoryName = itemCategoryName;
+		this.itemSubcategoryIndex = itemSubcategoryIndex;
+		this.itemSubcategoryName = itemSubcategoryName;
+		this.itemName = itemName;
+		this.itemImage = itemImage;
+		this.itemPrice = itemPrice;
+		this.itemDiscountPrice = itemDiscountPrice;
+		this.itemTotalQty = itemTotalQty;
+	}
 
 	public ItemVO(int itemIndex, int itemCategoryIndex, String itemCategoryName, int itemSubcategoryIndex,
 			String itemSubcategoryName, String itemName, String itemImage, float starRating, int itemPrice,

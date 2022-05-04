@@ -29,9 +29,6 @@
 				<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
 			</li>
 			<li>
-				<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
-			</li>
-			<li>
 				<img id="menuButton" src="${contextPath}/images/icons/menu_button_white.svg" onclick="mobileCategoryToggle();">
 			</li>
 		</ul>
@@ -55,36 +52,62 @@
 				</ul>
 			</div>
 		</div>
-		<div id="mobileCategory">
-			<ul>
-				<li>
-					<a href="${contextPath}/account/login">로그인</a>
-				</li>
-				<li>
-					<a href="${contextPath}/account/join1">회원가입</a>
-				</li>
-				<li>
-					<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
-				</li>		
-				<li>
-					<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
-				</li>
-				<li>
-					<a href="${contextPath}/home/intro">소개</a>
-				</li>
-				<li>
-					<a href="${contextPath}/item/bicycle">자전거</a>
-				</li>
-				<li>
-					<a href="${contextPath}/item/item">용품</a>			
-				</li>
-				<li>
-					<a href="${contextPath}/community/notice">커뮤니티</a>
-				</li>
-				<li>
-					<a href="${contextPath}/home/customer-center">고객센터</a>
-				</li>
-			</ul>
-		</div>
+		<c:if test="${userVO == null }">
+			<div id="mobileCategory">
+				<ul>
+					<li>
+						<a href="${contextPath}/account/login">로그인</a>
+					</li>
+					<li>
+						<a href="${contextPath}/account/join1">회원가입</a>
+					</li>	
+					<li>
+						<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
+					</li>
+					<li>
+						<a href="${contextPath}/home/intro">소개</a>
+					</li>
+					<li>
+						<a href="${contextPath}/item/bicycle">자전거</a>
+					</li>
+					<li>
+						<a href="${contextPath}/item/item">용품</a>			
+					</li>
+					<li>
+						<a href="${contextPath}/community/notice">커뮤니티</a>
+					</li>
+					<li>
+						<a href="${contextPath}/home/customer-center">고객센터</a>
+					</li>
+				</ul>
+			</div>
+		</c:if>
+		<c:if test="${userVO != null }">
+			<div id="mobileCategory">
+				<ul>
+					<li>
+						<a href="${contextPath}/account/logout-action">로그아웃</a>
+					</li>
+					<li>
+						<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
+					</li>
+					<li>
+						<a href="${contextPath}/home/intro">소개</a>
+					</li>
+					<li>
+						<a href="${contextPath}/item/bicycle">자전거</a>
+					</li>
+					<li>
+						<a href="${contextPath}/item/item">용품</a>			
+					</li>
+					<li>
+						<a href="${contextPath}/community/notice">커뮤니티</a>
+					</li>
+					<li>
+						<a href="${contextPath}/home/customer-center">고객센터</a>
+					</li>
+				</ul>
+			</div>
+		</c:if>
 	</nav>
 </div>

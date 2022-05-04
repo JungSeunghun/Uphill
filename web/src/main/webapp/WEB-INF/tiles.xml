@@ -287,4 +287,13 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/itemInfo.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
 	</definition>
+
+	<definition name="views/admin/addItem" template="/WEB-INF/tiles/layouts/pageLayout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/commons/header.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/adminSnb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/addItem.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
 </tiles-definitions>

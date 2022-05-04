@@ -19,7 +19,7 @@
 			<td><button type="button" onclick="deleteOption(this)">옵션삭제</button></td>
 		</tr>
 	</table>
-	<form action="${contextPath }/admin/item-update-action" name="f" method="post">
+	<form action="${contextPath }/admin/item-update-action" name="f" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="itemIndex" value="${itemVO.itemIndex }">
 		<table>
 			<tr>
@@ -128,5 +128,9 @@
 		</table>
 		
 		<button type="button" onclick="checkUpdateItem()">수정하기</button>
+	</form>
+	<form name="deleteForm" action="${contextPath }/admin/item-delete-action">
+		<input type="hidden" name="itemIndex" value="${itemVO.itemIndex }">
+		<button type="button" onclick="if(confirm('정말 삭제하시겠습니까?')){deleteForm.submit();}">삭제하기</button>
 	</form>
 </section>

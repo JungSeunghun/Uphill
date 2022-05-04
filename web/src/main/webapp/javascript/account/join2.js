@@ -152,9 +152,9 @@ function checkDuplicateId() {
 	if(userId==="") {
 		alert("아이디를 입력하세요.");
 		return;
-	} else if(!regexpId.test(userId.value)) {
+	} else if(!regexpId.test(userId)) {
 		alert("아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
-		return f.userEnterId.select();
+		return f.userId.select();
 	}
 	
 	var reqJson = new Object();
@@ -197,7 +197,7 @@ function sendSecureCode() {
 	if(emailId==="") {
 		alert("이메일을 입력하세요.");
 		return;
-	} else if(!regexpId.test(emailId.value)) {
+	} else if(!regexpId.test(emailId)) {
 		alert("이메일 아이디는 4~20자리의 영어 대소문자와 숫자 그리고 _로만 입력가능합니다.");
 		return f.userEnterId.select();
 	}

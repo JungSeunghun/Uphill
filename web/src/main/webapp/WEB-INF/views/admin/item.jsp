@@ -51,4 +51,5 @@
 			<a href="${contextPath }/admin/item?page=${itemPage + 1}">[다음]</a>
 		</c:if>
 	</div>
+	<button type="button" onclick="location.href='${contextPath}/admin/add-item'">아이템 추가</button>
 </section>
