@@ -17,7 +17,7 @@
 		<p>
 			상호 : (주)업힐자전거 l 사업자등록번호 : 000-00-00000<br>
 			사업장주소 : 대구광역시 달서구 달구벌대로 251 안길 15 l TEL (053) 000-0000 l FAX : (053) 000-0000<br>
-			개인정보 관리자 : 정승훈 l E-MAIL : uphill@uphill.com<br>
+			개인정보 관리자 : 김동준, 김태경, 정승훈 l E-MAIL : uphill@uphill.com<br>
 			Copyrightⓒ 2022. UpHill Corporation. All rights reserved.
 		</p>
 	</div>

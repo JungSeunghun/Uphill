@@ -28,6 +28,20 @@
 			<li>
 				<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
 			</li>
+			<li style="justify-content: flex-start; position: relative;">
+				<form style="display:flex; border: 1px solid #ffffff; padding: 2px;">
+					<input type="text" style="background-color: #111111; color: #ffffff; border: none">
+					<button style="background: #111111; border: none; cursor: pointer;">
+						<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
+					</button>
+				</form>
+				<div style="position: absolute; top:25px; color: #ffffff; background-color: #111111; z-index: 1000; width: 191px; border: 1px solid #ffffff;">
+					<div style="color:#ffffff; padding: 4px;">하이</div>
+					<div style="color:#ffffff; padding: 4px;">하이</div>
+					<div style="color:#ffffff; padding: 4px;">하이</div>
+					<div style="color:#ffffff; padding: 4px;">하이</div>
+				</div>
+			</li>
 			<li>
 				<img id="menuButton" src="${contextPath}/images/icons/menu_button_white.svg" onclick="mobileCategoryToggle();">
 			</li>
