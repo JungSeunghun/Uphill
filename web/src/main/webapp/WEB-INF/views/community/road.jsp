@@ -24,11 +24,26 @@
 		var map = new kakao.maps.Map(container, options);
 		
 		var linePath = [
-		    new kakao.maps.LatLng(35.85078704334387, 128.55991857516668),
-		    new kakao.maps.LatLng(35.84996950876503, 128.55659854865448),
-		    new kakao.maps.LatLng(35.848721991477554, 128.55481426405126),
-		    new kakao.maps.LatLng(35.84802756407561, 128.55485604779335),
-		    new kakao.maps.LatLng(35.84591841960664, 128.55314911118253) 
+		    new kakao.maps.LatLng(35.85081371174837, 128.55994676968777 ),
+		    new kakao.maps.LatLng(35.85062876046185, 128.55892204927704 ),
+		    new kakao.maps.LatLng(35.85001816335204, 128.55666867928784 ),
+		    new kakao.maps.LatLng(35.8493220841345, 128.55579448598687 ),
+		    new kakao.maps.LatLng(35.84875109248019,128.55482866793665 ),
+		    new kakao.maps.LatLng(35.84842822781692,128.55470891180337),
+		    new kakao.maps.LatLng(35.84814228864703,128.55486935627036 ),
+		    new kakao.maps.LatLng(35.84778724720198,128.55479878064415 ),
+		    new kakao.maps.LatLng(35.84734890899979,128.55454948583483 ),
+		    new kakao.maps.LatLng(35.846839715278215,128.55403040505453 ),
+		    new kakao.maps.LatLng(35.84651166693511,128.55378880353942 ),
+		    new kakao.maps.LatLng(35.84627514003507,128.5536126315882 ),
+		    new kakao.maps.LatLng(35.84605867010431,128.5532791304117 ),
+		    new kakao.maps.LatLng(35.84595370627856,128.5530335836382 ),
+		    new kakao.maps.LatLng(35.84597258348389,128.55261889553577 ),
+		    new kakao.maps.LatLng(35.846061710393684,128.55234669568597 ),
+		    new kakao.maps.LatLng(35.846247042867226,128.55212617707673),
+		    new kakao.maps.LatLng(35.846354366864524,128.55201481951602 ),
+		    new kakao.maps.LatLng(35.84644864142982,128.55186723560675 ),
+		    new kakao.maps.LatLng(35.84649050518243,128.55176567016483 )
 		];
 
 		var polyline = new kakao.maps.Polyline({
@@ -52,14 +67,23 @@
 		var map = new kakao.maps.Map(container, options);
 		
 		var linePath = [
-		    new kakao.maps.LatLng(35.82872568842167, 128.61458278729268 ),
-		    new kakao.maps.LatLng(35.82832199938138, 128.62147401078573 ),
-		    new kakao.maps.LatLng(35.826837136793216, 128.6219915357254 ),
-		    new kakao.maps.LatLng(35.82560360123975, 128.62124719161093 ),
-		    new kakao.maps.LatLng(35.82645154581888, 128.61717026554783 ),
-		    new kakao.maps.LatLng(35.82625950422722, 128.61369185837864 ),
-		    new kakao.maps.LatLng(35.82858540877375, 128.61429223833406 ),
-		    new kakao.maps.LatLng(35.82872155553305, 128.61455503939828  ),
+		    new kakao.maps.LatLng(35.828396845914334, 128.62143680409088  ),
+		    new kakao.maps.LatLng(35.82803078811066, 128.6215178804687  ),
+		    new kakao.maps.LatLng(35.82760370849344, 128.62178029514885  ),
+		    new kakao.maps.LatLng(35.8270741450521, 128.62195763052856  ),
+		    new kakao.maps.LatLng(35.826538484217316, 128.6219190653132  ),
+		    new kakao.maps.LatLng(35.826050928831265, 128.62165464150684  ),
+		    new kakao.maps.LatLng(35.82587380942234, 128.62142419979108  ),
+		    new kakao.maps.LatLng(35.82575268353185, 128.62105105000845  ),
+		    new kakao.maps.LatLng(35.82622741142295, 128.61892510183742  ),
+		    new kakao.maps.LatLng(35.826467013741954, 128.61786216346323  ),
+		    new kakao.maps.LatLng(35.82645193400328, 128.61663913692988  ),
+		    new kakao.maps.LatLng(35.826287075056335, 128.6138196678851   ),
+		    new kakao.maps.LatLng(35.826473691152614, 128.6136795972372   ),
+		    new kakao.maps.LatLng(35.82853863164256, 128.61425256102282   ),
+		    new kakao.maps.LatLng(35.82866703289805, 128.61442114686486   ),
+		    new kakao.maps.LatLng(35.82872232128734, 128.6146657115441   ),
+		    new kakao.maps.LatLng(35.828420874202635, 128.62149262103839 ),
 		];
 
 		var polyline = new kakao.maps.Polyline({
