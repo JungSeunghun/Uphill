@@ -1,3 +1,11 @@
+function emptySearch() {
+const searchNameList = document.getElementById("searchNameList");
+	
+	while (searchNameList.hasChildNodes()) {
+		searchNameList.removeChild(searchNameList.firstChild);
+	}
+}
+
 /*
  * 검색어
  */
@@ -5,10 +13,13 @@ function getSearch() {
 	const httpRequest = new XMLHttpRequest();
 	const search = document.getElementById("search").value;
 	const searchNameList = document.getElementById("searchNameList");
+	
 	while (searchNameList.hasChildNodes()) {
 		searchNameList.removeChild(searchNameList.firstChild);
 	}
+	
 	if(search == '') {
+		
 		return;
 	}
 	 
@@ -17,7 +28,11 @@ function getSearch() {
 	httpRequest.onreadystatechange = () => {
 		if (httpRequest.readyState === XMLHttpRequest.DONE) {
 			if (httpRequest.status === 200) {
+				while (searchNameList.hasChildNodes()) {
+					searchNameList.removeChild(searchNameList.firstChild);
+				}
 		    	const result = httpRequest.response;
+		    	console.log(result.searchNameList);
 		    	result.searchNameList[0].forEach(
 		    		(name)=>{
 		    			var nameDiv = document.createElement('div');

@@ -30,7 +30,7 @@
 			</li>
 			<li style="justify-content: flex-start; position: relative;">
 				<form action="${contextPath }/item" name="f" method="get" style="display:flex; border: 1px solid #ffffff; padding: 2px;">
-					<input type="text" id="search" name="search" style="background-color: #111111; color: #ffffff; border: none" onkeyup="getSearch()">
+					<input type="text" id="search" name="search" style="background-color: #111111; color: #ffffff; border: none" onkeyup="getSearch()" onemptied="emptySearch()">
 					<button style="background: #111111; border: none; cursor: pointer;">
 						<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
 					</button>
