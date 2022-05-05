@@ -96,6 +96,15 @@
 	</definition>
 
 	<!-- item -->
+	<definition name="views/item/searchList" template="/WEB-INF/tiles/layouts/pageLayout.jsp">
+		<put-attribute name="title" value="Up-Hill" />
+		<put-attribute name="header" value="/WEB-INF/tiles/commons/header.jsp" />
+		<put-attribute name="snb" value="/WEB-INF/tiles/commons/bicycleSnb.jsp" />
+		<put-attribute name="gnb" value="/WEB-INF/tiles/commons/gnb.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/item/itemList.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/commons/footer.jsp" />
+	</definition>
+
 	<definition name="views/item/bicycleList" template="/WEB-INF/tiles/layouts/pageLayout.jsp">
 		<put-attribute name="title" value="Up-Hill" />
 		<put-attribute name="header" value="/WEB-INF/tiles/commons/header.jsp" />

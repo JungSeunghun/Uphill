@@ -160,5 +160,23 @@ public class ItemServiceImpl implements ItemService{
 		
 		return result;
 	}
+
+	@Override
+	public List<ItemVO> getSearchList(String search) {
+		List<ItemVO> itemList = itemMapper.selectSearchList(search);
+		
+		sqlSession.close();		
+		
+		return itemList;
+	}
+
+	@Override
+	public List<String> getSearchNameList(String search) {
+		List<String> nameList = itemMapper.selectSearchNameList(search);
+		
+		sqlSession.close();		
+		
+		return nameList;
+	}
 	
 }

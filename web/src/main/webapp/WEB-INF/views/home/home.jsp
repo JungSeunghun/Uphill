@@ -22,9 +22,9 @@
 		<div id="mainArticle">
 			<div id="mainArticleTitle">Enjoy your ride</div>
 			<div id="mainArticleContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sodales vulputate porttitor elementum mauris sed in. Aliquet pellentesque egestas amet, neque, convallis nec turpis curabitur. Aliquam augue volutpat pellentesque sit morbi quisque. Et, justo, nec sit scelerisque.</div>
-			<a href="#">MTB</a>
-			<a href="#">Road</a>
-			<a href="#">Minivelo</a>
+			<a href="${contextPath }/item/mtb">MTB</a>
+			<a href="${contextPath }/item/road">Road</a>
+			<a href="${contextPath }/item/minivelo">Minivelo</a>
 		</div>
 		
 		<div id="bestSeller">

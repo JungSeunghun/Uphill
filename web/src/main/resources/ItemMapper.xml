@@ -84,4 +84,12 @@
 		delete from ask_table 
 		where ask_index = #{askIndex}
 	</delete>
+	
+	<select id="selectSearchList" resultType="itemVO" parameterType="String">
+		select * from item_table where item_name like concat('%',#{search},'%')
+	</select>
+	
+	<select id="selectSearchNameList" resultType="String" parameterType="String">
+		select item_name from item_table where item_name like concat('%',#{search},'%')
+	</select>
 </mapper>

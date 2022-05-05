@@ -20,4 +20,6 @@ public interface ItemService {
 	int insertAsk(AskVO askVO);
 	int deleteReview(int reviewIndex);
 	int deleteAsk(int askIndex);
+	List<ItemVO> getSearchList(String search);
+	List<String> getSearchNameList(String search);
 }

@@ -29,17 +29,13 @@
 				<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
 			</li>
 			<li style="justify-content: flex-start; position: relative;">
-				<form style="display:flex; border: 1px solid #ffffff; padding: 2px;">
-					<input type="text" style="background-color: #111111; color: #ffffff; border: none">
+				<form action="${contextPath }/item" name="f" method="get" style="display:flex; border: 1px solid #ffffff; padding: 2px;">
+					<input type="text" id="search" name="search" style="background-color: #111111; color: #ffffff; border: none" onkeyup="getSearch()">
 					<button style="background: #111111; border: none; cursor: pointer;">
 						<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
 					</button>
 				</form>
-				<div style="position: absolute; top:25px; color: #ffffff; background-color: #111111; z-index: 1000; width: 191px; border: 1px solid #ffffff;">
-					<div style="color:#ffffff; padding: 4px;">하이</div>
-					<div style="color:#ffffff; padding: 4px;">하이</div>
-					<div style="color:#ffffff; padding: 4px;">하이</div>
-					<div style="color:#ffffff; padding: 4px;">하이</div>
+				<div id="searchNameList" style="white-space: nowrap; position: absolute; top:25px; color: #ffffff; background-color: #111111; z-index: 1000; width: 160px;">
 				</div>
 			</li>
 			<li>

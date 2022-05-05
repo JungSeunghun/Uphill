@@ -1,6 +1,43 @@
-/**
- * 
+/*
+ * 검색어
  */
+function getSearch() {
+	const httpRequest = new XMLHttpRequest();
+	const search = document.getElementById("search").value;
+	const searchNameList = document.getElementById("searchNameList");
+	while (searchNameList.hasChildNodes()) {
+		searchNameList.removeChild(searchNameList.firstChild);
+	}
+	if(search == '') {
+		return;
+	}
+	 
+	var reqJson = new Object();
+	reqJson.search = search;
+	httpRequest.onreadystatechange = () => {
+		if (httpRequest.readyState === XMLHttpRequest.DONE) {
+			if (httpRequest.status === 200) {
+		    	const result = httpRequest.response;
+		    	result.searchNameList[0].forEach(
+		    		(name)=>{
+		    			var nameDiv = document.createElement('div');
+		    			var nameNode = document.createTextNode(name);
+		    			nameDiv.style.color = '#ffffff';
+		    			nameDiv.appendChild(nameNode);
+		    			searchNameList.appendChild(nameDiv);
+		    		}
+		    	);
+			} else {
+		    	alert('request error');
+		    }
+		}		
+    };
+    
+    httpRequest.open('POST', window.location.origin + '/web/item/search-action', true);
+    httpRequest.responseType = "json";
+    httpRequest.setRequestHeader('Content-Type', 'application/json');
+    httpRequest.send(JSON.stringify(reqJson));
+}
 
 function openCategory() {
 	if(window.innerWidth < 1024) {

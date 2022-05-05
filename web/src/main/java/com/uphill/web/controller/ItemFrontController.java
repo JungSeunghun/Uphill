@@ -28,6 +28,8 @@ import com.uphill.web.action.item.MiniveloList;
 import com.uphill.web.action.item.MtbList;
 import com.uphill.web.action.item.ReviewAction;
 import com.uphill.web.action.item.RoadList;
+import com.uphill.web.action.item.SearchAction;
+import com.uphill.web.action.item.SearchList;
 import com.uphill.web.action.item.AskAction;
 import com.uphill.web.action.item.BicycleAsk;
 import com.uphill.web.viewresolver.ViewResolver;
@@ -41,6 +43,8 @@ public class ItemFrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		actionMap.put("/item", new SearchList());
+		actionMap.put("/item/search-action", new SearchAction());
 		actionMap.put("/item/bicycle", new BicycleList());
 		actionMap.put("/item/mtb", new MtbList());
 		actionMap.put("/item/road", new RoadList());
@@ -69,6 +73,7 @@ public class ItemFrontController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 이 부분은 나중에 필터로 빼는게 좋은지 알아보기 - 220324(정승훈)
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
 		
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
@@ -80,6 +85,7 @@ public class ItemFrontController extends HttpServlet{
 			ViewResolver viewResolver = action.execute(request, response);
 			
 			if(viewResolver.getData() != null) {
+				
 				response.getWriter().write(viewResolver.getData());
 				return;
 			}

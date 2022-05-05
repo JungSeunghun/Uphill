@@ -34,6 +34,7 @@ public class CommunityController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 이 부분은 나중에 필터로 빼는게 좋은지 알아보기 - 220324(정승훈)
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
 		
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();

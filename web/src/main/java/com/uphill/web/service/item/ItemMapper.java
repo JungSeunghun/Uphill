@@ -26,4 +26,6 @@ public interface ItemMapper {
 	int insertAsk(AskVO askVO);
 	int deleteReview(int reviewIndex);
 	int deleteAsk(int askIndex);
+	List<ItemVO> selectSearchList(String search);
+	List<String> selectSearchNameList(String search);
 }
