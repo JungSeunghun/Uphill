@@ -1,14 +1,12 @@
+/*
 function emptySearch() {
-const searchNameList = document.getElementById("searchNameList");
+	const searchNameList = document.getElementById("searchNameList");
 	
 	while (searchNameList.hasChildNodes()) {
 		searchNameList.removeChild(searchNameList.firstChild);
 	}
 }
 
-/*
- * 검색어
- */
 function getSearch() {
 	const httpRequest = new XMLHttpRequest();
 	const search = document.getElementById("search").value;
@@ -53,7 +51,7 @@ function getSearch() {
     httpRequest.setRequestHeader('Content-Type', 'application/json');
     httpRequest.send(JSON.stringify(reqJson));
 }
-
+*/
 function openCategory() {
 	if(window.innerWidth < 1024) {
 		return;

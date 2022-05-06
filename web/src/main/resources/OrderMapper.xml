@@ -34,7 +34,7 @@
 		<if test="purchase >= 1000000">
 			, grade_index = 3
 		</if>
-		where user_index = #{userIndex} and user_grade != 4
+		where user_index = #{userIndex} and grade_index != 4
 	</update>
 	
 	<delete id="deleteBasket" parameterType="Integer">
