@@ -58,9 +58,9 @@ public class ItemAddAction implements Action {
 				itemCategoryName = "자전거";
 			} else if (itemCategoryIndex == 2) {
 				itemCategoryName = "헬멧";
-			} else if (itemCategoryIndex == 2) {
+			} else if (itemCategoryIndex == 3) {
 				itemCategoryName = "라이트";
-			} else if (itemCategoryIndex == 2) {
+			} else if (itemCategoryIndex == 4) {
 				itemCategoryName = "자물쇠";
 			}
 			int itemSubcategoryIndex = 0;
