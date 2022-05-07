@@ -1,7 +1,5 @@
-/*
 function emptySearch() {
 	const searchNameList = document.getElementById("searchNameList");
-	
 	while (searchNameList.hasChildNodes()) {
 		searchNameList.removeChild(searchNameList.firstChild);
 	}
@@ -12,12 +10,7 @@ function getSearch() {
 	const search = document.getElementById("search").value;
 	const searchNameList = document.getElementById("searchNameList");
 	
-	while (searchNameList.hasChildNodes()) {
-		searchNameList.removeChild(searchNameList.firstChild);
-	}
-	
-	if(search == '') {
-		
+	if(search == '') {		
 		return;
 	}
 	 
@@ -26,11 +19,7 @@ function getSearch() {
 	httpRequest.onreadystatechange = () => {
 		if (httpRequest.readyState === XMLHttpRequest.DONE) {
 			if (httpRequest.status === 200) {
-				while (searchNameList.hasChildNodes()) {
-					searchNameList.removeChild(searchNameList.firstChild);
-				}
 		    	const result = httpRequest.response;
-		    	console.log(result.searchNameList);
 		    	result.searchNameList[0].forEach(
 		    		(name)=>{
 		    			var nameDiv = document.createElement('div');
@@ -51,7 +40,7 @@ function getSearch() {
     httpRequest.setRequestHeader('Content-Type', 'application/json');
     httpRequest.send(JSON.stringify(reqJson));
 }
-*/
+
 function openCategory() {
 	if(window.innerWidth < 1024) {
 		return;

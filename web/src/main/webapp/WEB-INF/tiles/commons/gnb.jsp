@@ -23,22 +23,22 @@
 				<a href="${contextPath}/item/item">용품</a>			
 			</li>
 			<li>
-				<a href="${contextPath}/community/notice">커뮤니티</a>
+				<a href="${contextPath}/community/road">커뮤니티</a>
 			</li>		
 			<li>
 				<a href="${contextPath}/user/basket"><img alt="basket icon" src="${contextPath}/images/icons/basket_icon_white.svg" width="16px"></a>
 			</li>
 			
-			<%-- <li style="justify-content: flex-start; position: relative;">
-				<form action="${contextPath }/item" name="f" method="get" style="display:flex; border: 1px solid #ffffff; padding: 2px;">
-					<input type="text" id="search" name="search" style="background-color: #111111; color: #ffffff; border: none" onkeyup="getSearch()" onemptied="emptySearch()">
-					<button style="background: #111111; border: none; cursor: pointer;">
+			<li style="justify-content: flex-start; position: relative;">
+				<form action="${contextPath }/item" name="searchForm" method="get" style="display:flex; border: 1px solid #ffffff; padding: 2px; width:190px; height: 20px;">
+					<input type="text" id="search" name="search" style="background-color: #111111; color: #ffffff; border: none;" onkeyup="getSearch()" onkeydown="emptySearch()">
+					<button style="background: #111111; border: none; cursor: pointer; padding: 0px; margin: 0px;">
 						<img alt="search icon" src="${contextPath}/images/icons/search_icon_white.svg" width="16px">
 					</button>
 				</form>
 				<div id="searchNameList" style="white-space: nowrap; position: absolute; top:25px; color: #ffffff; background-color: #111111; z-index: 1000; width: 160px;">
 				</div>
-			</li> --%>
+			</li>
 			<li>
 				<img id="menuButton" src="${contextPath}/images/icons/menu_button_white.svg" onclick="mobileCategoryToggle();">
 			</li>
@@ -58,7 +58,6 @@
 					<li><a href="${contextPath}/item/lock">자물쇠</a></li>
 				</ul>
 				<ul>
-					<li><a href="${contextPath}/community/notice">공지사항</a></li>
 					<li><a href="${contextPath}/community/road">산책로</a></li>
 				</ul>
 			</div>
@@ -85,7 +84,7 @@
 						<a href="${contextPath}/item/item">용품</a>			
 					</li>
 					<li>
-						<a href="${contextPath}/community/notice">커뮤니티</a>
+						<a href="${contextPath}/community/road">커뮤니티</a>
 					</li>
 					<li>
 						<a href="${contextPath}/home/customer-center">고객센터</a>
@@ -112,7 +111,7 @@
 						<a href="${contextPath}/item/item">용품</a>			
 					</li>
 					<li>
-						<a href="${contextPath}/community/notice">커뮤니티</a>
+						<a href="${contextPath}/community/road">커뮤니티</a>
 					</li>
 					<li>
 						<a href="${contextPath}/home/customer-center">고객센터</a>
