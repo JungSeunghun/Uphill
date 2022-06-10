@@ -34,13 +34,12 @@ function mobileCategoryToggle() {
 	}
 }
 
-var scrollHeight = document.documentElement.scrollTop;
 window.onscroll = function() {
+	var scrollHeight = document.documentElement.scrollTop;
 	closeCategory();
 	gnb=document.getElementById("gnb");
-
 	if(window.innerWidth >= 1024) {
-		if(scrollHeight < 36) {
+		if(scrollHeight <= 36) {
 			gnb.style.position = "relative";
 		} else {
 			// 휠을 내렸을 때
