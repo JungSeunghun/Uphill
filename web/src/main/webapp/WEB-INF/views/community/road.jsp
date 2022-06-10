@@ -52,14 +52,14 @@
 		var map = new kakao.maps.Map(container, options);
 		
 		var linePath = [
-		    new kakao.maps.LatLng(35.82872568842167, 128.61458278729268 ),
-		    new kakao.maps.LatLng(35.82832199938138, 128.62147401078573 ),
-		    new kakao.maps.LatLng(35.826837136793216, 128.6219915357254 ),
-		    new kakao.maps.LatLng(35.82560360123975, 128.62124719161093 ),
-		    new kakao.maps.LatLng(35.82645154581888, 128.61717026554783 ),
-		    new kakao.maps.LatLng(35.82625950422722, 128.61369185837864 ),
-		    new kakao.maps.LatLng(35.82858540877375, 128.61429223833406 ),
-		    new kakao.maps.LatLng(35.82872155553305, 128.61455503939828  ),
+		    new kakao.maps.LatLng(35.82872568842167, 128.61458278729268),
+		    new kakao.maps.LatLng(35.82832199938138, 128.62147401078573),
+		    new kakao.maps.LatLng(35.826837136793216, 128.6219915357254),
+		    new kakao.maps.LatLng(35.82560360123975, 128.62124719161093),
+		    new kakao.maps.LatLng(35.82645154581888, 128.61717026554783),
+		    new kakao.maps.LatLng(35.82625950422722, 128.61369185837864),
+		    new kakao.maps.LatLng(35.82858540877375, 128.61429223833406),
+		    new kakao.maps.LatLng(35.82872155553305, 128.61455503939828),
 		];
 
 		var polyline = new kakao.maps.Polyline({
